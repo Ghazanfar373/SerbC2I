@@ -17,7 +17,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             get
             {
-                if (MainV2.comPort.MAV.param.TotalReceived < MainV2.comPort.MAV.param.TotalReported)
+                if (MainSerb.comPort.MAV.param.TotalReceived < MainSerb.comPort.MAV.param.TotalReported)
                 {
                     return false;
                 }
@@ -44,12 +44,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (gotAllParams)
-                MainV2.View.Reload();
+                MainSerb.View.Reload();
         }
 
         private void but_forceparams_Click(object sender, EventArgs e)
         {
-            MainV2.comPort.getParamList();
+            MainSerb.comPort.getParamList();
         }
     }
 }

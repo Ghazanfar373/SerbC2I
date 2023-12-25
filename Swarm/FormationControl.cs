@@ -25,7 +25,7 @@ namespace MissionPlanner.Swarm
 
             Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -67,7 +67,7 @@ namespace MissionPlanner.Swarm
         {
             bindingSource1.ResetBindings(false);
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -89,13 +89,13 @@ namespace MissionPlanner.Swarm
 
         private void CMB_mavs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
                     if (mav == CMB_mavs.SelectedValue)
                     {
-                        MainV2.comPort = port;
+                        MainSerb.comPort = port;
                         port.sysidcurrent = mav.sysid;
                         port.compidcurrent = mav.compid;
                     }
@@ -177,9 +177,9 @@ namespace MissionPlanner.Swarm
         {
             if (SwarmInterface != null)
             {
-                var vectorlead = SwarmInterface.getOffsets(MainV2.comPort.MAV);
+                var vectorlead = SwarmInterface.getOffsets(MainSerb.comPort.MAV);
 
-                foreach (var port in MainV2.Comports)
+                foreach (var port in MainSerb.Comports)
                 {
                     foreach (var mav in port.MAVlist)
                     {
@@ -191,7 +191,7 @@ namespace MissionPlanner.Swarm
                     }
                 }
 
-                SwarmInterface.setLeader(MainV2.comPort.MAV);
+                SwarmInterface.setLeader(MainSerb.comPort.MAV);
                 updateicons();
                 BUT_Start.Enabled = true;
                 BUT_Updatepos.Enabled = true;
@@ -272,7 +272,7 @@ namespace MissionPlanner.Swarm
 
         private void BUT_Updatepos_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -298,7 +298,7 @@ namespace MissionPlanner.Swarm
             foreach (Control ctl in PNL_status.Controls)
             {
                 bool match = false;
-                foreach (var port in MainV2.Comports)
+                foreach (var port in MainSerb.Comports)
                 {
                     foreach (var mav in port.MAVlist)
                     {
@@ -315,7 +315,7 @@ namespace MissionPlanner.Swarm
             }
 
             // setup new
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {

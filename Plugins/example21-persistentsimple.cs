@@ -55,12 +55,12 @@ namespace PersistentSimpleActions
 
             // Increase the minimum size of the persistent panel. Not necessary, but adds a little
             // more gap between the buttons and the tabs.
-            MainV2.instance.FlightData.panel_persistent.MinimumSize = new System.Drawing.Size(0, 35);
+            MainSerb.instance.FlightData.panel_persistent.MinimumSize = new System.Drawing.Size(0, 35);
 
             // Add the buttons
-            MainV2.instance.FlightData.panel_persistent.Controls.Add(button1);
-            MainV2.instance.FlightData.panel_persistent.Controls.Add(button2);
-            MainV2.instance.FlightData.panel_persistent.Controls.Add(button3); 
+            MainSerb.instance.FlightData.panel_persistent.Controls.Add(button1);
+            MainSerb.instance.FlightData.panel_persistent.Controls.Add(button2);
+            MainSerb.instance.FlightData.panel_persistent.Controls.Add(button3); 
             
             return true;
         }
@@ -72,7 +72,7 @@ namespace PersistentSimpleActions
             try
             {
                 ((Control)sender).Enabled = false;
-                MainV2.comPort.setMode(((Control)sender).Text);
+                MainSerb.comPort.setMode(((Control)sender).Text);
             }
             catch
             {

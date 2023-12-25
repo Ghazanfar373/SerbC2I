@@ -1266,7 +1266,7 @@ namespace MissionPlanner
 
             if (grid != null && grid.Count > 0)
             {
-                MainV2.instance.FlightPlanner.quickadd = true;
+                MainSerb.instance.FlightPlanner.quickadd = true;
 
                 if (NUM_split.Value > 1 && CHK_toandland.Checked != true)
                 {
@@ -1575,9 +1575,9 @@ namespace MissionPlanner
 
                     if (CHK_usespeed.Checked)
                     {
-                        if (MainV2.comPort.MAV.param["WPNAV_SPEED"] != null)
+                        if (MainSerb.comPort.MAV.param["WPNAV_SPEED"] != null)
                         {
-                            double speed = MainV2.comPort.MAV.param["WPNAV_SPEED"].Value;
+                            double speed = MainSerb.comPort.MAV.param["WPNAV_SPEED"].Value;
                             speed = speed / 100;
                             plugin.Host.AddWPtoList(MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, speed, 0, 0, 0, 0, 0, gridobject);
                         }
@@ -1642,9 +1642,9 @@ namespace MissionPlanner
 
                 Savesettings();
 
-                MainV2.instance.FlightPlanner.quickadd = false;
+                MainSerb.instance.FlightPlanner.quickadd = false;
 
-                MainV2.instance.FlightPlanner.writeKML();
+                MainSerb.instance.FlightPlanner.writeKML();
 
                 this.Close();
             }

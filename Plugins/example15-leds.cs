@@ -52,35 +52,35 @@ namespace leds
             var but = new ToolStripMenuItem("Red");
             but.Click += (s, e) => {
                 var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { 255, 0, 0 });
-                MainV2.comPort.sendPacket(led, 1, 1);
+                MainSerb.comPort.sendPacket(led, 1, 1);
             };
             rootbut.DropDownItems.Add(but);
 
             but = new ToolStripMenuItem("Green");
             but.Click += (s, e) => {
                 var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { 0, 255, 0 });
-                MainV2.comPort.sendPacket(led, 1, 1);
+                MainSerb.comPort.sendPacket(led, 1, 1);
             };
             rootbut.DropDownItems.Add(but);
 
             but = new ToolStripMenuItem("Blue");
             but.Click += (s, e) => {
                 var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { 0, 0, 255 });
-                MainV2.comPort.sendPacket(led, 1, 1);
+                MainSerb.comPort.sendPacket(led, 1, 1);
             };
             rootbut.DropDownItems.Add(but);
 
             but = new ToolStripMenuItem("White");
             but.Click += (s, e) => {
                 var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { 255, 255, 255 });
-                MainV2.comPort.sendPacket(led, 1, 1);
+                MainSerb.comPort.sendPacket(led, 1, 1);
             };
             rootbut.DropDownItems.Add(but);
 
             but = new ToolStripMenuItem("Black");
             but.Click += (s, e) => {
                 var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { 0, 0, 0 });
-                MainV2.comPort.sendPacket(led, 1, 1);
+                MainSerb.comPort.sendPacket(led, 1, 1);
             };
             rootbut.DropDownItems.Add(but);
 
@@ -89,7 +89,7 @@ namespace leds
                 for (float a = 0; a <= 1; a += 0.005f) {
                     var color = Rainbow(a);
                     var led = new MAVLink.mavlink_led_control_t(1, 1, 255, 0, 3, new byte[] { color.R, color.G, color.B });
-                    MainV2.comPort.sendPacket(led, 1, 1);
+                    MainSerb.comPort.sendPacket(led, 1, 1);
                     Thread.Sleep(50);
                 }
             };

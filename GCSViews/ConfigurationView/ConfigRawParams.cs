@@ -45,14 +45,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             if ((rowlist.Count == 0) || (!Settings.Instance.GetBoolean("SlowMachine", false))) startup = true;
             //If we connected to another vehicle the do a full refresh
-            if (rowlist.Count != MainV2.comPort.MAV.param.Count()) startup = true;
+            if (rowlist.Count != MainSerb.comPort.MAV.param.Count()) startup = true;
 
             _changes.Clear();
 
-            BUT_writePIDS.Enabled = MainV2.comPort.BaseStream.IsOpen;
-            BUT_rerequestparams.Enabled = MainV2.comPort.BaseStream.IsOpen;
-            BUT_reset_params.Enabled = MainV2.comPort.BaseStream.IsOpen;
-            BUT_commitToFlash.Visible = MainV2.DisplayConfiguration.displayParamCommitButton;
+            BUT_writePIDS.Enabled = MainSerb.comPort.BaseStream.IsOpen;
+            BUT_rerequestparams.Enabled = MainSerb.comPort.BaseStream.IsOpen;
+            BUT_reset_params.Enabled = MainSerb.comPort.BaseStream.IsOpen;
+            BUT_commitToFlash.Visible = MainSerb.DisplayConfiguration.displayParamCommitButton;
             BUT_refreshTable.Visible = Settings.Instance.GetBoolean("SlowMachine", false);
 
             CMB_paramfiles.Enabled = false;
@@ -114,9 +114,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 if (dr == DialogResult.OK)
                 {
-                    loadparamsfromfile(ofd.FileName, !MainV2.comPort.BaseStream.IsOpen);
+                    loadparamsfromfile(ofd.FileName, !MainSerb.comPort.BaseStream.IsOpen);
 
-                    if (!MainV2.comPort.BaseStream.IsOpen)
+                    if (!MainSerb.comPort.BaseStream.IsOpen)
                         Activate();
                 }
             }
@@ -171,7 +171,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 if (offline && !set)
                 {
                     set = true;
-                    MainV2.comPort.MAV.param.Add(new MAVLink.MAVLinkParam(name, double.Parse(value),
+                    MainSerb.comPort.MAV.param.Add(new MAVLink.MAVLinkParam(name, double.Parse(value),
                         MAVLink.MAV_PARAM_TYPE.REAL32));
                 }
 
@@ -255,13 +255,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if (MainV2.comPort.BaseStream == null || !MainV2.comPort.BaseStream.IsOpen)
+                    if (MainSerb.comPort.BaseStream == null || !MainSerb.comPort.BaseStream.IsOpen)
                     {
                         CustomMessageBox.Show("Your are not connected", Strings.ERROR);
                         return;
                     }
 
-                    MainV2.comPort.setParam(value, (double)_changes[value]);
+                    MainSerb.comPort.setParam(value, (double)_changes[value]);
 
                     try
                     {
@@ -324,7 +324,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     param2 = ParamFile.loadParamFile(ofd.FileName);
 
-                    Form paramCompareForm = new ParamCompare(Params, MainV2.comPort.MAV.param, param2);
+                    Form paramCompareForm = new ParamCompare(Params, MainSerb.comPort.MAV.param, param2);
 
                     ThemeManager.ApplyThemeTo(paramCompareForm);
                     paramCompareForm.ShowDialog();
@@ -334,17 +334,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
-            if (!MainV2.comPort.MAV.cs.armed || DialogResult.OK ==
+            if (!MainSerb.comPort.MAV.cs.armed || DialogResult.OK ==
                 Common.MessageShowAgain("Refresh Params", Strings.WarningUpdateParamList, true))
             {
                 ((Control)sender).Enabled = false;
 
                 try
                 {
-                    MainV2.comPort.getParamList();
+                    MainSerb.comPort.getParamList();
                 }
                 catch (Exception ex)
                 {
@@ -393,7 +393,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 var readonly1 = ParameterMetaDataRepository.GetParameterMetaData(
                     Params[Command.Index, e.RowIndex].Value.ToString(),
-                    ParameterMetaDataConstants.ReadOnly, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.ReadOnly, MainSerb.comPort.MAV.cs.firmware.ToString());
                 if (!String.IsNullOrEmpty(readonly1))
                 {
                     var readonly2 = bool.Parse(readonly1);
@@ -411,7 +411,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 }
 
                 if (ParameterMetaDataRepository.GetParameterRange(Params[Command.Index, e.RowIndex].Value.ToString(),
-                    ref min, ref max, MainV2.comPort.MAV.cs.firmware.ToString()))
+                    ref min, ref max, MainSerb.comPort.MAV.cs.firmware.ToString()))
                 {
                     if (newvalue > max || newvalue < min)
                     {
@@ -488,7 +488,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (startup)
             {
-                foreach (string item in MainV2.comPort.MAV.param.Keys)
+                foreach (string item in MainSerb.comPort.MAV.param.Keys)
                     list.Add(item);
 
                 rowlist.Clear();
@@ -505,31 +505,31 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         rowlist.Add(row);
                     row.CreateCells(Params);
                     row.Cells[Command.Index].Value = value;
-                    row.Cells[Value.Index].Value = MainV2.comPort.MAV.param[value].ToString();
+                    row.Cells[Value.Index].Value = MainSerb.comPort.MAV.param[value].ToString();
                     var fav_params = Settings.Instance.GetList("fav_params");
                     row.Cells[Fav.Index].Value = fav_params.Contains(value);
 
-                    if (MainV2.comPort.MAV.param[value].default_value.HasValue) {
+                    if (MainSerb.comPort.MAV.param[value].default_value.HasValue) {
                         has_defaults = true;
-                        row.Cells[Default_value.Index].Value = MainV2.comPort.MAV.param[value].default_value_to_string();
+                        row.Cells[Default_value.Index].Value = MainSerb.comPort.MAV.param[value].default_value_to_string();
                     } else {
                         row.Cells[Default_value.Index].Value = "NaN";
                     }
                     try
                     {
                         var metaDataDescription = ParameterMetaDataRepository.GetParameterMetaData(value,
-                            ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString());
+                            ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString());
                         if (!string.IsNullOrEmpty(metaDataDescription))
                         {
                             row.Cells[Command.Index].ToolTipText = metaDataDescription;
                             row.Cells[Value.Index].ToolTipText = metaDataDescription;
 
                             var range = ParameterMetaDataRepository.GetParameterMetaData(value,
-                                ParameterMetaDataConstants.Range, MainV2.comPort.MAV.cs.firmware.ToString());
+                                ParameterMetaDataConstants.Range, MainSerb.comPort.MAV.cs.firmware.ToString());
                             var options = ParameterMetaDataRepository.GetParameterMetaData(value,
-                                ParameterMetaDataConstants.Values, MainV2.comPort.MAV.cs.firmware.ToString());
+                                ParameterMetaDataConstants.Values, MainSerb.comPort.MAV.cs.firmware.ToString());
                             var units = ParameterMetaDataRepository.GetParameterMetaData(value,
-                                ParameterMetaDataConstants.Units, MainV2.comPort.MAV.cs.firmware.ToString());
+                                ParameterMetaDataConstants.Units, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                             row.Cells[Units.Index].Value = units;
                             row.Cells[Options.Index].Value = range + options.Replace(",", " ");
@@ -550,7 +550,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 foreach (DataGridViewRow r in rowlist)
                 {
-                    r.Cells[Value.Index].Value = MainV2.comPort.MAV.param[r.Cells[Command.Index].Value.ToString()].ToString();
+                    r.Cells[Value.Index].Value = MainSerb.comPort.MAV.param[r.Cells[Command.Index].Value.ToString()].ToString();
                 }
             }
 
@@ -610,8 +610,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 if (paramfiles == null)
                 {
                     string subdir = "";
-                    if (MainV2.comPort.MAV.param.ContainsKey("Q_ENABLE") &&
-                        MainV2.comPort.MAV.param["Q_ENABLE"].Value >= 1.0)
+                    if (MainSerb.comPort.MAV.param.ContainsKey("Q_ENABLE") &&
+                        MainSerb.comPort.MAV.param["Q_ENABLE"].Value >= 1.0)
                     {
                         subdir = "QuadPlanes/";
                     }
@@ -698,7 +698,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 var param2 = ParamFile.loadParamFile(filepath);
 
-                Form paramCompareForm = new ParamCompare(Params, MainV2.comPort.MAV.param, param2);
+                Form paramCompareForm = new ParamCompare(Params, MainSerb.comPort.MAV.param, param2);
 
                 ThemeManager.ApplyThemeTo(paramCompareForm);
                 if (paramCompareForm.ShowDialog() == DialogResult.OK)
@@ -727,10 +727,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    MainV2.comPort.setParam(new[] { "FORMAT_VERSION", "SYSID_SW_MREV" }, 0);
+                    MainSerb.comPort.setParam(new[] { "FORMAT_VERSION", "SYSID_SW_MREV" }, 0);
                     Thread.Sleep(1000);
-                    MainV2.comPort.doReboot(false, true);
-                    MainV2.comPort.BaseStream.Close();
+                    MainSerb.comPort.doReboot(false, true);
+                    MainSerb.comPort.BaseStream.Close();
 
 
                     CustomMessageBox.Show(
@@ -835,7 +835,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             }
             catch
             {
@@ -855,7 +855,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 var name = Params[Command.Index, e.RowIndex].Value.ToString();
 
                 var availableBitMask =
-                    ParameterMetaDataRepository.GetParameterBitMaskInt(name, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataRepository.GetParameterBitMaskInt(name, MainSerb.comPort.MAV.cs.firmware.ToString());
                 if (availableBitMask.Count > 0)
                 {
                     var mcb = new MavlinkCheckBoxBitMask();

@@ -51,11 +51,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             Func<ItemInfo, int, object> populatetable = (a, index) =>
             {
                 var name = ParameterMetaDataRepository.GetParameterMetaData(a.name,
-                    ParameterMetaDataConstants.DisplayName, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.DisplayName, MainSerb.comPort.MAV.cs.firmware.ToString());
                 var unit = ParameterMetaDataRepository.GetParameterMetaData(a.name,
-                    ParameterMetaDataConstants.Units, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.Units, MainSerb.comPort.MAV.cs.firmware.ToString());
                 var desc = ParameterMetaDataRepository.GetParameterMetaData(a.name,
-                    ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                 var label = new Label()
                 {
@@ -68,14 +68,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     var ctl = new MavlinkComboBox() { Padding = new Padding(4)};
                     current.Controls.Add(ctl, 1, index);
-                    ctl.setup(new[] { a.name }, MainV2.comPort.MAV.param);
+                    ctl.setup(new[] { a.name }, MainSerb.comPort.MAV.param);
                     toolTip1.SetToolTip(ctl, desc);
                 }
                 else if (a.type == uitype.Num)
                 {
                     var ctl = new MavlinkNumericUpDown() { Padding = new Padding(4)};
                     current.Controls.Add(ctl, 1, index);
-                    ctl.setup(0, 0, 1, 1, new[] { a.name }, MainV2.comPort.MAV.param);
+                    ctl.setup(0, 0, 1, 1, new[] { a.name }, MainSerb.comPort.MAV.param);
                     toolTip1.SetToolTip(ctl, desc);
                 }
 
@@ -176,12 +176,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             var servo = String.Format("SERVO{0}", servono);
 
-            rev1.setup(1, 0, servo + "_REVERSED", MainV2.comPort.MAV.param);
+            rev1.setup(1, 0, servo + "_REVERSED", MainSerb.comPort.MAV.param);
             func1.setup(ParameterMetaDataRepository.GetParameterOptionsInt(servo + "_FUNCTION",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), servo + "_FUNCTION", MainV2.comPort.MAV.param);
-            min1.setup(800, 2200, 1, 1, servo + "_MIN", MainV2.comPort.MAV.param);
-            trim1.setup(800, 2200, 1, 1, servo + "_TRIM", MainV2.comPort.MAV.param);
-            max1.setup(800, 2200, 1, 1, servo + "_MAX", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), servo + "_FUNCTION", MainSerb.comPort.MAV.param);
+            min1.setup(800, 2200, 1, 1, servo + "_MIN", MainSerb.comPort.MAV.param);
+            trim1.setup(800, 2200, 1, 1, servo + "_TRIM", MainSerb.comPort.MAV.param);
+            max1.setup(800, 2200, 1, 1, servo + "_MAX", MainSerb.comPort.MAV.param);
         }
 
         public void Deactivate()

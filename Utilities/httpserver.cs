@@ -210,8 +210,8 @@ namespace MissionPlanner.Utilities
 
                                 byte[] packet = new byte[1024 * 32];
 
-                                var cs = JsonConvert.SerializeObject(MainV2.comPort.MAV.cs);
-                                var wps = JsonConvert.SerializeObject(MainV2.comPort.MAV.wps);
+                                var cs = JsonConvert.SerializeObject(MainSerb.comPort.MAV.cs);
+                                var wps = JsonConvert.SerializeObject(MainSerb.comPort.MAV.wps);
 
                                 foreach (var sendme in new[] { cs, wps })
                                 {
@@ -305,7 +305,7 @@ namespace MissionPlanner.Utilities
                                 }
                             };
 
-                            MainV2.comPort.OnPacketReceived += action;
+                            MainSerb.comPort.OnPacketReceived += action;
 
                             while (client.Connected)
                             {
@@ -359,14 +359,14 @@ namespace MissionPlanner.Utilities
 
                                     if (message != MAVLink.MAVLinkMessage.Invalid)
                                     {
-                                        //MainV2.comPort.sendPacket(message.data, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid);
+                                        //MainSerb.comPort.sendPacket(message.data, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid);
 
-                                        MainV2.comPort.DoOnPacketSent(message);
+                                        MainSerb.comPort.DoOnPacketSent(message);
 
-                                        lock (MainV2.comPort.objlock)
+                                        lock (MainSerb.comPort.objlock)
                                         {
-                                            if (MainV2.comPort.BaseStream.IsOpen)
-                                                MainV2.comPort.BaseStream.Write(payload, 0, paylen);
+                                            if (MainSerb.comPort.BaseStream.IsOpen)
+                                                MainSerb.comPort.BaseStream.Write(payload, 0, paylen);
                                         }
                                     }
 
@@ -378,7 +378,7 @@ namespace MissionPlanner.Utilities
                                 Thread.Sleep(200);
                             }
 
-                            MainV2.comPort.OnPacketReceived -= action;
+                            MainSerb.comPort.OnPacketReceived -= action;
                         }
                     }
                     /////////////////////////////////////////////////////////////////
@@ -405,7 +405,7 @@ namespace MissionPlanner.Utilities
                     {
                         SharpKml.Dom.Document kml = new SharpKml.Dom.Document();
 
-                        foreach (var mavLinkInterface in MainV2.Comports)
+                        foreach (var mavLinkInterface in MainSerb.Comports)
                         {
                             foreach (var MAV in mavLinkInterface.MAVlist)
                             {
@@ -452,11 +452,11 @@ namespace MissionPlanner.Utilities
 
                         SharpKml.Dom.LookAt la = new SharpKml.Dom.LookAt()
                         {
-                            Altitude = MainV2.comPort.MAV.cs.altasl,
-                            Latitude = MainV2.comPort.MAV.cs.lat,
-                            Longitude = MainV2.comPort.MAV.cs.lng,
+                            Altitude = MainSerb.comPort.MAV.cs.altasl,
+                            Latitude = MainSerb.comPort.MAV.cs.lat,
+                            Longitude = MainSerb.comPort.MAV.cs.lng,
                             Tilt = 80,
-                            Heading = MainV2.comPort.MAV.cs.yaw,
+                            Heading = MainSerb.comPort.MAV.cs.yaw,
                             AltitudeMode = SharpKml.Dom.AltitudeMode.Absolute,
                             Range = 50
                         };
@@ -745,7 +745,7 @@ namespace MissionPlanner.Utilities
                             };
                             try
                             {
-                                MainV2.comPort.setGuidedModeWP(gwp);
+                                MainSerb.comPort.setGuidedModeWP(gwp);
                             }
                             catch
                             {
@@ -781,7 +781,7 @@ namespace MissionPlanner.Utilities
                             };
                             try
                             {
-                                MainV2.comPort.setGuidedModeWP(gwp);
+                                MainSerb.comPort.setGuidedModeWP(gwp);
                             }
                             catch
                             {
@@ -863,68 +863,68 @@ namespace MissionPlanner.Utilities
 
                         Messagejson message = new Messagejson();
 
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.ATTITUDE) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.ATTITUDE) != null)
                             message.ATTITUDE = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.ATTITUDE)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.ATTITUDE)
                                         .ToStructure<MAVLink.mavlink_attitude_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.VFR_HUD) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.VFR_HUD) != null)
                             message.VFR_HUD = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.VFR_HUD)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.VFR_HUD)
                                         .ToStructure<MAVLink.mavlink_vfr_hud_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.NAV_CONTROLLER_OUTPUT) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.NAV_CONTROLLER_OUTPUT) != null)
                             message.NAV_CONTROLLER_OUTPUT = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.NAV_CONTROLLER_OUTPUT)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.NAV_CONTROLLER_OUTPUT)
                                         .ToStructure<MAVLink.mavlink_nav_controller_output_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT) != null)
                             message.GPS_RAW_INT = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT)
                                         .ToStructure<MAVLink.mavlink_gps_raw_int_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.HEARTBEAT) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.HEARTBEAT) != null)
                             message.HEARTBEAT = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.HEARTBEAT)
                                         .ToStructure<MAVLink.mavlink_heartbeat_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_STATUS) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_STATUS) != null)
                             message.GPS_STATUS = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_STATUS)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.GPS_STATUS)
                                         .ToStructure<MAVLink.mavlink_gps_status_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.STATUSTEXT) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.STATUSTEXT) != null)
                             message.STATUSTEXT = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.STATUSTEXT)
                                         .ToStructure<MAVLink.mavlink_statustext_t>()
                             };
-                        if (MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.SYS_STATUS) != null)
+                        if (MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.SYS_STATUS) != null)
                             message.SYS_STATUS = new Message2()
                             {
                                 index = 1,
                                 msg =
-                                    MainV2.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.SYS_STATUS)
+                                    MainSerb.comPort.MAV.getPacketLast((byte)MAVLink.MAVLINK_MSG_ID.SYS_STATUS)
                                         .ToStructure<MAVLink.mavlink_sys_status_t>()
                             };
 
@@ -937,10 +937,10 @@ namespace MissionPlanner.Utilities
                                     msg =
                                         new META_LINKQUALITY()
                                         {
-                                            master_in = (int)MainV2.comPort.MAV.packetsnotlost,
+                                            master_in = (int)MainSerb.comPort.MAV.packetsnotlost,
                                             mavpackettype = "META_LINKQUALITY",
-                                            master_out = MainV2.comPort.packetcount,
-                                            packet_loss = 100 - MainV2.comPort.MAV.cs.linkqualitygcs,
+                                            master_out = MainSerb.comPort.packetcount,
+                                            packet_loss = 100 - MainSerb.comPort.MAV.cs.linkqualitygcs,
                                             mav_loss = 0
                                         }
                                 };
@@ -1178,7 +1178,7 @@ namespace MissionPlanner.Utilities
 
             Bitmap bmp = new Bitmap(ctl.Width, ctl.Height);
 
-            MainV2.instance.Invoke(
+            MainSerb.instance.Invoke(
                 (Action)delegate () { ctl.DrawToBitmap(bmp, new Rectangle(0, 0, ctl.Width, ctl.Height)); });
 
             return bmp;
@@ -1249,7 +1249,7 @@ namespace MissionPlanner.Utilities
         void refreshmap()
         {
             Action m = delegate () { GCSViews.FlightData.mymap.Refresh(); };
-            MainV2.instance.Invoke(m);
+            MainSerb.instance.Invoke(m);
         }
 
 

@@ -128,25 +128,25 @@ namespace MissionPlanner.Controls
 
                     double x, y, z;
 
-                    GetGeo(out x, out y, out z, MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng,
-                        MainV2.comPort.MAV.cs.alt);
+                    GetGeo(out x, out y, out z, MainSerb.comPort.MAV.cs.lat, MainSerb.comPort.MAV.cs.lng,
+                        MainSerb.comPort.MAV.cs.alt);
 
                     writeline(string.Format("#5,{0},{1},{2},{3},{4},", x * 100, y * 100, z * 100,
-                        MainV2.comPort.MAV.cs.gpshdop + 0.01, MainV2.comPort.MAV.cs.satcount));
+                        MainSerb.comPort.MAV.cs.gpshdop + 0.01, MainSerb.comPort.MAV.cs.satcount));
 
                     writeline(string.Format("#6,{0},{1},{2},{3},",
-                        MainV2.comPort.MAV.cs.groundspeed * Math.Sin(MainV2.comPort.MAV.cs.groundcourse * MathHelper.deg2rad),
-                        MainV2.comPort.MAV.cs.groundspeed * Math.Cos(MainV2.comPort.MAV.cs.groundcourse * MathHelper.deg2rad),
-                        MainV2.comPort.MAV.cs.verticalspeed, 2));
+                        MainSerb.comPort.MAV.cs.groundspeed * Math.Sin(MainSerb.comPort.MAV.cs.groundcourse * MathHelper.deg2rad),
+                        MainSerb.comPort.MAV.cs.groundspeed * Math.Cos(MainSerb.comPort.MAV.cs.groundcourse * MathHelper.deg2rad),
+                        MainSerb.comPort.MAV.cs.verticalspeed, 2));
 
-                    writeline(string.Format("#7,{0},{1},{2},", MainV2.comPort.MAV.cs.roll * MathHelper.deg2rad,
-                        MainV2.comPort.MAV.cs.pitch * MathHelper.deg2rad, MainV2.comPort.MAV.cs.yaw * MathHelper.deg2rad));
+                    writeline(string.Format("#7,{0},{1},{2},", MainSerb.comPort.MAV.cs.roll * MathHelper.deg2rad,
+                        MainSerb.comPort.MAV.cs.pitch * MathHelper.deg2rad, MainSerb.comPort.MAV.cs.yaw * MathHelper.deg2rad));
 
-                    writeline(string.Format("#8,{0},{1},{2},", MainV2.comPort.MAV.cs.alt, MainV2.comPort.MAV.cs.alt,
-                        MainV2.comPort.MAV.cs.press_temp));
+                    writeline(string.Format("#8,{0},{1},{2},", MainSerb.comPort.MAV.cs.alt, MainSerb.comPort.MAV.cs.alt,
+                        MainSerb.comPort.MAV.cs.press_temp));
 
-                    writeline(string.Format("#9,{0},{1},{2},", MainV2.comPort.MAV.cs.mx, MainV2.comPort.MAV.cs.my,
-                        MainV2.comPort.MAV.cs.mz));
+                    writeline(string.Format("#9,{0},{1},{2},", MainSerb.comPort.MAV.cs.mx, MainSerb.comPort.MAV.cs.my,
+                        MainSerb.comPort.MAV.cs.mz));
 
                     //  writeline(string.Format("#10,{0},{1},{2},", 1.354,-1.549,0.972));
 

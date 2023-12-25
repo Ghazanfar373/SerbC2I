@@ -68,7 +68,7 @@ namespace MissionPlanner.Controls
             // set min and max of both are equal
             double mint = Min, maxt = Max;
             if (ParameterMetaDataRepository.GetParameterRange(ParamName, ref mint, ref maxt,
-                MainV2.comPort.MAV.cs.firmware.ToString()))
+                MainSerb.comPort.MAV.cs.firmware.ToString()))
             {
                 Min = (float) mint;
                 Max = (float) maxt;
@@ -79,7 +79,7 @@ namespace MissionPlanner.Controls
 
             double Inc = 0;
             if (ParameterMetaDataRepository.GetParameterIncrement(ParamName, ref Inc,
-                MainV2.comPort.MAV.cs.firmware.ToString()))
+                MainSerb.comPort.MAV.cs.firmware.ToString()))
                 if (Inc > this.DecimalPlaces)
                     Increment = (float) Inc;
 
@@ -166,7 +166,7 @@ namespace MissionPlanner.Controls
             {
                 try
                 {
-                    bool ans = MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, ParamName, (float)base.Value * (float)_scale);
+                    bool ans = MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, ParamName, (float)base.Value * (float)_scale);
                     if (ans == false)
                         CustomMessageBox.Show(String.Format(Strings.ErrorSetValueFailed, ParamName), Strings.ERROR);
                 }

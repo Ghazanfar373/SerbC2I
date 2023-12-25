@@ -45,7 +45,7 @@ namespace LatencyTracker
 
         public override bool Loaded()
         {
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT, message =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT, message =>
             {
                 var gps = (MAVLink.mavlink_gps_raw_int_t) message.data;
                 gpsraw.Add(gps);
@@ -53,7 +53,7 @@ namespace LatencyTracker
                     gpsraw.RemoveAt(0);
                 return true;
             }, 0,0);
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SYSTEM_TIME, message =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SYSTEM_TIME, message =>
             {
                 var time = (MAVLink.mavlink_system_time_t)message.data;
                 if (time.time_boot_ms == 0 || time.time_unix_usec == 0)
@@ -64,19 +64,19 @@ namespace LatencyTracker
                     systemtime.RemoveAt(0);
                 return true;
             }, 0, 0);
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GLOBAL_POSITION_INT, message =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GLOBAL_POSITION_INT, message =>
             {
                 var pos = (MAVLink.mavlink_global_position_int_t) message.data;
                 last_boot_ms = pos.time_boot_ms;
                 return true;
             }, 0, 0);
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.LOCAL_POSITION_NED, message =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.LOCAL_POSITION_NED, message =>
             {
                 var pos = (MAVLink.mavlink_local_position_ned_t) message.data;
                 last_boot_ms = pos.time_boot_ms;
                 return true;
             }, 0, 0);
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.TIMESYNC, message =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.TIMESYNC, message =>
             {
                 var time = (MAVLink.mavlink_timesync_t) message.data;
                 last_boot_ms = (uint) (time.ts1 / 1000.0 / 1000.0);
@@ -109,7 +109,7 @@ namespace LatencyTracker
 
                 var delta = (DateTime.UtcNow - newtime).TotalSeconds;
 
-                if (MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort.BaseStream != null && MainSerb.comPort.BaseStream.IsOpen)
                 {
                     if (log == null)
                     {
@@ -146,10 +146,10 @@ namespace LatencyTracker
                     pnl.BackColor = Color.Red;
                 
                 CurrentState.custom_field_names["customfield9"] = "Latency";
-                MainV2.comPort.MAV.cs.customfield9 = (float)delta;
+                MainSerb.comPort.MAV.cs.customfield9 = (float)delta;
 
-                if (!MainV2.instance.Disposing && !MainV2.instance.IsDisposed)
-                    MainV2.instance.BeginInvoke((Action) delegate()
+                if (!MainSerb.instance.Disposing && !MainSerb.instance.IsDisposed)
+                    MainSerb.instance.BeginInvoke((Action) delegate()
                     {
                         lbl.ForeColor = Color.Black;
                         lbl.Text = delta.ToString("0.000");

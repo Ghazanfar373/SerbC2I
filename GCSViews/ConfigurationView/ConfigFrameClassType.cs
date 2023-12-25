@@ -35,7 +35,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.MAV.param.ContainsKey("FRAME_CLASS") || !MainV2.comPort.MAV.param.ContainsKey("FRAME_TYPE"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("FRAME_CLASS") || !MainSerb.comPort.MAV.param.ContainsKey("FRAME_TYPE"))
             {
                 Enabled = false;
                 return;
@@ -43,9 +43,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             // pre seed the correct values
             work_frame_class = (motor_frame_class)
-                Enum.Parse(typeof(motor_frame_class), MainV2.comPort.MAV.param["FRAME_CLASS"].ToString());
+                Enum.Parse(typeof(motor_frame_class), MainSerb.comPort.MAV.param["FRAME_CLASS"].ToString());
             work_frame_type = (motor_frame_type)
-                Enum.Parse(typeof(motor_frame_type), MainV2.comPort.MAV.param["FRAME_TYPE"].ToString());
+                Enum.Parse(typeof(motor_frame_type), MainSerb.comPort.MAV.param["FRAME_TYPE"].ToString());
 
             this.LogInfoFormat("Existing Class: {0} Type: {1}", work_frame_class, work_frame_type);
 
@@ -282,8 +282,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FRAME_CLASS", (int)frame_class);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FRAME_TYPE", (int)frame_type);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FRAME_CLASS", (int)frame_class);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FRAME_TYPE", (int)frame_type);
             }
             catch
             {

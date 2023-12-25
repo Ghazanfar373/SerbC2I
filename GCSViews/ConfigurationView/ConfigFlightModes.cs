@@ -37,8 +37,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
-                MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx) // APM
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx) // APM
             {
                 CB_simple1.Visible = false;
                 CB_simple2.Visible = false;
@@ -65,18 +65,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     updateDropDown(CMB_fmode5, "FLTMODE5");
                     updateDropDown(CMB_fmode6, "FLTMODE6");
 
-                    CMB_fmode1.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE1"].ToString());
-                    CMB_fmode2.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE2"].ToString());
-                    CMB_fmode3.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE3"].ToString());
-                    CMB_fmode4.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE4"].ToString());
-                    CMB_fmode5.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE5"].ToString());
-                    CMB_fmode6.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE6"].ToString());
+                    CMB_fmode1.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE1"].ToString());
+                    CMB_fmode2.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE2"].ToString());
+                    CMB_fmode3.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE3"].ToString());
+                    CMB_fmode4.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE4"].ToString());
+                    CMB_fmode5.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE5"].ToString());
+                    CMB_fmode6.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE6"].ToString());
                 }
                 catch
                 {
                 }
             }
-            else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover) // APM
+            else if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduRover) // APM
             {
                 CB_simple1.Visible = false;
                 CB_simple2.Visible = false;
@@ -103,20 +103,20 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     updateDropDown(CMB_fmode5, "MODE5");
                     updateDropDown(CMB_fmode6, "MODE6");
 
-                    CMB_fmode1.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE1"].ToString());
-                    CMB_fmode2.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE2"].ToString());
-                    CMB_fmode3.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE3"].ToString());
-                    CMB_fmode4.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE4"].ToString());
-                    CMB_fmode5.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE5"].ToString());
-                    CMB_fmode6.SelectedValue = int.Parse(MainV2.comPort.MAV.param["MODE6"].ToString());
+                    CMB_fmode1.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE1"].ToString());
+                    CMB_fmode2.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE2"].ToString());
+                    CMB_fmode3.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE3"].ToString());
+                    CMB_fmode4.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE4"].ToString());
+                    CMB_fmode5.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE5"].ToString());
+                    CMB_fmode6.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["MODE6"].ToString());
                 }
                 catch
                 {
                 }
             }
-            else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2) // ac2
+            else if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2) // ac2
             {
-                if (MainV2.DisplayConfiguration.standardFlightModesOnly)
+                if (MainSerb.DisplayConfiguration.standardFlightModesOnly)
                 {
                     CB_simple1.Visible = false;
                     CB_simple2.Visible = false;
@@ -143,17 +143,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     updateDropDown(CMB_fmode5, "FLTMODE5");
                     updateDropDown(CMB_fmode6, "FLTMODE6");
 
-                    CMB_fmode1.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE1"].ToString());
-                    CMB_fmode2.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE2"].ToString());
-                    CMB_fmode3.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE3"].ToString());
-                    CMB_fmode4.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE4"].ToString());
-                    CMB_fmode5.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE5"].ToString());
-                    CMB_fmode6.SelectedValue = int.Parse(MainV2.comPort.MAV.param["FLTMODE6"].ToString());
+                    CMB_fmode1.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE1"].ToString());
+                    CMB_fmode2.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE2"].ToString());
+                    CMB_fmode3.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE3"].ToString());
+                    CMB_fmode4.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE4"].ToString());
+                    CMB_fmode5.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE5"].ToString());
+                    CMB_fmode6.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["FLTMODE6"].ToString());
                     CMB_fmode6.Enabled = true;
 
-                    if (MainV2.comPort.MAV.param.ContainsKey("SIMPLE"))
+                    if (MainSerb.comPort.MAV.param.ContainsKey("SIMPLE"))
                     {
-                        var simple = int.Parse(MainV2.comPort.MAV.param["SIMPLE"].ToString());
+                        var simple = int.Parse(MainSerb.comPort.MAV.param["SIMPLE"].ToString());
 
                         CB_simple1.Checked = ((simple >> 0 & 1) == 1);
                         CB_simple2.Checked = ((simple >> 1 & 1) == 1);
@@ -163,9 +163,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         CB_simple6.Checked = ((simple >> 5 & 1) == 1);
                     }
 
-                    if (MainV2.comPort.MAV.param.ContainsKey("SUPER_SIMPLE"))
+                    if (MainSerb.comPort.MAV.param.ContainsKey("SUPER_SIMPLE"))
                     {
-                        var simple = int.Parse(MainV2.comPort.MAV.param["SUPER_SIMPLE"].ToString());
+                        var simple = int.Parse(MainSerb.comPort.MAV.param["SUPER_SIMPLE"].ToString());
 
                         chk_ss1.Checked = ((simple >> 0 & 1) == 1);
                         chk_ss2.Checked = ((simple >> 1 & 1) == 1);
@@ -179,7 +179,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                 }
             }
-            else if (MainV2.comPort.MAV.cs.firmware == Firmwares.PX4) // APM
+            else if (MainSerb.comPort.MAV.cs.firmware == Firmwares.PX4) // APM
             {
                 CB_simple1.Visible = false;
                 CB_simple2.Visible = false;
@@ -212,12 +212,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     updateDropDown(CMB_fmode6, "COM_FLTMODE6");
                     CMB_fmode6.DataSource = ParameterMetaDataRepository.GetParameterOptionsInt("COM_FLTMODE6", "PX4");
 
-                    CMB_fmode1.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE1"].ToString());
-                    CMB_fmode2.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE2"].ToString());
-                    CMB_fmode3.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE3"].ToString());
-                    CMB_fmode4.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE4"].ToString());
-                    CMB_fmode5.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE5"].ToString());
-                    CMB_fmode6.SelectedValue = int.Parse(MainV2.comPort.MAV.param["COM_FLTMODE6"].ToString());
+                    CMB_fmode1.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE1"].ToString());
+                    CMB_fmode2.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE2"].ToString());
+                    CMB_fmode3.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE3"].ToString());
+                    CMB_fmode4.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE4"].ToString());
+                    CMB_fmode5.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE5"].ToString());
+                    CMB_fmode6.SelectedValue = int.Parse(MainSerb.comPort.MAV.param["COM_FLTMODE6"].ToString());
                 }
                 catch
                 {
@@ -251,7 +251,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainV2.comPort.MAV.cs));
+                MainSerb.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainSerb.comPort.MAV.cs));
             }
             catch
             {
@@ -260,69 +260,69 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             float pwm = 0;
 
 
-            if (MainV2.comPort.MAV.param.ContainsKey("FLTMODE_CH") ||
-                MainV2.comPort.MAV.param.ContainsKey("MODE_CH"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("FLTMODE_CH") ||
+                MainSerb.comPort.MAV.param.ContainsKey("MODE_CH"))
             {
                 var sw = 0;
-                if (MainV2.comPort.MAV.param.ContainsKey("FLTMODE_CH"))
+                if (MainSerb.comPort.MAV.param.ContainsKey("FLTMODE_CH"))
                 {
-                    sw = (int)MainV2.comPort.MAV.param["FLTMODE_CH"].Value;
+                    sw = (int)MainSerb.comPort.MAV.param["FLTMODE_CH"].Value;
                 }
                 else
                 {
-                    sw = (int)MainV2.comPort.MAV.param["MODE_CH"].Value;
+                    sw = (int)MainSerb.comPort.MAV.param["MODE_CH"].Value;
                 }
 
                 switch (sw)
                 {
                     case 5:
-                        pwm = MainV2.comPort.MAV.cs.ch5in;
+                        pwm = MainSerb.comPort.MAV.cs.ch5in;
                         break;
                     case 6:
-                        pwm = MainV2.comPort.MAV.cs.ch6in;
+                        pwm = MainSerb.comPort.MAV.cs.ch6in;
                         break;
                     case 7:
-                        pwm = MainV2.comPort.MAV.cs.ch7in;
+                        pwm = MainSerb.comPort.MAV.cs.ch7in;
                         break;
                     case 8:
-                        pwm = MainV2.comPort.MAV.cs.ch8in;
+                        pwm = MainSerb.comPort.MAV.cs.ch8in;
                         break;
                     case 9:
-                        pwm = MainV2.comPort.MAV.cs.ch9in;
+                        pwm = MainSerb.comPort.MAV.cs.ch9in;
                         break;
                     case 10:
-                        pwm = MainV2.comPort.MAV.cs.ch10in;
+                        pwm = MainSerb.comPort.MAV.cs.ch10in;
                         break;
                     case 11:
-                        pwm = MainV2.comPort.MAV.cs.ch11in;
+                        pwm = MainSerb.comPort.MAV.cs.ch11in;
                         break;
                     case 12:
-                        pwm = MainV2.comPort.MAV.cs.ch12in;
+                        pwm = MainSerb.comPort.MAV.cs.ch12in;
                         break;
                     case 13:
-                        pwm = MainV2.comPort.MAV.cs.ch13in;
+                        pwm = MainSerb.comPort.MAV.cs.ch13in;
                         break;
                     case 14:
-                        pwm = MainV2.comPort.MAV.cs.ch14in;
+                        pwm = MainSerb.comPort.MAV.cs.ch14in;
                         break;
                     case 15:
-                        pwm = MainV2.comPort.MAV.cs.ch15in;
+                        pwm = MainSerb.comPort.MAV.cs.ch15in;
                         break;
                     case 16:
-                        pwm = MainV2.comPort.MAV.cs.ch16in;
+                        pwm = MainSerb.comPort.MAV.cs.ch16in;
                         break;
                     default:
 
                         break;
                 }
 
-                if (MainV2.comPort.MAV.param.ContainsKey("FLTMODE_CH"))
+                if (MainSerb.comPort.MAV.param.ContainsKey("FLTMODE_CH"))
                 {
-                    LBL_flightmodepwm.Text = MainV2.comPort.MAV.param["FLTMODE_CH"] + ": " + pwm;
+                    LBL_flightmodepwm.Text = MainSerb.comPort.MAV.param["FLTMODE_CH"] + ": " + pwm;
                 }
                 else
                 {
-                    LBL_flightmodepwm.Text = MainV2.comPort.MAV.param["MODE_CH"] + ": " + pwm;
+                    LBL_flightmodepwm.Text = MainSerb.comPort.MAV.param["MODE_CH"] + ": " + pwm;
                 }
             }
 
@@ -355,35 +355,35 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                if (MainV2.comPort.MAV.param.ContainsKey("FLTMODE1"))
+                if (MainSerb.comPort.MAV.param.ContainsKey("FLTMODE1"))
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLTMODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLTMODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
                 }
-                else if (MainV2.comPort.MAV.param.ContainsKey("MODE1"))
+                else if (MainSerb.comPort.MAV.param.ContainsKey("MODE1"))
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
                 }
-                else if (MainV2.comPort.MAV.param.ContainsKey("COM_FLTMODE1"))
+                else if (MainSerb.comPort.MAV.param.ContainsKey("COM_FLTMODE1"))
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COM_FLTMODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE1", int.Parse(CMB_fmode1.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE2", int.Parse(CMB_fmode2.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE3", int.Parse(CMB_fmode3.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE4", int.Parse(CMB_fmode4.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE5", int.Parse(CMB_fmode5.SelectedValue.ToString()));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COM_FLTMODE6", int.Parse(CMB_fmode6.SelectedValue.ToString()));
                 }
 
-                if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2) // ac2
+                if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2) // ac2
                 {
                     // simple
                     var value = (float)(CB_simple1.Checked ? (int)SimpleMode.Simple1 : 0) +
@@ -392,8 +392,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                 + (CB_simple4.Checked ? (int)SimpleMode.Simple4 : 0) +
                                 (CB_simple5.Checked ? (int)SimpleMode.Simple5 : 0) +
                                 (CB_simple6.Checked ? (int)SimpleMode.Simple6 : 0);
-                    if (MainV2.comPort.MAV.param.ContainsKey("SIMPLE"))
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "SIMPLE", value);
+                    if (MainSerb.comPort.MAV.param.ContainsKey("SIMPLE"))
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "SIMPLE", value);
 
                     // supersimple
                     value = (float)(chk_ss1.Checked ? (int)SimpleMode.Simple1 : 0) +
@@ -402,8 +402,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             + (chk_ss4.Checked ? (int)SimpleMode.Simple4 : 0) +
                             (chk_ss5.Checked ? (int)SimpleMode.Simple5 : 0) +
                             (chk_ss6.Checked ? (int)SimpleMode.Simple6 : 0);
-                    if (MainV2.comPort.MAV.param.ContainsKey("SUPER_SIMPLE"))
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "SUPER_SIMPLE", value);
+                    if (MainSerb.comPort.MAV.param.ContainsKey("SUPER_SIMPLE"))
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "SUPER_SIMPLE", value);
                 }
             }
             catch
@@ -415,7 +415,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void updateDropDown(ComboBox ctl, string param)
         {
-            ctl.DataSource = ArduPilot.Common.getModesList(MainV2.comPort.MAV.cs.firmware);
+            ctl.DataSource = ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
             ctl.DisplayMember = "Value";
             ctl.ValueMember = "Key";
         }
@@ -435,7 +435,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void flightmode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
             {
                 var sender2 = (Control)sender;
                 var currentmode = sender2.Text.ToLower();

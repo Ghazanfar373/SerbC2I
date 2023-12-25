@@ -15,7 +15,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
@@ -25,7 +25,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             startup = true;
 
 
-            CHK_enableoptflow.setup(1, 0, "FLOW_ENABLE", MainV2.comPort.MAV.param);
+            CHK_enableoptflow.setup(1, 0, "FLOW_ENABLE", MainSerb.comPort.MAV.param);
 
             startup = false;
         }
@@ -36,13 +36,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["FLOW_ENABLE"] == null)
+                if (MainSerb.comPort.MAV.param["FLOW_ENABLE"] == null)
                 {
-                    CustomMessageBox.Show("Not Available on " + MainV2.comPort.MAV.cs.firmware);
+                    CustomMessageBox.Show("Not Available on " + MainSerb.comPort.MAV.cs.firmware);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FLOW_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FLOW_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
                 }
             }
             catch

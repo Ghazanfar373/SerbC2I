@@ -20,7 +20,7 @@ namespace MissionPlanner.Swarm
 
         public void Arm()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -34,7 +34,7 @@ namespace MissionPlanner.Swarm
 
         public void Disarm()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -48,7 +48,7 @@ namespace MissionPlanner.Swarm
 
         public void Takeoff()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -64,7 +64,7 @@ namespace MissionPlanner.Swarm
 
         public void Land()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -79,7 +79,7 @@ namespace MissionPlanner.Swarm
 
         public void GuidedMode()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -93,7 +93,7 @@ namespace MissionPlanner.Swarm
 
         public void AutoMode()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {

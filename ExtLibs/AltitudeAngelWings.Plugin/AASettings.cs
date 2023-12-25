@@ -34,9 +34,9 @@ namespace AltitudeAngelWings.Plugin
             _altitudeAngelService = altitudeAngelService;
             _missionPlanner = missionPlanner;
             InitializeComponent();
-            _altitudeAngelService.IsSignedIn.ObserveOn(MainV2.instance).Subscribe(OnSignInChange);
-            _missionPlanner.FlightDataMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
-            _missionPlanner.FlightPlanningMap.MapChanged.ObserveOn(MainV2.instance).Subscribe(OnMapChanged);
+            _altitudeAngelService.IsSignedIn.ObserveOn(MainSerb.instance).Subscribe(OnSignInChange);
+            _missionPlanner.FlightDataMap.MapChanged.ObserveOn(MainSerb.instance).Subscribe(OnMapChanged);
+            _missionPlanner.FlightPlanningMap.MapChanged.ObserveOn(MainSerb.instance).Subscribe(OnMapChanged);
 
             ThemeManager.ApplyThemeTo(this);
             pic_AboutLogo.Image = Image.FromStream(new MemoryStream(Resources.AALogo));

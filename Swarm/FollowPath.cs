@@ -14,13 +14,13 @@ namespace MissionPlanner.Swarm
 
         public override void Update()
         {
-            if (MainV2.comPort.MAV.cs.lat == 0 || MainV2.comPort.MAV.cs.lng == 0)
+            if (MainSerb.comPort.MAV.cs.lat == 0 || MainSerb.comPort.MAV.cs.lng == 0)
                 return;
 
             if (Leader == null)
-                Leader = MainV2.comPort.MAV;
+                Leader = MainSerb.comPort.MAV;
 
-            trail.Add(new PointLatLngAlt(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng, MainV2.comPort.MAV.cs.alt,
+            trail.Add(new PointLatLngAlt(MainSerb.comPort.MAV.cs.lat, MainSerb.comPort.MAV.cs.lng, MainSerb.comPort.MAV.cs.alt,
                 ""));
         }
 
@@ -33,7 +33,7 @@ namespace MissionPlanner.Swarm
             List<PointLatLngAlt> newpositions = PlanMove();
             int a = 0;
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -64,7 +64,7 @@ namespace MissionPlanner.Swarm
             List<PointLatLngAlt> currentpos = new List<PointLatLngAlt>();
 
             // get current pos
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {

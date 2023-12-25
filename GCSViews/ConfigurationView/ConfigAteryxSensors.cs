@@ -15,12 +15,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
             }
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx)
             {
                 Enabled = true;
             }
@@ -45,14 +45,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 ((Button)sender).Enabled = false;
 
 
-                if ((MainV2.comPort.MAV.cs.airspeed > 7.0) || (MainV2.comPort.MAV.cs.groundspeed > 10.0))
+                if ((MainSerb.comPort.MAV.cs.airspeed > 7.0) || (MainSerb.comPort.MAV.cs.groundspeed > 10.0))
                 {
                     MessageBox.Show("Unable - UAV airborne");
                     ((Button)sender).Enabled = true;
                     return;
                 }
-                //MainV2.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 2.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                //MainSerb.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 2.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             }
             catch
             {
@@ -67,15 +67,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 ((Button)sender).Enabled = false;
 
-                if ((MainV2.comPort.MAV.cs.airspeed > 7.0) || (MainV2.comPort.MAV.cs.groundspeed > 10.0))
+                if ((MainSerb.comPort.MAV.cs.airspeed > 7.0) || (MainSerb.comPort.MAV.cs.groundspeed > 10.0))
                 {
                     MessageBox.Show("Unable - UAV airborne");
                     ((Button)sender).Enabled = true;
                     return;
                 }
 
-                //MainV2.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                //MainSerb.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             }
             catch
             {
@@ -86,7 +86,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSource1.UpdateDataSource(MainV2.comPort.MAV.cs));
+            MainSerb.comPort.MAV.cs.UpdateCurrentSettings(bindingSource1.UpdateDataSource(MainSerb.comPort.MAV.cs));
         }
     }
 }

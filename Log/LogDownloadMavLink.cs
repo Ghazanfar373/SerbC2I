@@ -52,13 +52,13 @@ namespace MissionPlanner.Log
         {
             LoadLogList();
 
-            if (MainV2.comPort.MAV.cs.armed)
+            if (MainSerb.comPort.MAV.cs.armed)
                 CustomMessageBox.Show("Please disarm the drone before downloading logs!", Strings.ERROR);
         }
 
         void LoadLogList()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 AppendSerialLog(LogStrings.NotConnected);
                 BUT_clearlogs.Enabled = false;
@@ -77,7 +77,7 @@ namespace MissionPlanner.Log
             {
                 try
                 {
-                    this.logEntries = MainV2.comPort.GetLogList();
+                    this.logEntries = MainSerb.comPort.GetLogList();
                     RunOnUIThread(LoadCheckedList);
                 }
                 catch (Exception ex)
@@ -197,20 +197,20 @@ namespace MissionPlanner.Log
         {
             log.Info("GetLog " + no);
 
-            MainV2.comPort.Progress += ComPort_Progress;
+            MainSerb.comPort.Progress += ComPort_Progress;
 
             status = SerialStatus.Reading;
 
             // get df log from mav
-            var fn = await MainV2.comPort.GetLog(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, no)
+            var fn = await MainSerb.comPort.GetLog(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, no)
                 .ConfigureAwait(false);
 
             GC.Collect();
             status = SerialStatus.Done;
 
             logfile = Settings.Instance.LogDir + Path.DirectorySeparatorChar
-                                               + MainV2.comPort.MAV.aptype.ToString() + Path.DirectorySeparatorChar
-                                               + MainV2.comPort.MAV.sysid + Path.DirectorySeparatorChar + no + " " +
+                                               + MainSerb.comPort.MAV.aptype.ToString() + Path.DirectorySeparatorChar
+                                               + MainSerb.comPort.MAV.sysid + Path.DirectorySeparatorChar + no + " " +
                                                MakeValidFileName(fileName) + ".bin";
 
             // make log dir
@@ -239,9 +239,9 @@ namespace MissionPlanner.Log
             if (logtime != DateTime.MinValue)
             {
                 string newlogfilename = Settings.Instance.LogDir + Path.DirectorySeparatorChar
-                                                                 + MainV2.comPort.MAV.aptype.ToString() +
+                                                                 + MainSerb.comPort.MAV.aptype.ToString() +
                                                                  Path.DirectorySeparatorChar
-                                                                 + MainV2.comPort.MAV.sysid +
+                                                                 + MainSerb.comPort.MAV.sysid +
                                                                  Path.DirectorySeparatorChar +
                                                                  logtime.ToString("yyyy-MM-dd HH-mm-ss") + ".bin";
                 try
@@ -256,7 +256,7 @@ namespace MissionPlanner.Log
                 }
             }
 
-            MainV2.comPort.Progress -= ComPort_Progress;
+            MainSerb.comPort.Progress -= ComPort_Progress;
 
             return logfile;
         }
@@ -264,7 +264,7 @@ namespace MissionPlanner.Log
         protected override void OnClosed(EventArgs e)
         {
             this.closed = true;
-            MainV2.comPort.Progress -= ComPort_Progress;
+            MainSerb.comPort.Progress -= ComPort_Progress;
 
             base.OnClosed(e);
         }
@@ -452,7 +452,7 @@ namespace MissionPlanner.Log
             {
                 try
                 {
-                    MainV2.comPort.EraseLog();
+                    MainSerb.comPort.EraseLog();
                     AppendSerialLog(LogStrings.EraseComplete);
                     status = SerialStatus.Done;
                     CHK_logs.Items.Clear();

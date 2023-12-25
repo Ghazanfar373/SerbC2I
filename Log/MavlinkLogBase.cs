@@ -36,7 +36,7 @@ namespace MissionPlanner.Log
                     Path.GetFileNameWithoutExtension(filename) + ".gpx", Encoding.ASCII);
 
             xw.WriteStartElement("gpx");
-            xw.WriteAttributeString("creator", MainV2.instance.Text);
+            xw.WriteAttributeString("creator", MainSerb.instance.Text);
             xw.WriteAttributeString("xmlns", "http://www.topografix.com/GPX/1/1");
 
             xw.WriteStartElement("trk");

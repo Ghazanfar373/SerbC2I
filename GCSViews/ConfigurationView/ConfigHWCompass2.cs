@@ -30,17 +30,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             public CompassDeviceInfo(int index, string ParamName, uint id) : base(index, ParamName, id)
             {
                 //set initial state
-                var id1 = MainV2.comPort.MAV.param[new[] { "COMPASS_DEV_ID", "COMPASS1_DEV_ID"}];
-                var id2 = MainV2.comPort.MAV.param[new[] { "COMPASS_DEV_ID2", "COMPASS2_DEV_ID"}];
-                var id3 = MainV2.comPort.MAV.param[new[] { "COMPASS_DEV_ID3", "COMPASS3_DEV_ID"}];
+                var id1 = MainSerb.comPort.MAV.param[new[] { "COMPASS_DEV_ID", "COMPASS1_DEV_ID"}];
+                var id2 = MainSerb.comPort.MAV.param[new[] { "COMPASS_DEV_ID2", "COMPASS2_DEV_ID"}];
+                var id3 = MainSerb.comPort.MAV.param[new[] { "COMPASS_DEV_ID3", "COMPASS3_DEV_ID"}];
 
-                var idO1 = MainV2.comPort.MAV.param[new[] { "COMPASS_ORIENT", "COMPASS1_ORIENT"}];
-                var idO2 = MainV2.comPort.MAV.param[new[] { "COMPASS_ORIENT2", "COMPASS2_ORIENT"}];
-                var idO3 = MainV2.comPort.MAV.param[new[] { "COMPASS_ORIENT3", "COMPASS3_ORIENT"}];
+                var idO1 = MainSerb.comPort.MAV.param[new[] { "COMPASS_ORIENT", "COMPASS1_ORIENT"}];
+                var idO2 = MainSerb.comPort.MAV.param[new[] { "COMPASS_ORIENT2", "COMPASS2_ORIENT"}];
+                var idO3 = MainSerb.comPort.MAV.param[new[] { "COMPASS_ORIENT3", "COMPASS3_ORIENT"}];
 
-                var idE1 = MainV2.comPort.MAV.param[new[] { "COMPASS_EXTERNAL", "COMPASS1_EXTERN"}];
-                var idE2 = MainV2.comPort.MAV.param[new[] { "COMPASS_EXTERN2", "COMPASS2_EXTERN"}];
-                var idE3 = MainV2.comPort.MAV.param[new[] { "COMPASS_EXTERN3", "COMPASS3_EXTERN"}];
+                var idE1 = MainSerb.comPort.MAV.param[new[] { "COMPASS_EXTERNAL", "COMPASS1_EXTERN"}];
+                var idE2 = MainSerb.comPort.MAV.param[new[] { "COMPASS_EXTERN2", "COMPASS2_EXTERN"}];
+                var idE3 = MainSerb.comPort.MAV.param[new[] { "COMPASS_EXTERN3", "COMPASS3_EXTERN"}];
 
                 if (id1 != null && id1?.Value == id)
                 {
@@ -86,12 +86,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         public void Activate()
         {
             // COMPASS_DEV_ID get a list of all connected devices
-            list = MainV2.comPort.MAV.param.Where(a => a.Name.StartsWith("COMPASS") && a.Name.Contains("DEV_ID") && a.Value != 0)
+            list = MainSerb.comPort.MAV.param.Where(a => a.Name.StartsWith("COMPASS") && a.Name.Contains("DEV_ID") && a.Value != 0)
                 .Select((a, b) => new CompassDeviceInfo(b, a.Name, (uint) a.Value))
                 .OrderBy((a) => a.ParamName).ToList();
 
             // COMPASS_PRIO get a list of all prios
-            var prio = MainV2.comPort.MAV.param.Where(a => a.Name.StartsWith("COMPASS_PRIO") && a.Value != 0)
+            var prio = MainSerb.comPort.MAV.param.Where(a => a.Name.StartsWith("COMPASS_PRIO") && a.Value != 0)
                 .Select((a, b) => new CompassDeviceInfo(b, a.Name, (uint)a.Value))
                 .OrderBy((a) => a.ParamName).ToList();
 
@@ -119,19 +119,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             myDataGridView1.DataSource = bs;
 
             mavlinkComboBoxfitness.setup(ParameterMetaDataRepository.GetParameterOptionsInt("COMPASS_CAL_FIT",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "COMPASS_CAL_FIT", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "COMPASS_CAL_FIT", MainSerb.comPort.MAV.param);
 
-            mavlinkCheckBoxUseCompass1.setup(1, 0, new[] { "COMPASS_USE", "COMPASS1_USE"}, MainV2.comPort.MAV.param);
-            mavlinkCheckBoxUseCompass2.setup(1, 0, new[] { "COMPASS_USE2", "COMPASS2_USE"}, MainV2.comPort.MAV.param);
-            mavlinkCheckBoxUseCompass3.setup(1, 0, new[] { "COMPASS_USE3", "COMPASS3_USE"}, MainV2.comPort.MAV.param);
+            mavlinkCheckBoxUseCompass1.setup(1, 0, new[] { "COMPASS_USE", "COMPASS1_USE"}, MainSerb.comPort.MAV.param);
+            mavlinkCheckBoxUseCompass2.setup(1, 0, new[] { "COMPASS_USE2", "COMPASS2_USE"}, MainSerb.comPort.MAV.param);
+            mavlinkCheckBoxUseCompass3.setup(1, 0, new[] { "COMPASS_USE3", "COMPASS3_USE"}, MainSerb.comPort.MAV.param);
 
-            CHK_compass_learn.setup(1, 0, "COMPASS_LEARN", MainV2.comPort.MAV.param);
+            CHK_compass_learn.setup(1, 0, "COMPASS_LEARN", MainSerb.comPort.MAV.param);
 
             {
                 // set the default items
-                var orient_param = MainV2.comPort.MAV.param[new[] { "COMPASS_ORIENT", "COMPASS1_ORIENT"}];
+                var orient_param = MainSerb.comPort.MAV.param[new[] { "COMPASS_ORIENT", "COMPASS1_ORIENT"}];
                 var source = ParameterMetaDataRepository.GetParameterOptionsInt(orient_param.Name,
-                        MainV2.comPort.MAV.cs.firmware.ToString())
+                        MainSerb.comPort.MAV.cs.firmware.ToString())
                     .Select(a => new KeyValuePair<string, string>(a.Key.ToString(), a.Value)).ToList();
                 Orientation.DataSource = source;
                 Orientation.DisplayMember = "Value";
@@ -153,7 +153,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private bool CheckReboot()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return true;
 
             if (rebootrequired)
@@ -163,7 +163,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     try
                     {
-                        if (MainV2.comPort.doReboot())
+                        if (MainSerb.comPort.doReboot())
                         {
                             CustomMessageBox.Show("Reboot failed. please manually reboot the hardware.", Strings.ERROR);
                         }
@@ -207,8 +207,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (myDataGridView1.Rows.Count >= 1)
             {
                 list[0]._index = 0;
-                bool p1 = await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent,
+                bool p1 = await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent,
                     "COMPASS_PRIO1_ID",
                     int.Parse(myDataGridView1.Rows[0].Cells[devIDDataGridViewTextBoxColumn.Index].Value.ToString()));
 
@@ -219,8 +219,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (myDataGridView1.Rows.Count >= 2)
             {
                 list[1]._index = 1;
-                bool p2 = await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent,
+                bool p2 = await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent,
                     "COMPASS_PRIO2_ID",
                     int.Parse(myDataGridView1.Rows[1].Cells[devIDDataGridViewTextBoxColumn.Index].Value.ToString()));
 
@@ -230,8 +230,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             else
             {
                 // clear it
-                await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent,
+                await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent,
                     "COMPASS_PRIO2_ID",
                     0);
             }
@@ -239,8 +239,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (myDataGridView1.Rows.Count >= 3)
             {
                 list[2]._index = 2;
-                bool p3 = await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent,
+                bool p3 = await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent,
                     "COMPASS_PRIO3_ID",
                     int.Parse(myDataGridView1.Rows[2].Cells[devIDDataGridViewTextBoxColumn.Index].Value.ToString()));
 
@@ -250,8 +250,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             else
             {
                 //clear it
-                await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent,
+                await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent,
                     "COMPASS_PRIO3_ID",
                     0);
             }
@@ -270,7 +270,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_START_MAG_CAL, 0, 1, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_START_MAG_CAL, 0, 1, 1, 0, 0, 0, 0);
             }
             catch (Exception ex)
             {
@@ -285,8 +285,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             horizontalProgressBar2.Value = 0;
             horizontalProgressBar3.Value = 0;
 
-            packetsub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
-            packetsub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_REPORT, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            packetsub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
+            packetsub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_REPORT, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
             BUT_OBmagcalaccept.Enabled = true;
             BUT_OBmagcalcancel.Enabled = true;
@@ -296,7 +296,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private bool ReceviedPacket(MAVLink.MAVLinkMessage packet)
         {
             if (System.Diagnostics.Debugger.IsAttached)
-                MainV2.comPort.DebugPacket(packet, true);
+                MainSerb.comPort.DebugPacket(packet, true);
 
             if (packet.msgid == (byte)MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS)
             {
@@ -324,7 +324,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_ACCEPT_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_ACCEPT_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
 
             }
             catch (Exception ex)
@@ -332,8 +332,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CustomMessageBox.Show(ex.ToString(), Strings.ERROR, MessageBoxButtons.OK);
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(packetsub1);
-            MainV2.comPort.UnSubscribeToPacketType(packetsub2);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub1);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub2);
 
             timer1.Stop();
         }
@@ -342,15 +342,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_CANCEL_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_CANCEL_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
             }
             catch (Exception ex)
             {
                 CustomMessageBox.Show(ex.ToString(), Strings.ERROR, MessageBoxButtons.OK);
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(packetsub1);
-            MainV2.comPort.UnSubscribeToPacketType(packetsub2);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub1);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub2);
 
             timer1.Stop();
         }
@@ -480,7 +480,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if (MainV2.comPort.doCommand(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid,
+                    if (MainSerb.comPort.doCommand(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                         MAVLink.MAV_CMD.FIXED_MAG_CAL_YAW, (float) value, 0, 0, 0, 0, 0, 0))
                     {
                         CustomMessageBox.Show(Strings.Completed, Strings.Completed);
@@ -501,7 +501,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             if (CustomMessageBox.Show("Reboot?") == CustomMessageBox.DialogResult.OK)
             {
-                MainV2.comPort.doReboot(false, true);
+                MainSerb.comPort.doReboot(false, true);
                 rebootrequired = false;
             }
         }

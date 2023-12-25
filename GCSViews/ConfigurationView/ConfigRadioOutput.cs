@@ -17,8 +17,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             var num_servos = 16;
 
             // See if 32 servo support is enabled
-            if (MainV2.comPort.MAV.param.ContainsKey("SERVO_32_ENABLE") &&
-                    (MainV2.comPort.MAV.param["SERVO_32_ENABLE"].Value > 0))
+            if (MainSerb.comPort.MAV.param.ContainsKey("SERVO_32_ENABLE") &&
+                    (MainSerb.comPort.MAV.param["SERVO_32_ENABLE"].Value > 0))
             {
                 num_servos = 32;
             }
@@ -60,12 +60,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.tableLayoutPanel1.Controls.Add(max1, 6, servono);
 
             bAR1.DataBindings.Add("Value", bindingSource1, "ch" + servono + "out");
-            rev1.setup(1, 0, servo + "_REVERSED", MainV2.comPort.MAV.param);
+            rev1.setup(1, 0, servo + "_REVERSED", MainSerb.comPort.MAV.param);
             func1.setup(ParameterMetaDataRepository.GetParameterOptionsInt(servo + "_FUNCTION",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), servo + "_FUNCTION", MainV2.comPort.MAV.param);
-            min1.setup(800, 2200, 1, 1, servo + "_MIN", MainV2.comPort.MAV.param);
-            trim1.setup(800, 2200, 1, 1, servo + "_TRIM", MainV2.comPort.MAV.param);
-            max1.setup(800, 2200, 1, 1, servo + "_MAX", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), servo + "_FUNCTION", MainSerb.comPort.MAV.param);
+            min1.setup(800, 2200, 1, 1, servo + "_MIN", MainSerb.comPort.MAV.param);
+            trim1.setup(800, 2200, 1, 1, servo + "_TRIM", MainSerb.comPort.MAV.param);
+            max1.setup(800, 2200, 1, 1, servo + "_MAX", MainSerb.comPort.MAV.param);
         }
 
         public void Activate()
@@ -83,7 +83,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSource1.UpdateDataSource(MainV2.comPort.MAV.cs));
+                MainSerb.comPort.MAV.cs.UpdateCurrentSettings(bindingSource1.UpdateDataSource(MainSerb.comPort.MAV.cs));
             }
             catch (Exception ex)
             {

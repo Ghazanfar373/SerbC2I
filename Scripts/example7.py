@@ -8,5 +8,5 @@ clr.AddReference("MissionPlanner.Utilities") # includes the Utilities class
 
 print 'Start Script'
 
-MissionPlanner.MainV2.instance.FlightPlanner.BUT_read_Click(MissionPlanner.MainV2.instance.FlightPlanner,null)
+MissionPlanner.MainSerb.instance.FlightPlanner.BUT_read_Click(MissionPlanner.MainSerb.instance.FlightPlanner,null)
 

@@ -183,7 +183,7 @@ namespace MissionPlanner.Utilities
             if (updateFound)
             {
                 // do the update in the main thread
-                MainV2.instance.Invoke((Action)delegate
+                MainSerb.instance.Invoke((Action)delegate
                {
                    string extra = "";
 

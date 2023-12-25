@@ -39,7 +39,7 @@ namespace MissionPlanner.Controls
                     {
                         if (Instance.IsHandleCreated)
                         {
-                            MainV2.instance.BeginInvoke((MethodInvoker)delegate
+                            MainSerb.instance.BeginInvoke((MethodInvoker)delegate
                            {
                                if (Instance == null)
                                    return;
@@ -71,7 +71,7 @@ namespace MissionPlanner.Controls
         {
             log.Info(Text);
             // create form on ui thread
-            MainV2.instance.BeginInvokeIfRequired((Action)delegate
+            MainSerb.instance.BeginInvokeIfRequired((Action)delegate
            {
                uiSemaphoreSlim.Wait();
                try

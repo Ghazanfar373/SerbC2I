@@ -594,7 +594,7 @@ namespace MissionPlanner.Grid
                     (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)NUM_angle.Value,
                     (double)NUM_overshoot.Value, (double)NUM_overshoot2.Value,
                     (Utilities.Grid.StartPosition)Enum.Parse(typeof(Utilities.Grid.StartPosition), CMB_startfrom.Text), false,
-                    (float)NUM_Lane_Dist.Value, (float)NUM_leadin.Value, MainV2.comPort.MAV.cs.PlannedHomeLocation,
+                    (float)NUM_Lane_Dist.Value, (float)NUM_leadin.Value, MainSerb.comPort.MAV.cs.PlannedHomeLocation,
                     (int)NUM_clockwise_laps.Value, CHK_match_spiral_perimeter.Checked, (int)NUM_laps.Value).ConfigureAwait(true);
             }
             else
@@ -605,7 +605,7 @@ namespace MissionPlanner.Grid
                     (double) NUM_overshoot.Value, (double) NUM_overshoot2.Value,
                     (Utilities.Grid.StartPosition) Enum.Parse(typeof(Utilities.Grid.StartPosition), CMB_startfrom.Text),
                     false, (float) NUM_Lane_Dist.Value, (float) NUM_leadin.Value, (float) NUM_leadin2.Value,
-                    MainV2.comPort.MAV.cs.PlannedHomeLocation, chk_optimize_for_distance.Checked).ConfigureAwait(true);
+                    MainSerb.comPort.MAV.cs.PlannedHomeLocation, chk_optimize_for_distance.Checked).ConfigureAwait(true);
             }
 
             map.HoldInvalidation = true;
@@ -633,7 +633,7 @@ namespace MissionPlanner.Grid
                     (double) NUM_overshoot.Value, (double) NUM_overshoot2.Value,
                     Utilities.Grid.StartPosition.Point, false,
                     (float) NUM_Lane_Dist.Value, (float) NUM_leadin.Value, (float) NUM_leadin2.Value,
-                    MainV2.comPort.MAV.cs.PlannedHomeLocation, chk_optimize_for_distance.Checked).ConfigureAwait(true));
+                    MainSerb.comPort.MAV.cs.PlannedHomeLocation, chk_optimize_for_distance.Checked).ConfigureAwait(true));
             }
 
             if (CHK_boundary.Checked)
@@ -651,8 +651,8 @@ namespace MissionPlanner.Grid
             PointLatLngAlt prevprevpoint = grid[0];
             PointLatLngAlt prevpoint = grid[0];
             // distance to/from home
-            double routetotal = grid.First().GetDistance(MainV2.comPort.MAV.cs.PlannedHomeLocation) / 1000.0 +
-                               grid.Last().GetDistance(MainV2.comPort.MAV.cs.PlannedHomeLocation) / 1000.0;
+            double routetotal = grid.First().GetDistance(MainSerb.comPort.MAV.cs.PlannedHomeLocation) / 1000.0 +
+                               grid.Last().GetDistance(MainSerb.comPort.MAV.cs.PlannedHomeLocation) / 1000.0;
             List<PointLatLng> segment = new List<PointLatLng>();
             double maxgroundelevation = double.MinValue;
             double mingroundelevation = double.MaxValue;
@@ -1588,7 +1588,7 @@ namespace MissionPlanner.Grid
         {
             if (grid != null && grid.Count > 0)
             {
-                MainV2.instance.FlightPlanner.quickadd = true;
+                MainSerb.instance.FlightPlanner.quickadd = true;
 
                 if (NUM_split.Value > 1 && CHK_toandland.Checked != true)
                 {
@@ -1797,9 +1797,9 @@ namespace MissionPlanner.Grid
 
                     if (CHK_usespeed.Checked)
                     {
-                        if (MainV2.comPort.MAV.param["WPNAV_SPEED"] != null)
+                        if (MainSerb.comPort.MAV.param["WPNAV_SPEED"] != null)
                         {
-                            double speed = MainV2.comPort.MAV.param["WPNAV_SPEED"].Value;
+                            double speed = MainSerb.comPort.MAV.param["WPNAV_SPEED"].Value;
                             speed = speed / 100;
                             plugin.Host.AddWPtoList(MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, speed, 0, 0, 0, 0, 0, gridobject);
                         }
@@ -1859,9 +1859,9 @@ namespace MissionPlanner.Grid
 
                 savesettings();
 
-                MainV2.instance.FlightPlanner.quickadd = false;
+                MainSerb.instance.FlightPlanner.quickadd = false;
 
-                MainV2.instance.FlightPlanner.writeKML();
+                MainSerb.instance.FlightPlanner.writeKML();
 
                 this.Close();
             }

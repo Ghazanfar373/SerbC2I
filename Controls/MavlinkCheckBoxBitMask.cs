@@ -82,12 +82,12 @@ namespace MissionPlanner.Controls
                 Name = paramname;
 
                 myLabel1.Text = ParameterMetaDataRepository.GetParameterMetaData(paramname,
-                    ParameterMetaDataConstants.DisplayName, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.DisplayName, MainSerb.comPort.MAV.cs.firmware.ToString());
                 label1.Text = ParameterMetaDataRepository.GetParameterMetaData(paramname,
-                    ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                 list = ParameterMetaDataRepository.GetParameterBitMaskInt(ParamName,
-                    MainV2.comPort.MAV.cs.firmware.ToString());
+                    MainSerb.comPort.MAV.cs.firmware.ToString());
                 chkcount = list.Count;
 
                 int leftside = 9;
@@ -149,7 +149,7 @@ namespace MissionPlanner.Controls
             }
             try
             {
-                bool ans = MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, ParamName, Value);
+                bool ans = MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, ParamName, Value);
                 if (ans == false)
                     CustomMessageBox.Show(String.Format(Strings.ErrorSetValueFailed, ParamName), Strings.ERROR);
             }

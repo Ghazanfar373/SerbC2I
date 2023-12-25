@@ -114,10 +114,10 @@ namespace MissionPlanner.GCSViews
 
         public void Activate()
         {
-            if(MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat == 0 && MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng == 0)
+            if(MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat == 0 && MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng == 0)
                 homemarker.Position = new PointLatLng(-35.3633515, 149.1652412);
             else
-                homemarker.Position = MainV2.comPort.MAV.cs.PlannedHomeLocation;
+                homemarker.Position = MainSerb.comPort.MAV.cs.PlannedHomeLocation;
 
             myGMAP1.Position = homemarker.Position;
 
@@ -691,9 +691,9 @@ namespace MissionPlanner.GCSViews
 
             await Task.Delay(2000);
 
-            MainV2.instance.InvokeIfRequired(() =>
+            MainSerb.instance.InvokeIfRequired(() =>
             {
-                MainV2.View.ShowScreen(MainV2.View.screens[0].Name);
+                MainSerb.View.ShowScreen(MainSerb.View.screens[0].Name);
             });
 
             var client = new Comms.TcpSerial();
@@ -702,13 +702,13 @@ namespace MissionPlanner.GCSViews
             {
                 client.client = new TcpClient("127.0.0.1", 5760);
 
-                MainV2.comPort.BaseStream = client;
+                MainSerb.comPort.BaseStream = client;
 
                 SITLSEND = new UdpClient("127.0.0.1", 5501);
 
                 await Task.Delay(200);
 
-                MainV2.instance.doConnect(MainV2.comPort, "preset", "5760");
+                MainSerb.instance.doConnect(MainSerb.comPort, "preset", "5760");
             }
             catch
             {
@@ -722,14 +722,14 @@ namespace MissionPlanner.GCSViews
             try
             {
                 byte[] rcreceiver = new byte[2 * 8];
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech1), 0, rcreceiver, 0, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech2), 0, rcreceiver, 2, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech3), 0, rcreceiver, 4, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech4), 0, rcreceiver, 6, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech5), 0, rcreceiver, 8, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech6), 0, rcreceiver, 10, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech7), 0, rcreceiver, 12, 2);
-                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainV2.comPort.MAV.cs.rcoverridech8), 0, rcreceiver, 14, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech1), 0, rcreceiver, 0, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech2), 0, rcreceiver, 2, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech3), 0, rcreceiver, 4, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech4), 0, rcreceiver, 6, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech5), 0, rcreceiver, 8, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech6), 0, rcreceiver, 10, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech7), 0, rcreceiver, 12, 2);
+                Array.ConstrainedCopy(BitConverter.GetBytes((ushort)MainSerb.comPort.MAV.cs.rcoverridech8), 0, rcreceiver, 14, 2);
 
                 SITLSEND.Send(rcreceiver, rcreceiver.Length);
             }
@@ -908,7 +908,7 @@ SIM_DRIFT_TIME=0
 
             await Task.Delay(2000);
 
-            MainV2.View.ShowScreen(MainV2.View.screens[0].Name);
+            MainSerb.View.ShowScreen(MainSerb.View.screens[0].Name);
 
             try
             {
@@ -936,10 +936,10 @@ SIM_DRIFT_TIME=0
 
                     this.BeginInvokeIfRequired(() =>
                     {
-                        MainV2.instance.doConnect(mav, "preset", "5760", false);
+                        MainSerb.instance.doConnect(mav, "preset", "5760", false);
 
                         lock (this)
-                            MainV2.Comports.Add(mav);
+                            MainSerb.Comports.Add(mav);
 
                         try
                         {
@@ -1057,7 +1057,7 @@ SIM_DRIFT_TIME=0
 
             System.Threading.Thread.Sleep(2000);
 
-            MainV2.View.ShowScreen(MainV2.View.screens[0].Name);
+            MainSerb.View.ShowScreen(MainSerb.View.screens[0].Name);
 
             try
             {
@@ -1065,7 +1065,7 @@ SIM_DRIFT_TIME=0
 
                 client.client = new TcpClient("127.0.0.1", 5760);
 
-                MainV2.comPort.BaseStream = client;
+                MainSerb.comPort.BaseStream = client;
 
                 SITLSEND = new UdpClient("127.0.0.1", 5501);
 
@@ -1073,10 +1073,10 @@ SIM_DRIFT_TIME=0
 
                 this.BeginInvokeIfRequired(() =>
                 {
-                    MainV2.instance.doConnect(MainV2.comPort, "preset", "5760", false);
+                    MainSerb.instance.doConnect(MainSerb.comPort, "preset", "5760", false);
                     try
                     {
-                        _ = MainV2.comPort.getParamListMavftpAsync((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                        _ = MainSerb.comPort.getParamListMavftpAsync((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
                     }
                     catch
                     {

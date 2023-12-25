@@ -271,7 +271,7 @@ namespace MissionPlanner.Log
                 }
             }
 
-            MainV2.comPort.Progress -= comPort_Progress;
+            MainSerb.comPort.Progress -= comPort_Progress;
 
             return logfile;
         }
@@ -284,7 +284,7 @@ namespace MissionPlanner.Log
         protected override void OnClosed(EventArgs e)
         {
             this.closed = true;
-            MainV2.comPort.Progress -= comPort_Progress;
+            MainSerb.comPort.Progress -= comPort_Progress;
 
             base.OnClosed(e);
         }

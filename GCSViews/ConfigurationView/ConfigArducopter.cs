@@ -25,13 +25,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
             }
 
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2 || MainV2.comPort.MAV.param.ContainsKey("Q_ENABLE") && MainV2.comPort.MAV.param["Q_ENABLE"].Value != 0)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2 || MainSerb.comPort.MAV.param.ContainsKey("Q_ENABLE") && MainSerb.comPort.MAV.param["Q_ENABLE"].Value != 0)
             {
                 Enabled = true;
             }
@@ -48,122 +48,122 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // ensure the fields are populated before setting them
             TUNE.setup(
                 ParameterMetaDataRepository
-                    .GetParameterOptionsInt("TUNE", MainV2.comPort.MAV.cs.firmware.ToString())
-                    .ToList(), "TUNE", MainV2.comPort.MAV.param);
+                    .GetParameterOptionsInt("TUNE", MainSerb.comPort.MAV.cs.firmware.ToString())
+                    .ToList(), "TUNE", MainSerb.comPort.MAV.param);
 
-            CH6_OPTION.setup(new[] { "CH6_OPT", "CH6_OPTION", "RC6_OPTION", "RC6_OPTION" }, MainV2.comPort.MAV.param);
-            CH7_OPTION.setup(new[] {"CH7_OPT", "CH7_OPTION", "RC7_OPTION", "RC7_OPTION"}, MainV2.comPort.MAV.param);
-            CH8_OPTION.setup(new[] {"CH8_OPT", "CH8_OPTION", "RC8_OPTION", "RC8_OPTION"}, MainV2.comPort.MAV.param);
-            CH9_OPTION.setup(new[] {"CH9_OPT", "CH9_OPTION", "RC9_OPTION", "RC9_OPTION"}, MainV2.comPort.MAV.param);
-            CH10_OPTION.setup(new[] {"CH10_OPT", "CH10_OPTION", "RC10_OPTION", "RC10_OPTION"}, MainV2.comPort.MAV.param);
+            CH6_OPTION.setup(new[] { "CH6_OPT", "CH6_OPTION", "RC6_OPTION", "RC6_OPTION" }, MainSerb.comPort.MAV.param);
+            CH7_OPTION.setup(new[] {"CH7_OPT", "CH7_OPTION", "RC7_OPTION", "RC7_OPTION"}, MainSerb.comPort.MAV.param);
+            CH8_OPTION.setup(new[] {"CH8_OPT", "CH8_OPTION", "RC8_OPTION", "RC8_OPTION"}, MainSerb.comPort.MAV.param);
+            CH9_OPTION.setup(new[] {"CH9_OPT", "CH9_OPTION", "RC9_OPTION", "RC9_OPTION"}, MainSerb.comPort.MAV.param);
+            CH10_OPTION.setup(new[] {"CH10_OPT", "CH10_OPTION", "RC10_OPTION", "RC10_OPTION"}, MainSerb.comPort.MAV.param);
 
             TUNE_LOW.setup(0, 10000, 1, 0.01f, new[] {"TUNE_LOW", "TUNE_MIN"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             TUNE_HIGH.setup(0, 10000, 1, 0.01f, new[] {"TUNE_HIGH", "TUNE_MAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
             HLD_LAT_P.setup(0, 0, 1, 0.001f, new[] {"HLD_LAT_P", "POS_XY_P", "PSC_POSXY_P", "Q_P_POSXY_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             LOITER_LAT_D.setup(0, 0, 1, 0.001f, new[] {"LOITER_LAT_D", "PSC_VELXY_D", "Q_P_VELXY_D"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             LOITER_LAT_I.setup(0, 0, 1, 0.001f, new[] {"LOITER_LAT_I", "VEL_XY_I", "PSC_VELXY_I", "Q_P_VELXY_I"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             LOITER_LAT_IMAX.setup(0, 0, 10, 1f,
                 new[] {"LOITER_LAT_IMAX", "VEL_XY_IMAX", "PSC_VELXY_IMAX", "Q_P_VELXY_IMAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             LOITER_LAT_P.setup(0, 0, 1, 0.001f, new[] {"LOITER_LAT_P", "VEL_XY_P", "PSC_VELXY_P", "Q_P_VELXY_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
-            RATE_PIT_P.setup(0, 0, 1, 0.001f, new[] { "RATE_PIT_P", "ATC_RAT_PIT_P", "Q_A_RAT_PIT_P" }, MainV2.comPort.MAV.param);
-            RATE_PIT_I.setup(0, 0, 1, 0.001f, new[] { "RATE_PIT_I", "ATC_RAT_PIT_I", "Q_A_RAT_PIT_I" }, MainV2.comPort.MAV.param);
-            RATE_PIT_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_PIT_D", "ATC_RAT_PIT_D", "Q_A_RAT_PIT_D"}, MainV2.comPort.MAV.param);
-            if (MainV2.comPort.MAV.param.ContainsKey("ATC_RAT_PIT_IMAX")) // 3.4 changes scaling
-                RATE_PIT_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_PIT_IMAX", "Q_A_RAT_PIT_IMAX"},  MainV2.comPort.MAV.param);
+            RATE_PIT_P.setup(0, 0, 1, 0.001f, new[] { "RATE_PIT_P", "ATC_RAT_PIT_P", "Q_A_RAT_PIT_P" }, MainSerb.comPort.MAV.param);
+            RATE_PIT_I.setup(0, 0, 1, 0.001f, new[] { "RATE_PIT_I", "ATC_RAT_PIT_I", "Q_A_RAT_PIT_I" }, MainSerb.comPort.MAV.param);
+            RATE_PIT_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_PIT_D", "ATC_RAT_PIT_D", "Q_A_RAT_PIT_D"}, MainSerb.comPort.MAV.param);
+            if (MainSerb.comPort.MAV.param.ContainsKey("ATC_RAT_PIT_IMAX")) // 3.4 changes scaling
+                RATE_PIT_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_PIT_IMAX", "Q_A_RAT_PIT_IMAX"},  MainSerb.comPort.MAV.param);
             else
-                RATE_PIT_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_PIT_IMAX", "RATE_PIT_IMAX"}, MainV2.comPort.MAV.param);
-            RATE_PIT_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_PIT_FILT", "ATC_RAT_PIT_FILT", "ATC_RAT_PIT_FLTE", "Q_A_RAT_PIT_FLTE"}, MainV2.comPort.MAV.param);
-            ATC_RAT_PIT_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_PIT_FLTD", "ATC_RAT_PIT_FLTD" }, MainV2.comPort.MAV.param);
-            ATC_RAT_PIT_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_PIT_FLTT", "ATC_RAT_PIT_FLTT" }, MainV2.comPort.MAV.param);
+                RATE_PIT_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_PIT_IMAX", "RATE_PIT_IMAX"}, MainSerb.comPort.MAV.param);
+            RATE_PIT_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_PIT_FILT", "ATC_RAT_PIT_FILT", "ATC_RAT_PIT_FLTE", "Q_A_RAT_PIT_FLTE"}, MainSerb.comPort.MAV.param);
+            ATC_RAT_PIT_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_PIT_FLTD", "ATC_RAT_PIT_FLTD" }, MainSerb.comPort.MAV.param);
+            ATC_RAT_PIT_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_PIT_FLTT", "ATC_RAT_PIT_FLTT" }, MainSerb.comPort.MAV.param);
 
-            RATE_RLL_P.setup(0, 0, 1, 0.001f, new[] { "RATE_RLL_P", "ATC_RAT_RLL_P", "Q_A_RAT_RLL_P" }, MainV2.comPort.MAV.param);
-            RATE_RLL_I.setup(0, 0, 1, 0.001f, new[] { "RATE_RLL_I", "ATC_RAT_RLL_I", "Q_A_RAT_RLL_I" }, MainV2.comPort.MAV.param);
-            RATE_RLL_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_RLL_D", "ATC_RAT_RLL_D", "Q_A_RAT_RLL_D"}, MainV2.comPort.MAV.param);
-            if (MainV2.comPort.MAV.param.ContainsKey("ATC_RAT_RLL_IMAX")) // 3.4 changes scaling
-                RATE_RLL_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_RLL_IMAX", "Q_A_RAT_RLL_IMAX"}, MainV2.comPort.MAV.param);
+            RATE_RLL_P.setup(0, 0, 1, 0.001f, new[] { "RATE_RLL_P", "ATC_RAT_RLL_P", "Q_A_RAT_RLL_P" }, MainSerb.comPort.MAV.param);
+            RATE_RLL_I.setup(0, 0, 1, 0.001f, new[] { "RATE_RLL_I", "ATC_RAT_RLL_I", "Q_A_RAT_RLL_I" }, MainSerb.comPort.MAV.param);
+            RATE_RLL_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_RLL_D", "ATC_RAT_RLL_D", "Q_A_RAT_RLL_D"}, MainSerb.comPort.MAV.param);
+            if (MainSerb.comPort.MAV.param.ContainsKey("ATC_RAT_RLL_IMAX")) // 3.4 changes scaling
+                RATE_RLL_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_RLL_IMAX", "Q_A_RAT_RLL_IMAX"}, MainSerb.comPort.MAV.param);
             else
-                RATE_RLL_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_RLL_IMAX"}, MainV2.comPort.MAV.param);
-            RATE_RLL_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_RLL_FILT", "ATC_RAT_RLL_FILT", "ATC_RAT_RLL_FLTE", "Q_A_RAT_RLL_FLTE"}, MainV2.comPort.MAV.param);
-            ATC_RAT_RLL_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_RLL_FLTD" }, MainV2.comPort.MAV.param);
-            ATC_RAT_RLL_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_RLL_FLTT" }, MainV2.comPort.MAV.param);
+                RATE_RLL_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_RLL_IMAX"}, MainSerb.comPort.MAV.param);
+            RATE_RLL_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_RLL_FILT", "ATC_RAT_RLL_FILT", "ATC_RAT_RLL_FLTE", "Q_A_RAT_RLL_FLTE"}, MainSerb.comPort.MAV.param);
+            ATC_RAT_RLL_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_RLL_FLTD" }, MainSerb.comPort.MAV.param);
+            ATC_RAT_RLL_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_RLL_FLTT" }, MainSerb.comPort.MAV.param);
 
-            RATE_YAW_P.setup(0, 0, 1, 0.001f, new[] { "RATE_YAW_P", "ATC_RAT_YAW_P", "Q_A_RAT_YAW_P" }, MainV2.comPort.MAV.param);
-            RATE_YAW_I.setup(0, 0, 1, 0.001f, new[] { "RATE_YAW_I", "ATC_RAT_YAW_I", "Q_A_RAT_YAW_I" }, MainV2.comPort.MAV.param);
-            RATE_YAW_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_YAW_D", "ATC_RAT_YAW_D", "Q_A_RAT_YAW_D"}, MainV2.comPort.MAV.param);
-            if (MainV2.comPort.MAV.param.ContainsKey("ATC_RAT_YAW_IMAX")) // 3.4 changes scaling
-                RATE_YAW_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_YAW_IMAX", "Q_A_RAT_YAW_IMAX"}, MainV2.comPort.MAV.param);
+            RATE_YAW_P.setup(0, 0, 1, 0.001f, new[] { "RATE_YAW_P", "ATC_RAT_YAW_P", "Q_A_RAT_YAW_P" }, MainSerb.comPort.MAV.param);
+            RATE_YAW_I.setup(0, 0, 1, 0.001f, new[] { "RATE_YAW_I", "ATC_RAT_YAW_I", "Q_A_RAT_YAW_I" }, MainSerb.comPort.MAV.param);
+            RATE_YAW_D.setup(0, 0, 1, 0.0001f, new[] {"RATE_YAW_D", "ATC_RAT_YAW_D", "Q_A_RAT_YAW_D"}, MainSerb.comPort.MAV.param);
+            if (MainSerb.comPort.MAV.param.ContainsKey("ATC_RAT_YAW_IMAX")) // 3.4 changes scaling
+                RATE_YAW_IMAX.setup(0, 0, 1, 1f, new[] {"ATC_RAT_YAW_IMAX", "Q_A_RAT_YAW_IMAX"}, MainSerb.comPort.MAV.param);
             else
-                RATE_YAW_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_YAW_IMAX"}, MainV2.comPort.MAV.param);
-            RATE_YAW_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_YAW_FILT", "ATC_RAT_YAW_FILT", "ATC_RAT_YAW_FLTE", "Q_A_RAT_YAW_FLTE"}, MainV2.comPort.MAV.param);
-            ATC_RAT_YAW_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_YAW_FLTD" }, MainV2.comPort.MAV.param);
-            ATC_RAT_YAW_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_YAW_FLTT" }, MainV2.comPort.MAV.param);
+                RATE_YAW_IMAX.setup(0, 0, 10, 1f, new[] {"RATE_YAW_IMAX"}, MainSerb.comPort.MAV.param);
+            RATE_YAW_FILT.setup(0, 0, 1, 0.001f, new[] {"RATE_YAW_FILT", "ATC_RAT_YAW_FILT", "ATC_RAT_YAW_FLTE", "Q_A_RAT_YAW_FLTE"}, MainSerb.comPort.MAV.param);
+            ATC_RAT_YAW_FLTD.setup(0, 0, 1, 1f, new[] { "ATC_RAT_YAW_FLTD" }, MainSerb.comPort.MAV.param);
+            ATC_RAT_YAW_FLTT.setup(0, 0, 1, 1f, new[] { "ATC_RAT_YAW_FLTT" }, MainSerb.comPort.MAV.param);
 
             STB_PIT_P.setup(0, 0, 1, 0.001f, new[] {"STB_PIT_P", "ATC_ANG_PIT_P", "Q_A_ANG_PIT_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             STB_RLL_P.setup(0, 0, 1, 0.001f, new[] {"STB_RLL_P", "ATC_ANG_RLL_P", "Q_A_ANG_RLL_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             STB_YAW_P.setup(0, 0, 1, 0.001f, new[] {"STB_YAW_P", "ATC_ANG_YAW_P", "Q_A_ANG_YAW_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
 
             THR_ACCEL_P.setup(0, 0, 1, 0.001f, new[] { "THR_ACCEL_P", "ACCEL_Z_P", "PSC_ACCZ_P", "Q_P_ACCZ_P" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             THR_ACCEL_I.setup(0, 0, 1, 0.001f, new[] { "THR_ACCEL_I", "ACCEL_Z_I", "PSC_ACCZ_I", "Q_P_ACCZ_I" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             THR_ACCEL_D.setup(0, 0, 1, 0.001f, new[] {"THR_ACCEL_D", "ACCEL_Z_D", "PSC_ACCZ_D", "Q_P_ACCZ_D"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             THR_ACCEL_IMAX.setup(0, 0, 10, 1f, new[] {"THR_ACCEL_IMAX", "ACCEL_Z_IMAX", "PSC_ACCZ_IMAX", "Q_P_ACCZ_IMAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
             THR_ALT_P.setup(0, 0, 1, 0.001f, new[] {"THR_ALT_P", "POS_Z_P", "PSC_POSZ_P", "Q_P_POSZ_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             THR_RATE_P.setup(0, 0, 1, 0.001f, new[] {"THR_RATE_P", "VEL_Z_P", "PSC_VELZ_P", "Q_P_VELZ_P"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
             WPNAV_LOIT_SPEED.setup(0, 0, 1, 0.001f, new[] {"WPNAV_LOIT_SPEED", "LOIT_SPEED", "Q_LOIT_SPEED"},
-                MainV2.comPort.MAV.param);
-            WPNAV_RADIUS.setup(0, 0, 1, 0.001f, new[] {"WPNAV_RADIUS", "Q_WP_RADIUS"}, MainV2.comPort.MAV.param);
-            WPNAV_SPEED.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED", "Q_WP_SPEED"}, MainV2.comPort.MAV.param);
-            WPNAV_SPEED_DN.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED_DN", "Q_WP_SPEED_DN"}, MainV2.comPort.MAV.param);
-            WPNAV_SPEED_UP.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED_UP", "Q_WP_SPEED_UP"}, MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
+            WPNAV_RADIUS.setup(0, 0, 1, 0.001f, new[] {"WPNAV_RADIUS", "Q_WP_RADIUS"}, MainSerb.comPort.MAV.param);
+            WPNAV_SPEED.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED", "Q_WP_SPEED"}, MainSerb.comPort.MAV.param);
+            WPNAV_SPEED_DN.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED_DN", "Q_WP_SPEED_DN"}, MainSerb.comPort.MAV.param);
+            WPNAV_SPEED_UP.setup(0, 0, 1, 0.001f, new[] {"WPNAV_SPEED_UP", "Q_WP_SPEED_UP"}, MainSerb.comPort.MAV.param);
 
-            INS_GYRO_FILTER.setup(0, 0, 1, 1f, new[] { "INS_GYRO_FILTER" }, MainV2.comPort.MAV.param);
-            INS_ACCEL_FILTER.setup(0, 0, 1, 1f, new[] { "INS_ACCEL_FILTER" }, MainV2.comPort.MAV.param);
+            INS_GYRO_FILTER.setup(0, 0, 1, 1f, new[] { "INS_GYRO_FILTER" }, MainSerb.comPort.MAV.param);
+            INS_ACCEL_FILTER.setup(0, 0, 1, 1f, new[] { "INS_ACCEL_FILTER" }, MainSerb.comPort.MAV.param);
 
-            INS_LOG_BAT_MASK.setup(new[] { "INS_LOG_BAT_MASK" }, MainV2.comPort.MAV.param);
-            INS_LOG_BAT_OPT.setup(0, 0, 1, 1f, new[] { "INS_LOG_BAT_OPT" }, MainV2.comPort.MAV.param);
+            INS_LOG_BAT_MASK.setup(new[] { "INS_LOG_BAT_MASK" }, MainSerb.comPort.MAV.param);
+            INS_LOG_BAT_OPT.setup(0, 0, 1, 1f, new[] { "INS_LOG_BAT_OPT" }, MainSerb.comPort.MAV.param);
 
-            INS_NOTCH_ENABLE.setup(new[] { "INS_NOTCH_ENABLE" }, MainV2.comPort.MAV.param);
-            INS_NOTCH_FREQ.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_FREQ" }, MainV2.comPort.MAV.param);
-            INS_NOTCH_BW.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_BW" }, MainV2.comPort.MAV.param);
-            INS_NOTCH_ATT.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_ATT" }, MainV2.comPort.MAV.param);
+            INS_NOTCH_ENABLE.setup(new[] { "INS_NOTCH_ENABLE" }, MainSerb.comPort.MAV.param);
+            INS_NOTCH_FREQ.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_FREQ" }, MainSerb.comPort.MAV.param);
+            INS_NOTCH_BW.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_BW" }, MainSerb.comPort.MAV.param);
+            INS_NOTCH_ATT.setup(0, 0, 1, 1f, new[] { "INS_NOTCH_ATT" }, MainSerb.comPort.MAV.param);
 
-            INS_HNTCH_ENABLE.setup(new[] { "INS_HNTCH_ENABLE" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_MODE.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_MODE" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_REF.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_REF" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_FREQ.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_FREQ" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_ATT.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_ATT" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_BW.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_BW" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_OPTS.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_OPTS" }, MainV2.comPort.MAV.param);
-            INS_HNTCH_HMNCS.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_HMNCS" }, MainV2.comPort.MAV.param);
+            INS_HNTCH_ENABLE.setup(new[] { "INS_HNTCH_ENABLE" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_MODE.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_MODE" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_REF.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_REF" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_FREQ.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_FREQ" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_ATT.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_ATT" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_BW.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_BW" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_OPTS.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_OPTS" }, MainSerb.comPort.MAV.param);
+            INS_HNTCH_HMNCS.setup(0, 0, 1, 1f, new[] { "INS_HNTCH_HMNCS" }, MainSerb.comPort.MAV.param);
 
             mavlinkNumericUpDownatc_accel_r_max.setup(0, 0, 1, 0.001f, new[] {"ATC_ACCEL_R_MAX", "Q_A_ACCEL_R_MAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             mavlinkNumericUpDownatc_accel_p_max.setup(0, 0, 1, 0.001f, new[] {"ATC_ACCEL_P_MAX", "Q_A_ACCEL_P_MAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             mavlinkNumericUpDownatc_accel_y_max.setup(0, 0, 1, 0.001f, new[] {"ATC_ACCEL_Y_MAX", "Q_A_ACCEL_Y_MAX"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             mavlinkNumericUpDownatc_input_tc.setup(0, 0, 1, 0.001f, new[] {"ATC_INPUT_TC", "Q_A_INPUT_TC"},
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
 
             // unlock entries if they differ
@@ -174,7 +174,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CHK_lockrollpitch.Checked = false;
             }
 
-            if (MainV2.comPort.MAV.param["H_SWASH_TYPE"] != null)
+            if (MainSerb.comPort.MAV.param["H_SWASH_TYPE"] != null)
             {
                 CHK_lockrollpitch.Checked = false;
             }
@@ -189,7 +189,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         var ParamName = ((MavlinkNumericUpDown) control2).ParamName;
                         toolTip1.SetToolTip(control2,
                             ParameterMetaDataRepository.GetParameterMetaData(ParamName,
-                                ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString()));
+                                ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString()));
                     }
 
                     if (control2 is MavlinkComboBox)
@@ -197,7 +197,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         var ParamName = ((MavlinkComboBox) control2).ParamName;
                         toolTip1.SetToolTip(control2,
                             ParameterMetaDataRepository.GetParameterMetaData(ParamName,
-                                ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString()));
+                                ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString()));
                     }
                 }
             }
@@ -360,7 +360,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if ((float)changes[value] > (float)MainV2.comPort.MAV.param[value] * 2.0f)
+                    if ((float)changes[value] > (float)MainSerb.comPort.MAV.param[value] * 2.0f)
                         if (
                             CustomMessageBox.Show(value + " has more than doubled the last input. Are you sure?",
                                 "Large Value", MessageBoxButtons.YesNo) == (int)DialogResult.No)
@@ -372,7 +372,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                 if (textControls.Length > 0)
                                 {
                                     // restore old value
-                                    textControls[0].Text = MainV2.comPort.MAV.param[value].Value.ToString();
+                                    textControls[0].Text = MainSerb.comPort.MAV.param[value].Value.ToString();
                                     textControls[0].BackColor = Color.FromArgb(0x43, 0x44, 0x45);
                                 }
                             }
@@ -382,13 +382,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             return;
                         }
 
-                    if (MainV2.comPort.BaseStream == null || !MainV2.comPort.BaseStream.IsOpen)
+                    if (MainSerb.comPort.BaseStream == null || !MainSerb.comPort.BaseStream.IsOpen)
                     {
                         CustomMessageBox.Show("You are not connected", Strings.ERROR);
                         return;
                     }
 
-                    MainV2.comPort.setParam(value, (float)changes[value]);
+                    MainSerb.comPort.setParam(value, (float)changes[value]);
 
                     changes.Remove(value);
 
@@ -419,14 +419,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
         protected void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
 
             try
             {
-                MainV2.comPort.getParamList();
+                MainSerb.comPort.getParamList();
             }
             catch (Exception ex)
             {
@@ -442,7 +442,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_refreshpart_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
@@ -464,7 +464,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     try
                     {
-                        MainV2.comPort.GetParam(ctl.Name);
+                        MainSerb.comPort.GetParam(ctl.Name);
                     }
                     catch
                     {

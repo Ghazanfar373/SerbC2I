@@ -45,7 +45,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             _timer.Interval = 100;
             _timer.Start();
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("RCMAP_ROLL"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("RCMAP_ROLL"))
             {
                 chroll = 1;
                 chpitch = 2;
@@ -57,10 +57,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 try
                 {
                     //setup bindings
-                    chroll = (int)(float)MainV2.comPort.MAV.param["RCMAP_ROLL"];
-                    chpitch = (int)(float)MainV2.comPort.MAV.param["RCMAP_PITCH"];
-                    chthro = (int)(float)MainV2.comPort.MAV.param["RCMAP_THROTTLE"];
-                    chyaw = (int)(float)MainV2.comPort.MAV.param["RCMAP_YAW"];
+                    chroll = (int)(float)MainSerb.comPort.MAV.param["RCMAP_ROLL"];
+                    chpitch = (int)(float)MainSerb.comPort.MAV.param["RCMAP_PITCH"];
+                    chthro = (int)(float)MainSerb.comPort.MAV.param["RCMAP_THROTTLE"];
+                    chyaw = (int)(float)MainSerb.comPort.MAV.param["RCMAP_YAW"];
                 }
                 catch (Exception)
                 {
@@ -115,7 +115,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             try
             {
                 // force this screen to work
-                MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, 2);
+                MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, 2);
             }
             catch
             {
@@ -123,13 +123,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             startup = true;
 
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
-                MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx)
             {
-                CHK_mixmode.setup(1, 0, "ELEVON_MIXING", MainV2.comPort.MAV.param);
-                CHK_elevonrev.setup(1, 0, "ELEVON_REVERSE", MainV2.comPort.MAV.param);
-                CHK_elevonch1rev.setup(1, 0, "ELEVON_CH1_REV", MainV2.comPort.MAV.param);
-                CHK_elevonch2rev.setup(1, 0, "ELEVON_CH2_REV", MainV2.comPort.MAV.param);
+                CHK_mixmode.setup(1, 0, "ELEVON_MIXING", MainSerb.comPort.MAV.param);
+                CHK_elevonrev.setup(1, 0, "ELEVON_REVERSE", MainSerb.comPort.MAV.param);
+                CHK_elevonch1rev.setup(1, 0, "ELEVON_CH1_REV", MainSerb.comPort.MAV.param);
+                CHK_elevonch2rev.setup(1, 0, "ELEVON_CH2_REV", MainSerb.comPort.MAV.param);
             }
             else
             {
@@ -138,34 +138,34 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             // this controls the direction of the output, not the input.
             CHK_revroll.setup(new double[] { -1, 1 }, new double[] { 1, 0 }, new string[] { "RC" + chroll + "_REV", "RC" + chroll + "_REVERSED" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             CHK_revpitch.setup(new double[] { -1, 1 }, new double[] { 1, 0 }, new string[] { "RC" + chpitch + "_REV", "RC" + chpitch + "_REVERSED" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             CHK_revthr.setup(new double[] { -1, 1 }, new double[] { 1, 0 }, new string[] { "RC" + chthro + "_REV", "RC" + chthro + "_REVERSED" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
             CHK_revyaw.setup(new double[] { -1, 1 }, new double[] { 1, 0 }, new string[] { "RC" + chyaw + "_REV", "RC" + chyaw + "_REVERSED" },
-                MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
 
-            if (MainV2.comPort.MAV.param["RC"+ chroll + "_REVERSED"]?.Value == 1)
+            if (MainSerb.comPort.MAV.param["RC"+ chroll + "_REVERSED"]?.Value == 1)
             {
                 reverseChannel(true, BARroll);
             }
-            if (MainV2.comPort.MAV.param["RC" + chpitch + "_REVERSED"]?.Value == 1)
+            if (MainSerb.comPort.MAV.param["RC" + chpitch + "_REVERSED"]?.Value == 1)
             {
                 reverseChannel(true, BARpitch);
             }
-            if (MainV2.comPort.MAV.param["RC" + chthro + "_REVERSED"]?.Value == 1)
+            if (MainSerb.comPort.MAV.param["RC" + chthro + "_REVERSED"]?.Value == 1)
             {
                 reverseChannel(true, BARthrottle);
             }
-            if (MainV2.comPort.MAV.param["RC" + chyaw + "_REVERSED"]?.Value == 1)
+            if (MainSerb.comPort.MAV.param["RC" + chyaw + "_REVERSED"]?.Value == 1)
             {
                 reverseChannel(true, BARyaw);
             }
 
 
             // run after to ensure they are disabled on copter
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
             {
                 CHK_revroll.Visible = false;
                 CHK_revpitch.Visible = false;
@@ -186,7 +186,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // update all linked controls - 10hz
             try
             {
-                MainV2.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainV2.comPort.MAV.cs));
+                MainSerb.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainSerb.comPort.MAV.cs));
             }
             catch (Exception ex)
             {
@@ -206,19 +206,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             CustomMessageBox.Show(
                 "Ensure your transmitter is on and receiver is powered and connected\nEnsure your motor does not have power/no props!!!");
 
-            var oldrc = MainV2.comPort.MAV.cs.raterc;
-            var oldatt = MainV2.comPort.MAV.cs.rateattitude;
-            var oldpos = MainV2.comPort.MAV.cs.rateposition;
-            var oldstatus = MainV2.comPort.MAV.cs.ratestatus;
+            var oldrc = MainSerb.comPort.MAV.cs.raterc;
+            var oldatt = MainSerb.comPort.MAV.cs.rateattitude;
+            var oldpos = MainSerb.comPort.MAV.cs.rateposition;
+            var oldstatus = MainSerb.comPort.MAV.cs.ratestatus;
 
-            MainV2.comPort.MAV.cs.raterc = 10;
-            MainV2.comPort.MAV.cs.rateattitude = 0;
-            MainV2.comPort.MAV.cs.rateposition = 0;
-            MainV2.comPort.MAV.cs.ratestatus = 0;
+            MainSerb.comPort.MAV.cs.raterc = 10;
+            MainSerb.comPort.MAV.cs.rateattitude = 0;
+            MainSerb.comPort.MAV.cs.rateposition = 0;
+            MainSerb.comPort.MAV.cs.ratestatus = 0;
 
             try
             {
-                MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, 10);
+                MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, 10);
             }
             catch
             {
@@ -238,58 +238,58 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 Thread.Sleep(5);
 
-                MainV2.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainV2.comPort.MAV.cs), true, MainV2.comPort);
+                MainSerb.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainSerb.comPort.MAV.cs), true, MainSerb.comPort);
 
                 // check for non 0 values
-                if (MainV2.comPort.MAV.cs.ch1in > 800 && MainV2.comPort.MAV.cs.ch1in < 2200)
+                if (MainSerb.comPort.MAV.cs.ch1in > 800 && MainSerb.comPort.MAV.cs.ch1in < 2200)
                 {
-                    rcmin[0] = Math.Min(rcmin[0], MainV2.comPort.MAV.cs.ch1in);
-                    rcmax[0] = Math.Max(rcmax[0], MainV2.comPort.MAV.cs.ch1in);
+                    rcmin[0] = Math.Min(rcmin[0], MainSerb.comPort.MAV.cs.ch1in);
+                    rcmax[0] = Math.Max(rcmax[0], MainSerb.comPort.MAV.cs.ch1in);
 
-                    rcmin[1] = Math.Min(rcmin[1], MainV2.comPort.MAV.cs.ch2in);
-                    rcmax[1] = Math.Max(rcmax[1], MainV2.comPort.MAV.cs.ch2in);
+                    rcmin[1] = Math.Min(rcmin[1], MainSerb.comPort.MAV.cs.ch2in);
+                    rcmax[1] = Math.Max(rcmax[1], MainSerb.comPort.MAV.cs.ch2in);
 
-                    rcmin[2] = Math.Min(rcmin[2], MainV2.comPort.MAV.cs.ch3in);
-                    rcmax[2] = Math.Max(rcmax[2], MainV2.comPort.MAV.cs.ch3in);
+                    rcmin[2] = Math.Min(rcmin[2], MainSerb.comPort.MAV.cs.ch3in);
+                    rcmax[2] = Math.Max(rcmax[2], MainSerb.comPort.MAV.cs.ch3in);
 
-                    rcmin[3] = Math.Min(rcmin[3], MainV2.comPort.MAV.cs.ch4in);
-                    rcmax[3] = Math.Max(rcmax[3], MainV2.comPort.MAV.cs.ch4in);
+                    rcmin[3] = Math.Min(rcmin[3], MainSerb.comPort.MAV.cs.ch4in);
+                    rcmax[3] = Math.Max(rcmax[3], MainSerb.comPort.MAV.cs.ch4in);
 
-                    rcmin[4] = Math.Min(rcmin[4], MainV2.comPort.MAV.cs.ch5in);
-                    rcmax[4] = Math.Max(rcmax[4], MainV2.comPort.MAV.cs.ch5in);
+                    rcmin[4] = Math.Min(rcmin[4], MainSerb.comPort.MAV.cs.ch5in);
+                    rcmax[4] = Math.Max(rcmax[4], MainSerb.comPort.MAV.cs.ch5in);
 
-                    rcmin[5] = Math.Min(rcmin[5], MainV2.comPort.MAV.cs.ch6in);
-                    rcmax[5] = Math.Max(rcmax[5], MainV2.comPort.MAV.cs.ch6in);
+                    rcmin[5] = Math.Min(rcmin[5], MainSerb.comPort.MAV.cs.ch6in);
+                    rcmax[5] = Math.Max(rcmax[5], MainSerb.comPort.MAV.cs.ch6in);
 
-                    rcmin[6] = Math.Min(rcmin[6], MainV2.comPort.MAV.cs.ch7in);
-                    rcmax[6] = Math.Max(rcmax[6], MainV2.comPort.MAV.cs.ch7in);
+                    rcmin[6] = Math.Min(rcmin[6], MainSerb.comPort.MAV.cs.ch7in);
+                    rcmax[6] = Math.Max(rcmax[6], MainSerb.comPort.MAV.cs.ch7in);
 
-                    rcmin[7] = Math.Min(rcmin[7], MainV2.comPort.MAV.cs.ch8in);
-                    rcmax[7] = Math.Max(rcmax[7], MainV2.comPort.MAV.cs.ch8in);
+                    rcmin[7] = Math.Min(rcmin[7], MainSerb.comPort.MAV.cs.ch8in);
+                    rcmax[7] = Math.Max(rcmax[7], MainSerb.comPort.MAV.cs.ch8in);
 
-                    rcmin[8] = Math.Min(rcmin[8], MainV2.comPort.MAV.cs.ch9in);
-                    rcmax[8] = Math.Max(rcmax[8], MainV2.comPort.MAV.cs.ch9in);
+                    rcmin[8] = Math.Min(rcmin[8], MainSerb.comPort.MAV.cs.ch9in);
+                    rcmax[8] = Math.Max(rcmax[8], MainSerb.comPort.MAV.cs.ch9in);
 
-                    rcmin[9] = Math.Min(rcmin[9], MainV2.comPort.MAV.cs.ch10in);
-                    rcmax[9] = Math.Max(rcmax[9], MainV2.comPort.MAV.cs.ch10in);
+                    rcmin[9] = Math.Min(rcmin[9], MainSerb.comPort.MAV.cs.ch10in);
+                    rcmax[9] = Math.Max(rcmax[9], MainSerb.comPort.MAV.cs.ch10in);
 
-                    rcmin[10] = Math.Min(rcmin[10], MainV2.comPort.MAV.cs.ch11in);
-                    rcmax[10] = Math.Max(rcmax[10], MainV2.comPort.MAV.cs.ch11in);
+                    rcmin[10] = Math.Min(rcmin[10], MainSerb.comPort.MAV.cs.ch11in);
+                    rcmax[10] = Math.Max(rcmax[10], MainSerb.comPort.MAV.cs.ch11in);
 
-                    rcmin[11] = Math.Min(rcmin[11], MainV2.comPort.MAV.cs.ch12in);
-                    rcmax[11] = Math.Max(rcmax[11], MainV2.comPort.MAV.cs.ch12in);
+                    rcmin[11] = Math.Min(rcmin[11], MainSerb.comPort.MAV.cs.ch12in);
+                    rcmax[11] = Math.Max(rcmax[11], MainSerb.comPort.MAV.cs.ch12in);
 
-                    rcmin[12] = Math.Min(rcmin[12], MainV2.comPort.MAV.cs.ch13in);
-                    rcmax[12] = Math.Max(rcmax[12], MainV2.comPort.MAV.cs.ch13in);
+                    rcmin[12] = Math.Min(rcmin[12], MainSerb.comPort.MAV.cs.ch13in);
+                    rcmax[12] = Math.Max(rcmax[12], MainSerb.comPort.MAV.cs.ch13in);
 
-                    rcmin[13] = Math.Min(rcmin[13], MainV2.comPort.MAV.cs.ch14in);
-                    rcmax[13] = Math.Max(rcmax[13], MainV2.comPort.MAV.cs.ch14in);
+                    rcmin[13] = Math.Min(rcmin[13], MainSerb.comPort.MAV.cs.ch14in);
+                    rcmax[13] = Math.Max(rcmax[13], MainSerb.comPort.MAV.cs.ch14in);
 
-                    rcmin[14] = Math.Min(rcmin[14], MainV2.comPort.MAV.cs.ch15in);
-                    rcmax[14] = Math.Max(rcmax[14], MainV2.comPort.MAV.cs.ch15in);
+                    rcmin[14] = Math.Min(rcmin[14], MainSerb.comPort.MAV.cs.ch15in);
+                    rcmax[14] = Math.Max(rcmax[14], MainSerb.comPort.MAV.cs.ch15in);
 
-                    rcmin[15] = Math.Min(rcmin[15], MainV2.comPort.MAV.cs.ch16in);
-                    rcmax[15] = Math.Max(rcmax[15], MainV2.comPort.MAV.cs.ch16in);
+                    rcmin[15] = Math.Min(rcmin[15], MainSerb.comPort.MAV.cs.ch16in);
+                    rcmax[15] = Math.Max(rcmax[15], MainSerb.comPort.MAV.cs.ch16in);
 
                     BARroll.minline = (int)rcmin[chroll - 1];
                     BARroll.maxline = (int)rcmax[chroll - 1];
@@ -330,25 +330,25 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             CustomMessageBox.Show("Ensure all your sticks are centered and throttle is down, and click ok to continue");
 
-            MainV2.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainV2.comPort.MAV.cs), true, MainV2.comPort);
+            MainSerb.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainSerb.comPort.MAV.cs), true, MainSerb.comPort);
 
-            rctrim[0] = Constrain(MainV2.comPort.MAV.cs.ch1in, 0);
-            rctrim[1] = Constrain(MainV2.comPort.MAV.cs.ch2in, 1);
-            rctrim[2] = Constrain(MainV2.comPort.MAV.cs.ch3in, 2);
-            rctrim[3] = Constrain(MainV2.comPort.MAV.cs.ch4in, 3);
-            rctrim[4] = Constrain(MainV2.comPort.MAV.cs.ch5in, 4);
-            rctrim[5] = Constrain(MainV2.comPort.MAV.cs.ch6in, 5);
-            rctrim[6] = Constrain(MainV2.comPort.MAV.cs.ch7in, 6);
-            rctrim[7] = Constrain(MainV2.comPort.MAV.cs.ch8in, 7);
+            rctrim[0] = Constrain(MainSerb.comPort.MAV.cs.ch1in, 0);
+            rctrim[1] = Constrain(MainSerb.comPort.MAV.cs.ch2in, 1);
+            rctrim[2] = Constrain(MainSerb.comPort.MAV.cs.ch3in, 2);
+            rctrim[3] = Constrain(MainSerb.comPort.MAV.cs.ch4in, 3);
+            rctrim[4] = Constrain(MainSerb.comPort.MAV.cs.ch5in, 4);
+            rctrim[5] = Constrain(MainSerb.comPort.MAV.cs.ch6in, 5);
+            rctrim[6] = Constrain(MainSerb.comPort.MAV.cs.ch7in, 6);
+            rctrim[7] = Constrain(MainSerb.comPort.MAV.cs.ch8in, 7);
 
-            rctrim[8] = Constrain(MainV2.comPort.MAV.cs.ch9in, 8);
-            rctrim[9] = Constrain(MainV2.comPort.MAV.cs.ch10in, 9);
-            rctrim[10] = Constrain(MainV2.comPort.MAV.cs.ch11in, 10);
-            rctrim[11] = Constrain(MainV2.comPort.MAV.cs.ch12in, 11);
-            rctrim[12] = Constrain(MainV2.comPort.MAV.cs.ch13in, 12);
-            rctrim[13] = Constrain(MainV2.comPort.MAV.cs.ch14in, 13);
-            rctrim[14] = Constrain(MainV2.comPort.MAV.cs.ch15in, 14);
-            rctrim[15] = Constrain(MainV2.comPort.MAV.cs.ch16in, 15);
+            rctrim[8] = Constrain(MainSerb.comPort.MAV.cs.ch9in, 8);
+            rctrim[9] = Constrain(MainSerb.comPort.MAV.cs.ch10in, 9);
+            rctrim[10] = Constrain(MainSerb.comPort.MAV.cs.ch11in, 10);
+            rctrim[11] = Constrain(MainSerb.comPort.MAV.cs.ch12in, 11);
+            rctrim[12] = Constrain(MainSerb.comPort.MAV.cs.ch13in, 12);
+            rctrim[13] = Constrain(MainSerb.comPort.MAV.cs.ch14in, 13);
+            rctrim[14] = Constrain(MainSerb.comPort.MAV.cs.ch15in, 14);
+            rctrim[15] = Constrain(MainSerb.comPort.MAV.cs.ch16in, 15);
 
             var data = "---------------\n";
 
@@ -364,11 +364,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         rctrim[a] <= rcmax[a] && rctrim[a] >= rcmin[a] && rctrim[a] != 0 &&
                         rcmin[a] != rcmax[a])
                     {
-                        MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                        MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                             "RC" + (a + 1).ToString("0") + "_MIN", rcmin[a], true);
-                        MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                        MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                             "RC" + (a + 1).ToString("0") + "_MAX", rcmax[a], true);
-                        MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                        MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                             "RC" + (a + 1).ToString("0") + "_TRIM", rctrim[a], true);
                     }
                     else
@@ -378,21 +378,21 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 }
                 catch
                 {
-                    if (MainV2.comPort.MAV.param.ContainsKey("RC" + (a + 1).ToString("0") + "_MIN"))
+                    if (MainSerb.comPort.MAV.param.ContainsKey("RC" + (a + 1).ToString("0") + "_MIN"))
                         CustomMessageBox.Show("Failed to set Channel " + (a + 1));
                 }
 
                 data = data + "CH" + (a + 1) + " " + rcmin[a] + " | " + rcmax[a] + "\n";
             }
 
-            MainV2.comPort.MAV.cs.raterc = oldrc;
-            MainV2.comPort.MAV.cs.rateattitude = oldatt;
-            MainV2.comPort.MAV.cs.rateposition = oldpos;
-            MainV2.comPort.MAV.cs.ratestatus = oldstatus;
+            MainSerb.comPort.MAV.cs.raterc = oldrc;
+            MainSerb.comPort.MAV.cs.rateattitude = oldatt;
+            MainSerb.comPort.MAV.cs.rateposition = oldpos;
+            MainSerb.comPort.MAV.cs.ratestatus = oldstatus;
 
             try
             {
-                MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, oldrc);
+                MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, oldrc);
             }
             catch
             {
@@ -453,12 +453,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (startup)
                 return;
-            if (MainV2.comPort.MAV.param["SWITCH_ENABLE"] != null &&
-                (float)MainV2.comPort.MAV.param["SWITCH_ENABLE"] == 1)
+            if (MainSerb.comPort.MAV.param["SWITCH_ENABLE"] != null &&
+                (float)MainSerb.comPort.MAV.param["SWITCH_ENABLE"] == 1)
             {
                 try
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "SWITCH_ENABLE", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "SWITCH_ENABLE", 0);
                     CustomMessageBox.Show("Disabled Dip Switchs");
                 }
                 catch
@@ -472,7 +472,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 0, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 0, 0, 0, 0, 0, 0);
                 CustomMessageBox.Show(Strings.Put_the_transmitter_in_bind_mode__Receiver_is_waiting);
             }
             catch
@@ -485,7 +485,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 1, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 1, 0, 0, 0, 0, 0);
                 CustomMessageBox.Show(Strings.Put_the_transmitter_in_bind_mode__Receiver_is_waiting);
             }
             catch
@@ -498,7 +498,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 2, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.START_RX_PAIR, 0, 2, 0, 0, 0, 0, 0);
                 CustomMessageBox.Show(Strings.Put_the_transmitter_in_bind_mode__Receiver_is_waiting);
             }
             catch

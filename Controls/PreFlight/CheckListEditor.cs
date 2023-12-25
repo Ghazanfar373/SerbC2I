@@ -81,7 +81,7 @@ namespace MissionPlanner.Controls.PreFlight
         {
             var newcw = new CheckListItem();
 
-            CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+            CheckListItem.defaultsrc = MainSerb.comPort.MAV.cs;
             newcw.SetField(newcw.GetOptions()[0]);
 
             lock (_parent.CheckListItems)

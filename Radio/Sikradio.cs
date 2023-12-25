@@ -304,7 +304,7 @@ S15: MAX_WINDOW=131
             {
                 uploader_LogEvent("Trying XModem Mode");
                 //comPort.BaudRate = 57600;
-                comPort.BaudRate = MainV2.comPort.BaseStream.BaudRate;
+                comPort.BaudRate = MainSerb.comPort.BaseStream.BaudRate;
                 comPort.ReadTimeout = 1000;
 
                 Thread.Sleep(2000);
@@ -1878,7 +1878,7 @@ red LED solid - in firmware update mode");
         {
             // try telem1
 
-            comPort = new MAVLinkSerialPort(MainV2.comPort, (int)MAVLink.SERIAL_CONTROL_DEV.TELEM1);
+            comPort = new MAVLinkSerialPort(MainSerb.comPort, (int)MAVLink.SERIAL_CONTROL_DEV.TELEM1);
 
             comPort.ReadTimeout = 4000;
 
@@ -1897,24 +1897,24 @@ red LED solid - in firmware update mode");
 
                 try
                 {
-                    if (MainV2.comPort.BaseStream.PortName.Contains("TCP"))
+                    if (MainSerb.comPort.BaseStream.PortName.Contains("TCP"))
                     {
                         comPort = new TcpSerial();
-                        comPort.BaudRate = MainV2.comPort.BaseStream.BaudRate;
+                        comPort.BaudRate = MainSerb.comPort.BaseStream.BaudRate;
                         comPort.ReadTimeout = 4000;
                         comPort.Open();
                     }
                     else
                     {
                         comPort = new SerialPort();
-                        if (MainV2.comPort.BaseStream.IsOpen)
+                        if (MainSerb.comPort.BaseStream.IsOpen)
                         {
                             getTelemPortWithRadio(ref comPort);
                         }
                         else
                         {
-                            comPort.PortName = MainV2.comPortName;
-                            comPort.BaudRate = MainV2.comPortBaud;
+                            comPort.PortName = MainSerb.comPortName;
+                            comPort.BaudRate = MainSerb.comPortBaud;
                         }
 
                         comPort.ReadTimeout = 4000;
@@ -1954,8 +1954,8 @@ red LED solid - in firmware update mode");
                     return null;
                 }
             }
-            else if (_Session.Port.BaudRate != MainV2.comPort.BaseStream.BaudRate ||
-                (MainV2.comPort.BaseStream.PortName != "TCP" && (_Session.Port.PortName != MainV2.comPort.BaseStream.PortName)))
+            else if (_Session.Port.BaudRate != MainSerb.comPort.BaseStream.BaudRate ||
+                (MainSerb.comPort.BaseStream.PortName != "TCP" && (_Session.Port.PortName != MainSerb.comPort.BaseStream.PortName)))
             {
                 _Session.Dispose();
                 _Session = null;

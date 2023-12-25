@@ -35,7 +35,6 @@ namespace MissionPlanner.Controls
           
             this.SuspendLayout();
 
-     
             this.toolTip1.SetToolTip(this, "Double click to change");
             // 
             // QuickView
@@ -43,7 +42,6 @@ namespace MissionPlanner.Controls
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "QuickView";
             this.Size = new System.Drawing.Size(122, 54);
-
             this.ResumeLayout(false);
 
         }

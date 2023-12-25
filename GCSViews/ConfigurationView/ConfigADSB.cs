@@ -189,7 +189,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    MainV2.comPort.setParam(x, float.Parse(_params_changed[x], CultureInfo.InvariantCulture));
+                    MainSerb.comPort.setParam(x, float.Parse(_params_changed[x], CultureInfo.InvariantCulture));
                 }
                 catch
                 {
@@ -211,7 +211,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
         protected void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             if (DialogResult.OK == Common.MessageShowAgain("Refresh Params", Strings.WarningUpdateParamList, true))
@@ -220,7 +220,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 try
                 {
-                    MainV2.comPort.getParamList();
+                    MainSerb.comPort.getParamList();
                 }
                 catch (Exception ex)
                 {
@@ -260,7 +260,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             /*
             try
             {
-                sub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_CFG_FLIGHTID,
+                sub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_CFG_FLIGHTID,
                     (msg) =>
                     {
                         this.BeginInvoke((Action) delegate
@@ -275,7 +275,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         });
                         return false;
                     });
-                sub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_CFG_REGISTRATION,
+                sub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_OUT_CFG_REGISTRATION,
                     (msg) =>
                     {
                         BeginInvoke((Action) delegate
@@ -291,10 +291,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         return false;
                     });
 
-                MainV2.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
-                    new MAVLink.mavlink_uavionix_adsb_get_t(10004), MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
-                MainV2.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
-                    new MAVLink.mavlink_uavionix_adsb_get_t(10005), MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
+                    new MAVLink.mavlink_uavionix_adsb_get_t(10004), MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
+                MainSerb.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
+                    new MAVLink.mavlink_uavionix_adsb_get_t(10005), MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
 
             }
             catch
@@ -327,12 +327,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             _params.Clear();
 
             // When the parameter list is changed, re sort the list for our View's purposes
-            MainV2.comPort.MAV.param.Keys.ForEach(x =>
+            MainSerb.comPort.MAV.param.Keys.ForEach(x =>
             {
                 var displayName = ParameterMetaDataRepository.GetParameterMetaData(x.ToString(),
-                    ParameterMetaDataConstants.DisplayName, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.DisplayName, MainSerb.comPort.MAV.cs.firmware.ToString());
                 var parameterMode = ParameterMetaDataRepository.GetParameterMetaData(x.ToString(),
-                    ParameterMetaDataConstants.User, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.User, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                 // If we have a friendly display name AND
                 if (!string.IsNullOrEmpty(displayName))
@@ -426,7 +426,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     var controlAdded = false;
 
-                    var value = (MainV2.comPort.MAV.param[x.Key].Value).ToString("0.###");
+                    var value = (MainSerb.comPort.MAV.param[x.Key].Value).ToString("0.###");
 
                     var items = Controls.Find(x.Key, true);
                     if (items.Length > 0)
@@ -458,16 +458,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     }
 
                     var description = ParameterMetaDataRepository.GetParameterMetaData(x.Key,
-                        ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString());
+                        ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString());
                     var displayName = x.Value + " (" + x.Key + ")";
                     var units = ParameterMetaDataRepository.GetParameterMetaData(x.Key, ParameterMetaDataConstants.Units,
-                        MainV2.comPort.MAV.cs.firmware.ToString());
+                        MainSerb.comPort.MAV.cs.firmware.ToString());
 
                     // If this is a range
                     var rangeRaw = ParameterMetaDataRepository.GetParameterMetaData(x.Key,
-                        ParameterMetaDataConstants.Range, MainV2.comPort.MAV.cs.firmware.ToString());
+                        ParameterMetaDataConstants.Range, MainSerb.comPort.MAV.cs.firmware.ToString());
                     var incrementRaw = ParameterMetaDataRepository.GetParameterMetaData(x.Key,
-                        ParameterMetaDataConstants.Increment, MainV2.comPort.MAV.cs.firmware.ToString());
+                        ParameterMetaDataConstants.Increment, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                     if (!string.IsNullOrEmpty(rangeRaw) && !string.IsNullOrEmpty(incrementRaw))
                     {
@@ -541,12 +541,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     if (!controlAdded)
                     {
                         var availableBitMask = ParameterMetaDataRepository.GetParameterBitMaskInt(x.Key,
-                            MainV2.comPort.MAV.cs.firmware.ToString());
+                            MainSerb.comPort.MAV.cs.firmware.ToString());
                         if (availableBitMask.Count > 0)
                         {
                             var bitmask = new MavlinkCheckBoxBitMask();
                             bitmask.Name = x.Key;
-                            bitmask.setup(x.Key, MainV2.comPort.MAV.param);
+                            bitmask.setup(x.Key, MainSerb.comPort.MAV.param);
 
                             bitmask.myLabel1.Text = displayName;
                             bitmask.label1.Text = FitDescriptionText(units, description, tableLayoutPanel1.Width - 50);
@@ -571,7 +571,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     {
                         // If this is a subset of values
                         var availableValuesRaw = ParameterMetaDataRepository.GetParameterMetaData(x.Key,
-                            ParameterMetaDataConstants.Values, MainV2.comPort.MAV.cs.firmware.ToString());
+                            ParameterMetaDataConstants.Values, MainSerb.comPort.MAV.cs.firmware.ToString());
                         if (!string.IsNullOrEmpty(availableValuesRaw))
                         {
                             var availableValues = availableValuesRaw.Split(',');
@@ -666,8 +666,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.comPort.UnSubscribeToPacketType(sub1);
-            MainV2.comPort.UnSubscribeToPacketType(sub2);
+            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+            MainSerb.comPort.UnSubscribeToPacketType(sub2);
         }
 
         private void but_saveflid_Click(object sender, EventArgs e)
@@ -676,12 +676,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.sendPacket(flid, MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.sendPacket(flid, MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                 Thread.Sleep(200);
-                MainV2.comPort.sendPacket(flid, MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.sendPacket(flid, MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                 Thread.Sleep(200);
-                MainV2.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
-                    new MAVLink.mavlink_uavionix_adsb_get_t(10005), MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
+                    new MAVLink.mavlink_uavionix_adsb_get_t(10005), MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
             }
             catch (Exception exception)
             {
@@ -695,12 +695,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.sendPacket(acreg, MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.sendPacket(acreg, MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                 Thread.Sleep(200);
-                MainV2.comPort.sendPacket(acreg, MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.sendPacket(acreg, MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                 Thread.Sleep(200);
-                MainV2.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
-                    new MAVLink.mavlink_uavionix_adsb_get_t(10004), MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                MainSerb.comPort.generatePacket(MAVLink.MAVLINK_MSG_ID.UAVIONIX_ADSB_GET,
+                    new MAVLink.mavlink_uavionix_adsb_get_t(10004), MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
             }
             catch (Exception exception)
             {

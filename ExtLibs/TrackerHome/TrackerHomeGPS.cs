@@ -58,7 +58,7 @@ using TrackerHomeGPS;
             return true;
         }
 
-        void deviceChanged(MainV2.WM_DEVICECHANGE_enum cause)
+        void deviceChanged(MainSerb.WM_DEVICECHANGE_enum cause)
         {
             GPSDevice gpsModule = getDevice();
             if ((gpsModule != null))

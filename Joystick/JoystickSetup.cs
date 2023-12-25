@@ -62,9 +62,9 @@ namespace MissionPlanner.Joystick
             {
             } // IF 1 DOESNT EXIST NONE WILL
 
-            var tempjoystick = JoystickBase.Create(() => MainV2.comPort);
+            var tempjoystick = JoystickBase.Create(() => MainSerb.comPort);
 
-            label14.Text += " " + MainV2.comPort.MAV.cs.firmware.ToString();
+            label14.Text += " " + MainSerb.comPort.MAV.cs.firmware.ToString();
 
             var y = label8.Bottom;
 
@@ -87,13 +87,13 @@ namespace MissionPlanner.Joystick
                 };
 
                 ax.Detect = () => JoystickBase.getMovingAxis(CMB_joysticks.Text, 16000).ToString();
-                ax.Reverse = () => MainV2.joystick?.setReverse(ax.ChannelNo, ax.ReverseValue);
-                ax.SetAxis = () => MainV2.joystick?.setAxis(ax.ChannelNo,
+                ax.Reverse = () => MainSerb.joystick?.setReverse(ax.ChannelNo, ax.ReverseValue);
+                ax.SetAxis = () => MainSerb.joystick?.setAxis(ax.ChannelNo,
                     (joystickaxis)Enum.Parse(typeof(joystickaxis), ax.ChannelValue));
                 ax.GetValue = () =>
                 {
-                    return (short)MainV2.comPort.MAV.cs.GetType().GetField("rcoverridech" + ax.ChannelNo)
-                        .GetValue(MainV2.comPort.MAV.cs);
+                    return (short)MainSerb.comPort.MAV.cs.GetType().GetField("rcoverridech" + ax.ChannelNo)
+                        .GetValue(MainSerb.comPort.MAV.cs);
                 };
 
                 Controls.Add(ax);
@@ -110,7 +110,7 @@ namespace MissionPlanner.Joystick
 
             this.ResumeLayout();
 
-            if (MainV2.joystick != null && MainV2.joystick.enabled)
+            if (MainSerb.joystick != null && MainSerb.joystick.enabled)
             {
                 timer1.Start();
                 BUT_enable.Text = "Disable";
@@ -132,19 +132,19 @@ namespace MissionPlanner.Joystick
 
         private void BUT_enable_Click(object sender, EventArgs e)
         {
-            if (MainV2.joystick == null || MainV2.joystick.enabled == false)
+            if (MainSerb.joystick == null || MainSerb.joystick.enabled == false)
             {
                 try
                 {
-                    if (MainV2.joystick != null)
-                        MainV2.joystick.UnAcquireJoyStick();
+                    if (MainSerb.joystick != null)
+                        MainSerb.joystick.UnAcquireJoyStick();
                 }
                 catch
                 {
                 }
 
                 // all config is loaded from the xmls
-                var joy = JoystickBase.Create(() => MainV2.comPort);
+                var joy = JoystickBase.Create(() => MainSerb.comPort);
 
                 joy.elevons = CHK_elevons.Checked;
 
@@ -158,8 +158,8 @@ namespace MissionPlanner.Joystick
 
                 Settings.Instance["joystick_name"] = CMB_joysticks.Text;
 
-                MainV2.joystick = joy;
-                MainV2.joystick.enabled = true;
+                MainSerb.joystick = joy;
+                MainSerb.joystick.enabled = true;
 
                 BUT_enable.Text = "Disable";
 
@@ -167,11 +167,11 @@ namespace MissionPlanner.Joystick
             }
             else
             {
-                MainV2.joystick.enabled = false;
+                MainSerb.joystick.enabled = false;
 
-                MainV2.joystick.clearRCOverride();
+                MainSerb.joystick.clearRCOverride();
 
-                MainV2.joystick = null;
+                MainSerb.joystick = null;
 
 
                 //timer1.Stop();
@@ -182,12 +182,12 @@ namespace MissionPlanner.Joystick
 
         private void BUT_save_Click(object sender, EventArgs e)
         {
-            if (MainV2.joystick == null)
+            if (MainSerb.joystick == null)
             {
                 CustomMessageBox.Show("Please select a joystick");
                 return;
             }
-            MainV2.joystick.saveconfig();
+            MainSerb.joystick.saveconfig();
 
             Settings.Instance["joy_elevons"] = CHK_elevons.Checked.ToString();
         }
@@ -196,13 +196,13 @@ namespace MissionPlanner.Joystick
         {
             try
             {
-                if (MainV2.joystick == null || MainV2.joystick.enabled == false)
+                if (MainSerb.joystick == null || MainSerb.joystick.enabled == false)
                 {
                     //Console.WriteLine(DateTime.Now.Millisecond + " start ");
-                    var joy = MainV2.joystick;
+                    var joy = MainSerb.joystick;
                     if (joy == null)
                     {
-                        joy = JoystickBase.Create(() => MainV2.comPort);
+                        joy = JoystickBase.Create(() => MainSerb.comPort);
                         for (int a = 1; a <= maxaxis; a++)
                         {
                             var config = joy.getChannel(a);
@@ -222,7 +222,7 @@ namespace MissionPlanner.Joystick
 
                         SuspendLayout();
 
-                        MainV2.joystick = joy;
+                        MainSerb.joystick = joy;
 
                         var maxctl = Controls.Find("axis" + 1, false).FirstOrDefault();
 
@@ -244,26 +244,26 @@ namespace MissionPlanner.Joystick
                         CMB_joysticks.SelectedIndex = CMB_joysticks.Items.IndexOf(joy.name);
                     }
 
-                    MainV2.joystick.elevons = CHK_elevons.Checked;
+                    MainSerb.joystick.elevons = CHK_elevons.Checked;
 
-                    MainV2.comPort.MAV.cs.rcoverridech1 = joy.getValueForChannel(1);
-                    MainV2.comPort.MAV.cs.rcoverridech2 = joy.getValueForChannel(2);
-                    MainV2.comPort.MAV.cs.rcoverridech3 = joy.getValueForChannel(3);
-                    MainV2.comPort.MAV.cs.rcoverridech4 = joy.getValueForChannel(4);
-                    MainV2.comPort.MAV.cs.rcoverridech5 = joy.getValueForChannel(5);
-                    MainV2.comPort.MAV.cs.rcoverridech6 = joy.getValueForChannel(6);
-                    MainV2.comPort.MAV.cs.rcoverridech7 = joy.getValueForChannel(7);
-                    MainV2.comPort.MAV.cs.rcoverridech8 = joy.getValueForChannel(8);
-                    MainV2.comPort.MAV.cs.rcoverridech9 = joy.getValueForChannel(9);
-                    MainV2.comPort.MAV.cs.rcoverridech10 = joy.getValueForChannel(10);
-                    MainV2.comPort.MAV.cs.rcoverridech11 = joy.getValueForChannel(11);
-                    MainV2.comPort.MAV.cs.rcoverridech12 = joy.getValueForChannel(12);
-                    MainV2.comPort.MAV.cs.rcoverridech13 = joy.getValueForChannel(13);
-                    MainV2.comPort.MAV.cs.rcoverridech14 = joy.getValueForChannel(14);
-                    MainV2.comPort.MAV.cs.rcoverridech15 = joy.getValueForChannel(15);
-                    MainV2.comPort.MAV.cs.rcoverridech16 = joy.getValueForChannel(16);
-                    MainV2.comPort.MAV.cs.rcoverridech17 = joy.getValueForChannel(17);
-                    MainV2.comPort.MAV.cs.rcoverridech18 = joy.getValueForChannel(18);
+                    MainSerb.comPort.MAV.cs.rcoverridech1 = joy.getValueForChannel(1);
+                    MainSerb.comPort.MAV.cs.rcoverridech2 = joy.getValueForChannel(2);
+                    MainSerb.comPort.MAV.cs.rcoverridech3 = joy.getValueForChannel(3);
+                    MainSerb.comPort.MAV.cs.rcoverridech4 = joy.getValueForChannel(4);
+                    MainSerb.comPort.MAV.cs.rcoverridech5 = joy.getValueForChannel(5);
+                    MainSerb.comPort.MAV.cs.rcoverridech6 = joy.getValueForChannel(6);
+                    MainSerb.comPort.MAV.cs.rcoverridech7 = joy.getValueForChannel(7);
+                    MainSerb.comPort.MAV.cs.rcoverridech8 = joy.getValueForChannel(8);
+                    MainSerb.comPort.MAV.cs.rcoverridech9 = joy.getValueForChannel(9);
+                    MainSerb.comPort.MAV.cs.rcoverridech10 = joy.getValueForChannel(10);
+                    MainSerb.comPort.MAV.cs.rcoverridech11 = joy.getValueForChannel(11);
+                    MainSerb.comPort.MAV.cs.rcoverridech12 = joy.getValueForChannel(12);
+                    MainSerb.comPort.MAV.cs.rcoverridech13 = joy.getValueForChannel(13);
+                    MainSerb.comPort.MAV.cs.rcoverridech14 = joy.getValueForChannel(14);
+                    MainSerb.comPort.MAV.cs.rcoverridech15 = joy.getValueForChannel(15);
+                    MainSerb.comPort.MAV.cs.rcoverridech16 = joy.getValueForChannel(16);
+                    MainSerb.comPort.MAV.cs.rcoverridech17 = joy.getValueForChannel(17);
+                    MainSerb.comPort.MAV.cs.rcoverridech18 = joy.getValueForChannel(18);
 
                     //Console.WriteLine(DateTime.Now.Millisecond + " end ");
                 }
@@ -271,13 +271,13 @@ namespace MissionPlanner.Joystick
             catch (SharpDX.SharpDXException ex)
             {
                 ex.ToString();
-                if (MainV2.joystick != null && MainV2.joystick.enabled == true)
+                if (MainSerb.joystick != null && MainSerb.joystick.enabled == true)
                 {
                     BUT_enable_Click(null, null);
                 }
 
                 if (ex.Message.Contains("DIERR_NOTACQUIRED"))
-                    MainV2.joystick = null;
+                    MainSerb.joystick = null;
             }
             catch
             {
@@ -294,7 +294,7 @@ namespace MissionPlanner.Joystick
 
                     if (items.Length > 0)
                         ((HorizontalProgressBar)items[0]).Value =
-                            MainV2.joystick.isButtonPressed(f) ? 100 : 0;
+                            MainSerb.joystick.isButtonPressed(f) ? 100 : 0;
                 }
             }
             catch
@@ -324,7 +324,7 @@ namespace MissionPlanner.Joystick
 
             string name = ((ComboBox)sender).Name.Replace("cmbbutton", "");
 
-            MainV2.joystick.changeButton((int.Parse(name)), int.Parse(((ComboBox)sender).Text));
+            MainSerb.joystick.changeButton((int.Parse(name)), int.Parse(((ComboBox)sender).Text));
         }
 
         private void BUT_detbutton_Click(object sender, EventArgs e)
@@ -344,7 +344,7 @@ namespace MissionPlanner.Joystick
             ComboBox cmbaction = new ComboBox();
             Controls.MyButton but_settings = new Controls.MyButton();
 
-            if (MainV2.joystick == null)
+            if (MainSerb.joystick == null)
             {
                 butlabel.Dispose();
                 butnumberlist.Dispose();
@@ -355,7 +355,7 @@ namespace MissionPlanner.Joystick
                 return;
             }
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
 
             butlabel.Location = new Point(x, y);
@@ -403,7 +403,7 @@ namespace MissionPlanner.Joystick
             cmbaction.Items.AddRange(Enum.GetNames(typeof(buttonfunction)));
 
 
-            //Common.getModesList(MainV2.comPort.MAV.cs);
+            //Common.getModesList(MainSerb.comPort.MAV.cs);
             //cmbaction.ValueMember = "Key";
             //cmbaction.DisplayMember = "Value";
             cmbaction.Tag = name;
@@ -435,10 +435,10 @@ namespace MissionPlanner.Joystick
         void cmbaction_SelectedIndexChanged(object sender, EventArgs e)
         {
             int num = int.Parse(((Control)sender).Tag.ToString());
-            var config = MainV2.joystick.getButton(num);
+            var config = MainSerb.joystick.getButton(num);
             config.function =
                 (buttonfunction)Enum.Parse(typeof(buttonfunction), ((Control)sender).Text);
-            MainV2.joystick.setButton(num, config);
+            MainSerb.joystick.setButton(num, config);
         }
 
         void but_settings_Click(object sender, EventArgs e)
@@ -481,8 +481,8 @@ namespace MissionPlanner.Joystick
         {
             try
             {
-                if (MainV2.joystick != null && MainV2.joystick.enabled == false)
-                    MainV2.joystick.UnAcquireJoyStick();
+                if (MainSerb.joystick != null && MainSerb.joystick.enabled == false)
+                    MainSerb.joystick.UnAcquireJoyStick();
             }
             catch
             {
@@ -494,35 +494,35 @@ namespace MissionPlanner.Joystick
         {
             timer1.Stop();
 
-            if (MainV2.joystick != null && MainV2.joystick.enabled == false)
+            if (MainSerb.joystick != null && MainSerb.joystick.enabled == false)
             {
-                MainV2.joystick.UnAcquireJoyStick();
-                MainV2.joystick = null;
+                MainSerb.joystick.UnAcquireJoyStick();
+                MainSerb.joystick = null;
             }
         }
 
         private void CHK_elevons_CheckedChanged(object sender, EventArgs e)
         {
-            if (MainV2.joystick == null)
+            if (MainSerb.joystick == null)
             {
                 return;
             }
-            MainV2.joystick.elevons = CHK_elevons.Checked;
+            MainSerb.joystick.elevons = CHK_elevons.Checked;
         }
 
         private void chk_manualcontrol_CheckedChanged(object sender, EventArgs e)
         {
-            MainV2.joystick.manual_control = chk_manualcontrol.Checked;
+            MainSerb.joystick.manual_control = chk_manualcontrol.Checked;
         }
 
         public void Deactivate()
         {
             timer1.Stop();
 
-            if (MainV2.joystick != null && MainV2.joystick.enabled == false)
+            if (MainSerb.joystick != null && MainSerb.joystick.enabled == false)
             {
-                MainV2.joystick.UnAcquireJoyStick();
-                MainV2.joystick = null;
+                MainSerb.joystick.UnAcquireJoyStick();
+                MainSerb.joystick = null;
             }
         }
     }

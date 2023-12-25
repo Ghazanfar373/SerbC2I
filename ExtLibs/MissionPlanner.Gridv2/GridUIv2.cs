@@ -499,7 +499,7 @@ namespace MissionPlanner
         {
             if (grid != null && grid.Count > 0)
             {
-                MainV2.instance.FlightPlanner.quickadd = true;
+                MainSerb.instance.FlightPlanner.quickadd = true;
 
                 if (CHK_includetakeoff.Checked)
                 {
@@ -537,9 +537,9 @@ namespace MissionPlanner
 
                 savesettings();
 
-                MainV2.instance.FlightPlanner.quickadd = false;
+                MainSerb.instance.FlightPlanner.quickadd = false;
 
-                MainV2.instance.FlightPlanner.writeKML();
+                MainSerb.instance.FlightPlanner.writeKML();
 
                 this.Close();
             }

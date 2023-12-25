@@ -104,7 +104,6 @@ namespace MissionPlanner.Controls
                     }
                 }
             }
-
             // set the next new instance as not visible
             current.Control.Visible = false;
         }

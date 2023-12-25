@@ -84,7 +84,7 @@ namespace MissionPlanner.Controls
         private void btnPreview_Click(object sender, EventArgs e)
         {
             ThemeManager.thmColor.SetTheme();
-            ThemeManager.ApplyThemeTo(MainV2.instance);
+            ThemeManager.ApplyThemeTo(MainSerb.instance);
 
         }
 
@@ -100,7 +100,7 @@ namespace MissionPlanner.Controls
         {
             //Restore the theme from disk
             ThemeManager.LoadTheme(ThemeManager.thmColor.strThemeName);
-            ThemeManager.ApplyThemeTo(MainV2.instance);
+            ThemeManager.ApplyThemeTo(MainSerb.instance);
         }
 
         private void btnSaveApply_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace MissionPlanner.Controls
             }
 
             ThemeManager.LoadTheme(ThemeManager.thmColor.strThemeName);
-            ThemeManager.ApplyThemeTo(MainV2.instance);
+            ThemeManager.ApplyThemeTo(MainSerb.instance);
             CustomMessageBox.Show("You may need to select another tab or restart to see the full effect.");
             this.Close();
         }
@@ -129,7 +129,7 @@ namespace MissionPlanner.Controls
         {
             //Get current theme and reapply
             ThemeManager.LoadTheme(Settings.Instance["theme"]);
-            ThemeManager.ApplyThemeTo(MainV2.instance);
+            ThemeManager.ApplyThemeTo(MainSerb.instance);
         }
 
         private void cbIconSet_CheckedChanged(object sender, EventArgs e)

@@ -37,7 +37,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 UpdateFWList();
                 firstrun = false;
-                MainV2.instance.DeviceChanged += Instance_DeviceChanged;
+                MainSerb.instance.DeviceChanged += Instance_DeviceChanged;
             }
 
             if (Program.WindowsStoreApp)
@@ -47,7 +47,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 //  return;
             }
 
-            if (MainV2.DisplayConfiguration.isAdvancedMode)
+            if (MainSerb.DisplayConfiguration.isAdvancedMode)
             {
                 lbl_devfw.Visible = true;
                 lbl_Custom_firmware_label.Visible = true;
@@ -63,9 +63,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
         }
 
-        private void Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum cause)
+        private void Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum cause)
         {
-            if (cause != MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
+            if (cause != MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
                 return;
 
             Parallel.ForEach(SerialPort.GetPortNames(), port =>
@@ -398,7 +398,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    MainV2.comPort.BaseStream.Close();
+                    MainSerb.comPort.BaseStream.Close();
                 }
                 catch
                 {
@@ -444,7 +444,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     }
                 }
 
-                var updated = fw.updateLegacy(MainV2.comPortName, fwtoupload, history, ports);
+                var updated = fw.updateLegacy(MainSerb.comPortName, fwtoupload, history, ports);
 
                 if (updated)
                 {
@@ -567,7 +567,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                 }
                             }
 
-                            boardtype = BoardDetect.DetectBoard(MainV2.comPortName, ports);
+                            boardtype = BoardDetect.DetectBoard(MainSerb.comPortName, ports);
                         }
 
                         if (boardtype == BoardDetect.boards.none)
@@ -584,7 +584,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     try
                     {
-                        fw.UploadFlash(MainV2.comPortName, fd.FileName, boardtype);
+                        fw.UploadFlash(MainSerb.comPortName, fd.FileName, boardtype);
                     }
                     catch (Exception ex)
                     {
@@ -620,11 +620,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.Open(false);
+                MainSerb.comPort.Open(false);
 
-                if (MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort.BaseStream.IsOpen)
                 {
-                    MainV2.comPort.doReboot(true, false);
+                    MainSerb.comPort.doReboot(true, false);
                     CustomMessageBox.Show("Please ignore the unplug and plug back in when uploading flight firmware.");
                 }
                 else
@@ -664,7 +664,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
 
             // try reboot device on screen close.
             if (!String.IsNullOrEmpty(detectedport))

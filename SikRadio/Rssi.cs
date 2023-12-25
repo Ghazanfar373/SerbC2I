@@ -83,13 +83,13 @@ namespace SikRadio
 
             try
             {
-                MainV2.comPort.BaseStream.Open();
+                MainSerb.comPort.BaseStream.Open();
 
-                inter.doConnect(MainV2.comPort.BaseStream);
+                inter.doConnect(MainSerb.comPort.BaseStream);
 
-                inter.doCommand(MainV2.comPort.BaseStream, "AT&T=RSSI");
+                inter.doCommand(MainSerb.comPort.BaseStream, "AT&T=RSSI");
 
-                inter.doCommand(MainV2.comPort.BaseStream, "ATO");
+                inter.doCommand(MainSerb.comPort.BaseStream, "ATO");
 
                 tickStart = Environment.TickCount;
 
@@ -110,13 +110,13 @@ namespace SikRadio
             {
                 timer1.Stop();
 
-                inter.doConnect(MainV2.comPort.BaseStream);
+                inter.doConnect(MainSerb.comPort.BaseStream);
 
-                inter.doCommand(MainV2.comPort.BaseStream, "AT&T");
+                inter.doCommand(MainSerb.comPort.BaseStream, "AT&T");
 
-                inter.doCommand(MainV2.comPort.BaseStream, "ATO");
+                inter.doCommand(MainSerb.comPort.BaseStream, "ATO");
 
-                MainV2.comPort.BaseStream.Close();
+                MainSerb.comPort.BaseStream.Close();
 
                 BUT_disconnect.Enabled = false;
                 BUT_connect.Enabled = true;

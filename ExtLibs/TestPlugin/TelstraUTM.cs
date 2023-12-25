@@ -581,7 +581,7 @@ namespace MissionPlanner.Utilities
         {
             //{"timestamp":"2016-05-01 12:42:54","type":"telemetry","telemetry":{"time_measured": "2016-05-01 12:42:54","rssi": "","battery": "0","armed": "false","cid": "0","altitude": "473.500","latitude": "47.199897","longitude": "9.442750","mode": "UTMBOX","speed": "0.0972222222222","heading": "36.8"}}
 
-            var cs = MainV2.comPort.MAV.cs;
+            var cs = MainSerb.comPort.MAV.cs;
 
             var data = new
             {

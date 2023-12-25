@@ -141,10 +141,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void Rtcm3_ObsMessage(object sender, EventArgs e)
         {
-            if (MainV2.instance.IsDisposed)
+            if (MainSerb.instance.IsDisposed)
                 threadrun = false;
 
-            MainV2.instance.BeginInvoke((MethodInvoker)delegate
+            MainSerb.instance.BeginInvoke((MethodInvoker)delegate
            {
                List<rtcm3.ob> obs = sender as List<rtcm3.ob>;
 
@@ -313,9 +313,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             CMB_baudrate.SelectedIndex = 0;
                             if (chk_sendgga.Checked)
                             {
-                                ((CommsNTRIP) comPort).lat = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat;
-                                ((CommsNTRIP) comPort).lng = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng;
-                                ((CommsNTRIP) comPort).alt = MainV2.comPort.MAV.cs.PlannedHomeLocation.Alt;
+                                ((CommsNTRIP) comPort).lat = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat;
+                                ((CommsNTRIP) comPort).lng = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng;
+                                ((CommsNTRIP) comPort).alt = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Alt;
                             }
 
                             chk_sendgga.Enabled = false;
@@ -775,7 +775,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     if (svin.valid == 1)
                     {
-                        //MainV2.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0]*Utilities.rtcm3.R2D,
+                        //MainSerb.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0]*Utilities.rtcm3.R2D,
                         //baseposllh[1]*Utilities.rtcm3.R2D, baseposllh[2]);
                     }
 
@@ -787,7 +787,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     var pvt = ubx_m8p.packet.ByteArrayToStructure<Utilities.Ubx.ubx_nav_pvt>(6);
                     if (pvt.fix_type >= 0x3 && (pvt.flags & 1) > 0)
                     {
-                        MainV2.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(pvt.lat / 1e7, pvt.lon / 1e7, pvt.height / 1000.0);
+                        MainSerb.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(pvt.lat / 1e7, pvt.lon / 1e7, pvt.height / 1000.0);
                     }
                     ubxpvt = pvt;
                 }
@@ -954,7 +954,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     Utilities.rtcm3.ecef2pos(pos, ref baseposllh);
 
-                    MainV2.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0] * Utilities.rtcm3.R2D,
+                    MainSerb.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0] * Utilities.rtcm3.R2D,
                         baseposllh[1] * Utilities.rtcm3.R2D, baseposllh[2]);
 
                     status_line3 =
@@ -975,7 +975,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     Utilities.rtcm3.ecef2pos(pos, ref baseposllh);
 
-                    MainV2.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0] * Utilities.rtcm3.R2D, baseposllh[1] * Utilities.rtcm3.R2D,
+                    MainSerb.comPort.MAV.cs.MovingBase = new Utilities.PointLatLngAlt(baseposllh[0] * Utilities.rtcm3.R2D, baseposllh[1] * Utilities.rtcm3.R2D,
                         baseposllh[2]);
 
                     status_line3 =
@@ -1015,7 +1015,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private static void sendData(byte[] data, ushort length)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 bool CanJustSendOnce = GetCanJustSendOnce(port.MAVlist);
 
@@ -1064,18 +1064,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 myGMAP1.Overlays.Clear();
             if(myGMAP1.Overlays.Count == 0)
                 myGMAP1.Overlays.Add(new GMapOverlay("base"));
-            if (MainV2.comPort.MAV.cs.MovingBase != PointLatLng.Empty)
+            if (MainSerb.comPort.MAV.cs.MovingBase != PointLatLng.Empty)
             {
                 if (myGMAP1.Overlays[0].Markers.Count == 0)
                 {
                     myGMAP1.Overlays[0].Markers
-                        .Add(new GMarkerGoogle(MainV2.comPort.MAV.cs.MovingBase, GMarkerGoogleType.yellow_dot));
+                        .Add(new GMarkerGoogle(MainSerb.comPort.MAV.cs.MovingBase, GMarkerGoogleType.yellow_dot));
                     myGMAP1.ZoomAndCenterMarkers("base");
                 }
 
-                if (MainV2.comPort.MAV.cs.MovingBase != myGMAP1.Overlays[0].Markers[0].Position)
+                if (MainSerb.comPort.MAV.cs.MovingBase != myGMAP1.Overlays[0].Markers[0].Position)
                 {
-                    myGMAP1.Overlays[0].Markers[0].Position = MainV2.comPort.MAV.cs.MovingBase;
+                    myGMAP1.Overlays[0].Markers[0].Position = MainSerb.comPort.MAV.cs.MovingBase;
                     myGMAP1.ZoomAndCenterMarkers("base");
                 }
             }
@@ -1139,7 +1139,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void but_save_basepos_Click(object sender, EventArgs e)
         {
-            if (MainV2.comPort.MAV.cs.MovingBase == null)
+            if (MainSerb.comPort.MAV.cs.MovingBase == null)
             {
                 CustomMessageBox.Show("No valid base position determined by gps yet", Strings.ERROR);
                 return;
@@ -1149,7 +1149,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (InputBox.Show("Enter Location", "Enter a friendly name for this location.", ref location) ==
                 DialogResult.OK)
             {
-                var basepos = MainV2.comPort.MAV.cs.MovingBase;
+                var basepos = MainSerb.comPort.MAV.cs.MovingBase;
                 Settings.Instance["base_pos"] = String.Format("{0},{1},{2},{3}", basepos.Lat.ToString(CultureInfo.InvariantCulture), basepos.Lng.ToString(CultureInfo.InvariantCulture), basepos.Alt.ToString(CultureInfo.InvariantCulture),
                     location);
 

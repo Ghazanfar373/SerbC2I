@@ -16,7 +16,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
@@ -26,7 +26,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             CMB_sonartype.setup(
                 ParameterMetaDataRepository.GetParameterOptionsInt("RNGFND_TYPE",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "RNGFND_TYPE", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "RNGFND_TYPE", MainSerb.comPort.MAV.param);
 
             timer1.Start();
 
@@ -40,8 +40,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            LBL_dist.Text = MainV2.comPort.MAV.cs.sonarrange.ToString();
-            LBL_volt.Text = MainV2.comPort.MAV.cs.sonarvoltage.ToString();
+            LBL_dist.Text = MainSerb.comPort.MAV.cs.sonarrange.ToString();
+            LBL_volt.Text = MainSerb.comPort.MAV.cs.sonarvoltage.ToString();
         }
 
         private void CMB_sonartype_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,8 +52,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (CMB_sonartype.Text == "TeraRangerOne-I2C")
             {
                 // set min and max to 20cm - 10m
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "RNGFND_MAX_CM", 100);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "RNGFND_MIN_CM ", 20);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "RNGFND_MAX_CM", 100);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "RNGFND_MIN_CM ", 20);
             }
         }
     }

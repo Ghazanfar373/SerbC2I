@@ -40,11 +40,11 @@ namespace MissionPlanner.Swarm
 
         public override void Update()
         {
-            if (MainV2.comPort.MAV.cs.lat == 0 || MainV2.comPort.MAV.cs.lng == 0)
+            if (MainSerb.comPort.MAV.cs.lat == 0 || MainSerb.comPort.MAV.cs.lng == 0)
                 return;
 
             if (Leader == null)
-                Leader = MainV2.comPort.MAV;
+                Leader = MainSerb.comPort.MAV;
 
             masterpos = new PointLatLngAlt(Leader.cs.lat, Leader.cs.lng, Leader.cs.alt, "");
         }
@@ -72,7 +72,7 @@ namespace MissionPlanner.Swarm
             //Console.WriteLine("Leader {0} {1} {2}", masterpos.Lat, masterpos.Lng, masterpos.Alt);
 
             int a = 0;
-            foreach (var port in MainV2.Comports.ToArray())
+            foreach (var port in MainSerb.Comports.ToArray())
             {
                 foreach (var mav in port.MAVlist)
                 {

@@ -72,22 +72,22 @@ namespace MissionPlanner.plugins
                     DatagramTransport transport = new UDPTransport(address, port);
                     var dtlstx = client.Connect(pskclient, transport);
 
-                    MainV2.comPort.OnPacketReceived += (sender, message) =>
+                    MainSerb.comPort.OnPacketReceived += (sender, message) =>
                     {
                         dtlstx.Send(message.buffer, 0, message.buffer.Length);
                     };
 
                     var buf = new byte[dtlstx.GetReceiveLimit()];
 
-                    while (MainV2.comPort.BaseStream.IsOpen)
+                    while (MainSerb.comPort.BaseStream.IsOpen)
                     {
                         try
                         {
                             var read = dtlstx.Receive(buf, 0, buf.Length, 1000);
-                            lock (MainV2.comPort.objlock)
+                            lock (MainSerb.comPort.objlock)
                             {
-                                if (MainV2.comPort.BaseStream.IsOpen)
-                                    MainV2.comPort.BaseStream.Write(buf, 0, read);
+                                if (MainSerb.comPort.BaseStream.IsOpen)
+                                    MainSerb.comPort.BaseStream.Write(buf, 0, read);
                             }
                         }
                         catch (Exception ex) { }

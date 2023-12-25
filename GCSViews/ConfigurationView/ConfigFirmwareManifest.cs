@@ -44,8 +44,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
-            MainV2.instance.DeviceChanged += Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged += Instance_DeviceChanged;
 
             // Until we connect to the internet, disable all controls that require it
             // Disable all ImageLabels
@@ -123,7 +123,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
 
             // reset to official on any reload
             REL_Type = APFirmware.RELEASE_TYPES.OFFICIAL;
@@ -131,9 +131,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             flashdone = false;
         }
 
-        private void Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum cause)
+        private void Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum cause)
         {
-            if (cause != MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
+            if (cause != MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
                 return;
 
             if (flashdone == true)
@@ -482,7 +482,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                 }
                             }
 
-                            boardtype = BoardDetect.DetectBoard(MainV2.comPortName, ports);
+                            boardtype = BoardDetect.DetectBoard(MainSerb.comPortName, ports);
                         }
 
                         if (boardtype == BoardDetect.boards.none)
@@ -499,7 +499,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     try
                     {
-                        fw.UploadFlash(MainV2.comPortName, fd.FileName, boardtype);
+                        fw.UploadFlash(MainSerb.comPortName, fd.FileName, boardtype);
                     }
                     catch (Exception ex)
                     {
@@ -514,11 +514,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.Open(false);
+                MainSerb.comPort.Open(false);
 
-                if (MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort.BaseStream.IsOpen)
                 {
-                    MainV2.comPort.doReboot(true, false);
+                    MainSerb.comPort.doReboot(true, false);
                     CustomMessageBox.Show("Please ignore the unplug and plug back in when uploading flight firmware.");
                 }
                 else
@@ -536,8 +536,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             // connect to mavlink
             var mav = new MAVLinkInterface();
-            MainV2.instance.doConnect(mav, MainV2._connectionControl.CMB_serialport.Text,
-                MainV2._connectionControl.CMB_baudrate.Text, false);
+            MainSerb.instance.doConnect(mav, MainSerb._connectionControl.CMB_serialport.Text,
+                MainSerb._connectionControl.CMB_baudrate.Text, false);
 
             if (mav.BaseStream == null || !mav.BaseStream.IsOpen)
             {

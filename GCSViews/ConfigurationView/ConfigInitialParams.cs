@@ -152,7 +152,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             var atc_prefix = "ATC";
             var mot_prefix = "MOT";
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
             {
                 atc_prefix = "Q_A";
                 mot_prefix = "Q_M";
@@ -167,7 +167,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             new_params.Add(atc_prefix + "_ACCEL_Y_MAX", atc_accel_y_max);
 
             //Filters has different name in 4.x and in 3.x
-            if (MainV2.comPort.MAV.cs.version.Major == 4)
+            if (MainSerb.comPort.MAV.cs.version.Major == 4)
             {
 
                 new_params.Add(atc_prefix + "_RAT_PIT_FLTD", atc_rat_pit_fltd);
@@ -206,7 +206,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             }
 
-            if (cb_suggested.Checked && MainV2.comPort.MAV.cs.version.Major == 4 && (MainV2.comPort.MAV.cs.firmware != Firmwares.ArduPlane))
+            if (cb_suggested.Checked && MainSerb.comPort.MAV.cs.version.Major == 4 && (MainSerb.comPort.MAV.cs.firmware != Firmwares.ArduPlane))
             {
                 new_params.Add("BATT_FS_CRT_ACT", 1);
                 new_params.Add("BATT_FS_LOW_ACT", 2);
@@ -218,7 +218,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             }
 
-            Form paramCompareForm = new ParamCompare(null, MainV2.comPort.MAV.param, new_params);
+            Form paramCompareForm = new ParamCompare(null, MainSerb.comPort.MAV.param, new_params);
             ThemeManager.ApplyThemeTo(paramCompareForm);
 
             MissionPlanner.Controls.MyButton button = paramCompareForm.Controls.Find("BUT_save", true).FirstOrDefault() as MissionPlanner.Controls.MyButton;

@@ -77,7 +77,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private bool CheckConnected()
         {
-            if (MainV2.comPort.BaseStream == null || !MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream == null || !MainSerb.comPort.BaseStream.IsOpen)
             {
                 CustomMessageBox.Show("Your are not connected", Strings.ERROR);
                 return false;
@@ -99,7 +99,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             var config = ConfigFactory.Create(parameters, Enumerable.Range(5, 2));
 
             // Create a names list of all available Mav parameters
-            var allparameterNames = MainV2.comPort.MAV.param.Select(p => p.Name).ToList();
+            var allparameterNames = MainSerb.comPort.MAV.param.Select(p => p.Name).ToList();
             allparameterNames.Sort();
 
             var dialog = new SetupDialog(allparameterNames.ToArray(), config.Screens, assignedFunctions);
@@ -206,7 +206,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private static IEnumerable<OSDSetting> GetOSDSettings()
         {
-            return MainV2.comPort.MAV.param
+            return MainSerb.comPort.MAV.param
                    .Where(o => o.Name.StartsWith("OSD", StringComparison.OrdinalIgnoreCase))
                    .Select(o => new OSDSetting(o.Name, o.Value));
         }
@@ -274,7 +274,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                     try
                     {
-                        MainV2.comPort.setParam(p.Name, p.Value);
+                        MainSerb.comPort.setParam(p.Name, p.Value);
                         p.ClearChanged();
                     }
                     catch
@@ -305,16 +305,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 && (int)DialogResult.No == CustomMessageBox.Show("This will reset your changes. Continue?", MessageBoxButtons: MessageBoxButtons.YesNo))
                 return;
 
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
-            if (!MainV2.comPort.MAV.cs.armed || (DialogResult.OK ==  Common.MessageShowAgain("Refresh Params", Strings.WarningUpdateParamList, true)))
+            if (!MainSerb.comPort.MAV.cs.armed || (DialogResult.OK ==  Common.MessageShowAgain("Refresh Params", Strings.WarningUpdateParamList, true)))
             {
                 this.Enabled = false;
 
                 try
                 {
-                    MainV2.comPort.getParamList();
+                    MainSerb.comPort.getParamList();
                 }
                 catch (Exception)
                 {

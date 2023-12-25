@@ -135,13 +135,13 @@ namespace MissionPlanner.Controls
 
         private void timer2serial_Tick(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen && !MainV2.comPort.logreadmode)
+            if (!MainSerb.comPort.BaseStream.IsOpen && !MainSerb.comPort.logreadmode)
                 return;
 
             //Console.WriteLine(DateTime.Now.Millisecond + " timer2 serial");
             try
             {
-                MainV2.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainV2.comPort.MAV.cs));
+                MainSerb.comPort.MAV.cs.UpdateCurrentSettings(currentStateBindingSource.UpdateDataSource(MainSerb.comPort.MAV.cs));
             }
             catch
             {
@@ -150,15 +150,15 @@ namespace MissionPlanner.Controls
             if (sw != null && sw.BaseStream.CanWrite)
             {
                 sw.WriteLine(string.Format("{0},{1},{2},{3},{4},{5},{6}", DateTime.Now.ToString(),
-                    MainV2.comPort.MAV.cs.ax, MainV2.comPort.MAV.cs.ay, MainV2.comPort.MAV.cs.az,
-                    MainV2.comPort.MAV.cs.gx, MainV2.comPort.MAV.cs.gy, MainV2.comPort.MAV.cs.gz));
+                    MainSerb.comPort.MAV.cs.ax, MainSerb.comPort.MAV.cs.ay, MainSerb.comPort.MAV.cs.az,
+                    MainSerb.comPort.MAV.cs.gx, MainSerb.comPort.MAV.cs.gy, MainSerb.comPort.MAV.cs.gz));
             }
 
             double time = (Environment.TickCount - tickStart) / 1000.0;
 
             if (chkax.Checked)
             {
-                list1.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.ax);
+                list1.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.ax);
             }
             else
             {
@@ -166,7 +166,7 @@ namespace MissionPlanner.Controls
             }
             if (chkay.Checked)
             {
-                list2.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.ay);
+                list2.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.ay);
             }
             else
             {
@@ -174,7 +174,7 @@ namespace MissionPlanner.Controls
             }
             if (chkaz.Checked)
             {
-                list3.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.az);
+                list3.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.az);
             }
             else
             {
@@ -182,7 +182,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgx.Checked)
             {
-                list4.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gx);
+                list4.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.gx);
             }
             else
             {
@@ -190,7 +190,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgy.Checked)
             {
-                list5.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gy);
+                list5.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.gy);
             }
             else
             {
@@ -198,7 +198,7 @@ namespace MissionPlanner.Controls
             }
             if (chkgz.Checked)
             {
-                list6.Add(time, MissionPlanner.MainV2.comPort.MAV.cs.gz);
+                list6.Add(time, MissionPlanner.MainSerb.comPort.MAV.cs.gz);
             }
             else
             {
@@ -221,7 +221,7 @@ namespace MissionPlanner.Controls
 
         private void ACM_Setup_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MainV2.comPort != null && MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort != null && MainSerb.comPort.BaseStream.IsOpen)
             {
                 try
                 {
@@ -240,7 +240,7 @@ namespace MissionPlanner.Controls
         {
             try
             {
-                if (!MainV2.comPort.BaseStream.IsOpen && !MainV2.comPort.logreadmode)
+                if (!MainSerb.comPort.BaseStream.IsOpen && !MainSerb.comPort.logreadmode)
                 {
                     CustomMessageBox.Show("Please connect first");
                     this.Close();
@@ -254,7 +254,7 @@ namespace MissionPlanner.Controls
                 //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.POSITION, 3); // request location
                 //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.EXTRA1, 3); // request attitude
                 //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.EXTRA2, 3); // request vfr
-                MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainV2.comPort.MAV.cs.ratesensors);
+                MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainSerb.comPort.MAV.cs.ratesensors);
                 // request raw sensor
                 //comPort.requestDatastream((byte)MissionPlanner.MAVLink09.MAV_DATA_STREAM.RC_CHANNELS, 3); // request rc info
             }
@@ -268,8 +268,8 @@ namespace MissionPlanner.Controls
 
         private void CMB_rawupdaterate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainV2.comPort.MAV.cs.ratesensors = int.Parse(CMB_rawupdaterate.Text);
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS,
+            MainSerb.comPort.MAV.cs.ratesensors = int.Parse(CMB_rawupdaterate.Text);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS,
                 int.Parse(CMB_rawupdaterate.Text)); // request raw sensor
         }
 

@@ -101,7 +101,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             UpdateStatus("Login Done.", 100);
 
             // run a single scan incase its already in BL mode
-            Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
+            Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
         }
 
         private void UpdateStatus(string v1, int v2)
@@ -120,19 +120,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void but_getsn_Click(object sender, EventArgs e)
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
 
-            Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
+            Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
 
-            MainV2.instance.DeviceChanged += Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged += Instance_DeviceChanged;
 
             CustomMessageBox.Show("Please re-power to autopilot");
             UpdateStatus("Please re-power to autopilot", 100);
         }
 
-        private void Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum cause)
+        private void Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum cause)
         {
-            if (cause != MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
+            if (cause != MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL)
                 return;
 
             timer1_Tick(this, null);
@@ -321,13 +321,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
         }
 
         public void Activate()
         {
-            MainV2.instance.DeviceChanged -= Instance_DeviceChanged;
-            Instance_DeviceChanged(MainV2.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
+            MainSerb.instance.DeviceChanged -= Instance_DeviceChanged;
+            Instance_DeviceChanged(MainSerb.WM_DEVICECHANGE_enum.DBT_DEVICEARRIVAL);
         }
     }
 }

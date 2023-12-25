@@ -32,7 +32,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
             }
@@ -62,7 +62,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 log.Info("Try baud " + baud);
                 try
                 {
-                    using (var port = new SerialPort(MainV2.comPortName, baud.Key))
+                    using (var port = new SerialPort(MainSerb.comPortName, baud.Key))
                     {
                         try
                         {

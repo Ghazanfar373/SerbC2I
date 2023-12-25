@@ -15,13 +15,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
             }
             Enabled = true;
 
-            var list = MainV2.comPort.MAV.param.Where(a => (a.Name.Contains("_ID") || a.Name.Contains("_DEVID")) && !a.Name.Contains("_IDX") && !a.Name.Contains("FRSKY"))
+            var list = MainSerb.comPort.MAV.param.Where(a => (a.Name.Contains("_ID") || a.Name.Contains("_DEVID")) && !a.Name.Contains("_IDX") && !a.Name.Contains("FRSKY"))
                 .Select((a, b) => new DeviceInfo(b, a.Name, (uint) a.Value))
                 .OrderBy((a) => a.ParamName).ToList();
 

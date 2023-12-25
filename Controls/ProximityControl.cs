@@ -219,8 +219,8 @@ namespace MissionPlanner.Controls
             else
             {
                 Dispose();
-                _parent.Proximity = new Proximity(_parent, (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent);
+                _parent.Proximity = new Proximity(_parent, (byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent);
                 base.Show();
             }
         }

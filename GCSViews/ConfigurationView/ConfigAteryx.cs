@@ -31,12 +31,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
             }
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx)
             {
                 Enabled = true;
             }
@@ -105,7 +105,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             disableNumericUpDownControls(this);
 
             // process hashdefines and update display
-            foreach (string value in MainV2.comPort.MAV.param.Keys)
+            foreach (string value in MainSerb.comPort.MAV.param.Keys)
             {
                 if (value == null || value == "")
                     continue;
@@ -121,7 +121,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             var thisctl = ((NumericUpDown)ctl);
                             thisctl.Maximum = 9000;
                             thisctl.Minimum = -9000;
-                            thisctl.Value = (decimal)(float)MainV2.comPort.MAV.param[value];
+                            thisctl.Value = (decimal)(float)MainSerb.comPort.MAV.param[value];
                             thisctl.Increment = (decimal)0.001;
                             if (thisctl.Name.EndsWith("_P") || thisctl.Name.EndsWith("_I") ||
                                 thisctl.Name.EndsWith("_D")
@@ -162,7 +162,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         {
                             var thisctl = ((ComboBox)ctl);
 
-                            thisctl.SelectedIndex = (int)(float)MainV2.comPort.MAV.param[value];
+                            thisctl.SelectedIndex = (int)(float)MainSerb.comPort.MAV.param[value];
 
                             thisctl.Validated += ComboBox_Validated;
                         }
@@ -222,7 +222,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    MainV2.comPort.setParam(value, (float)changes[value]);
+                    MainSerb.comPort.setParam(value, (float)changes[value]);
 
                     try
                     {
@@ -251,14 +251,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
         protected void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
 
             try
             {
-                MainV2.comPort.getParamList();
+                MainSerb.comPort.getParamList();
             }
             catch (Exception ex)
             {
@@ -293,15 +293,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 ((Button)sender).Enabled = false;
 
-                if ((MainV2.comPort.MAV.cs.airspeed > 7.0) || (MainV2.comPort.MAV.cs.groundspeed > 10.0))
+                if ((MainSerb.comPort.MAV.cs.airspeed > 7.0) || (MainSerb.comPort.MAV.cs.groundspeed > 10.0))
                 {
                     CustomMessageBox.Show("Unable - UAV airborne");
                     ((Button)sender).Enabled = true;
                     return;
                 }
 
-                //MainV2.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                //MainSerb.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
             }
             catch
             {
@@ -317,14 +317,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 var dr = CustomMessageBox.Show("Reset Flash to Factory Defaults?", "Continue", MessageBoxButtons.YesNo);
                 if (dr == (int)DialogResult.Yes)
                 {
-                    if ((MainV2.comPort.MAV.cs.airspeed > 7.0) || (MainV2.comPort.MAV.cs.groundspeed > 7.0))
+                    if ((MainSerb.comPort.MAV.cs.airspeed > 7.0) || (MainSerb.comPort.MAV.cs.groundspeed > 7.0))
                     {
                         MessageBox.Show("Unable - UAV airborne");
                         ((Button)sender).Enabled = true;
                         return;
                     }
-                    //MainV2.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
-                    MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+                    //MainSerb.comPort.doCommand((MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), "MAV_CMD_PREFLIGHT_STORAGE"));
+                    MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
                 }
             }
             catch

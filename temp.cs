@@ -326,7 +326,7 @@ namespace MissionPlanner
 
             try
             {
-                comport = new MAVLinkSerialPort(MainV2.comPort, MAVLink.SERIAL_CONTROL_DEV.GPS1);
+                comport = new MAVLinkSerialPort(MainSerb.comPort, MAVLink.SERIAL_CONTROL_DEV.GPS1);
 
                 if (listener != null)
                 {
@@ -496,9 +496,9 @@ namespace MissionPlanner
 
         private void but_gimbaltest_Click(object sender, EventArgs e)
         {
-            if (MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream.IsOpen)
             {
-                GimbalPoint.ProjectPoint(MainV2.comPort);
+                GimbalPoint.ProjectPoint(MainSerb.comPort);
             }
             else
                 CustomMessageBox.Show(Strings.PleaseConnect, Strings.ERROR);
@@ -616,15 +616,15 @@ namespace MissionPlanner
             try
             {
 
-                MainV2.comPort.setMode("Stabilize");
+                MainSerb.comPort.setMode("Stabilize");
 
-                if (MainV2.comPort.doARM(true))
+                if (MainSerb.comPort.doARM(true))
                 {
-                    MainV2.comPort.setMode("GUIDED");
+                    MainSerb.comPort.setMode("GUIDED");
 
                     Thread.Sleep(300);
 
-                    MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.TAKEOFF, 0, 0, 0, 0, 0, 0, 10);
+                    MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.TAKEOFF, 0, 0, 0, 0, 0, 0, 10);
                 }
             }
             catch (Exception ex)
@@ -637,10 +637,10 @@ namespace MissionPlanner
         {
             StreamCombiner.Connect += (mav, localsysid) =>
             {
-                MainV2.instance.doConnect(mav, "preset",
+                MainSerb.instance.doConnect(mav, "preset",
                     localsysid.ToString());
 
-                MainV2.Comports.Add(mav);
+                MainSerb.Comports.Add(mav);
             };
 
             StreamCombiner.Start();
@@ -662,21 +662,21 @@ namespace MissionPlanner
         private void but_reboot_Click(object sender, EventArgs e)
         {
             if (CustomMessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
-                MainV2.comPort.doReboot(false, true);
+                MainSerb.comPort.doReboot(false, true);
         }
 
         private void BUT_QNH_Click(object sender, EventArgs e)
         {
-            var paramname = MainV2.comPort.MAV.param.ContainsKey("GND_ABS_PRESS") ? "GND_ABS_PRESS" : "BARO1_GND_PRESS";
+            var paramname = MainSerb.comPort.MAV.param.ContainsKey("GND_ABS_PRESS") ? "GND_ABS_PRESS" : "BARO1_GND_PRESS";
 
-            var currentQNH = MainV2.comPort.GetParam(paramname).ToString();
+            var currentQNH = MainSerb.comPort.GetParam(paramname).ToString();
 
             if (InputBox.Show("QNH", "Enter the QNH in pascals (103040 = 1030.4 hPa)", ref currentQNH) ==
                 DialogResult.OK)
             {
                 var newQNH = double.Parse(currentQNH);
 
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     paramname, newQNH);
             }
         }
@@ -710,7 +710,7 @@ namespace MissionPlanner
         private void but_agemapdata_Click(object sender, EventArgs e)
         {
             var removed = ((PureImageCache)MyImageCache.Instance).DeleteOlderThan(DateTime.Now.AddDays(-30),
-                FlightData.instance.gMapControl1.MapProvider.DbId);
+                FlightStatus.instance.gMapControlSerb.MapProvider.DbId);
 
             CustomMessageBox.Show("Removed " + removed + " images");
 
@@ -833,7 +833,7 @@ namespace MissionPlanner
 
             test.Show();
 
-            var flow = new OpticalFlow(MainV2.comPort, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            var flow = new OpticalFlow(MainSerb.comPort, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
             // disable on close form
             test.Closed += (o, args) =>
@@ -960,10 +960,10 @@ namespace MissionPlanner
             string path = "@SYS/threads.txt";
             if (InputBox.Show("path", "path", ref path) == DialogResult.OK)
             {
-                if (MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort.BaseStream.IsOpen)
                 {
-                    var mavftp = new MAVFtp(MainV2.comPort, (byte) MainV2.comPort.sysidcurrent,
-                        (byte) MainV2.comPort.compidcurrent);
+                    var mavftp = new MAVFtp(MainSerb.comPort, (byte) MainSerb.comPort.sysidcurrent,
+                        (byte) MainSerb.comPort.compidcurrent);
                     var st = mavftp.GetFile(path, new CancellationTokenSource(5000), true);
                     var output = Path.Combine(Settings.GetUserDataDirectory(), Path.GetFileName(path));
                     File.WriteAllBytes(output, st.ToArray());
@@ -990,7 +990,7 @@ namespace MissionPlanner
                 var lbl = new Label() { Text = line, AutoSize = true};
                 lbl.Click += (o, args) =>
                 {
-                    FlightData.instance.gMapControl1.SetZoomToFitRect(item.Area);
+                    FlightStatus.instance.gMapControlSerb.SetZoomToFitRect(item.Area);
                     FlightPlanner.instance.MainMap.SetZoomToFitRect(item.Area);
                 };
                 flp.Controls.Add(lbl);
@@ -1017,7 +1017,7 @@ namespace MissionPlanner
 
         private void but_proximity_Click(object sender, EventArgs e)
         {
-            new ProximityControl(MainV2.comPort.MAV).Show();
+            new ProximityControl(MainSerb.comPort.MAV).Show();
         }
 
         private void but_dashware_Click(object sender, EventArgs e)
@@ -1039,7 +1039,7 @@ namespace MissionPlanner
 
         private void but_mavinspector_Click(object sender, EventArgs e)
         {
-            new MAVLinkInspector(MainV2.comPort).Show();
+            new MAVLinkInspector(MainSerb.comPort).Show();
         }
 
         private void BUT_driverclean_Click(object sender, EventArgs e)
@@ -1056,8 +1056,8 @@ namespace MissionPlanner
                     "BL Update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == (int) DialogResult.Yes)
                     try
                     {
-                        if (MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent,
-                            (byte) MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.FLASH_BOOTLOADER, 0, 0, 0, 0, 290876,
+                        if (MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent,
+                            (byte) MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.FLASH_BOOTLOADER, 0, 0, 0, 0, 290876,
                             0, 0))
                         {
                             CustomMessageBox.Show("Upgraded bootloader");
@@ -1129,7 +1129,7 @@ namespace MissionPlanner
                     rateratio = 1.0f / (float) rate * 1000000.0f;
                 try
                 {
-                    MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL, (float) (int) value, rateratio
                         , 0, 0, 0, 0, 0);
                 }
@@ -1154,7 +1154,7 @@ namespace MissionPlanner
                    var value = Enum.Parse(typeof(MAVLink.MAVLINK_MSG_ID), a.ToString());
                    try
                    {
-                       MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                       MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                            MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL, (float) (int) value,
                            rateratio, 0, 0, 0, 0, 0, false);
                    }
@@ -1186,8 +1186,8 @@ namespace MissionPlanner
         private void but_disablearmswitch_Click(object sender, EventArgs e)
         {
             if (CustomMessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
-                MainV2.comPort.setMode(
-                    new MAVLink.mavlink_set_mode_t() { custom_mode = (MainV2.comPort.MAV.cs.sensors_enabled.motor_control == true && MainV2.comPort.MAV.cs.sensors_enabled.seen) ? 1u : 0u },
+                MainSerb.comPort.setMode(
+                    new MAVLink.mavlink_set_mode_t() { custom_mode = (MainSerb.comPort.MAV.cs.sensors_enabled.motor_control == true && MainSerb.comPort.MAV.cs.sensors_enabled.seen) ? 1u : 0u },
                     MAVLink.MAV_MODE_FLAG.SAFETY_ARMED);
         }
 
@@ -1242,9 +1242,9 @@ namespace MissionPlanner
 
         private void but_acbarohight_Click(object sender, EventArgs e)
         {
-            var paramname = MainV2.comPort.MAV.param.ContainsKey("GND_ABS_PRESS") ? "GND_ABS_PRESS" : "BARO1_GND_PRESS";
+            var paramname = MainSerb.comPort.MAV.param.ContainsKey("GND_ABS_PRESS") ? "GND_ABS_PRESS" : "BARO1_GND_PRESS";
 
-            var currentQNH = MainV2.comPort.GetParam(paramname).ToString();
+            var currentQNH = MainSerb.comPort.GetParam(paramname).ToString();
             //338.6388 pa => 100' = 30.48m
             CustomMessageBox.Show("use at your own risk!!!");
 
@@ -1255,7 +1255,7 @@ namespace MissionPlanner
             mavlinkNumericUpDown.Padding = new Padding(20);
             mavlinkNumericUpDown.ValueChanged += (o, args) =>
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, paramname, (float)(double.Parse(currentQNH) + (double)mavlinkNumericUpDown.Value * 11.1));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, paramname, (float)(double.Parse(currentQNH) + (double)mavlinkNumericUpDown.Value * 11.1));
                 };
 
             mavlinkNumericUpDown.ShowUserControl();
@@ -1264,10 +1264,10 @@ namespace MissionPlanner
         private async void But_stayoutest_Click(object sender, EventArgs e)
         {
             var list = new List<Locationwp>();
-            var tl = (MainV2.comPort.MAV.cs.Location.gps_offset(-20, -25));
-            var tr = (MainV2.comPort.MAV.cs.Location.gps_offset(50, -25));
-            var br = (MainV2.comPort.MAV.cs.Location.gps_offset(50, 15));
-            var bl = (MainV2.comPort.MAV.cs.Location.gps_offset(-20, 15));
+            var tl = (MainSerb.comPort.MAV.cs.Location.gps_offset(-20, -25));
+            var tr = (MainSerb.comPort.MAV.cs.Location.gps_offset(50, -25));
+            var br = (MainSerb.comPort.MAV.cs.Location.gps_offset(50, 15));
+            var bl = (MainSerb.comPort.MAV.cs.Location.gps_offset(-20, 15));
 
             var cmd = MAVLink.MAV_CMD.FENCE_POLYGON_VERTEX_INCLUSION;
 
@@ -1284,21 +1284,21 @@ namespace MissionPlanner
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = br.Lat, lng = br.Lng });
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = bl.Lat, lng = bl.Lng });
 
-            tl = (MainV2.comPort.MAV.cs.Location.gps_offset(-40, -45));
-            tr = (MainV2.comPort.MAV.cs.Location.gps_offset(20, -45));
-            br = (MainV2.comPort.MAV.cs.Location.gps_offset(20, 20));
-            bl = (MainV2.comPort.MAV.cs.Location.gps_offset(-40, 20));
+            tl = (MainSerb.comPort.MAV.cs.Location.gps_offset(-40, -45));
+            tr = (MainSerb.comPort.MAV.cs.Location.gps_offset(20, -45));
+            br = (MainSerb.comPort.MAV.cs.Location.gps_offset(20, 20));
+            bl = (MainSerb.comPort.MAV.cs.Location.gps_offset(-40, 20));
 
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = tl.Lat, lng = tl.Lng });
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = tr.Lat, lng = tr.Lng });
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = br.Lat, lng = br.Lng });
             list.Add(new Locationwp() { alt = 0, frame = frame, id = (ushort)cmd, p1 = 4, lat = bl.Lat, lng = bl.Lng });
 
-            //mav_mission.upload(MainV2.comPort, MAVLink.MAV_MISSION_TYPE.FENCE, list);
+            //mav_mission.upload(MainSerb.comPort, MAVLink.MAV_MISSION_TYPE.FENCE, list);
 
-            var mission = await mav_mission.download(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.MISSION).ConfigureAwait(true);
-            var fence = await mav_mission.download(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.FENCE).ConfigureAwait(true);
-            var rally = await mav_mission.download(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.RALLY).ConfigureAwait(true);
+            var mission = await mav_mission.download(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.MISSION).ConfigureAwait(true);
+            var fence = await mav_mission.download(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.FENCE).ConfigureAwait(true);
+            var rally = await mav_mission.download(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, MAVLink.MAV_MISSION_TYPE.RALLY).ConfigureAwait(true);
         }
 
         private void but_lockup_Click(object sender, EventArgs e)
@@ -1307,7 +1307,7 @@ namespace MissionPlanner
                     "Lockup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == (int)DialogResult.Yes)
                 if (CustomMessageBox.Show("Lockup the autopilot??? this can cause a CRASH!!!!!!",
                         "Lockup", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == (int)DialogResult.Yes)
-                    MainV2.comPort.doCommand(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid,
+                    MainSerb.comPort.doCommand(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                         MAVLink.MAV_CMD.PREFLIGHT_REBOOT_SHUTDOWN,
                         42, 24, 71, 93, 0, 0, 0, false);
         }
@@ -1334,8 +1334,8 @@ namespace MissionPlanner
 
         private void but_remotedflogger_Click(object sender, EventArgs e)
         {
-            RemoteLog.StartRemoteLog(MainV2.comPort, (byte) MainV2.comPort.sysidcurrent,
-                (byte) MainV2.comPort.compidcurrent);
+            RemoteLog.StartRemoteLog(MainSerb.comPort, (byte) MainSerb.comPort.sysidcurrent,
+                (byte) MainSerb.comPort.compidcurrent);
         }
 
         private void but_paramrestore_Click(object sender, EventArgs e)
@@ -1367,7 +1367,7 @@ namespace MissionPlanner
                         // prefeed
                         foreach (var d in param2)
                         {
-                            MainV2.comPort.GetParam(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, d.Key,
+                            MainSerb.comPort.GetParam(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, d.Key,
                                 requireresponce: false);
                         }
 
@@ -1377,7 +1377,7 @@ namespace MissionPlanner
                         {
                             try
                             {
-                                MainV2.comPort.setParam(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, d.Key,
+                                MainSerb.comPort.setParam(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, d.Key,
                                     d.Value);
                             }
                             catch
@@ -1397,21 +1397,21 @@ namespace MissionPlanner
 
                             try
                             {
-                                if (MainV2.comPort.MAV.param.ContainsKey(d.Key) &&
-                                    MainV2.comPort.MAV.param[d.Key].Value == d.Value)
+                                if (MainSerb.comPort.MAV.param.ContainsKey(d.Key) &&
+                                    MainSerb.comPort.MAV.param[d.Key].Value == d.Value)
                                 {
                                     alreadyset++;
                                     continue;
                                 }
 
-                                MainV2.comPort.GetParam(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, d.Key);
+                                MainSerb.comPort.GetParam(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, d.Key);
                                 
                                 if (d.Key.ToLower().Contains("_id"))
-                                    MainV2.comPort.setParam(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, d.Key,
+                                    MainSerb.comPort.setParam(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, d.Key,
                                         0,
                                         true);
 
-                                MainV2.comPort.setParam(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, d.Key,
+                                MainSerb.comPort.setParam(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, d.Key,
                                     d.Value,
                                     true);
 
@@ -1470,7 +1470,7 @@ namespace MissionPlanner
 
         private void but_dfumode_Click(object sender, EventArgs e)
         {
-            MainV2.comPort.doDFUBoot((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent);
+            MainSerb.comPort.doDFUBoot((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent);
         }
     }
 }

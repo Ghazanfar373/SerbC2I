@@ -53,8 +53,8 @@ namespace donate
             MenuCustom.Text = "DONATE";
             MenuCustom.TextAlign = ContentAlignment.BottomCenter;
             MenuCustom.TextImageRelation = TextImageRelation.ImageAboveText;
-            var idx = MainV2.instance.MainMenu.Items.IndexOfKey("MenuHelp");
-            MainV2.instance.MainMenu.Items.Insert(idx+1, MenuCustom);
+            var idx = MainSerb.instance.MainMenu.Items.IndexOfKey("MenuHelp");
+            MainSerb.instance.MainMenu.Items.Insert(idx+1, MenuCustom);
 
             var custom = new Bitmap(47, 47);
             using (var g = Graphics.FromImage(custom))

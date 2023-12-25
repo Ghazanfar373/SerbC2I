@@ -22,5 +22,6 @@ namespace AltitudeAngelWings.Models
         public FlightDataPosition CurrentPosition { get; set; }
         public FlightDataPosition HomePosition { get; set; }
         public DateTime TimeStamp { get; private set; }
+
     }
 }

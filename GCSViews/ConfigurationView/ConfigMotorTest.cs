@@ -86,12 +86,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             var motormax = 8;
 
-            if (MainV2.comPort.MAV.aptype == MAVLink.MAV_TYPE.GROUND_ROVER || MainV2.comPort.MAV.aptype == MAVLink.MAV_TYPE.SURFACE_BOAT)
+            if (MainSerb.comPort.MAV.aptype == MAVLink.MAV_TYPE.GROUND_ROVER || MainSerb.comPort.MAV.aptype == MAVLink.MAV_TYPE.SURFACE_BOAT)
             {
                 return 4;
             }
 
-            var enable = MainV2.comPort.MAV.param.ContainsKey("FRAME") || MainV2.comPort.MAV.param.ContainsKey("Q_FRAME_TYPE") || MainV2.comPort.MAV.param.ContainsKey("FRAME_TYPE");
+            var enable = MainSerb.comPort.MAV.param.ContainsKey("FRAME") || MainSerb.comPort.MAV.param.ContainsKey("Q_FRAME_TYPE") || MainSerb.comPort.MAV.param.ContainsKey("FRAME_TYPE");
 
             if (!enable)
             {
@@ -102,9 +102,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             MAVLink.MAV_TYPE type = MAVLink.MAV_TYPE.QUADROTOR;
             int frame_type = 0; // + frame
 
-            if (MainV2.comPort.MAV.param.ContainsKey("Q_FRAME_CLASS"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("Q_FRAME_CLASS"))
             {
-                var value = (int)MainV2.comPort.MAV.param["Q_FRAME_CLASS"].Value;
+                var value = (int)MainSerb.comPort.MAV.param["Q_FRAME_CLASS"].Value;
                 switch (value)
                 {
                     case 0:
@@ -127,17 +127,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         break;
                 }
 
-                frame_type = (int)MainV2.comPort.MAV.param["Q_FRAME_TYPE"].Value;
+                frame_type = (int)MainSerb.comPort.MAV.param["Q_FRAME_TYPE"].Value;
             }
-            else if (MainV2.comPort.MAV.param.ContainsKey("FRAME"))
+            else if (MainSerb.comPort.MAV.param.ContainsKey("FRAME"))
             {
-                type = MainV2.comPort.MAV.aptype;
-                frame_type = (int)MainV2.comPort.MAV.param["FRAME"].Value;
+                type = MainSerb.comPort.MAV.aptype;
+                frame_type = (int)MainSerb.comPort.MAV.param["FRAME"].Value;
             }
-            else if (MainV2.comPort.MAV.param.ContainsKey("FRAME_TYPE"))
+            else if (MainSerb.comPort.MAV.param.ContainsKey("FRAME_TYPE"))
             {
-                type = MainV2.comPort.MAV.aptype;
-                frame_type = (int)MainV2.comPort.MAV.param["FRAME_TYPE"].Value;
+                type = MainSerb.comPort.MAV.aptype;
+                frame_type = (int)MainSerb.comPort.MAV.param["FRAME_TYPE"].Value;
             }
 
             var motors = new Motor[0];
@@ -227,8 +227,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                if (!MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent,
+                if (!MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent,
                         MAVLink.MAV_CMD.DO_MOTOR_TEST,
                         (float)motor,
                         (float)(byte)MAVLink.MOTOR_TEST_THROTTLE_TYPE.MOTOR_TEST_THROTTLE_PERCENT,
@@ -263,7 +263,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             this.Enabled = false;
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("MOT_SPIN_ARM"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("MOT_SPIN_ARM"))
             {
                 CustomMessageBox.Show("param MOT_SPIN_ARM missing", Strings.ERROR);
                 return;
@@ -274,8 +274,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 var value = (int)NUM_thr_percent.Value + 2;
                 if (InputBox.Show(Strings.ChangeThrottle, "Enter arm throttle % (deadzone + 2%)", ref value) == DialogResult.OK)
                 {
-                    await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent, "MOT_SPIN_ARM",
+                    await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent, "MOT_SPIN_ARM",
                         (float)value / 100.0f).ConfigureAwait(true);
                 }
             }
@@ -291,7 +291,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             this.Enabled = false;
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("MOT_SPIN_MIN"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("MOT_SPIN_MIN"))
             {
                 CustomMessageBox.Show("param MOT_SPIN_MIN missing", Strings.ERROR);
                 return;
@@ -299,12 +299,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (NUM_thr_percent.Value < 20)
             {
-                var value = (int)MainV2.comPort.MAV.param["MOT_SPIN_MIN"].Value + 3;
+                var value = (int)MainSerb.comPort.MAV.param["MOT_SPIN_MIN"].Value + 3;
                 if (InputBox.Show(Strings.ChangeThrottle, "Enter min spin throttle % (arm min + 3%)", ref value) ==
                     DialogResult.OK)
                 {
-                    await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent, "MOT_SPIN_MIN",
+                    await MainSerb.comPort.setParamAsync((byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent, "MOT_SPIN_MIN",
                         (float)value/100.0f).ConfigureAwait(true);
                 }
             }

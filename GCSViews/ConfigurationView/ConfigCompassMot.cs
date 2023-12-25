@@ -26,7 +26,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             BUT_compassmot.Text = lbl_start.Text;
 
-            sub = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.COMPASSMOT_STATUS, ProcessCompassMotMSG, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            sub = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.COMPASSMOT_STATUS, ProcessCompassMotMSG, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
         }
 
         public void Deactivate()
@@ -34,10 +34,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // make sure we are stopped
             try
             {
-                if (MainV2.comPort.BaseStream.IsOpen)
-                    MainV2.comPort.SendAck();
+                if (MainSerb.comPort.BaseStream.IsOpen)
+                    MainSerb.comPort.SendAck();
 
-                MainV2.comPort.UnSubscribeToPacketType(sub);
+                MainSerb.comPort.UnSubscribeToPacketType(sub);
 
             }
             catch
@@ -51,19 +51,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             if (incompassmot)
             {
-                MainV2.comPort.SendAck();
+                MainSerb.comPort.SendAck();
                 incompassmot = false;
                 BUT_compassmot.Text = lbl_start.Text;
             }
             else
             {
                 // compassmot
-                MainV2.comPort.MAV.cs.messages.Clear();
+                MainSerb.comPort.MAV.cs.messages.Clear();
                 interference.Clear();
                 current.Clear();
                 try
                 {
-                    MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 0, 1, 0);
+                    MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 0, 1, 0);
                 }
                 catch
                 {
@@ -165,7 +165,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             var message = new StringBuilder();
 
-            MainV2.comPort.MAV.cs.messages.ForEach(x => { message.AppendLine(x.message); });
+            MainSerb.comPort.MAV.cs.messages.ForEach(x => { message.AppendLine(x.message); });
 
             txt_status.Text = message.ToString();
             txt_status.SelectionStart = txt_status.Text.Length;

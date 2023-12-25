@@ -25,12 +25,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
             }
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
             {
                 Enabled = true;
             }
@@ -42,61 +42,61 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             startup = true;
 
-            THR_SLEWRATE.setup(0, 0, 1, 0, "THR_SLEWRATE", MainV2.comPort.MAV.param);
-            THR_MAX.setup(0, 0, 1, 0, "THR_MAX", MainV2.comPort.MAV.param);
-            THR_MIN.setup(0, 0, 1, 0, "THR_MIN", MainV2.comPort.MAV.param);
-            TRIM_THROTTLE.setup(0, 0, 1, 0, "TRIM_THROTTLE", MainV2.comPort.MAV.param);
+            THR_SLEWRATE.setup(0, 0, 1, 0, "THR_SLEWRATE", MainSerb.comPort.MAV.param);
+            THR_MAX.setup(0, 0, 1, 0, "THR_MAX", MainSerb.comPort.MAV.param);
+            THR_MIN.setup(0, 0, 1, 0, "THR_MIN", MainSerb.comPort.MAV.param);
+            TRIM_THROTTLE.setup(0, 0, 1, 0, "TRIM_THROTTLE", MainSerb.comPort.MAV.param);
 
-            ARSPD_RATIO.setup(0, 2.5f, 1, 0.005f, "ARSPD_RATIO", MainV2.comPort.MAV.param);
-            ARSPD_FBW_MAX.setup(0, 0, 1, 0, "ARSPD_FBW_MAX", MainV2.comPort.MAV.param);
-            ARSPD_FBW_MIN.setup(0, 0, 1, 0, "ARSPD_FBW_MIN", MainV2.comPort.MAV.param);
-            TRIM_ARSPD_CM.setup(0, 5000, 100, 0.1f, "TRIM_ARSPD_CM", MainV2.comPort.MAV.param);
+            ARSPD_RATIO.setup(0, 2.5f, 1, 0.005f, "ARSPD_RATIO", MainSerb.comPort.MAV.param);
+            ARSPD_FBW_MAX.setup(0, 0, 1, 0, "ARSPD_FBW_MAX", MainSerb.comPort.MAV.param);
+            ARSPD_FBW_MIN.setup(0, 0, 1, 0, "ARSPD_FBW_MIN", MainSerb.comPort.MAV.param);
+            TRIM_ARSPD_CM.setup(0, 5000, 100, 0.1f, "TRIM_ARSPD_CM", MainSerb.comPort.MAV.param);
 
-            LIM_PITCH_MIN.setup(0, 0, 100, 0, "LIM_PITCH_MIN", MainV2.comPort.MAV.param);
-            LIM_PITCH_MAX.setup(0, 0, 100, 0, "LIM_PITCH_MAX", MainV2.comPort.MAV.param);
-            LIM_ROLL_CD.setup(0, 0, 100, 0, "LIM_ROLL_CD", MainV2.comPort.MAV.param);
+            LIM_PITCH_MIN.setup(0, 0, 100, 0, "LIM_PITCH_MIN", MainSerb.comPort.MAV.param);
+            LIM_PITCH_MAX.setup(0, 0, 100, 0, "LIM_PITCH_MAX", MainSerb.comPort.MAV.param);
+            LIM_ROLL_CD.setup(0, 0, 100, 0, "LIM_ROLL_CD", MainSerb.comPort.MAV.param);
 
-            KFF_PTCH2THR.setup(0, 0, 1, 0, "KFF_PTCH2THR", MainV2.comPort.MAV.param);
-            KFF_RDDRMIX.setup(0, 0, 1, 0, "KFF_RDDRMIX", MainV2.comPort.MAV.param);
+            KFF_PTCH2THR.setup(0, 0, 1, 0, "KFF_PTCH2THR", MainSerb.comPort.MAV.param);
+            KFF_RDDRMIX.setup(0, 0, 1, 0, "KFF_RDDRMIX", MainSerb.comPort.MAV.param);
 
-            ENRGY2THR_IMAX.setup(0, 0, 100, 0, "ENRGY2THR_IMAX", MainV2.comPort.MAV.param);
-            ENRGY2THR_D.setup(0, 0, 1, 0, "ENRGY2THR_D", MainV2.comPort.MAV.param);
-            ENRGY2THR_I.setup(0, 0, 1, 0, "ENRGY2THR_I", MainV2.comPort.MAV.param);
-            ENRGY2THR_P.setup(0, 0, 1, 0, "ENRGY2THR_P", MainV2.comPort.MAV.param);
+            ENRGY2THR_IMAX.setup(0, 0, 100, 0, "ENRGY2THR_IMAX", MainSerb.comPort.MAV.param);
+            ENRGY2THR_D.setup(0, 0, 1, 0, "ENRGY2THR_D", MainSerb.comPort.MAV.param);
+            ENRGY2THR_I.setup(0, 0, 1, 0, "ENRGY2THR_I", MainSerb.comPort.MAV.param);
+            ENRGY2THR_P.setup(0, 0, 1, 0, "ENRGY2THR_P", MainSerb.comPort.MAV.param);
 
-            ALT2PTCH_IMAX.setup(0, 0, 100, 0, "ALT2PTCH_IMAX", MainV2.comPort.MAV.param);
-            ALT2PTCH_D.setup(0, 0, 1, 0, "ALT2PTCH_D", MainV2.comPort.MAV.param);
-            ALT2PTCH_I.setup(0, 0, 1, 0, "ALT2PTCH_I", MainV2.comPort.MAV.param);
-            ALT2PTCH_P.setup(0, 0, 1, 0, "ALT2PTCH_P", MainV2.comPort.MAV.param);
+            ALT2PTCH_IMAX.setup(0, 0, 100, 0, "ALT2PTCH_IMAX", MainSerb.comPort.MAV.param);
+            ALT2PTCH_D.setup(0, 0, 1, 0, "ALT2PTCH_D", MainSerb.comPort.MAV.param);
+            ALT2PTCH_I.setup(0, 0, 1, 0, "ALT2PTCH_I", MainSerb.comPort.MAV.param);
+            ALT2PTCH_P.setup(0, 0, 1, 0, "ALT2PTCH_P", MainSerb.comPort.MAV.param);
 
-            ARSP2PTCH_IMAX.setup(0, 0, 100, 0, "ARSP2PTCH_IMAX", MainV2.comPort.MAV.param);
-            ARSP2PTCH_D.setup(0, 0, 1, 0, "ARSP2PTCH_D", MainV2.comPort.MAV.param);
-            ARSP2PTCH_I.setup(0, 0, 1, 0, "ARSP2PTCH_I", MainV2.comPort.MAV.param);
-            ARSP2PTCH_P.setup(0, 0, 1, 0, "ARSP2PTCH_P", MainV2.comPort.MAV.param);
+            ARSP2PTCH_IMAX.setup(0, 0, 100, 0, "ARSP2PTCH_IMAX", MainSerb.comPort.MAV.param);
+            ARSP2PTCH_D.setup(0, 0, 1, 0, "ARSP2PTCH_D", MainSerb.comPort.MAV.param);
+            ARSP2PTCH_I.setup(0, 0, 1, 0, "ARSP2PTCH_I", MainSerb.comPort.MAV.param);
+            ARSP2PTCH_P.setup(0, 0, 1, 0, "ARSP2PTCH_P", MainSerb.comPort.MAV.param);
 
-            YAW2SRV_IMAX.setup(0, 0, 100, 0, "YAW2SRV_IMAX", MainV2.comPort.MAV.param);
-            YAW2SRV_DAMP.setup(0, 0, 1, 0, "YAW2SRV_DAMP", MainV2.comPort.MAV.param);
-            YAW2SRV_INT.setup(0, 0, 1, 0, "YAW2SRV_INT", MainV2.comPort.MAV.param);
-            YAW2SRV_RLL.setup(0, 0, 1, 0, "YAW2SRV_RLL", MainV2.comPort.MAV.param);
+            YAW2SRV_IMAX.setup(0, 0, 100, 0, "YAW2SRV_IMAX", MainSerb.comPort.MAV.param);
+            YAW2SRV_DAMP.setup(0, 0, 1, 0, "YAW2SRV_DAMP", MainSerb.comPort.MAV.param);
+            YAW2SRV_INT.setup(0, 0, 1, 0, "YAW2SRV_INT", MainSerb.comPort.MAV.param);
+            YAW2SRV_RLL.setup(0, 0, 1, 0, "YAW2SRV_RLL", MainSerb.comPort.MAV.param);
 
-            PTCH2SRV_IMAX.setup(0, 0, 100, 0, new String[] {"PTCH2SRV_IMAX","PTCH_RATE_IMAX"}, MainV2.comPort.MAV.param);
-            PTCH2SRV_D.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_D","PTCH_RATE_D"}, MainV2.comPort.MAV.param);
-            PTCH2SRV_I.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_I","PTCH_RATE_I"}, MainV2.comPort.MAV.param);
-            PTCH2SRV_P.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_P","PTCH_RATE_P"}, MainV2.comPort.MAV.param);
+            PTCH2SRV_IMAX.setup(0, 0, 100, 0, new String[] {"PTCH2SRV_IMAX","PTCH_RATE_IMAX"}, MainSerb.comPort.MAV.param);
+            PTCH2SRV_D.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_D","PTCH_RATE_D"}, MainSerb.comPort.MAV.param);
+            PTCH2SRV_I.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_I","PTCH_RATE_I"}, MainSerb.comPort.MAV.param);
+            PTCH2SRV_P.setup(0, 0, 1, 0, new String[] {"PTCH2SRV_P","PTCH_RATE_P"}, MainSerb.comPort.MAV.param);
 
-            RLL2SRV_IMAX.setup(0, 0, 100, 0, new String[] {"RLL2SRV_IMAX","RLL_RATE_IMAX"}, MainV2.comPort.MAV.param);
-            RLL2SRV_D.setup(0, 0, 1, 0, new String[] {"RLL2SRV_D","RLL_RATE_D"}, MainV2.comPort.MAV.param);
-            RLL2SRV_I.setup(0, 0, 1, 0, new String[] {"RLL2SRV_I","RLL_RATE_I"}, MainV2.comPort.MAV.param);
-            RLL2SRV_P.setup(0, 0, 1, 0, new String[] {"RLL2SRV_P","RLL_RATE_P"}, MainV2.comPort.MAV.param);
+            RLL2SRV_IMAX.setup(0, 0, 100, 0, new String[] {"RLL2SRV_IMAX","RLL_RATE_IMAX"}, MainSerb.comPort.MAV.param);
+            RLL2SRV_D.setup(0, 0, 1, 0, new String[] {"RLL2SRV_D","RLL_RATE_D"}, MainSerb.comPort.MAV.param);
+            RLL2SRV_I.setup(0, 0, 1, 0, new String[] {"RLL2SRV_I","RLL_RATE_I"}, MainSerb.comPort.MAV.param);
+            RLL2SRV_P.setup(0, 0, 1, 0, new String[] {"RLL2SRV_P","RLL_RATE_P"}, MainSerb.comPort.MAV.param);
 
-            NAVL1_DAMPING.setup(0, 0, 1, 0, "NAVL1_DAMPING", MainV2.comPort.MAV.param);
-            NAVL1_PERIOD.setup(0, 0, 1, 0, "NAVL1_PERIOD", MainV2.comPort.MAV.param);
+            NAVL1_DAMPING.setup(0, 0, 1, 0, "NAVL1_DAMPING", MainSerb.comPort.MAV.param);
+            NAVL1_PERIOD.setup(0, 0, 1, 0, "NAVL1_PERIOD", MainSerb.comPort.MAV.param);
 
-            TECS_SINK_MAX.setup(0, 0, 1, 0, "TECS_SINK_MAX", MainV2.comPort.MAV.param);
-            TECS_TIME_CONST.setup(0, 0, 1, 0, "TECS_TIME_CONST", MainV2.comPort.MAV.param);
-            TECS_PTCH_DAMP.setup(0, 0, 1, 0, "TECS_PTCH_DAMP", MainV2.comPort.MAV.param);
-            TECS_SINK_MIN.setup(0, 0, 1, 0, "TECS_SINK_MIN", MainV2.comPort.MAV.param);
-            TECS_CLMB_MAX.setup(0, 0, 1, 0, "TECS_CLMB_MAX", MainV2.comPort.MAV.param);
+            TECS_SINK_MAX.setup(0, 0, 1, 0, "TECS_SINK_MAX", MainSerb.comPort.MAV.param);
+            TECS_TIME_CONST.setup(0, 0, 1, 0, "TECS_TIME_CONST", MainSerb.comPort.MAV.param);
+            TECS_PTCH_DAMP.setup(0, 0, 1, 0, "TECS_PTCH_DAMP", MainSerb.comPort.MAV.param);
+            TECS_SINK_MIN.setup(0, 0, 1, 0, "TECS_SINK_MIN", MainSerb.comPort.MAV.param);
+            TECS_CLMB_MAX.setup(0, 0, 1, 0, "TECS_CLMB_MAX", MainSerb.comPort.MAV.param);
 
             changes.Clear();
 
@@ -110,14 +110,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         var ParamName = ((MavlinkNumericUpDown)control2).ParamName;
                         toolTip1.SetToolTip(control2,
                             ParameterMetaDataRepository.GetParameterMetaData(ParamName,
-                                ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString()));
+                                ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString()));
                     }
                     if (control2 is MavlinkComboBox)
                     {
                         var ParamName = ((MavlinkComboBox)control2).ParamName;
                         toolTip1.SetToolTip(control2,
                             ParameterMetaDataRepository.GetParameterMetaData(ParamName,
-                                ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString()));
+                                ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString()));
                     }
                 }
             }
@@ -208,7 +208,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if ((float)changes[value] > (float)MainV2.comPort.MAV.param[value] * 2.0f)
+                    if ((float)changes[value] > (float)MainSerb.comPort.MAV.param[value] * 2.0f)
                         if (
                             CustomMessageBox.Show(value + " has more than doubled the last input. Are you sure?",
                                 "Large Value", MessageBoxButtons.YesNo) == (int)DialogResult.No)
@@ -220,7 +220,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                 if (textControls.Length > 0)
                                 {
                                     // restore old value
-                                    textControls[0].Text = MainV2.comPort.MAV.param[value].Value.ToString();
+                                    textControls[0].Text = MainSerb.comPort.MAV.param[value].Value.ToString();
                                     textControls[0].BackColor = Color.FromArgb(0x43, 0x44, 0x45);
                                 }
                             }
@@ -230,13 +230,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                             return;
                         }
 
-                    if (MainV2.comPort.BaseStream == null || !MainV2.comPort.BaseStream.IsOpen)
+                    if (MainSerb.comPort.BaseStream == null || !MainSerb.comPort.BaseStream.IsOpen)
                     {
                         CustomMessageBox.Show("Your are not connected", Strings.ERROR);
                         return;
                     }
 
-                    MainV2.comPort.setParam(value, (float)changes[value]);
+                    MainSerb.comPort.setParam(value, (float)changes[value]);
 
                     changes.Remove(value);
 
@@ -267,14 +267,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
         protected void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
 
             try
             {
-                MainV2.comPort.getParamList();
+                MainSerb.comPort.getParamList();
             }
             catch (Exception ex)
             {
@@ -289,7 +289,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_refreshpart_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
@@ -311,7 +311,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     try
                     {
-                        MainV2.comPort.GetParam(ctl.Name);
+                        MainSerb.comPort.GetParam(ctl.Name);
                     }
                     catch
                     {

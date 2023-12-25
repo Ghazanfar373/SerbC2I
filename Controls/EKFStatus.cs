@@ -21,11 +21,11 @@ namespace MissionPlanner.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ekfvel.Value = (int)(MainV2.comPort.MAV.cs.ekfvelv * 100);
-            ekfposh.Value = (int)(MainV2.comPort.MAV.cs.ekfposhor * 100);
-            ekfposv.Value = (int)(MainV2.comPort.MAV.cs.ekfposvert * 100);
-            ekfcompass.Value = (int)(MainV2.comPort.MAV.cs.ekfcompv * 100);
-            ekfterrain.Value = (int)(MainV2.comPort.MAV.cs.ekfteralt * 100);
+            ekfvel.Value = (int)(MainSerb.comPort.MAV.cs.ekfvelv * 100);
+            ekfposh.Value = (int)(MainSerb.comPort.MAV.cs.ekfposhor * 100);
+            ekfposv.Value = (int)(MainSerb.comPort.MAV.cs.ekfposvert * 100);
+            ekfcompass.Value = (int)(MainSerb.comPort.MAV.cs.ekfcompv * 100);
+            ekfterrain.Value = (int)(MainSerb.comPort.MAV.cs.ekfteralt * 100);
 
             // restore colours
             Utilities.ThemeManager.ApplyThemeTo(this);
@@ -42,7 +42,7 @@ namespace MissionPlanner.Controls
             int idx = 0;
             for (int bitvalue = 1; bitvalue <= (int)MAVLink.EKF_STATUS_FLAGS.EKF_UNINITIALIZED; bitvalue = bitvalue << 1)
             {
-                int currentbit = (MainV2.comPort.MAV.cs.ekfflags & bitvalue);
+                int currentbit = (MainSerb.comPort.MAV.cs.ekfflags & bitvalue);
 
                 var currentflag = (MAVLink.EKF_STATUS_FLAGS)Enum.Parse(typeof(MAVLink.EKF_STATUS_FLAGS), bitvalue.ToString());
 

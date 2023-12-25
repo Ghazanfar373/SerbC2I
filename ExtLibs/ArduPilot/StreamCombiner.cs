@@ -52,9 +52,9 @@ namespace MissionPlanner.Utilities
             };
             th.Start();
 
-            //MainV2.comPort.BaseStream = new TcpSerial() {client = new TcpClient("127.0.0.1", 5750) };
+            //MainSerb.comPort.BaseStream = new TcpSerial() {client = new TcpClient("127.0.0.1", 5750) };
 
-            //MainV2.instance.doConnect(MainV2.comPort, "preset", "5750");
+            //MainSerb.instance.doConnect(MainSerb.comPort, "preset", "5750");
         }
 
         private static IEnumerable<int> Range(int start, int inc, int count)

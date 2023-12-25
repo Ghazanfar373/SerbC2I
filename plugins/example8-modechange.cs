@@ -45,7 +45,7 @@ namespace ModeChange
             modecmb = new ToolStripComboBox();
             ThemeManager.ApplyThemeTo(modecmb);
             modecmb.SelectedIndexChanged += Modecmb_SelectedValueChanged;
-            MainV2.instance.MainMenu.Items.Add(modecmb);
+            MainSerb.instance.MainMenu.Items.Add(modecmb);
             return true;
         }
 
@@ -57,7 +57,7 @@ namespace ModeChange
                 currentmode = modecmb.SelectedItem.ToString();
                 if(setwithnosend)
                     return;
-                MainV2.comPort.setMode((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setMode((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     modecmb.SelectedItem?.ToString());
             }
             catch
@@ -74,31 +74,31 @@ namespace ModeChange
 
         public override bool Loop()
         {
-            if (MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream != null && MainSerb.comPort.BaseStream.IsOpen)
             {
-                if (MainV2.comPort.GetHashCode() != hashcode)
+                if (MainSerb.comPort.GetHashCode() != hashcode)
                 {
-                    MainV2.instance.BeginInvokeIfRequired(() =>
+                    MainSerb.instance.BeginInvokeIfRequired(() =>
                     {
                         modecmb.Enabled = true;
 
-                        hashcode = MainV2.comPort.GetHashCode();
+                        hashcode = MainSerb.comPort.GetHashCode();
                         
-                        MainV2.comPort.MavChanged -= ComPort_MavChanged;
-                        MainV2.comPort.MavChanged += ComPort_MavChanged;
+                        MainSerb.comPort.MavChanged -= ComPort_MavChanged;
+                        MainSerb.comPort.MavChanged += ComPort_MavChanged;
 
                         ComPort_MavChanged(null, null);
                     });
                 }
 
-                if (MainV2.comPort.MAV.cs.mode != currentmode)
+                if (MainSerb.comPort.MAV.cs.mode != currentmode)
                 {
                     if (!inchange)
-                        MainV2.instance.BeginInvokeIfRequired(() =>
+                        MainSerb.instance.BeginInvokeIfRequired(() =>
                         {
                             setwithnosend = true;
                             modecmb.Enabled = true;
-                            modecmb.Text = MainV2.comPort.MAV.cs.mode;
+                            modecmb.Text = MainSerb.comPort.MAV.cs.mode;
                             setwithnosend = false;
                         });
                 }
@@ -106,7 +106,7 @@ namespace ModeChange
             else
             {
                 if (modecmb.Enabled)
-                    MainV2.instance.BeginInvokeIfRequired(() =>
+                    MainSerb.instance.BeginInvokeIfRequired(() =>
                     {
                         modecmb.Enabled = false;
                     });
@@ -118,12 +118,12 @@ namespace ModeChange
 
         private void ComPort_MavChanged(object sender, EventArgs e)
         {
-            MainV2.instance.BeginInvokeIfRequired(() =>
+            MainSerb.instance.BeginInvokeIfRequired(() =>
             {
                 modecmb.Items.Clear();
 
                 ParameterMetaDataRepository
-                    .GetParameterOptionsInt("FLTMODE1", MainV2.comPort.MAV.cs.firmware.ToString())
+                    .GetParameterOptionsInt("FLTMODE1", MainSerb.comPort.MAV.cs.firmware.ToString())
                     .ForEach(a => modecmb.Items.Add(a.Value));
 
                 ThemeManager.ApplyThemeTo(modecmb);

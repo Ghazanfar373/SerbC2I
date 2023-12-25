@@ -9,7 +9,7 @@ namespace MissionPlanner
 
         internal string UserAgent = "SikRadio";
     }
-    internal class MainV2
+    internal class MainSerb
     {
         public static portproxy comPort = new portproxy();
 

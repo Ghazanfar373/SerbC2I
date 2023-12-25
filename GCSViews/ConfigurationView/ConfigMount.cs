@@ -34,7 +34,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             SetErrorMessageOpacity();
 
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
             {
                 mavlinkComboBoxTilt.Items.AddRange(Enum.GetNames(typeof(Channelap)));
                 mavlinkComboBoxRoll.Items.AddRange(Enum.GetNames(typeof(Channelap)));
@@ -51,7 +51,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             string remove = "SERVO";
             //cleanup list based on version
-            if (MainV2.comPort.MAV.param.ContainsKey("SERVO1_MIN"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("SERVO1_MIN"))
             {
                 remove = "RC";
             }
@@ -98,12 +98,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
             CMB_mnt_type.setup(ParameterMetaDataRepository.GetParameterOptionsInt(ParamHead + "TYPE",
-                MainV2.comPort.MAV.cs.firmware.ToString()), ParamHead + "TYPE", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), ParamHead + "TYPE", MainSerb.comPort.MAV.param);
         }
 
         public void Activate()
         {
-            var copy = new Dictionary<string, double>((Dictionary<string, double>)MainV2.comPort.MAV.param);
+            var copy = new Dictionary<string, double>((Dictionary<string, double>)MainSerb.comPort.MAV.param);
 
             if (!copy.ContainsKey("CAM_TRIGG_TYPE"))
             {
@@ -114,13 +114,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             startup = true;
 
             CMB_shuttertype.SelectedItem = Enum.GetName(typeof(ChannelCameraShutter),
-                (Int32)MainV2.comPort.MAV.param["CAM_TRIGG_TYPE"]);
+                (Int32)MainSerb.comPort.MAV.param["CAM_TRIGG_TYPE"]);
 
             foreach (string item in copy.Keys)
             {
                 if (item.EndsWith("_FUNCTION"))
                 {
-                    switch (MainV2.comPort.MAV.param[item].ToString())
+                    switch (MainSerb.comPort.MAV.param[item].ToString())
                     {
                         case "6":
                             mavlinkComboBoxPan.Text = item.Replace("_FUNCTION", "");
@@ -149,16 +149,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 updateRoll();
                 updateYaw();
 
-                CHK_stab_tilt.setup(1, 0, ParamHead + "STAB_TILT", MainV2.comPort.MAV.param);
-                CHK_stab_roll.setup(1, 0, ParamHead + "STAB_ROLL", MainV2.comPort.MAV.param);
+                CHK_stab_tilt.setup(1, 0, ParamHead + "STAB_TILT", MainSerb.comPort.MAV.param);
+                CHK_stab_roll.setup(1, 0, ParamHead + "STAB_ROLL", MainSerb.comPort.MAV.param);
 
-                NUD_NEUTRAL_x.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_X", MainV2.comPort.MAV.param);
-                NUD_NEUTRAL_y.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_Y", MainV2.comPort.MAV.param);
-                NUD_NEUTRAL_z.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_Z", MainV2.comPort.MAV.param);
+                NUD_NEUTRAL_x.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_X", MainSerb.comPort.MAV.param);
+                NUD_NEUTRAL_y.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_Y", MainSerb.comPort.MAV.param);
+                NUD_NEUTRAL_z.setup(-180, 180, 1, 1, ParamHead + "NEUTRAL_Z", MainSerb.comPort.MAV.param);
 
-                NUD_RETRACT_x.setup(-180, 180, 1, 1, ParamHead + "RETRACT_X", MainV2.comPort.MAV.param);
-                NUD_RETRACT_y.setup(-180, 180, 1, 1, ParamHead + "RETRACT_Y", MainV2.comPort.MAV.param);
-                NUD_RETRACT_z.setup(-180, 180, 1, 1, ParamHead + "RETRACT_Z", MainV2.comPort.MAV.param);
+                NUD_RETRACT_x.setup(-180, 180, 1, 1, ParamHead + "RETRACT_X", MainSerb.comPort.MAV.param);
+                NUD_RETRACT_y.setup(-180, 180, 1, 1, ParamHead + "RETRACT_Y", MainSerb.comPort.MAV.param);
+                NUD_RETRACT_z.setup(-180, 180, 1, 1, ParamHead + "RETRACT_Z", MainSerb.comPort.MAV.param);
             }
             catch (Exception ex)
             {
@@ -172,16 +172,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             foreach (var itemobj in cmb.Items)
             {
                 string item = itemobj.ToString();
-                if (MainV2.comPort.MAV.param.ContainsKey(item + "_FUNCTION"))
+                if (MainSerb.comPort.MAV.param.ContainsKey(item + "_FUNCTION"))
                 {
-                    var ans = (float)MainV2.comPort.MAV.param[item + "_FUNCTION"];
+                    var ans = (float)MainSerb.comPort.MAV.param[item + "_FUNCTION"];
 
                     if (item == exclude)
                         continue;
 
                     if (ans == number)
                     {
-                        MainV2.comPort.setParam(item + "_FUNCTION", 0);
+                        MainSerb.comPort.setParam(item + "_FUNCTION", 0);
                     }
                 }
             }
@@ -198,35 +198,35 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 if (CMB_shuttertype.Text == ChannelCameraShutter.Relay.ToString())
                 {
                     ensureDisabled(CMB_shuttertype, 10);
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "CAM_TRIGG_TYPE", 1);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "CAM_TRIGG_TYPE", 1);
                 }
                 else if (CMB_shuttertype.Text == ChannelCameraShutter.Transistor.ToString())
                 {
                     ensureDisabled(CMB_shuttertype, 10);
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "CAM_TRIGG_TYPE", 4);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "CAM_TRIGG_TYPE", 4);
                 }
                 else
                 {
                     ensureDisabled(CMB_shuttertype, 10);
-                    MainV2.comPort.setParam(CMB_shuttertype.Text + "_FUNCTION", 10);
+                    MainSerb.comPort.setParam(CMB_shuttertype.Text + "_FUNCTION", 10);
                     // servo
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "CAM_TRIGG_TYPE", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "CAM_TRIGG_TYPE", 0);
                 }
             }
             else
             {
                 // servo
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "CAM_TRIGG_TYPE", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "CAM_TRIGG_TYPE", 0);
                 ensureDisabled(CMB_shuttertype, 10);
             }
 
 
-            mavlinkNumericUpDownShutM.setup(800, 2200, 1, 1, CMB_shuttertype.Text + "_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownShutMX.setup(800, 2200, 1, 1, CMB_shuttertype.Text + "_MAX", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDownShutM.setup(800, 2200, 1, 1, CMB_shuttertype.Text + "_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownShutMX.setup(800, 2200, 1, 1, CMB_shuttertype.Text + "_MAX", MainSerb.comPort.MAV.param);
 
-            mavlinkNumericUpDownshut_pushed.setup(800, 2200, 1, 1, "CAM_SERVO_ON", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownshut_notpushed.setup(800, 2200, 1, 1, "CAM_SERVO_OFF", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownshut_duration.setup(1, 200, 1, 1, "CAM_DURATION", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDownshut_pushed.setup(800, 2200, 1, 1, "CAM_SERVO_ON", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownshut_notpushed.setup(800, 2200, 1, 1, "CAM_SERVO_OFF", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownshut_duration.setup(1, 200, 1, 1, "CAM_DURATION", MainSerb.comPort.MAV.param);
         }
 
         private void updatePitch()
@@ -237,24 +237,24 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (mavlinkComboBoxTilt.Text != "Disable")
             {
-                MainV2.comPort.setParam(mavlinkComboBoxTilt.Text + "_FUNCTION", 7);
-                //MainV2.MainV2.comPort.setParam(ParamHead+"STAB_TILT", 1);
+                MainSerb.comPort.setParam(mavlinkComboBoxTilt.Text + "_FUNCTION", 7);
+                //MainSerb.MainSerb.comPort.setParam(ParamHead+"STAB_TILT", 1);
             }
             else
             {
-                //MainV2.comPort.setParam(ParamHead+"STAB_TILT", 0);
+                //MainSerb.comPort.setParam(ParamHead+"STAB_TILT", 0);
                 ensureDisabled(mavlinkComboBoxTilt, 7);
             }
 
 
-            mavlinkNumericUpDownTSM.setup(800, 2200, 1, 1, mavlinkComboBoxTilt.Text + "_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownTSMX.setup(800, 2200, 1, 1, mavlinkComboBoxTilt.Text + "_MAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownTAM.setup(-90, 0, 100, 1, ParamHead + "ANGMIN_TIL", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownTAMX.setup(0, 90, 100, 1, ParamHead + "ANGMAX_TIL", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDownTSM.setup(800, 2200, 1, 1, mavlinkComboBoxTilt.Text + "_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownTSMX.setup(800, 2200, 1, 1, mavlinkComboBoxTilt.Text + "_MAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownTAM.setup(-90, 0, 100, 1, ParamHead + "ANGMIN_TIL", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownTAMX.setup(0, 90, 100, 1, ParamHead + "ANGMAX_TIL", MainSerb.comPort.MAV.param);
             mavlinkCheckBoxTR.setup(new double[] { -1, 1 }, new double[] { 1, 0 },
                 new string[] { mavlinkComboBoxTilt.Text + "_REV", mavlinkComboBoxTilt.Text + "_REVERSED" },
-                MainV2.comPort.MAV.param);
-            CMB_inputch_tilt.setup(typeof(Channelinput), ParamHead + "RC_IN_TILT", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
+            CMB_inputch_tilt.setup(typeof(Channelinput), ParamHead + "RC_IN_TILT", MainSerb.comPort.MAV.param);
         }
 
         private void updateRoll()
@@ -265,23 +265,23 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (mavlinkComboBoxRoll.Text != "Disable")
             {
-                MainV2.comPort.setParam(mavlinkComboBoxRoll.Text + "_FUNCTION", 8);
-                //MainV2.comPort.setParam(ParamHead+"STAB_ROLL", 1);
+                MainSerb.comPort.setParam(mavlinkComboBoxRoll.Text + "_FUNCTION", 8);
+                //MainSerb.comPort.setParam(ParamHead+"STAB_ROLL", 1);
             }
             else
             {
-                //MainV2.comPort.setParam(ParamHead+"STAB_ROLL", 0);
+                //MainSerb.comPort.setParam(ParamHead+"STAB_ROLL", 0);
                 ensureDisabled(mavlinkComboBoxRoll, 8);
             }
 
-            mavlinkNumericUpDownRSM.setup(800, 2200, 1, 1, mavlinkComboBoxRoll.Text + "_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownRSMX.setup(800, 2200, 1, 1, mavlinkComboBoxRoll.Text + "_MAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownRAM.setup(-90, 0, 100, 1, ParamHead + "ANGMIN_ROL", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownRAMX.setup(0, 90, 100, 1, ParamHead + "ANGMAX_ROL", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDownRSM.setup(800, 2200, 1, 1, mavlinkComboBoxRoll.Text + "_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownRSMX.setup(800, 2200, 1, 1, mavlinkComboBoxRoll.Text + "_MAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownRAM.setup(-90, 0, 100, 1, ParamHead + "ANGMIN_ROL", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownRAMX.setup(0, 90, 100, 1, ParamHead + "ANGMAX_ROL", MainSerb.comPort.MAV.param);
             mavlinkCheckBoxRR.setup(new double[] { -1, 1 }, new double[] { 1, 0 },
                 new string[] { mavlinkComboBoxRoll.Text + "_REV", mavlinkComboBoxRoll.Text + "_REVERSED" },
-                MainV2.comPort.MAV.param);
-            CMB_inputch_roll.setup(typeof(Channelinput), ParamHead + "RC_IN_ROLL", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
+            CMB_inputch_roll.setup(typeof(Channelinput), ParamHead + "RC_IN_ROLL", MainSerb.comPort.MAV.param);
         }
 
         private void updateYaw()
@@ -292,21 +292,21 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             if (mavlinkComboBoxPan.Text != "Disable")
             {
-                MainV2.comPort.setParam(mavlinkComboBoxPan.Text + "_FUNCTION", 6);
+                MainSerb.comPort.setParam(mavlinkComboBoxPan.Text + "_FUNCTION", 6);
             }
             else
             {
                 ensureDisabled(mavlinkComboBoxPan, 6);
             }
 
-            mavlinkNumericUpDownPSM.setup(800, 2200, 1, 1, mavlinkComboBoxPan.Text + "_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownPSMX.setup(800, 2200, 1, 1, mavlinkComboBoxPan.Text + "_MAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownPAM.setup(-180, 0, 100, 1, ParamHead + "ANGMIN_PAN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDownPAMX.setup(0, 180, 100, 1, ParamHead + "ANGMAX_PAN", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDownPSM.setup(800, 2200, 1, 1, mavlinkComboBoxPan.Text + "_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownPSMX.setup(800, 2200, 1, 1, mavlinkComboBoxPan.Text + "_MAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownPAM.setup(-180, 0, 100, 1, ParamHead + "ANGMIN_PAN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDownPAMX.setup(0, 180, 100, 1, ParamHead + "ANGMAX_PAN", MainSerb.comPort.MAV.param);
             mavlinkCheckBoxPR.setup(new double[] { -1, 1 }, new double[] { 1, 0 },
                 new string[] { mavlinkComboBoxPan.Text + "_REV", mavlinkComboBoxPan.Text + "_REVERSED" },
-                MainV2.comPort.MAV.param);
-            CMB_inputch_pan.setup(typeof(Channelinput), ParamHead + "RC_IN_PAN", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.param);
+            CMB_inputch_pan.setup(typeof(Channelinput), ParamHead + "RC_IN_PAN", MainSerb.comPort.MAV.param);
         }
 
         private void SetErrorMessageOpacity()
@@ -356,8 +356,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 ensureDisabled(cmb, 8, mavlinkComboBoxRoll.Text);
 
                 // enable 3 axis stabilize
-                if (MainV2.comPort.MAV.param.ContainsKey(ParamHead + "MODE"))
-                    MainV2.comPort.setParam(ParamHead + "MODE", 3);
+                if (MainSerb.comPort.MAV.param.ContainsKey(ParamHead + "MODE"))
+                    MainSerb.comPort.setParam(ParamHead + "MODE", 3);
 
                 updateShutter();
                 updatePitch();

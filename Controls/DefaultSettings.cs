@@ -78,7 +78,7 @@ namespace MissionPlanner.Controls
 
                 var param2 = Utilities.ParamFile.loadParamFile(filepath);
 
-                Form paramCompareForm = new ParamCompare(null, MainV2.comPort.MAV.param, param2);
+                Form paramCompareForm = new ParamCompare(null, MainSerb.comPort.MAV.param, param2);
 
                 ThemeManager.ApplyThemeTo(paramCompareForm);
                 if (paramCompareForm.ShowDialog() == DialogResult.OK)

@@ -18,9 +18,9 @@ namespace MissionPlanner.Joystick
             comboBox1.DisplayMember = "Value";
 
             var item1 = ParameterMetaDataRepository.GetParameterOptionsInt("MNT_MODE",
-                MainV2.comPort.MAV.cs.firmware.ToString());
+                MainSerb.comPort.MAV.cs.firmware.ToString());
             var item2 = ParameterMetaDataRepository.GetParameterOptionsInt("MNT_DEFLT_MODE",
-                MainV2.comPort.MAV.cs.firmware.ToString());
+                MainSerb.comPort.MAV.cs.firmware.ToString());
             if (item1.Count > 0)
                 comboBox1.DataSource = item1;
 
@@ -29,7 +29,7 @@ namespace MissionPlanner.Joystick
 
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
             comboBox1.SelectedValue = (int)config.p1;
         }
@@ -40,14 +40,14 @@ namespace MissionPlanner.Joystick
             int name = int.Parse(this.Tag.ToString());
 
             // get existing config
-            var config = MainV2.joystick.getButton(name);
+            var config = MainSerb.joystick.getButton(name);
 
             // change what we modified
             config.function = buttonfunction.Mount_Mode;
             config.p1 = (int)comboBox1.SelectedValue;
 
             // update entry
-            MainV2.joystick.setButton(name, config);
+            MainSerb.joystick.setButton(name, config);
         }
     }
 }

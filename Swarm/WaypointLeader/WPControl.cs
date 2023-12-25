@@ -24,11 +24,11 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_master_Click(object sender, EventArgs e)
         {
-            DG.groundmaster = MainV2.comPort.MAV;
+            DG.groundmaster = MainSerb.comPort.MAV;
 
             DG.Drones.Clear();
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -39,7 +39,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_arm_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -50,7 +50,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_takeoff_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -63,7 +63,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_auto_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -81,7 +81,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
                 return;
             }
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -118,7 +118,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_guided_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -129,7 +129,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_navguided_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -150,11 +150,11 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_airmaster_Click(object sender, EventArgs e)
         {
-            DG.airmaster = MainV2.comPort.MAV;
+            DG.airmaster = MainSerb.comPort.MAV;
 
             DG.Drones.Clear();
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -171,7 +171,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
             foreach (Control ctl in PNL_status.Controls)
             {
                 var found = false;
-                foreach (var port in MainV2.Comports)
+                foreach (var port in MainSerb.Comports)
                 {
                     foreach (var MAV in port.MAVlist)
                     {
@@ -187,7 +187,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
             }
 
             // setup new
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {
@@ -293,7 +293,7 @@ namespace MissionPlanner.Swarm.WaypointLeader
 
         private void but_resetmode_Click(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {

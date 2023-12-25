@@ -39,7 +39,7 @@ namespace MissionPlanner.Utilities
         public bool displayADSB { get; set; } = true;
         public DisplayNames displayName { get; set; }
 
-        //MainV2 buttons
+        //MainSerb buttons
         public Boolean displaySimulation { get; set; }
         public Boolean displayTerminal { get; set; }
         public Boolean displayDonate { get; set; }
@@ -129,7 +129,7 @@ namespace MissionPlanner.Utilities
             displayName = DisplayNames.Basic;
             
 
-            //MainV2 buttons
+            //MainSerb buttons
             displaySimulation = false;
             displayTerminal = false;
             displayDonate = true;
@@ -256,7 +256,7 @@ namespace MissionPlanner.Utilities
             return new DisplayView()
             {
                 displayName = DisplayNames.Basic,
-                //MainV2 buttons
+                //MainSerb buttons
                 displaySimulation = true,
                 displayTerminal = false,
                 displayDonate = true,
@@ -338,7 +338,7 @@ namespace MissionPlanner.Utilities
             return new DisplayView()
             {
                 displayName = DisplayNames.Advanced,
-                //MainV2 buttons
+                //MainSerb buttons
                 displaySimulation = true,
                 displayTerminal = true,
                 displayDonate = true,

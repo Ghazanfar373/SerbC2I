@@ -13,18 +13,18 @@ namespace MissionPlanner.Joystick
 
             this.Tag = name;
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
             numericUpDown1.Text = config.p1.ToString();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            var config = MainV2.joystick.getButton(int.Parse(this.Tag.ToString()));
+            var config = MainSerb.joystick.getButton(int.Parse(this.Tag.ToString()));
 
             config.p1 = (float)numericUpDown1.Value;
 
-            MainV2.joystick.setButton(int.Parse(this.Tag.ToString()), config);
+            MainSerb.joystick.setButton(int.Parse(this.Tag.ToString()), config);
         }
     }
 }
