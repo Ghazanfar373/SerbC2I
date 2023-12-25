@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using SkiaSharp.Views.Desktop;
 
@@ -36,7 +30,6 @@ namespace MissionPlanner.Controls
                 }
             }
         }
-
         string _numberformat = "0.00";
         private string _desc = "";
         private Color _numbercolor;
@@ -59,14 +52,13 @@ namespace MissionPlanner.Controls
 
         [System.ComponentModel.Browsable(true)]
         public Color numberColor { get { return _numbercolor; } set { if (_numbercolor == value) return; _numbercolor = value; Invalidate(); } }
-
+        Color _color=Color.FromArgb(237,237,237);
         //We use this property as a backup store for the numberColor, so it is possible to change numberColor temporary.
         public Color numberColorBackup { get; set; }
 
         public QuickView()
         {
-            InitializeComponent();
-
+            //InitializeComponent();
             PaintSurface+= OnPaintSurface;
         }
 
@@ -75,21 +67,17 @@ namespace MissionPlanner.Controls
             var e = new SkiaGraphics(e2.Surface);
             e2.Surface.Canvas.Clear();
             int y = 0;
-            {
-                Size extent = e.MeasureString(desc, this.Font).ToSize();
+            //{
+            //    Size extent = e.MeasureString(desc, this.Font).ToSize();
+            //    var mid = extent.Width / 2;
 
-                var mid = extent.Width / 2;
-
-                e.DrawString(desc, this.Font, new SolidBrush(this.ForeColor), this.Width / 2 - mid, 5);
-
-                y = extent.Height;
-            }
-            //
+            //    e.DrawString(desc, this.Font, new SolidBrush(this.ForeColor), this.Width / 2 - mid, 5);
+            //    y = extent.Height;
+            //}
+           // e.DrawIcon();
             {
                 var numb = number.ToString(numberformat);
-
                 Size extent = e.MeasureString("0".PadLeft(numb.Length+1,'0'), new Font(this.Font.FontFamily, (float)newSize, this.Font.Style)).ToSize();
-
                 float hRatio = (this.Height - y) / (float)(extent.Height);
                 float wRatio = this.Width / (float)extent.Width;
                 float ratio = (hRatio < wRatio) ? hRatio : wRatio;
@@ -103,7 +91,7 @@ namespace MissionPlanner.Controls
 
                 extent = e.MeasureString(numb, new Font(this.Font.FontFamily, (float)newSize, this.Font.Style)).ToSize();
 
-                e.DrawString(numb, new Font(this.Font.FontFamily, (float)newSize, this.Font.Style), new SolidBrush(this.numberColor), this.Width / 2 - extent.Width / 2, y + ((this.Height - y) / 2 - extent.Height / 2));
+                e.DrawString(numb, new Font(this.Font.FontFamily, (float)newSize, this.Font.Style), new SolidBrush(this._color), this.Width / 2 - extent.Width / 2, y + ((this.Height - y) / 2 - extent.Height / 2));
             }
         }
 
@@ -133,7 +121,7 @@ namespace MissionPlanner.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Invalidate();
+            this.Invalidate();   //Preshan huwa.. Load meters inside the purchasing capcasity of luminar industries........ take legal notice for that
         }
     }
 }

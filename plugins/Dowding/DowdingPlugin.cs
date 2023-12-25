@@ -101,7 +101,7 @@ namespace Dowding
 
         public override bool Loaded()
         {
-            MainV2.instance.Invoke((Action)
+            MainSerb.instance.Invoke((Action)
                 delegate
                 {
                     System.Windows.Forms.ToolStripMenuItem men = new System.Windows.Forms.ToolStripMenuItem() { Text = "Dowding" };

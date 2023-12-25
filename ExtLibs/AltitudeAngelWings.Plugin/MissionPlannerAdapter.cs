@@ -55,7 +55,7 @@ namespace AltitudeAngelWings.Plugin
                 CenterLongitude = center.X,
                 CenterLatitude = center.Y,
                 BoundingRadius = boundingRadius,
-                FlightCapability = MavTypeToFlightCapability(MainV2.comPort.MAV.aptype),
+                FlightCapability = MavTypeToFlightCapability(MainSerb.comPort.MAV.aptype),
                 Summary =  _settings.FlightReportName,
                 Description = _settings.FlightReportDescription,
                 Duration = Duration.FromTimeSpan(_settings.FlightReportTimeSpan),
@@ -86,7 +86,7 @@ namespace AltitudeAngelWings.Plugin
 
         private static Task SetMode(string mode)
         {
-            MainV2.comPort.setMode(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, mode);
+            MainSerb.comPort.setMode(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, mode);
             return Task.CompletedTask;
         }
 
@@ -100,7 +100,7 @@ namespace AltitudeAngelWings.Plugin
 
         /// <inheritdoc />
         public Task Disarm()
-            => MainV2.comPort.doARMAsync(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, false);
+            => MainSerb.comPort.doARMAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, false);
 
         public Task ShowMessageBox(string message, string caption = null)
         {

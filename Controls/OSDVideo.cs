@@ -403,7 +403,7 @@ namespace MissionPlanner.Controls
 
                     hud1.datetime = cs.datetime;
 
-                    //cs.UpdateCurrentSettings(bindingSource1,true,MainV2.comPort);
+                    //cs.UpdateCurrentSettings(bindingSource1,true,MainSerb.comPort);
 
                     bindingSource1.DataSource = cs;
                     bindingSource1.ResetBindings(false);

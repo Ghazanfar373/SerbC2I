@@ -32,7 +32,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.comPort.giveComport = false;
+            MainSerb.comPort.giveComport = false;
             _incalibrate = false;
         }
 
@@ -44,11 +44,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 try
                 {
                     // old
-                    //MainV2.comPort.sendPacket(new MAVLink.mavlink_command_ack_t { command = 1, result = count },
-                        //MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                    //MainSerb.comPort.sendPacket(new MAVLink.mavlink_command_ack_t { command = 1, result = count },
+                        //MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                     // new
-                    MainV2.comPort.sendPacket(new MAVLink.mavlink_command_long_t { param1 = (float)pos, command = (ushort)MAVLink.MAV_CMD.ACCELCAL_VEHICLE_POS },
-                        MainV2.comPort.sysidcurrent, MainV2.comPort.compidcurrent);
+                    MainSerb.comPort.sendPacket(new MAVLink.mavlink_command_long_t { param1 = (float)pos, command = (ushort)MAVLink.MAV_CMD.ACCELCAL_VEHICLE_POS },
+                        MainSerb.comPort.sysidcurrent, MainSerb.comPort.compidcurrent);
                 }
                 catch
                 {
@@ -65,13 +65,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 Log.Info("Sending accel command (mavlink 1.0)");
 
-                if (MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                if (MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 1, 0, 0))
                 {
                     _incalibrate = true;
 
-                    sub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.STATUSTEXT, receivedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
-                    sub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, receivedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                    sub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.STATUSTEXT, receivedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
+                    sub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, receivedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
                     BUT_calib_accell.Text = Strings.Click_when_Done;
                 }
@@ -108,8 +108,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         });
 
                         _incalibrate = false;
-                        MainV2.comPort.UnSubscribeToPacketType(sub1);
-                        MainV2.comPort.UnSubscribeToPacketType(sub2);
+                        MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                        MainSerb.comPort.UnSubscribeToPacketType(sub2);
                     }
                     catch
                     {
@@ -145,7 +145,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             try
             {
                 Log.Info("Sending level command (mavlink 1.0)");
-                if (MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                if (MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 2, 0, 0))
                 {
                     BUT_level.Text = Strings.Completed;
@@ -167,7 +167,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             try
             {
                 Log.Info("Sending simple accelerometer calibration command (mavlink 1.0)");
-                if (MainV2.comPort.doCommand((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                if (MainSerb.comPort.doCommand((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 4, 0, 0))
                 {
                     BUT_simpleAccelCal.Text = Strings.Completed;

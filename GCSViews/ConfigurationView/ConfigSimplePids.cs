@@ -123,10 +123,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                if (!MainV2.comPort.MAV.param.ContainsKey(item.paramname))
+                if (!MainSerb.comPort.MAV.param.ContainsKey(item.paramname))
                     return;
 
-                var value = (float)MainV2.comPort.MAV.param[item.paramname];
+                var value = (float)MainSerb.comPort.MAV.param[item.paramname];
 
                 if (value < item.min)
                     item.min = value;
@@ -134,9 +134,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     item.max = value;
 
                 var range = ParameterMetaDataRepository.GetParameterMetaData(item.paramname,
-                    ParameterMetaDataConstants.Range, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.Range, MainSerb.comPort.MAV.cs.firmware.ToString());
                 var increment = ParameterMetaDataRepository.GetParameterMetaData(item.paramname,
-                    ParameterMetaDataConstants.Increment, MainV2.comPort.MAV.cs.firmware.ToString());
+                    ParameterMetaDataConstants.Increment, MainSerb.comPort.MAV.cs.firmware.ToString());
 
                 var rangeopt = range.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -188,7 +188,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.setParam(rc.Name, value);
+                MainSerb.comPort.setParam(rc.Name, value);
             }
             catch (Exception ex)
             {
@@ -201,7 +201,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    MainV2.comPort.setParam(item.paramaname, value * item.multiplier);
+                    MainSerb.comPort.setParam(item.paramaname, value * item.multiplier);
                     TXT_info.AppendText("set " + item.paramaname + " " + value * item.multiplier + "\r\n");
                 }
                 catch (Exception ex)

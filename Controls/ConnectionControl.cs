@@ -36,9 +36,9 @@ namespace MissionPlanner.Controls
         /// <param name="isConnected">Whether we are connected</param>
         public void IsConnected(bool isConnected)
         {
-            this.linkLabel1.Visible = isConnected;
-            cmb_Baud.Enabled = !isConnected;
-            cmb_Connection.Enabled = !isConnected;
+            //this.linkLabel1.Visible = isConnected;
+            //cmb_Baud.Enabled = !isConnected;
+            //cmb_Connection.Enabled = !isConnected;
 
             UpdateSysIDS();
         }
@@ -62,7 +62,7 @@ namespace MissionPlanner.Controls
                     e.Bounds);
 
             string text = combo.Items[e.Index].ToString();
-            if (!MainV2.MONO)
+            if (!MainSerb.MONO)
             {
                 text = text + " " + SerialPort.GetNiceName(text);
             }
@@ -84,7 +84,7 @@ namespace MissionPlanner.Controls
 
             int selectidx = -1;
 
-            foreach (var port in MainV2.Comports.ToArray())
+            foreach (var port in MainSerb.Comports.ToArray())
             {
                 var list = port.MAVlist.GetRawIDS();
 
@@ -98,7 +98,7 @@ namespace MissionPlanner.Controls
 
                     var idx = cmb_sysid.Items.Add(temp);
 
-                    if (temp.port == MainV2.comPort && temp.sysid == MainV2.comPort.sysidcurrent && temp.compid == MainV2.comPort.compidcurrent)
+                    if (temp.port == MainSerb.comPort && temp.sysid == MainSerb.comPort.sysidcurrent && temp.compid == MainSerb.comPort.compidcurrent)
                     {
                         selectidx = idx;
                     }
@@ -127,20 +127,20 @@ namespace MissionPlanner.Controls
 
             var temp = (port_sysid)cmb_sysid.SelectedItem;
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 if (port == temp.port)
                 {
-                    MainV2.comPort = port;
-                    MainV2.comPort.sysidcurrent = temp.sysid;
-                    MainV2.comPort.compidcurrent = temp.compid;
+                    MainSerb.comPort = port;
+                    MainSerb.comPort.sysidcurrent = temp.sysid;
+                    MainSerb.comPort.compidcurrent = temp.compid;
 
-                    if (MainV2.comPort.MAV.param.TotalReceived < MainV2.comPort.MAV.param.TotalReported && 
-                        /*MainV2.comPort.MAV.compid == (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_AUTOPILOT1 && */
+                    if (MainSerb.comPort.MAV.param.TotalReceived < MainSerb.comPort.MAV.param.TotalReported && 
+                        /*MainSerb.comPort.MAV.compid == (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_AUTOPILOT1 && */
                         !(Control.ModifierKeys == Keys.Control))
-                        MainV2.comPort.getParamList();
+                        MainSerb.comPort.getParamList();
 
-                    MainV2.View.Reload();
+                    MainSerb.View.Reload();
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace MissionPlanner.Controls
             string mavComponentHeader = "MAV_COMP_ID_";
             string mavComponentString = null;
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 if (port == temp.port)
                 {

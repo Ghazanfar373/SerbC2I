@@ -162,7 +162,7 @@ namespace MissionPlanner.Controls
 
                     sw.WriteLine(line);
 
-                    //string line = string.Format("$GP{0},{1:HHmmss},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},", "GGA", DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100), MainV2.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100), MainV2.comPort.MAV.cs.lng < 0 ? "W" : "E", MainV2.comPort.MAV.cs.gpsstatus, MainV2.comPort.MAV.cs.satcount, MainV2.comPort.MAV.cs.gpshdop, MainV2.comPort.MAV.cs.alt, "M", 0, "M", "");
+                    //string line = string.Format("$GP{0},{1:HHmmss},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},", "GGA", DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100), MainSerb.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100), MainSerb.comPort.MAV.cs.lng < 0 ? "W" : "E", MainSerb.comPort.MAV.cs.gpsstatus, MainSerb.comPort.MAV.cs.satcount, MainSerb.comPort.MAV.cs.gpshdop, MainSerb.comPort.MAV.cs.alt, "M", 0, "M", "");
                     if (line.StartsWith("$GPGGA") || line.StartsWith("$GNGGA")) // 
                     {
                         string[] items = line.Trim().Split(',', '*');
@@ -214,7 +214,7 @@ namespace MissionPlanner.Controls
                         gotohere.lng = (gotolocation.Lng);
 
                         if (chk_relalt.Checked)
-                            gotohere.alt = gotohere.alt - (float)MainV2.comPort.MAV.cs.HomeAlt;
+                            gotohere.alt = gotohere.alt - (float)MainSerb.comPort.MAV.cs.HomeAlt;
 
                         try
                         {
@@ -224,7 +224,7 @@ namespace MissionPlanner.Controls
                         {
                         }
 
-                        MainV2.comPort.MAV.cs.MovingBase = gotolocation;
+                        MainSerb.comPort.MAV.cs.MovingBase = gotolocation;
 
                         // plane only
                         if (updaterallypnt && DateTime.Now > nextrallypntupdate)
@@ -232,17 +232,17 @@ namespace MissionPlanner.Controls
                             nextrallypntupdate = DateTime.Now.AddSeconds(5);
                             try
                             {
-                                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "RALLY_TOTAL", 1);
+                                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "RALLY_TOTAL", 1);
 
-                                MainV2.comPort.setRallyPoint(0,
+                                MainSerb.comPort.setRallyPoint(0,
                                     new PointLatLngAlt(gotolocation)
                                     {
                                         Alt =
                                             gotolocation.Alt + double.Parse(Settings.Instance["TXT_DefaultAlt"].ToString())
                                     },
-                                    0, 0, 0, (byte)(float)MainV2.comPort.MAV.param["RALLY_TOTAL"]);
+                                    0, 0, 0, (byte)(float)MainSerb.comPort.MAV.param["RALLY_TOTAL"]);
 
-                                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "RALLY_TOTAL", 1);
+                                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "RALLY_TOTAL", 1);
                             }
                             catch (Exception ex)
                             {

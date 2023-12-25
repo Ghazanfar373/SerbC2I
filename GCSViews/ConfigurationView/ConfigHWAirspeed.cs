@@ -17,7 +17,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
@@ -26,17 +26,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             startup = true;
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("ARSPD_USE"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("ARSPD_USE"))
                 CHK_airspeeduse.Visible = false;
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("ARSPD_ENABLE"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("ARSPD_ENABLE"))
                 CHK_enableairspeed.Visible = false;
 
-            CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainV2.comPort.MAV.param);
-            CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainV2.comPort.MAV.param);
+            CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainSerb.comPort.MAV.param);
+            CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainSerb.comPort.MAV.param);
 
             mavlinkComboBoxARSPD_TYPE.setup(ParameterMetaDataRepository.GetParameterOptionsInt("ARSPD_TYPE",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "ARSPD_TYPE", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "ARSPD_TYPE", MainSerb.comPort.MAV.param);
 
             var options = new List<KeyValuePair<int, string>>();
             options.Add(new KeyValuePair<int, string>(0, "APM 2 analog pin 0"));
@@ -56,7 +56,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             options.Add(new KeyValuePair<int, string>(15, "Pixhawk Analog AS Port"));
             options.Add(new KeyValuePair<int, string>(65, "PX4/Pixhawk EagleTree or MEAS I2C AS Sensor"));
 
-            mavlinkCheckBoxAirspeed_pin.setup(options, "ARSPD_PIN", MainV2.comPort.MAV.param);
+            mavlinkCheckBoxAirspeed_pin.setup(options, "ARSPD_PIN", MainSerb.comPort.MAV.param);
 
 
             startup = false;
@@ -68,13 +68,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["ARSPD_ENABLE"] == null)
+                if (MainSerb.comPort.MAV.param["ARSPD_ENABLE"] == null)
                 {
                     CustomMessageBox.Show(Strings.ErrorFeatureNotEnabled, Strings.ERROR);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "ARSPD_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "ARSPD_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
                 }
             }
             catch

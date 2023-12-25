@@ -66,9 +66,9 @@
       <Project>{1378a66c-38e4-46f5-a05f-dc04ef7d4d16}</Project>
       <Name>MissionPlanner.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MissionPlanner.csproj">
+    <ProjectReference Include="..\SerbC2I.csproj">
       <Project>{A2E22272-95FE-47B6-B050-9AE7E2055BF5}</Project>
-      <Name>MissionPlanner</Name>
+      <Name>SerbC2I</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

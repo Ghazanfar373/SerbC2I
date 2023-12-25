@@ -76,9 +76,9 @@ namespace MissionPlanner.Plugin
         /// <summary>
         /// Device change event
         /// </summary>
-        public event MainV2.WMDeviceChangeEventHandler DeviceChanged;
+        public event MainSerb.WMDeviceChangeEventHandler DeviceChanged;
 
-        internal void ProcessDeviceChanged(MainV2.WM_DEVICECHANGE_enum dc)
+        internal void ProcessDeviceChanged(MainSerb.WM_DEVICECHANGE_enum dc)
         {
             if (DeviceChanged != null)
             {
@@ -95,9 +95,9 @@ namespace MissionPlanner.Plugin
         /// <summary>
         /// access to the main form, this is on a diffrent thread.
         /// </summary>
-        public MainV2 MainForm
+        public MainSerb MainForm
         {
-            get { return MainV2.instance; }
+            get { return MainSerb.instance; }
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public CurrentState cs
         {
-            get { return MainV2.comPort.MAV.cs; }
+            get { return MainSerb.comPort.MAV.cs; }
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public MAVLinkInterface comPort
         {
-            get { return MainV2.comPort; }
+            get { return MainSerb.comPort; }
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public ContextMenuStrip FDMenuMap
         {
-            get { return MainV2.instance.FlightData.contextMenuStripMap; }
+            get { return MainSerb.instance.FlightData.contextMenuStripMap; }
         }
 
         /// <summary>
@@ -137,12 +137,12 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public PointLatLng FDMenuMapPosition
         {
-            get { return MainV2.instance.FlightData.MouseDownStart; }
+            get { return MainSerb.instance.FlightData.MouseDownStart; }
         }
 
         public GMapProvider FDMapType
         {
-            get { return FlightData.mymap.MapProvider; }
+            get { return FlightStatus.mymap.MapProvider; }
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public ContextMenuStrip FDMenuHud
         {
-            get { return MainV2.instance.FlightData.contextMenuStripHud; }
+            get { return MainSerb.instance.FlightData.contextMenuStripHud; }
         }
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public ContextMenuStrip FPMenuMap
         {
-            get { return MainV2.instance.FlightPlanner.contextMenuStrip1; }
+            get { return MainSerb.instance.FlightPlanner.contextMenuStrip1; }
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public PointLatLng FPMenuMapPosition
         {
-            get { return MainV2.instance.FlightPlanner.MouseDownEnd; }
+            get { return MainSerb.instance.FlightPlanner.MouseDownEnd; }
         }
 
         /// <summary>
@@ -176,15 +176,15 @@ namespace MissionPlanner.Plugin
         {
             get
             {
-                return new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.drawnpolygon.Points),
+                return new GMapPolygon(new List<PointLatLng>(MainSerb.instance.FlightPlanner.drawnpolygon.Points),
                     "Poly Copy")
-                { Stroke = MainV2.instance.FlightPlanner.drawnpolygon.Stroke };
+                { Stroke = MainSerb.instance.FlightPlanner.drawnpolygon.Stroke };
             }
         }
 
         public void RedrawFPPolygon(List<PointLatLngAlt> list)
         {
-            MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+            MainSerb.instance.FlightPlanner.redrawPolygonSurvey(list);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public GMapControl FPGMapControl
         {
-            get { return MainV2.instance.FlightPlanner.MainMap; }
+            get { return MainSerb.instance.FlightPlanner.MainMap; }
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public GMapControl FDGMapControl
         {
-            get { return MainV2.instance.FlightData.gMapControl1; }
+            get { return MainSerb.instance.flightStatus.gMapControlSerb; }
         }
 
         /// <summary>
@@ -217,14 +217,14 @@ namespace MissionPlanner.Plugin
         public int AddWPtoList(MAVLink.MAV_CMD cmd, double p1, double p2, double p3, double p4, double x, double y,
             double z, object tag = null)
         {
-            return MainV2.instance.FlightPlanner.AddCommand(cmd, p1, p2, p3, p4, x, y, z, tag);
+            return MainSerb.instance.FlightPlanner.AddCommand(cmd, p1, p2, p3, p4, x, y, z, tag);
         }
 
         public void InsertWP(int idx, MAVLink.MAV_CMD cmd, double p1, double p2, double p3, double p4, double x,
             double y,
             double z, object tag = null)
         {
-            MainV2.instance.FlightPlanner.InsertCommand(idx, cmd, p1, p2, p3, p4, x, y, z);
+            MainSerb.instance.FlightPlanner.InsertCommand(idx, cmd, p1, p2, p3, p4, x, y, z);
         }
 
         public int AddWPtoList(MAVLink.MAV_CMD cmd, double p1, double p2, double p3, double p4, double x, double y,
@@ -245,7 +245,7 @@ namespace MissionPlanner.Plugin
         /// </summary>
         public void GetWPs()
         {
-            MainV2.instance.FlightPlanner.BUT_read_Click(null, null);
+            MainSerb.instance.FlightPlanner.BUT_read_Click(null, null);
         }
     }
 }

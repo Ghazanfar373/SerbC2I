@@ -13,7 +13,7 @@ namespace MissionPlanner.Joystick
 
             this.Tag = name;
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
             numericUpDown1.Text = config.p1.ToString();
             numericUpDown2.Text = config.p2.ToString();
@@ -23,14 +23,14 @@ namespace MissionPlanner.Joystick
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            var config = MainV2.joystick.getButton(int.Parse(this.Tag.ToString()));
+            var config = MainSerb.joystick.getButton(int.Parse(this.Tag.ToString()));
 
             config.p1 = (float)numericUpDown1.Value;
             config.p2 = (float)numericUpDown2.Value;
             config.p3 = (float)numericUpDown3.Value;
             config.p4 = (float)numericUpDown4.Value;
 
-            MainV2.joystick.setButton(int.Parse(this.Tag.ToString()), config);
+            MainSerb.joystick.setButton(int.Parse(this.Tag.ToString()), config);
         }
     }
 }

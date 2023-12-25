@@ -19,7 +19,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen && !MainV2.comPort.logreadmode)
+            if (!MainSerb.comPort.BaseStream.IsOpen && !MainSerb.comPort.logreadmode)
             {
                 Enabled = false;
                 return;
@@ -27,8 +27,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             Enabled = true;
 
-            _flow = new OpticalFlow(MainV2.comPort, (byte)MainV2.comPort.sysidcurrent,
-                (byte)MainV2.comPort.compidcurrent);
+            _flow = new OpticalFlow(MainSerb.comPort, (byte)MainSerb.comPort.sysidcurrent,
+                (byte)MainSerb.comPort.compidcurrent);
 
             // setup bitmap to screen
             _flow.newImage += (s, eh) =>

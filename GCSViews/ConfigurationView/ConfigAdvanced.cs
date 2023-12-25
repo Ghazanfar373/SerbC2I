@@ -26,7 +26,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void but_mavinspector_Click(object sender, System.EventArgs e)
         {
-            new MAVLinkInspector(MainV2.comPort).Show();
+            new MAVLinkInspector(MainSerb.comPort).Show();
         }
 
         private void BUT_outputMavlink_Click(object sender, System.EventArgs e)
@@ -41,7 +41,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void but_proximity_Click(object sender, System.EventArgs e)
         {
-            new ProximityControl(MainV2.comPort.MAV).Show();
+            new ProximityControl(MainSerb.comPort.MAV).Show();
         }
 
         private void BUT_outputnmea_Click(object sender, System.EventArgs e)

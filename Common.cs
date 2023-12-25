@@ -153,7 +153,7 @@ namespace MissionPlanner
             Form form = new Form();
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(MainV2));
+                new System.ComponentModel.ComponentResourceManager(typeof(MainSerb));
             form.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 
             form.Text = title;
@@ -188,7 +188,7 @@ namespace MissionPlanner
             Controls.MyButton buttonOk = new Controls.MyButton();
             Controls.MyButton buttonCancel = new Controls.MyButton();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(MainV2));
+                new System.ComponentModel.ComponentResourceManager(typeof(MainSerb));
             try
             {
                 form.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));

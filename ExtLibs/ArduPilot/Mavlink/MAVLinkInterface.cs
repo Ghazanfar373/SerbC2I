@@ -1610,7 +1610,7 @@ Mission Planner waits for 2 valid heartbeat packets before connecting");
                     if (currentparamcount < par.param_count)
                     {
                         /*
-                        MainV2.instance.BeginInvoke((Action) delegate
+                        MainSerb.instance.BeginInvoke((Action) delegate
                         {
                             Loading.ShowLoading(String.Format(Strings.ParamRefreshRequired, currentparamcount,
                                 par.param_count));

@@ -29,5 +29,5 @@ for i in range(20):
 	mav = MissionPlanner.MAVLinkInterface();
 	mav.BaseStream = port;
 	mav.getHeartBeat()
-	#MissionPlanner.MainV2.instance.doConnect(mav, "preset", "0");
-	MissionPlanner.MainV2.Comports.Add(mav);
+	#MissionPlanner.MainSerb.instance.doConnect(mav, "preset", "0");
+	MissionPlanner.MainSerb.Comports.Add(mav);

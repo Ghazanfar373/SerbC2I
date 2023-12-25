@@ -73,7 +73,7 @@ namespace CameraControl
             udc.IsOpen = true;
             udc.hostEndPoint = new IPEndPoint(IPAddress.Parse("192.168.144.11"), 14552);
             
-            MainV2.Comports.Add(new MAVLinkInterface() { BaseStream = udc });
+            MainSerb.Comports.Add(new MAVLinkInterface() { BaseStream = udc });
 
         }
 

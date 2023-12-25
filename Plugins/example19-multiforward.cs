@@ -52,7 +52,7 @@ namespace MissionPlanner.plugins
         {
             try
             {
-                MainV2.Comports.ForEach<MAVLinkInterface>(comport =>
+                MainSerb.Comports.ForEach<MAVLinkInterface>(comport =>
                 {
                     // add any new interface to the forwarding
                     if (mAVLinkInterfaces.Contains(comport))
@@ -63,7 +63,7 @@ namespace MissionPlanner.plugins
                     {
                         try
                         {
-                            MainV2.Comports.ForEach<MAVLinkInterface>(comport1 =>
+                            MainSerb.Comports.ForEach<MAVLinkInterface>(comport1 =>
                             {
                                 if (comport != comport1)
                                     comport1.Write(m.buffer);
@@ -80,7 +80,7 @@ namespace MissionPlanner.plugins
                     {
                         try
                         {
-                            MainV2.Comports.ForEach<MAVLinkInterface>(comport1 =>
+                            MainSerb.Comports.ForEach<MAVLinkInterface>(comport1 =>
                             {
                                 if (comport != comport1)
                                     comport1.Write(m.buffer);

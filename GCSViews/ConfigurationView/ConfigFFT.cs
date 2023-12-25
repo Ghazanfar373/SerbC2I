@@ -27,7 +27,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             InitializeComponent();
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("INS_LOG_BAT_CNT"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("INS_LOG_BAT_CNT"))
             {
                 Enabled = false;
                 return;
@@ -35,29 +35,29 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             var inc = 32.0;
             ParameterMetaDataRepository.GetParameterIncrement("INS_LOG_BAT_CNT",
-                ref inc, MainV2.comPort.MAV.cs.firmware.ToString());
+                ref inc, MainSerb.comPort.MAV.cs.firmware.ToString());
 
             INS_LOG_BAT_CNT.setup("INS_LOG_BAT_CNT", ParameterMetaDataRepository.GetParameterMetaData("INS_LOG_BAT_CNT",
-                    ParameterMetaDataConstants.Description, MainV2.comPort.MAV.cs.firmware.ToString()),
+                    ParameterMetaDataConstants.Description, MainSerb.comPort.MAV.cs.firmware.ToString()),
                 ParameterMetaDataRepository.GetParameterMetaData("INS_LOG_BAT_CNT",
-                    ParameterMetaDataConstants.DisplayName, MainV2.comPort.MAV.cs.firmware.ToString()), (float)inc, 1,
-                32, 1024 * 4, MainV2.comPort.MAV.param["INS_LOG_BAT_CNT"].ToString());
+                    ParameterMetaDataConstants.DisplayName, MainSerb.comPort.MAV.cs.firmware.ToString()), (float)inc, 1,
+                32, 1024 * 4, MainSerb.comPort.MAV.param["INS_LOG_BAT_CNT"].ToString());
 
             INS_LOG_BAT_CNT.ValueChanged += RangeControl1OnValueChanged;
 
-            INS_LOG_BAT_MASK.setup("INS_LOG_BAT_MASK", MainV2.comPort.MAV.param);
+            INS_LOG_BAT_MASK.setup("INS_LOG_BAT_MASK", MainSerb.comPort.MAV.param);
 
-            LOG_BITMASK.setup("LOG_BITMASK", MainV2.comPort.MAV.param);
+            LOG_BITMASK.setup("LOG_BITMASK", MainSerb.comPort.MAV.param);
         }
 
         private void RangeControl1OnValueChanged(object sender, string name, string value)
         {
-            MainV2.comPort.setParam(name, double.Parse(value));
+            MainSerb.comPort.setParam(name, double.Parse(value));
         }
 
         public void Activate()
         {
-            if (!MainV2.comPort.MAV.param.ContainsKey("INS_LOG_BAT_CNT"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("INS_LOG_BAT_CNT"))
             {
                 Enabled = false;
                 return;
@@ -66,7 +66,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Deactivate()
         {
-            MainV2.comPort.giveComport = false;
+            MainSerb.comPort.giveComport = false;
         }
 
         private void InitializeComponent()

@@ -367,58 +367,58 @@ namespace MissionPlanner
             var prsphere = sender as ProgressReporterSphere;
 
             // turn learning off
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 0);
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 0);
 
             bool havecompass2 = false;
             bool havecompass3 = false;
 
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS_X"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS_X"))
             {
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Z", 0, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_X", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_Y", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_Z", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_X", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_Y", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_Z", 1, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_Z", 0, true);
             }
 
             //compass2 get mag2 offsets
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS2_X"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS2_X"))
             {
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Z", 0, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_X", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_Y", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_Z", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_X", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_Y", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_Z", 1, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_Z", 0, true);
 
                 havecompass2 = true;
             }
 
             //compass3
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS3_X"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS3_X"))
             {
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_Z", 0, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_X", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_Y", 1, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_Z", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_X", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_Y", 1, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_Z", 1, true);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_X", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_Y", 0, true);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_Z", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_X", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_Y", 0, true);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_Z", 0, true);
 
                 havecompass3 = true;
             }
@@ -434,24 +434,24 @@ namespace MissionPlanner
             float maxz = 0;
 
             // backup current rate and set
-            var backupratesens = MainV2.comPort.MAV.cs.ratesensors;
+            var backupratesens = MainSerb.comPort.MAV.cs.ratesensors;
 
-            var backuprateatt = MainV2.comPort.MAV.cs.rateattitude;
-            var backupratepos = MainV2.comPort.MAV.cs.rateposition;
+            var backuprateatt = MainSerb.comPort.MAV.cs.rateattitude;
+            var backupratepos = MainSerb.comPort.MAV.cs.rateposition;
 
-            MainV2.comPort.MAV.cs.ratesensors = 2;
-            MainV2.comPort.MAV.cs.rateattitude = 0;
-            MainV2.comPort.MAV.cs.rateposition = 0;
+            MainSerb.comPort.MAV.cs.ratesensors = 2;
+            MainSerb.comPort.MAV.cs.rateattitude = 0;
+            MainSerb.comPort.MAV.cs.rateposition = 0;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.ALL, 0);
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, 50);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.ALL, 0);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, 50);
 
             // subscribe to data packets
-            var sub = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.RAW_IMU, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            var sub = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.RAW_IMU, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
-            var sub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SCALED_IMU2, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            var sub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SCALED_IMU2, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
-            var sub3 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SCALED_IMU3, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            var sub3 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.SCALED_IMU3, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
             string extramsg = "";
 
@@ -510,7 +510,7 @@ namespace MissionPlanner
                 // run lsq every second when more than 100 datapoints
                 if (datacompass1.Count > 100 && lastlsq.Second != DateTime.Now.Second)
                 {
-                    MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, 50);
+                    MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, 50);
 
                     lastlsq = DateTime.Now;
                     lock (_locker)
@@ -693,32 +693,32 @@ namespace MissionPlanner
                 }
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(sub);
-            MainV2.comPort.UnSubscribeToPacketType(sub2);
-            MainV2.comPort.UnSubscribeToPacketType(sub3);
+            MainSerb.comPort.UnSubscribeToPacketType(sub);
+            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+            MainSerb.comPort.UnSubscribeToPacketType(sub3);
 
             // restore old sensor rate
-            MainV2.comPort.MAV.cs.ratesensors = backupratesens;
-            MainV2.comPort.MAV.cs.rateattitude = backuprateatt;
-            MainV2.comPort.MAV.cs.rateposition = backupratepos;
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainV2.comPort.MAV.cs.ratesensors);
+            MainSerb.comPort.MAV.cs.ratesensors = backupratesens;
+            MainSerb.comPort.MAV.cs.rateattitude = backuprateatt;
+            MainSerb.comPort.MAV.cs.rateposition = backupratepos;
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainSerb.comPort.MAV.cs.ratesensors);
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.POSITION, MainV2.comPort.MAV.cs.rateposition);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.POSITION, MainSerb.comPort.MAV.cs.rateposition);
             // request gps
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA1, MainV2.comPort.MAV.cs.rateattitude);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA1, MainSerb.comPort.MAV.cs.rateattitude);
             // request attitude
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA2, MainV2.comPort.MAV.cs.rateattitude);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA2, MainSerb.comPort.MAV.cs.rateattitude);
             // request vfr
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA3, MainV2.comPort.MAV.cs.ratesensors);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA3, MainSerb.comPort.MAV.cs.ratesensors);
             // request extra stuff - tridge
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainV2.comPort.MAV.cs.ratesensors);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainSerb.comPort.MAV.cs.ratesensors);
             // request raw sensor
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, MainV2.comPort.MAV.cs.raterc);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, MainSerb.comPort.MAV.cs.raterc);
             // request rc info
 
-            if (MainV2.speechEnable)
+            if (MainSerb.speechEnable)
             {
-                MainV2.speechEngine.SpeakAsync("Compass Calibration Complete");
+                MainSerb.speechEngine.SpeakAsync("Compass Calibration Complete");
             }
             else
             {
@@ -769,7 +769,7 @@ namespace MissionPlanner
 
             bool ellipsoid = false;
 
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_DIA_X"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_DIA_X"))
             {
                 ellipsoid = true;
             }
@@ -1270,40 +1270,40 @@ namespace MissionPlanner
         /// <param name="ofs">offsets</param>
         public static void SaveOffsets(double[] ofs)
         {
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS_X") && MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS_X") && MainSerb.comPort.BaseStream.IsOpen)
             {
                 try
                 {
                     // disable learning
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 0);
 
                     if (
-                        !MainV2.comPort.SetSensorOffsets((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLinkInterface.sensoroffsetsenum.magnetometer, (float)ofs[0],
+                        !MainSerb.comPort.SetSensorOffsets((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLinkInterface.sensoroffsetsenum.magnetometer, (float)ofs[0],
                             (float)ofs[1], (float)ofs[2]))
                     {
                         // set values
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_X", (float)ofs[0]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Y", (float)ofs[1]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Z", (float)ofs[2]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_X", (float)ofs[0]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Y", (float)ofs[1]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Z", (float)ofs[2]);
                     }
                     else
                     {
                         // Need to reload these params into the param list if SetSensorOffsets() was used
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_X");
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Y");
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS_Z");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_X");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Y");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS_Z");
                     }
 
-                    if (ofs.Length > 5 && MainV2.comPort.MAV.param.ContainsKey("COMPASS_DIA_X"))
+                    if (ofs.Length > 5 && MainSerb.comPort.MAV.param.ContainsKey("COMPASS_DIA_X"))
                     {
                         // ellipsoid
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_X", (float)ofs[3]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_Y", (float)ofs[4]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA_Z", (float)ofs[5]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_X", (float)ofs[3]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_Y", (float)ofs[4]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA_Z", (float)ofs[5]);
 
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_X", (float)ofs[6]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_Y", (float)ofs[7]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI_Z", (float)ofs[8]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_X", (float)ofs[6]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_Y", (float)ofs[7]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI_Z", (float)ofs[8]);
                     }
                 }
                 catch
@@ -1326,39 +1326,39 @@ namespace MissionPlanner
 
         public static void SaveOffsets2(double[] ofs)
         {
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS2_X") && MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS2_X") && MainSerb.comPort.BaseStream.IsOpen)
             {
                 try
                 {
                     // disable learning
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 0);
 
                     if (
-                        !MainV2.comPort.SetSensorOffsets((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLinkInterface.sensoroffsetsenum.second_magnetometer,
+                        !MainSerb.comPort.SetSensorOffsets((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLinkInterface.sensoroffsetsenum.second_magnetometer,
                             (float)ofs[0], (float)ofs[1], (float)ofs[2]))
                     {
                         // set values
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_X", (float)ofs[0]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Y", (float)ofs[1]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Z", (float)ofs[2]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_X", (float)ofs[0]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Y", (float)ofs[1]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Z", (float)ofs[2]);
                     }
                     else
                     {
                         // Need to reload these params into the param list if SetSensorOffsets() was used
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_X");
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Y");
-                        MainV2.comPort.GetParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS2_Z");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_X");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Y");
+                        MainSerb.comPort.GetParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS2_Z");
                     }
-                    if (ofs.Length > 5 && MainV2.comPort.MAV.param.ContainsKey("COMPASS_DIA2_X"))
+                    if (ofs.Length > 5 && MainSerb.comPort.MAV.param.ContainsKey("COMPASS_DIA2_X"))
                     {
                         // ellipsoid
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_X", (float)ofs[3]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_Y", (float)ofs[4]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA2_Z", (float)ofs[5]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_X", (float)ofs[3]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_Y", (float)ofs[4]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA2_Z", (float)ofs[5]);
 
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_X", (float)ofs[6]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_Y", (float)ofs[7]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI2_Z", (float)ofs[8]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_X", (float)ofs[6]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_Y", (float)ofs[7]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI2_Z", (float)ofs[8]);
                     }
                 }
                 catch
@@ -1381,27 +1381,27 @@ namespace MissionPlanner
 
         public static void SaveOffsets3(double[] ofs)
         {
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS3_X") && MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS3_X") && MainSerb.comPort.BaseStream.IsOpen)
             {
                 try
                 {
                     // disable learning
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 0);
                     {
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_X", (float)ofs[0]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_Y", (float)ofs[1]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_OFS3_Z", (float)ofs[2]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_X", (float)ofs[0]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_Y", (float)ofs[1]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_OFS3_Z", (float)ofs[2]);
                     }
-                    if (ofs.Length > 5 && MainV2.comPort.MAV.param.ContainsKey("COMPASS_DIA3_X"))
+                    if (ofs.Length > 5 && MainSerb.comPort.MAV.param.ContainsKey("COMPASS_DIA3_X"))
                     {
                         // ellipsoid
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_X", (float)ofs[3]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_Y", (float)ofs[4]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DIA3_Z", (float)ofs[5]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_X", (float)ofs[3]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_Y", (float)ofs[4]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DIA3_Z", (float)ofs[5]);
 
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_X", (float)ofs[6]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_Y", (float)ofs[7]);
-                        MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_ODI3_Z", (float)ofs[8]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_X", (float)ofs[6]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_Y", (float)ofs[7]);
+                        MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_ODI3_Z", (float)ofs[8]);
                     }
                 }
                 catch

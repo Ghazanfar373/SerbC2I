@@ -27,7 +27,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            AP_REPL = new AP_REPL(MainV2.comPort);
+            AP_REPL = new AP_REPL(MainSerb.comPort);
             AP_REPL.NewResponse += (sender, s) =>
             {
                 try
@@ -154,7 +154,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         var cmd = "";
                         lock (thisLock)
                         {
-                            if (MainV2.MONO)
+                            if (MainSerb.MONO)
                             {
                                 cmd = TXT_terminal.Text.Substring(inputStartPos,
                                     TXT_terminal.Text.Length - inputStartPos);

@@ -30,7 +30,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
@@ -39,8 +39,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             startup = true;
 
-            if (MainV2.comPort.MAV.cs.version > Version.Parse("3.2.1") &&
-                MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+            if (MainSerb.comPort.MAV.cs.version > Version.Parse("3.2.1") &&
+                MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
             {
                 QuickAPM25.Visible = false;
                 buttonAPMExternal.Visible = false;
@@ -48,15 +48,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 label1.Visible = false;
             }
 
-            if (MainV2.comPort.MAV.cs.version >= Version.Parse("3.7.1") &&
-                MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane
+            if (MainSerb.comPort.MAV.cs.version >= Version.Parse("3.7.1") &&
+                MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane
                 || Control.ModifierKeys == Keys.Control)
             {
                 groupBoxonboardcalib.Visible = true;
                 label4.Visible = true;
                 groupBoxmpcalib.Visible = true;
             }
-            else if ((MainV2.comPort.MAV.cs.capabilities & (uint)MAVLink.MAV_PROTOCOL_CAPABILITY.COMPASS_CALIBRATION) == 0)
+            else if ((MainSerb.comPort.MAV.cs.capabilities & (uint)MAVLink.MAV_PROTOCOL_CAPABILITY.COMPASS_CALIBRATION) == 0)
             {
                 groupBoxonboardcalib.Visible = false;
                 label4.Visible = false;
@@ -71,10 +71,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             // General Compass Settings
 
-            CHK_compass_learn.setup(1, 0, "COMPASS_LEARN", MainV2.comPort.MAV.param);
-            if (MainV2.comPort.MAV.param["COMPASS_DEC"] != null)
+            CHK_compass_learn.setup(1, 0, "COMPASS_LEARN", MainSerb.comPort.MAV.param);
+            if (MainSerb.comPort.MAV.param["COMPASS_DEC"] != null)
             {
-                var dec = MainV2.comPort.MAV.param["COMPASS_DEC"].Value * MathHelper.rad2deg;
+                var dec = MainSerb.comPort.MAV.param["COMPASS_DEC"].Value * MathHelper.rad2deg;
 
                 var min = (dec - (int)dec) * 60;
 
@@ -82,27 +82,27 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 TXT_declination_min.Text = min.ToString("0");
             }
 
-            if (MainV2.comPort.MAV.param["COMPASS_AUTODEC"] != null)
+            if (MainSerb.comPort.MAV.param["COMPASS_AUTODEC"] != null)
             {
-                CHK_autodec.Checked = MainV2.comPort.MAV.param["COMPASS_AUTODEC"].ToString() == "1" ? true : false;
+                CHK_autodec.Checked = MainSerb.comPort.MAV.param["COMPASS_AUTODEC"].ToString() == "1" ? true : false;
             }
 
 
             // Compass 1 settings
-            CHK_compass1_use.setup(1, 0, "COMPASS_USE", MainV2.comPort.MAV.param);
-            CHK_compass1_external.setup(1, 0, "COMPASS_EXTERNAL", MainV2.comPort.MAV.param);
+            CHK_compass1_use.setup(1, 0, "COMPASS_USE", MainSerb.comPort.MAV.param);
+            CHK_compass1_external.setup(1, 0, "COMPASS_EXTERNAL", MainSerb.comPort.MAV.param);
             CMB_compass1_orient.setup(ParameterMetaDataRepository.GetParameterOptionsInt("COMPASS_ORIENT",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT", MainSerb.comPort.MAV.param);
 
-            if (!MainV2.comPort.MAV.param.ContainsKey("COMPASS_OFS_X"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("COMPASS_OFS_X"))
             {
                 Enabled = false;
                 return;
             }
 
-            int offset1_x = (int)MainV2.comPort.MAV.param["COMPASS_OFS_X"];
-            int offset1_y = (int)MainV2.comPort.MAV.param["COMPASS_OFS_Y"];
-            int offset1_z = (int)MainV2.comPort.MAV.param["COMPASS_OFS_Z"];
+            int offset1_x = (int)MainSerb.comPort.MAV.param["COMPASS_OFS_X"];
+            int offset1_y = (int)MainSerb.comPort.MAV.param["COMPASS_OFS_Y"];
+            int offset1_z = (int)MainSerb.comPort.MAV.param["COMPASS_OFS_Z"];
             // Turn offsets red if any offset exceeds a threshold, or all values are 0 (not yet calibrated)
             if (absmax(offset1_x, offset1_y, offset1_z) > THRESHOLD_OFS_RED)
                 LBL_compass1_offset.ForeColor = Color.Red;
@@ -118,15 +118,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                        offset1_x.ToString() +
                                        ",   Y: " + offset1_y.ToString() +
                                        ",   Z: " + offset1_z.ToString();
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_MOT_X"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_MOT_X"))
             {
                 LBL_compass1_mot.Text = "MOT          X: " +
-                                        ((int)MainV2.comPort.MAV.param["COMPASS_MOT_X"]).ToString() +
-                                        ",   Y: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT_Y"]).ToString() +
-                                        ",   Z: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT_Z"]).ToString();
+                                        ((int)MainSerb.comPort.MAV.param["COMPASS_MOT_X"]).ToString() +
+                                        ",   Y: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT_Y"]).ToString() +
+                                        ",   Z: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT_Z"]).ToString();
             }
 
-            if (!MainV2.DisplayConfiguration.displayCompassConfiguration)
+            if (!MainSerb.DisplayConfiguration.displayCompassConfiguration)
             {
                 CHK_compass1_use.Enabled = false;
                 CHK_compass1_external.Enabled = false;
@@ -134,18 +134,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
             // Compass 2 settings
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_EXTERN2"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_EXTERN2"))
             {
-                CHK_compass2_use.setup(1, 0, "COMPASS_USE2", MainV2.comPort.MAV.param);
-                CHK_compass2_external.setup(1, 0, "COMPASS_EXTERN2", MainV2.comPort.MAV.param);
+                CHK_compass2_use.setup(1, 0, "COMPASS_USE2", MainSerb.comPort.MAV.param);
+                CHK_compass2_external.setup(1, 0, "COMPASS_EXTERN2", MainSerb.comPort.MAV.param);
                 CMB_compass2_orient.setup(ParameterMetaDataRepository.GetParameterOptionsInt("COMPASS_ORIENT2",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT2", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT2", MainSerb.comPort.MAV.param);
 
-                CMB_primary_compass.setup(typeof(CompassNumber), "COMPASS_PRIMARY", MainV2.comPort.MAV.param);
+                CMB_primary_compass.setup(typeof(CompassNumber), "COMPASS_PRIMARY", MainSerb.comPort.MAV.param);
 
-                int offset2_x = (int)MainV2.comPort.MAV.param["COMPASS_OFS2_X"];
-                int offset2_y = (int)MainV2.comPort.MAV.param["COMPASS_OFS2_Y"];
-                int offset2_z = (int)MainV2.comPort.MAV.param["COMPASS_OFS2_Z"];
+                int offset2_x = (int)MainSerb.comPort.MAV.param["COMPASS_OFS2_X"];
+                int offset2_y = (int)MainSerb.comPort.MAV.param["COMPASS_OFS2_Y"];
+                int offset2_z = (int)MainSerb.comPort.MAV.param["COMPASS_OFS2_Z"];
 
                 if (absmax(offset2_x, offset2_y, offset2_z) > THRESHOLD_OFS_RED)
                     LBL_compass2_offset.ForeColor = Color.Red;
@@ -161,15 +161,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                            offset2_x.ToString() +
                                            ",   Y: " + offset2_y.ToString() +
                                            ",   Z: " + offset2_z.ToString();
-                if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_MOT2_X"))
+                if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_MOT2_X"))
                 {
                     LBL_compass2_mot.Text = "MOT          X: " +
-                                            ((int)MainV2.comPort.MAV.param["COMPASS_MOT2_X"]).ToString() +
-                                            ",   Y: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT2_Y"]).ToString() +
-                                            ",   Z: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT2_Z"]).ToString();
+                                            ((int)MainSerb.comPort.MAV.param["COMPASS_MOT2_X"]).ToString() +
+                                            ",   Y: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT2_Y"]).ToString() +
+                                            ",   Z: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT2_Z"]).ToString();
                 }
 
-                if (!MainV2.DisplayConfiguration.displayCompassConfiguration)
+                if (!MainSerb.DisplayConfiguration.displayCompassConfiguration)
                 {
                     CHK_compass2_use.Enabled = false;
                     CHK_compass2_external.Enabled = false;
@@ -182,16 +182,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 groupBoxCompass2.Hide();
             }
 
-            if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_EXTERN3"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_EXTERN3"))
             {
-                CHK_compass3_external.setup(1, 0, "COMPASS_EXTERN3", MainV2.comPort.MAV.param);
-                CHK_compass3_use.setup(1, 0, "COMPASS_USE3", MainV2.comPort.MAV.param);
+                CHK_compass3_external.setup(1, 0, "COMPASS_EXTERN3", MainSerb.comPort.MAV.param);
+                CHK_compass3_use.setup(1, 0, "COMPASS_USE3", MainSerb.comPort.MAV.param);
                 CMB_compass3_orient.setup(ParameterMetaDataRepository.GetParameterOptionsInt("COMPASS_ORIENT3",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT3", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "COMPASS_ORIENT3", MainSerb.comPort.MAV.param);
 
-                int offset3_x = (int)MainV2.comPort.MAV.param["COMPASS_OFS3_X"];
-                int offset3_y = (int)MainV2.comPort.MAV.param["COMPASS_OFS3_Y"];
-                int offset3_z = (int)MainV2.comPort.MAV.param["COMPASS_OFS3_Z"];
+                int offset3_x = (int)MainSerb.comPort.MAV.param["COMPASS_OFS3_X"];
+                int offset3_y = (int)MainSerb.comPort.MAV.param["COMPASS_OFS3_Y"];
+                int offset3_z = (int)MainSerb.comPort.MAV.param["COMPASS_OFS3_Z"];
 
                 if (absmax(offset3_x, offset3_y, offset3_z) > THRESHOLD_OFS_RED)
                     LBL_compass3_offset.ForeColor = Color.Red;
@@ -207,15 +207,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                                            offset3_x.ToString() +
                                            ",   Y: " + offset3_y.ToString() +
                                            ",   Z: " + offset3_z.ToString();
-                if (MainV2.comPort.MAV.param.ContainsKey("COMPASS_MOT3_X"))
+                if (MainSerb.comPort.MAV.param.ContainsKey("COMPASS_MOT3_X"))
                 {
                     LBL_compass3_mot.Text = "MOT          X: " +
-                                            ((int)MainV2.comPort.MAV.param["COMPASS_MOT3_X"]).ToString() +
-                                            ",   Y: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT3_Y"]).ToString() +
-                                            ",   Z: " + ((int)MainV2.comPort.MAV.param["COMPASS_MOT3_Z"]).ToString();
+                                            ((int)MainSerb.comPort.MAV.param["COMPASS_MOT3_X"]).ToString() +
+                                            ",   Y: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT3_Y"]).ToString() +
+                                            ",   Z: " + ((int)MainSerb.comPort.MAV.param["COMPASS_MOT3_Z"]).ToString();
                 }
 
-                if (!MainV2.DisplayConfiguration.displayCompassConfiguration)
+                if (!MainSerb.DisplayConfiguration.displayCompassConfiguration)
                 {
                     CHK_compass3_use.Enabled = false;
                     CHK_compass3_external.Enabled = false;
@@ -228,11 +228,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
             mavlinkComboBoxfitness.setup(ParameterMetaDataRepository.GetParameterOptionsInt("COMPASS_CAL_FIT",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "COMPASS_CAL_FIT", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "COMPASS_CAL_FIT", MainSerb.comPort.MAV.param);
 
             ShowRelevantFields();
 
-            if (!MainV2.DisplayConfiguration.displayCompassConfiguration)
+            if (!MainSerb.DisplayConfiguration.displayCompassConfiguration)
             {
                 CHK_compass_learn.Enabled = false;
                 CHK_autodec.Enabled = false;
@@ -286,7 +286,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["COMPASS_DEC"] == null)
+                if (MainSerb.comPort.MAV.param["COMPASS_DEC"] == null)
                 {
                     CustomMessageBox.Show(Strings.ErrorFeatureNotEnabled, Strings.ERROR);
                 }
@@ -312,7 +312,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         return;
                     }
 
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_DEC", dec * MathHelper.deg2rad);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_DEC", dec * MathHelper.deg2rad);
                 }
             }
             catch
@@ -344,13 +344,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["MAG_ENABLE"] == null)
+                if (MainSerb.comPort.MAV.param["MAG_ENABLE"] == null)
                 {
                     CustomMessageBox.Show(Strings.ErrorFeatureNotEnabled, Strings.ERROR);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "MAG_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "MAG_ENABLE", ((CheckBox)sender).Checked ? 1 : 0);
                 }
             }
             catch
@@ -390,13 +390,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["COMPASS_AUTODEC"] == null)
+                if (MainSerb.comPort.MAV.param["COMPASS_AUTODEC"] == null)
                 {
-                    CustomMessageBox.Show("Not Available on " + MainV2.comPort.MAV.cs.firmware);
+                    CustomMessageBox.Show("Not Available on " + MainSerb.comPort.MAV.cs.firmware);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_AUTODEC", ((CheckBox)sender).Checked ? 1 : 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_AUTODEC", ((CheckBox)sender).Checked ? 1 : 0);
                 }
             }
             catch
@@ -423,7 +423,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private bool ReceviedPacket(MAVLink.MAVLinkMessage packet)
         {
             if (System.Diagnostics.Debugger.IsAttached)
-                MainV2.comPort.DebugPacket(packet, true);
+                MainSerb.comPort.DebugPacket(packet, true);
 
             if (packet.msgid == (byte)MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS)
             {
@@ -454,7 +454,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_START_MAG_CAL, 0, 1, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_START_MAG_CAL, 0, 1, 1, 0, 0, 0, 0);
             }
             catch (Exception ex)
             {
@@ -469,8 +469,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             horizontalProgressBar2.Value = 0;
             horizontalProgressBar3.Value = 0;
 
-            packetsub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
-            packetsub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_REPORT, ReceviedPacket, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            packetsub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_PROGRESS, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
+            packetsub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MAG_CAL_REPORT, ReceviedPacket, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
             BUT_OBmagcalaccept.Enabled = true;
             BUT_OBmagcalcancel.Enabled = true;
@@ -481,7 +481,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_ACCEPT_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_ACCEPT_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
 
             }
             catch (Exception ex)
@@ -489,8 +489,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CustomMessageBox.Show(ex.ToString(), Strings.ERROR, MessageBoxButtons.OK);
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(packetsub1);
-            MainV2.comPort.UnSubscribeToPacketType(packetsub2);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub1);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub2);
 
             timer1.Stop();
         }
@@ -499,15 +499,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_CANCEL_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_CANCEL_MAG_CAL, 0, 0, 1, 0, 0, 0, 0);
             }
             catch (Exception ex)
             {
                 CustomMessageBox.Show(ex.ToString(), Strings.ERROR, MessageBoxButtons.OK);
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(packetsub1);
-            MainV2.comPort.UnSubscribeToPacketType(packetsub2);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub1);
+            MainSerb.comPort.UnSubscribeToPacketType(packetsub2);
 
             timer1.Stop();
         }
@@ -611,10 +611,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void buttonQuickPixhawk_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 CustomMessageBox.Show(Strings.ErrorNotConnected);
-                MainV2.View.Reload();
+                MainSerb.View.Reload();
                 return;
             }
 
@@ -622,15 +622,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 // TODO: check this code against the original. I don't understand what the original does
                 // with the different firmware versions, and I changed something about the externality
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE2", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE3", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERNAL", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE2", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERNAL", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 1);
 
                 if (
                     CustomMessageBox.Show("is the FW version greater than APM:copter 3.01 or APM:Plane 2.74?", "",
@@ -641,7 +641,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 else
                 {
                     CMB_compass1_orient.SelectedIndex = (int)Rotation.ROTATION_ROLL_180;
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERNAL", 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERNAL", 0);
                 }
             }
             catch (Exception)
@@ -653,23 +653,23 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void QuickAPM25_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 CustomMessageBox.Show(Strings.ErrorNotConnected);
-                MainV2.View.Reload();
+                MainSerb.View.Reload();
                 return;
             }
             try
             {
                 CMB_compass1_orient.SelectedIndex = (int)Rotation.ROTATION_NONE;
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE1", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE2", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE3", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERNAL", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE1", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE2", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERNAL", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 1);
             }
             catch (Exception)
             {
@@ -680,25 +680,25 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void buttonAPMExternal_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 CustomMessageBox.Show(Strings.ErrorNotConnected);
-                MainV2.View.Reload();
+                MainSerb.View.Reload();
                 return;
             }
             try
             {
                 CMB_compass1_orient.SelectedIndex = (int)Rotation.ROTATION_ROLL_180;
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERNAL", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERNAL", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN2", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_EXTERN3", 0);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE1", 1);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE2", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_USE3", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE1", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE2", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_USE3", 0);
 
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", 1);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_PRIMARY", 0);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", 1);
             }
             catch (Exception)
             {
@@ -711,13 +711,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                if (MainV2.comPort.MAV.param["COMPASS_LEARN"] == null)
+                if (MainSerb.comPort.MAV.param["COMPASS_LEARN"] == null)
                 {
-                    CustomMessageBox.Show("Not Available on " + MainV2.comPort.MAV.cs.firmware);
+                    CustomMessageBox.Show("Not Available on " + MainSerb.comPort.MAV.cs.firmware);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "COMPASS_LEARN", ((CheckBox)sender).Checked ? 1 : 0);
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "COMPASS_LEARN", ((CheckBox)sender).Checked ? 1 : 0);
                 }
             }
             catch
@@ -751,8 +751,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             LBL_compass3_offset.Visible = CHK_compass3_use.Checked;
 
             // Toggle primary compass controls as appropriate
-            CMB_primary_compass.Visible = MainV2.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
-            LBL_primary_compass.Visible = MainV2.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
+            CMB_primary_compass.Visible = MainSerb.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
+            LBL_primary_compass.Visible = MainSerb.comPort.MAV.param.ContainsKey("COMPASS_PRIMARY");
         }
 
         private void but_largemagcal_Click(object sender, EventArgs e)
@@ -762,7 +762,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if (MainV2.comPort.doCommand(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid,
+                    if (MainSerb.comPort.doCommand(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                         MAVLink.MAV_CMD.FIXED_MAG_CAL_YAW, (float)value, 0, 0, 0, 0, 0, 0))
                     {
                         CustomMessageBox.Show(Strings.Completed, Strings.Completed);

@@ -786,7 +786,7 @@ namespace MissionPlanner.Utilities
                 }
             }
 
-            if (MainV2.comPort.BaseStream is SerialPort)
+            if (MainSerb.comPort.BaseStream is SerialPort)
             {
                 try
                 {
@@ -794,17 +794,17 @@ namespace MissionPlanner.Utilities
                     var task = Task.Run(() =>
                     {
                         // check if we are seeing heartbeats
-                        MainV2.comPort.BaseStream.Open();
-                        MainV2.comPort.giveComport = true;
+                        MainSerb.comPort.BaseStream.Open();
+                        MainSerb.comPort.giveComport = true;
 
-                        if (MainV2.comPort.getHeartBeat().Length > 0)
+                        if (MainSerb.comPort.getHeartBeat().Length > 0)
                         {
-                            MainV2.comPort.doReboot(true, false);
-                            MainV2.comPort.Close();
+                            MainSerb.comPort.doReboot(true, false);
+                            MainSerb.comPort.Close();
                         }
                         else
                         {
-                            MainV2.comPort.BaseStream.Close();
+                            MainSerb.comPort.BaseStream.Close();
                             throw new Exception("No HeartBeat found");
                         }
                     });
@@ -847,13 +847,13 @@ namespace MissionPlanner.Utilities
             try
             {
                 // check if we are seeing heartbeats
-                MainV2.comPort.BaseStream.Open();
-                MainV2.comPort.giveComport = true;
+                MainSerb.comPort.BaseStream.Open();
+                MainSerb.comPort.giveComport = true;
 
-                if (MainV2.comPort.getHeartBeat().Length > 0)
+                if (MainSerb.comPort.getHeartBeat().Length > 0)
                 {
-                    MainV2.comPort.doReboot(true, false);
-                    MainV2.comPort.Close();
+                    MainSerb.comPort.doReboot(true, false);
+                    MainSerb.comPort.Close();
 
                     //specific action for VRBRAIN4 board that needs to be manually disconnected before uploading
                     if (board == BoardDetect.boards.vrbrainv40)
@@ -864,7 +864,7 @@ namespace MissionPlanner.Utilities
                 }
                 else
                 {
-                    MainV2.comPort.BaseStream.Close();
+                    MainSerb.comPort.BaseStream.Close();
                     CustomMessageBox.Show(Strings.PleaseUnplugTheBoardAnd);
                 }
             }
@@ -1476,7 +1476,7 @@ namespace MissionPlanner.Utilities
                 }
                 return false;
             }
-            MainV2.comPort.giveComport = false;
+            MainSerb.comPort.giveComport = false;
             return true;
         }
 

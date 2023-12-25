@@ -20,19 +20,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.MAV.param.ContainsKey("GPS1_CAN_OVRIDE"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("GPS1_CAN_OVRIDE"))
             {
                 this.Enabled = false;
                 return;
             }
 
             // get the detected id's
-            var id1 = MainV2.comPort.MAV.param["GPS_CAN_NODEID1"];
-            var id2 = MainV2.comPort.MAV.param["GPS_CAN_NODEID2"];
+            var id1 = MainSerb.comPort.MAV.param["GPS_CAN_NODEID1"];
+            var id2 = MainSerb.comPort.MAV.param["GPS_CAN_NODEID2"];
 
             // get the override id's
-            var id1ovr = MainV2.comPort.MAV.param["GPS1_CAN_OVRIDE"];
-            var id2ovr = MainV2.comPort.MAV.param["GPS2_CAN_OVRIDE"];
+            var id1ovr = MainSerb.comPort.MAV.param["GPS1_CAN_OVRIDE"];
+            var id2ovr = MainSerb.comPort.MAV.param["GPS2_CAN_OVRIDE"];
 
             var list = new List<GPSCAN>();
 
@@ -65,7 +65,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 if (e.ColumnIndex == GPS1.Index)
                 {
-                    MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         "GPS1_CAN_OVRIDE",
                         int.Parse(myDataGridView1[nodeIDDataGridViewTextBoxColumn.Index, e.RowIndex].Value.ToString()));
                     Activate();
@@ -73,7 +73,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 if (e.ColumnIndex == GPS2.Index)
                 {
-                    MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         "GPS2_CAN_OVRIDE",
                         int.Parse(myDataGridView1[nodeIDDataGridViewTextBoxColumn.Index, e.RowIndex].Value.ToString()));
                     Activate();

@@ -50,7 +50,7 @@ namespace mass
 
             var but = new ToolStripMenuItem("Arm");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav =>
+                Parallel.ForEach(MainSerb.Comports, mav =>
                 {
                     try
                     {
@@ -63,7 +63,7 @@ namespace mass
 
             but = new ToolStripMenuItem("Arm(Force)");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.doARM(true, true);
@@ -74,7 +74,7 @@ namespace mass
 
             but = new ToolStripMenuItem("GUIDED");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.setMode("GUIDED");
@@ -86,7 +86,7 @@ namespace mass
 
             but = new ToolStripMenuItem("AUTO");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.setMode("AUTO");
@@ -98,7 +98,7 @@ namespace mass
 
             but = new ToolStripMenuItem("TAKEOFF");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.setMode("TAKEOFF");
@@ -110,7 +110,7 @@ namespace mass
 
             but = new ToolStripMenuItem("TakeOff (2m)");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.doCommand((byte)mav.sysidcurrent, (byte)mav.compidcurrent,
@@ -123,7 +123,7 @@ namespace mass
 
             but = new ToolStripMenuItem("Fly To");
             but.Click += (s, e) => {
-                Parallel.ForEach(MainV2.Comports, mav => {
+                Parallel.ForEach(MainSerb.Comports, mav => {
                     try
                     {
                         mav.setGuidedModeWP(new Locationwp

@@ -17,7 +17,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void but_bootloaderupdate_Click(object sender, System.EventArgs e)
         {
-            var mav = MainV2.comPort;
+            var mav = MainSerb.comPort;
 
             if (!mav.BaseStream.IsOpen)
                 return;

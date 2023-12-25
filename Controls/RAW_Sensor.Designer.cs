@@ -405,8 +405,8 @@ namespace MissionPlanner.Controls
             // aGauge1
             // 
             this.aGauge1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.aGauge1.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
-            resources.ApplyResources(this.aGauge1, "aGauge1");
+            //this.aGauge1.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            //resources.ApplyResources(this.aGauge1, "aGauge1");
             this.aGauge1.BaseArcColor = System.Drawing.Color.Gray;
             this.aGauge1.BaseArcRadius = 50;
             this.aGauge1.BaseArcStart = 270;
@@ -609,8 +609,8 @@ namespace MissionPlanner.Controls
             // Gpitch
             // 
             this.Gpitch.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Gpitch.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
-            resources.ApplyResources(this.Gpitch, "Gpitch");
+            //this.Gpitch.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            //resources.ApplyResources(this.Gpitch, "Gpitch");
             this.Gpitch.BaseArcColor = System.Drawing.Color.Gray;
             this.Gpitch.BaseArcRadius = 50;
             this.Gpitch.BaseArcStart = 90;
@@ -752,8 +752,8 @@ namespace MissionPlanner.Controls
             // Groll
             // 
             this.Groll.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Groll.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
-            resources.ApplyResources(this.Groll, "Groll");
+            //this.Groll.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            //resources.ApplyResources(this.Groll, "Groll");
             this.Groll.BaseArcColor = System.Drawing.Color.Gray;
             this.Groll.BaseArcRadius = 50;
             this.Groll.BaseArcStart = 90;

@@ -193,7 +193,7 @@ namespace MissionPlanner.Controls
             Settings.Instance["PlannerExtraCommandIDs"] =  JsonConvert.SerializeObject(extraCommands);
 
             //This needed in case the user already have a mission in the planner tab with added items.
-            MainV2.instance.FlightPlanner.updateCMDParams();
+            MainSerb.instance.FlightPlanner.updateCMDParams();
 
             this.Close();
 

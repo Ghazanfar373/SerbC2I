@@ -7,7 +7,7 @@
 
         public void Start()
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var MAV in port.MAVlist)
                 {

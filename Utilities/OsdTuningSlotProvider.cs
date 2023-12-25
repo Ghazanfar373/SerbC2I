@@ -29,19 +29,19 @@ namespace MissionPlanner.Utilities
 
         public OsdTuningSlotProvider()
         {
-            sub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.OSD_PARAM_SHOW_CONFIG_REPLY,
-                    HandleParamShowResponse, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            sub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.OSD_PARAM_SHOW_CONFIG_REPLY,
+                    HandleParamShowResponse, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
-            sub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.OSD_PARAM_CONFIG_REPLY,
-                    HandleParamSetResponse, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+            sub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.OSD_PARAM_CONFIG_REPLY,
+                    HandleParamSetResponse, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
         }
 
         public void ParamShow(byte screen, byte index)
         {
-            MainV2.comPort.sendPacket(new MAVLink.mavlink_osd_param_show_config_t(++request,
-                    (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent, screen, index), (byte)MainV2.comPort.sysidcurrent,
-                (byte)MainV2.comPort.compidcurrent);
+            MainSerb.comPort.sendPacket(new MAVLink.mavlink_osd_param_show_config_t(++request,
+                    (byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent, screen, index), (byte)MainSerb.comPort.sysidcurrent,
+                (byte)MainSerb.comPort.compidcurrent);
 
             if (!paramShowRequests.TryAdd(request, (screen, index)))
                 throw new Exception($"Unable to store the request info for {screen} {index}");
@@ -49,11 +49,11 @@ namespace MissionPlanner.Utilities
 
         public void ParamSet(byte screen, byte index, string name, MAVLink.OSD_PARAM_CONFIG_TYPE type, float min, float max, float increment)
         {
-            MainV2.comPort.sendPacket(new MAVLink.mavlink_osd_param_config_t(++request, min, max, increment,
-                    (byte)MainV2.comPort.sysidcurrent,
-                    (byte)MainV2.comPort.compidcurrent, screen, index, name.ToCharArray().ToByteArray(),
-                    (byte)type), (byte)MainV2.comPort.sysidcurrent,
-                (byte)MainV2.comPort.compidcurrent);
+            MainSerb.comPort.sendPacket(new MAVLink.mavlink_osd_param_config_t(++request, min, max, increment,
+                    (byte)MainSerb.comPort.sysidcurrent,
+                    (byte)MainSerb.comPort.compidcurrent, screen, index, name.ToCharArray().ToByteArray(),
+                    (byte)type), (byte)MainSerb.comPort.sysidcurrent,
+                (byte)MainSerb.comPort.compidcurrent);
 
             if (!paramSetRequests.TryAdd(request, (screen, index)))
                 throw new Exception($"Unable to store the request info for {screen} {index}");
@@ -120,8 +120,8 @@ namespace MissionPlanner.Utilities
 
         public void Dispose()
         {
-            MainV2.comPort.UnSubscribeToPacketType(sub1);
-            MainV2.comPort.UnSubscribeToPacketType(sub2);
+            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+            MainSerb.comPort.UnSubscribeToPacketType(sub2);
         }
     }
 

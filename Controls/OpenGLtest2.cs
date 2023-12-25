@@ -118,8 +118,8 @@ namespace MissionPlanner.Controls
             var x = ((MouseEventArgs) e).X;
             var y = ((MouseEventArgs) e).Y;
             mouseDownPos = getMousePos(x, y);
-            MainV2.comPort.setGuidedModeWP(
-                new Locationwp().Set(mouseDownPos.Lat, mouseDownPos.Lng, MainV2.comPort.MAV.GuidedMode.z,
+            MainSerb.comPort.setGuidedModeWP(
+                new Locationwp().Set(mouseDownPos.Lat, mouseDownPos.Lng, MainSerb.comPort.MAV.GuidedMode.z,
                     (ushort) MAVLink.MAV_CMD.WAYPOINT), false);
         }
 
@@ -602,16 +602,16 @@ namespace MissionPlanner.Controls
                     GL.Enable(EnableCap.Texture2D);
                     GL.BindTexture(TextureTarget.Texture2D, green);
                     var list = FlightPlanner.instance.pointlist.Where(a => a != null).ToList();
-                    if (MainV2.comPort.MAV.cs.mode.ToLower() == "guided")
-                        list.Add(new PointLatLngAlt(MainV2.comPort.MAV.GuidedMode)
-                            {Alt = MainV2.comPort.MAV.GuidedMode.z + MainV2.comPort.MAV.cs.HomeAlt});
-                    if (MainV2.comPort.MAV.cs.TargetLocation != PointLatLngAlt.Zero)
-                        list.Add(MainV2.comPort.MAV.cs.TargetLocation);
+                    if (MainSerb.comPort.MAV.cs.mode.ToLower() == "guided")
+                        list.Add(new PointLatLngAlt(MainSerb.comPort.MAV.GuidedMode)
+                            {Alt = MainSerb.comPort.MAV.GuidedMode.z + MainSerb.comPort.MAV.cs.HomeAlt});
+                    if (MainSerb.comPort.MAV.cs.TargetLocation != PointLatLngAlt.Zero)
+                        list.Add(MainSerb.comPort.MAV.cs.TargetLocation);
 
-                    if (MainV2.comPort.MAV.cs.Location != PointLatLngAlt.Zero)
-                        list.Add(MainV2.comPort.MAV.cs.Location);
+                    if (MainSerb.comPort.MAV.cs.Location != PointLatLngAlt.Zero)
+                        list.Add(MainSerb.comPort.MAV.cs.Location);
 
-                    foreach (var point in list.OrderBy((a)=> a.GetDistance(MainV2.comPort.MAV.cs.Location)))
+                    foreach (var point in list.OrderBy((a)=> a.GetDistance(MainSerb.comPort.MAV.cs.Location)))
                     {
                         if (point == null)
                             continue;

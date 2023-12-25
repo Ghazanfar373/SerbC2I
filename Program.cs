@@ -199,7 +199,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Planner";
+            name = "Mission Command";
 
             try
             {
@@ -263,7 +263,7 @@ namespace MissionPlanner
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;
-                Splash.pictureBox1.Visible = false;
+                //Splash.pictureBox1.Visible = false;
             }
 
             Console.WriteLine("IconFile");
@@ -393,7 +393,6 @@ namespace MissionPlanner
             {
 
             }
-
             if (name == "VVVVZ")
             {
                 // set pw
@@ -451,8 +450,8 @@ namespace MissionPlanner
             try
             {
                 Thread.CurrentThread.Name = "Base Thread";
-                Console.WriteLine("Application.Run(new MainV2())");
-                Application.Run(new MainV2());
+                Console.WriteLine("Application.Run(new MainSerb())");
+                Application.Run(new MainSerb());
             }
             catch (Exception ex)
             {
@@ -698,7 +697,7 @@ namespace MissionPlanner
                 return;
             }
 
-            if (MainV2.instance != null && MainV2.instance.IsDisposed)
+            if (MainSerb.instance != null && MainSerb.instance.IsDisposed)
                 return;
 
             MissionPlanner.Utilities.Tracking.AddException(ex);

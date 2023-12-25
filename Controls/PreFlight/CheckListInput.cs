@@ -23,7 +23,7 @@ namespace MissionPlanner.Controls.PreFlight
 
             InitializeComponent();
 
-            CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+            CheckListItem.defaultsrc = MainSerb.comPort.MAV.cs;
             item.SetField(item.Name);
 
             CMB_condition.DataSource = Enum.GetNames(typeof(CheckListItem.Conditional));

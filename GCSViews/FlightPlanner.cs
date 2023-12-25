@@ -60,6 +60,7 @@ namespace MissionPlanner.GCSViews
         {
             InitializeComponent();
             Init();
+            
         }
 
 
@@ -76,7 +77,7 @@ namespace MissionPlanner.GCSViews
                 but_mincommands.Text = @"˄";
             }
         }
-
+        private Form formWpPanel;
         public static GMapOverlay airportsoverlay;
         public static GMapOverlay objectsoverlay;
         public static GMapOverlay poioverlay = new GMapOverlay("POI");
@@ -92,25 +93,25 @@ namespace MissionPlanner.GCSViews
         private static GMapOverlay rallypointoverlay;
         private static string zone = "50s";
         private readonly Random rnd = new Random();
-        public GMapMarker center = new GMarkerGoogle(new PointLatLng(0.0, 0.0), GMarkerGoogleType.none);
+        public  GMapMarker center = new GMarkerGoogle(new PointLatLng(0.0, 0.0), GMarkerGoogleType.none);
         private Dictionary<string, string[]> cmdParamNames = new Dictionary<string, string[]>();
         private GMapMarkerRect CurentRectMarker;
         private altmode currentaltmode = (altmode) Settings.Instance.GetInt32("FPaltmode", (int)altmode.Relative);
         private GMapMarker CurrentGMapMarker;
-        public GMapMarker currentMarker;
+        public  GMapMarker currentMarker;
         private GMapMarkerPOI CurrentPOIMarker;
         private GMapMarkerRallyPt CurrentRallyPt;
-        public GMapOverlay drawnpolygonsoverlay;
+        public  GMapOverlay drawnpolygonsoverlay;
         private bool fetchpathrip;
-        public GMapOverlay geofenceoverlay;
-        public GMapPolygon geofencepolygon;
+        public  GMapOverlay geofenceoverlay;
+        public  GMapPolygon geofencepolygon;
         private bool grid;
         private List<int> groupmarkers = new List<int>();
         private List<List<Locationwp>> history = new List<List<Locationwp>>();
         private bool isMouseClickOffMenu;
         private bool isMouseDown;
         private bool isMouseDraging;
-        public GMapOverlay kmlpolygonsoverlay;
+        public  GMapOverlay kmlpolygonsoverlay;
         private string startupWPradius = "5.0";
 
         /// <summary>
@@ -218,8 +219,7 @@ namespace MissionPlanner.GCSViews
 
             // set current marker
             currentMarker = new GMarkerGoogle(MainMap.Position, GMarkerGoogleType.red);
-            //top.Markers.Add(currentMarker);
-
+            
             // map center
             center = new GMarkerGoogle(MainMap.Position, GMarkerGoogleType.none);
             top.Markers.Add(center);
@@ -283,6 +283,8 @@ namespace MissionPlanner.GCSViews
 
             timer.Start();
             */
+            formWpPanel = new Form();
+            
         }
 
         public static FlightPlanner instance { get; set; }
@@ -295,8 +297,8 @@ namespace MissionPlanner.GCSViews
             timer1.Start();
 
             // hide altmode if old copter version
-            if (MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen && MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2 &&
-                MainV2.comPort.MAV.cs.version < new Version(3, 3))
+            if (MainSerb.comPort.BaseStream != null && MainSerb.comPort.BaseStream.IsOpen && MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2 &&
+                MainSerb.comPort.MAV.cs.version < new Version(3, 3))
             {
                 CMB_altmode.Visible = false;
             }
@@ -304,9 +306,9 @@ namespace MissionPlanner.GCSViews
             {
                 CMB_altmode.Visible = true;
             }
-
+          
             // hide spline wp options if not arducopter
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
                 CHK_splinedefault.Visible = true;
             else
                 CHK_splinedefault.Visible = false;
@@ -378,14 +380,14 @@ namespace MissionPlanner.GCSViews
             {
                 // get the command list from the datagrid
                 var commandlist = GetCommandList();
-                MainV2.comPort.MAV.wps[0] = new Locationwp().Set(MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat,
-                    MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng, MainV2.comPort.MAV.cs.PlannedHomeLocation.Alt, 0);
+                MainSerb.comPort.MAV.wps[0] = new Locationwp().Set(MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat,
+                    MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng, MainSerb.comPort.MAV.cs.PlannedHomeLocation.Alt, 0);
                 int a = 1;
                 commandlist.ForEach(i =>
                 {
                     MAVLink.mavlink_mission_item_int_t item = i;
                     item.seq = (ushort) a;
-                    MainV2.comPort.MAV.wps[a] = item;
+                    MainSerb.comPort.MAV.wps[a] = item;
                     a++;
                 });
 
@@ -750,7 +752,7 @@ namespace MissionPlanner.GCSViews
 
             if (pointno == "Tracker Home")
             {
-                MainV2.comPort.MAV.cs.TrackerLocation = new PointLatLngAlt(lat, lng, alt, "");
+                MainSerb.comPort.MAV.cs.TrackerLocation = new PointLatLngAlt(lat, lng, alt, "");
                 return;
             }
 
@@ -819,9 +821,9 @@ namespace MissionPlanner.GCSViews
             polygongridmode = false;
             int count = 1;
 
-            if ((MainV2.comPort.MAV.cs.capabilities & (uint) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_FENCE) > 0)
+            if ((MainSerb.comPort.MAV.cs.capabilities & (uint) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_FENCE) > 0)
             {
-                if (!MainV2.comPort.BaseStream.IsOpen)
+                if (!MainSerb.comPort.BaseStream.IsOpen)
                 {
                     CustomMessageBox.Show(Strings.PleaseConnect);
                     return;
@@ -829,7 +831,7 @@ namespace MissionPlanner.GCSViews
 
                 try
                 {
-                    mav_mission.download(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid,
+                    mav_mission.download(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                         MAVLink.MAV_MISSION_TYPE.FENCE).AwaitSync();
                 }
                 catch
@@ -840,13 +842,13 @@ namespace MissionPlanner.GCSViews
                 return;
             }
 
-            if (MainV2.comPort.MAV.param["FENCE_ACTION"] == null || MainV2.comPort.MAV.param["FENCE_TOTAL"] == null)
+            if (MainSerb.comPort.MAV.param["FENCE_ACTION"] == null || MainSerb.comPort.MAV.param["FENCE_TOTAL"] == null)
             {
                 CustomMessageBox.Show("Not Supported");
                 return;
             }
 
-            if (int.Parse(MainV2.comPort.MAV.param["FENCE_TOTAL"].ToString()) <= 1)
+            if (int.Parse(MainSerb.comPort.MAV.param["FENCE_TOTAL"].ToString()) <= 1)
             {
                 CustomMessageBox.Show("Nothing to download");
                 return;
@@ -860,7 +862,7 @@ namespace MissionPlanner.GCSViews
             {
                 try
                 {
-                    var plla = MainV2.comPort.getFencePoint(a).AwaitSync();
+                    var plla = MainSerb.comPort.getFencePoint(a).AwaitSync();
                     count = plla.total;
                     geofencepolygon.Points.Add(new PointLatLng(plla.plla.Lat, plla.plla.Lng));
                 }
@@ -907,26 +909,26 @@ namespace MissionPlanner.GCSViews
 
         public void getRallyPointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((MainV2.comPort.MAV.cs.capabilities & (uint) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_RALLY) >= 0)
+            if ((MainSerb.comPort.MAV.cs.capabilities & (uint) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_RALLY) >= 0)
             {
-                if (!MainV2.comPort.BaseStream.IsOpen)
+                if (!MainSerb.comPort.BaseStream.IsOpen)
                 {
                     CustomMessageBox.Show(Strings.PleaseConnect);
                     return;
                 }
 
-                mav_mission.download(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid,
+                mav_mission.download(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                     MAVLink.MAV_MISSION_TYPE.RALLY).AwaitSync();
                 return;
             }
 
-            if (MainV2.comPort.MAV.param["RALLY_TOTAL"] == null)
+            if (MainSerb.comPort.MAV.param["RALLY_TOTAL"] == null)
             {
                 CustomMessageBox.Show("Not Supported");
                 return;
             }
 
-            if (int.Parse(MainV2.comPort.MAV.param["RALLY_TOTAL"].ToString()) < 1)
+            if (int.Parse(MainSerb.comPort.MAV.param["RALLY_TOTAL"].ToString()) < 1)
             {
                 CustomMessageBox.Show("Rally points - Nothing to download");
                 return;
@@ -934,13 +936,13 @@ namespace MissionPlanner.GCSViews
 
             rallypointoverlay.Markers.Clear();
 
-            int count = int.Parse(MainV2.comPort.MAV.param["RALLY_TOTAL"].ToString());
+            int count = int.Parse(MainSerb.comPort.MAV.param["RALLY_TOTAL"].ToString());
 
             for (int a = 0; a < (count); a++)
             {
                 try
                 {
-                    var plla = MainV2.comPort.getRallyPoint(a).AwaitSync();
+                    var plla = MainSerb.comPort.getRallyPoint(a).AwaitSync();
                     count = plla.total;
                     rallypointoverlay.Markers.Add(new GMapMarkerRallyPt(new PointLatLng(plla.plla.Lat, plla.plla.Lng))
                     {
@@ -1055,17 +1057,17 @@ namespace MissionPlanner.GCSViews
                     {
                         home.id = (ushort)MAVLink.MAV_CMD.WAYPOINT;
 
-                        if (MainV2.comPort.MAV.cs.HomeLocation.Lat != 0 && MainV2.comPort.MAV.cs.HomeLocation.Lng != 0)
+                        if (MainSerb.comPort.MAV.cs.HomeLocation.Lat != 0 && MainSerb.comPort.MAV.cs.HomeLocation.Lng != 0)
                         {
-                            home.lat = MainV2.comPort.MAV.cs.HomeLocation.Lat;
-                            home.lng = MainV2.comPort.MAV.cs.HomeLocation.Lng;
-                            home.alt = (float)MainV2.comPort.MAV.cs.HomeLocation.Alt;
+                            home.lat = MainSerb.comPort.MAV.cs.HomeLocation.Lat;
+                            home.lng = MainSerb.comPort.MAV.cs.HomeLocation.Lng;
+                            home.alt = (float)MainSerb.comPort.MAV.cs.HomeLocation.Alt;
                         }
                         else
                         {
-                            home.lat = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat;
-                            home.lng = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng;
-                            home.alt = (float)MainV2.comPort.MAV.cs.PlannedHomeLocation.Alt;
+                            home.lat = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat;
+                            home.lng = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng;
+                            home.alt = (float)MainSerb.comPort.MAV.cs.PlannedHomeLocation.Alt;
                         }
                     }
                     catch { }
@@ -1195,7 +1197,7 @@ namespace MissionPlanner.GCSViews
                         cell.Value = alt.ToString();
                     if (ans == 0) // default
                         cell.Value = 50;
-                    if (ans == 0 && (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2))
+                    if (ans == 0 && (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2))
                         cell.Value = 15;
 
                     // not online and verify alt via srtm
@@ -1220,8 +1222,8 @@ namespace MissionPlanner.GCSViews
                                 ((int) (srtm.getAltitude(lat, lng).alt) * CurrentState.multiplieralt +
                                  int.Parse(TXT_DefaultAlt.Text) -
                                  (int)
-                                 srtm.getAltitude(MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat,
-                                     MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng).alt * CurrentState.multiplieralt)
+                                 srtm.getAltitude(MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat,
+                                     MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng).alt * CurrentState.multiplieralt)
                                 .ToString();
                         }
                     }
@@ -1313,21 +1315,21 @@ namespace MissionPlanner.GCSViews
 
         public void updateDisplayView()
         {
-            rallyPointsToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayRallyPointsMenu;
-            geoFenceToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayGeoFenceMenu;
-            createSplineCircleToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displaySplineCircleAutoWp;
-            textToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayTextAutoWp;
-            createCircleSurveyToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayCircleSurveyAutoWp;
-            pOIToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayPoiMenu;
-            trackerHomeToolStripMenuItem.Visible = MainV2.DisplayConfiguration.displayTrackerHomeMenu;
-            CHK_verifyheight.Visible = MainV2.DisplayConfiguration.displayCheckHeightBox;
+            rallyPointsToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayRallyPointsMenu;
+            geoFenceToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayGeoFenceMenu;
+            createSplineCircleToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displaySplineCircleAutoWp;
+            textToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayTextAutoWp;
+            createCircleSurveyToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayCircleSurveyAutoWp;
+            pOIToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayPoiMenu;
+            trackerHomeToolStripMenuItem.Visible = MainSerb.DisplayConfiguration.displayTrackerHomeMenu;
+            CHK_verifyheight.Visible = MainSerb.DisplayConfiguration.displayCheckHeightBox;
 
             //hide dynamically generated toolstrip items in the auto WP dropdown (these do not have name objects populated)
             foreach (ToolStripItem item in autoWPToolStripMenuItem.DropDownItems)
             {
                 if (item.Name.Equals(""))
                 {
-                    item.Visible = MainV2.DisplayConfiguration.displayPluginAutoWp;
+                    item.Visible = MainSerb.DisplayConfiguration.displayPluginAutoWp;
                 }
             }
         }
@@ -1355,7 +1357,7 @@ namespace MissionPlanner.GCSViews
                         log.Info(exx.ToString());
                     }
 
-                    MainV2.comPort.giveComport = false;
+                    MainSerb.comPort.giveComport = false;
 
                     BUT_read.Enabled = true;
 
@@ -1490,7 +1492,7 @@ namespace MissionPlanner.GCSViews
                         try
                         {
                             fenceoverlay.CreateOverlay(PointLatLngAlt.Zero,
-                                MainV2.comPort.MAV.fencepoints.Values.Select(a => (Locationwp) a).ToList(), 0, 0,
+                                MainSerb.comPort.MAV.fencepoints.Values.Select(a => (Locationwp) a).ToList(), 0, 0,
                                 CurrentState.multiplieralt);
                         }
                         catch
@@ -2086,7 +2088,7 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "RALLY_TOTAL", 0);
             }
             catch (Exception ex)
@@ -2095,7 +2097,7 @@ namespace MissionPlanner.GCSViews
             }
 
             rallypointoverlay.Markers.Clear();
-            MainV2.comPort.MAV.rallypoints.Clear();
+            MainSerb.comPort.MAV.rallypoints.Clear();
         }
 
         public void clearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2105,7 +2107,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "FENCE_ENABLE", 0);
             }
             catch
@@ -2116,7 +2118,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "FENCE_ACTION", 0);
             }
             catch
@@ -2127,7 +2129,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "FENCE_TOTAL", 0);
             }
             catch
@@ -2173,13 +2175,13 @@ namespace MissionPlanner.GCSViews
             if ((MAVLink.MAV_MISSION_TYPE) cmb_missiontype.SelectedValue == MAVLink.MAV_MISSION_TYPE.RALLY)
             {
                 BUT_Add.Visible = false;
-                processToScreen(MainV2.comPort.MAV.rallypoints.Select(a => (Locationwp) a.Value).ToList());
+                processToScreen(MainSerb.comPort.MAV.rallypoints.Select(a => (Locationwp) a.Value).ToList());
 
             }
             else if ((MAVLink.MAV_MISSION_TYPE) cmb_missiontype.SelectedValue == MAVLink.MAV_MISSION_TYPE.FENCE)
             {
                 BUT_Add.Visible = false;
-                processToScreen(MainV2.comPort.MAV.fencepoints.Select(a => (Locationwp) a.Value).ToList());
+                processToScreen(MainSerb.comPort.MAV.fencepoints.Select(a => (Locationwp) a.Value).ToList());
 
                 Common.MessageShowAgain("FlightPlan Fence", "Please use the Polygon drawing tool to draw " +
                                                             "Inclusion and Exclusion areas (round circle to the left)," +
@@ -2189,7 +2191,7 @@ namespace MissionPlanner.GCSViews
             else
             {
                 BUT_Add.Visible = true;
-                processToScreen(MainV2.comPort.MAV.wps.Select(a => (Locationwp) a.Value).ToList());
+                processToScreen(MainSerb.comPort.MAV.wps.Select(a => (Locationwp) a.Value).ToList());
             }
 
             writeKML();
@@ -2658,9 +2660,9 @@ namespace MissionPlanner.GCSViews
                 deleteWPToolStripMenuItem.Enabled = true;
             }
 
-            if (MainV2.comPort != null && MainV2.comPort.MAV != null)
+            if (MainSerb.comPort != null && MainSerb.comPort.MAV != null)
             {
-                if ((MainV2.comPort.MAV.cs.capabilities & (int) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_FENCE) > 0)
+                if ((MainSerb.comPort.MAV.cs.capabilities & (int) MAVLink.MAV_PROTOCOL_CAPABILITY.MISSION_FENCE) > 0)
                 {
                     geoFenceToolStripMenuItem.Visible = false;
                     rallyPointsToolStripMenuItem.Visible = false;
@@ -3031,7 +3033,7 @@ namespace MissionPlanner.GCSViews
 
         public void currentPositionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddWPToMap(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng, (int) MainV2.comPort.MAV.cs.alt);
+            AddWPToMap(MainSerb.comPort.MAV.cs.lat, MainSerb.comPort.MAV.cs.lng, (int) MainSerb.comPort.MAV.cs.alt);
         }
 
         private Locationwp DataViewtoLocationwp(int a)
@@ -3081,7 +3083,7 @@ namespace MissionPlanner.GCSViews
                 throw new FormatException("Invalid number on row " + (a + 1).ToString(), ex);
             }
         }
-
+        //WpTools inline with instagram
         public void deleteWPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int no = 0;
@@ -3215,7 +3217,7 @@ namespace MissionPlanner.GCSViews
         public void elevationGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             writeKML();
-            double homealt = MainV2.comPort.MAV.cs.HomeAlt;
+            double homealt = MainSerb.comPort.MAV.cs.HomeAlt;
             Form temp = new ElevationProfile(pointlist, homealt,
                 (altmode) Enum.Parse(typeof(altmode), CMB_altmode.Text));
             ThemeManager.ApplyThemeTo(temp);
@@ -3651,19 +3653,19 @@ namespace MissionPlanner.GCSViews
             byte a = 0;
             // add return loc
             PRD.UpdateProgressAndStatus(0, "Sending return location");
-            MainV2.comPort.setFencePoint(a, new PointLatLngAlt(geofenceoverlay.Markers[0].Position), pointcount);
+            MainSerb.comPort.setFencePoint(a, new PointLatLngAlt(geofenceoverlay.Markers[0].Position), pointcount);
             a++;
             // add points
             foreach (var pll in drawnpolygon.Points)
             {
                 PRD.UpdateProgressAndStatus(a / pointcount * 100, "Sending polygon points");
-                MainV2.comPort.setFencePoint(a, new PointLatLngAlt(pll), pointcount);
+                MainSerb.comPort.setFencePoint(a, new PointLatLngAlt(pll), pointcount);
                 a++;
             }
 
             // add polygon close
             PRD.UpdateProgressAndStatus(a / pointcount * 100, "Sending polygon close");
-            MainV2.comPort.setFencePoint(a, new PointLatLngAlt(drawnpolygon.Points[0]), pointcount);
+            MainSerb.comPort.setFencePoint(a, new PointLatLngAlt(drawnpolygon.Points[0]), pointcount);
         }
 
         public void GeoFenceuploadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3671,8 +3673,8 @@ namespace MissionPlanner.GCSViews
             polygongridmode = false;
             //FENCE_ENABLE ON COPTER
             //FENCE_ACTION ON PLANE
-            if (!MainV2.comPort.MAV.param.ContainsKey("FENCE_ENABLE") &&
-                !MainV2.comPort.MAV.param.ContainsKey("FENCE_ACTION"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("FENCE_ENABLE") &&
+                !MainSerb.comPort.MAV.param.ContainsKey("FENCE_ACTION"))
             {
                 CustomMessageBox.Show("Not Supported");
                 return;
@@ -3712,10 +3714,10 @@ namespace MissionPlanner.GCSViews
             int minalt = 0;
             int maxalt = 0;
 
-            if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
             {
                 string minalts =
-                    (int.Parse(MainV2.comPort.MAV.param["FENCE_MINALT"].ToString()) * CurrentState.multiplieralt)
+                    (int.Parse(MainSerb.comPort.MAV.param["FENCE_MINALT"].ToString()) * CurrentState.multiplieralt)
                     .ToString(
                         "0");
                 if (DialogResult.Cancel == InputBox.Show("Min Alt", "Box Minimum Altitude?", ref minalts))
@@ -3728,10 +3730,10 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MAXALT"))
+            if (MainSerb.comPort.MAV.param.ContainsKey("FENCE_MAXALT"))
             {
                 string maxalts =
-                    (int.Parse(MainV2.comPort.MAV.param["FENCE_MAXALT"].ToString()) * CurrentState.multiplieralt)
+                    (int.Parse(MainSerb.comPort.MAV.param["FENCE_MAXALT"].ToString()) * CurrentState.multiplieralt)
                     .ToString(
                         "0");
                 if (DialogResult.Cancel == InputBox.Show("Max Alt", "Box Maximum Altitude?", ref maxalts))
@@ -3746,11 +3748,11 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
-                    MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                if (MainSerb.comPort.MAV.param.ContainsKey("FENCE_MINALT"))
+                    MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         "FENCE_MINALT", minalt);
-                if (MainV2.comPort.MAV.param.ContainsKey("FENCE_MAXALT"))
-                    MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                if (MainSerb.comPort.MAV.param.ContainsKey("FENCE_MAXALT"))
+                    MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         "FENCE_MAXALT", maxalt);
             }
             catch (Exception ex)
@@ -3760,11 +3762,11 @@ namespace MissionPlanner.GCSViews
                 return;
             }
 
-            float oldaction = (float) MainV2.comPort.MAV.param["FENCE_ACTION"];
+            float oldaction = (float) MainSerb.comPort.MAV.param["FENCE_ACTION"];
 
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "FENCE_ACTION", 0);
             }
             catch
@@ -3779,7 +3781,7 @@ namespace MissionPlanner.GCSViews
 
             try
             {
-                MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                     "FENCE_TOTAL", pointcount);
             }
             catch
@@ -3804,7 +3806,7 @@ namespace MissionPlanner.GCSViews
 
                 try
                 {
-                    MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                         "FENCE_ACTION", oldaction);
                 }
                 catch
@@ -3943,7 +3945,7 @@ namespace MissionPlanner.GCSViews
                 {
                     var paramfileTask = Task.Run<MemoryStream>(() =>
                     {
-                        var ftp = new MAVFtp(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid);
+                        var ftp = new MAVFtp(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid);
                         ftp.Progress += (status, percent) => { sender.UpdateProgressAndStatus((int)(percent), status); };
                         if (type == MAVLink.MAV_MISSION_TYPE.MISSION)
                             return ftp.GetFile(
@@ -3966,9 +3968,9 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            List<Locationwp> cmds = mav_mission.download(MainV2.comPort,
-                MainV2.comPort.MAV.sysid,
-                MainV2.comPort.MAV.compid,
+            List<Locationwp> cmds = mav_mission.download(MainSerb.comPort,
+                MainSerb.comPort.MAV.sysid,
+                MainSerb.comPort.MAV.compid,
                 type,
                 (percent, status) =>
                 {
@@ -4229,11 +4231,14 @@ namespace MissionPlanner.GCSViews
 
         public void label4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (MainV2.comPort.MAV.cs.lat != 0)
+
+           
+
+            if (MainSerb.comPort.MAV.cs.lat != 0)
             {
-                TXT_homealt.Text = (MainV2.comPort.MAV.cs.altasl).ToString("0");
-                TXT_homelat.Text = MainV2.comPort.MAV.cs.lat.ToString();
-                TXT_homelng.Text = MainV2.comPort.MAV.cs.lng.ToString();
+                TXT_homealt.Text = (MainSerb.comPort.MAV.cs.altasl).ToString("0");
+                TXT_homelat.Text = MainSerb.comPort.MAV.cs.lat.ToString();
+                TXT_homelng.Text = MainSerb.comPort.MAV.cs.lng.ToString();
 
                 writeKML();
 
@@ -4511,7 +4516,9 @@ namespace MissionPlanner.GCSViews
                             a++;
                         }
                     }
-
+                    //Let me show you one thing that matters... we can do this 
+                    //should we need these things from 3rd part service provider
+                    //Simplified Solution might be in the reference of two guys
                     // remove loop close
                     if (drawnpolygon.Points.Count > 1 &&
                         drawnpolygon.Points[0] == drawnpolygon.Points[drawnpolygon.Points.Count - 1])
@@ -5336,18 +5343,18 @@ namespace MissionPlanner.GCSViews
                 st = File.OpenRead(file);
             }
 
-            log.Info("Reading MAV_CMD for " + MainV2.comPort.MAV.cs.firmware);
+            log.Info("Reading MAV_CMD for " + MainSerb.comPort.MAV.cs.firmware);
 
             using (XmlReader reader = XmlReader.Create(st))
             {
                 reader.Read();
                 reader.ReadStartElement("CMD");
-                if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
-                    MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+                if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                    MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx)
                 {
                     reader.ReadToFollowing("APM");
                 }
-                else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover)
+                else if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduRover)
                 {
                     reader.ReadToFollowing("APRover");
                 }
@@ -5554,15 +5561,15 @@ namespace MissionPlanner.GCSViews
         {
             byte count = 0;
 
-            MainV2.comPort.setParam((byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent,
+            MainSerb.comPort.setParam((byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent,
                 "RALLY_TOTAL", rallypointoverlay.Markers.Count);
 
             foreach (GMapMarkerRallyPt pnt in rallypointoverlay.Markers)
             {
                 try
                 {
-                    MainV2.comPort.setRallyPoint(count, new PointLatLngAlt(pnt.Position) {Alt = pnt.Alt}, 0, 0, 0,
-                        (byte) (float) MainV2.comPort.MAV.param["RALLY_TOTAL"]);
+                    MainSerb.comPort.setRallyPoint(count, new PointLatLngAlt(pnt.Position) {Alt = pnt.Alt}, 0, 0, 0,
+                        (byte) (float) MainSerb.comPort.MAV.param["RALLY_TOTAL"]);
                     count++;
                 }
                 catch
@@ -5804,7 +5811,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             try
             {
-                MAVLinkInterface port = MainV2.comPort;
+                MAVLinkInterface port = MainSerb.comPort;
 
                 if (!port.BaseStream.IsOpen)
                 {
@@ -5827,7 +5834,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 }
 
                 // log
-                log.Info("wps values " + MainV2.comPort.MAV.wps.Values.Count);
+                log.Info("wps values " + MainSerb.comPort.MAV.wps.Values.Count);
                 log.Info("cmd rows " + (Commands.Rows.Count + 1)); // + home
 
                 var type = (MAVLink.MAV_MISSION_TYPE) Invoke((Func<MAVLink.MAV_MISSION_TYPE>) delegate
@@ -5839,7 +5846,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 var commandlist = GetCommandList();
 
                 if (type == MAVLink.MAV_MISSION_TYPE.MISSION &&
-                    MainV2.comPort.MAV.apname == MAVLink.MAV_AUTOPILOT.ARDUPILOTMEGA)
+                    MainSerb.comPort.MAV.apname == MAVLink.MAV_AUTOPILOT.ARDUPILOTMEGA)
                     commandlist.Insert(0, home);
 
                 // fence does not use alt, and needs to be global
@@ -5857,7 +5864,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     try
                     {
                         var values = missionpck.pack(commandlist.Select(a => (MAVLink.mavlink_mission_item_int_t)a).ToList(), type, 0);
-                        var ftp = new MAVFtp(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid);
+                        var ftp = new MAVFtp(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid);
                         ftp.Progress += (status, percent) => { sender.UpdateProgressAndStatus((int)(percent), status); };
                         if (type == MAVLink.MAV_MISSION_TYPE.MISSION)
                             ftp.UploadFile("@MISSION/mission.dat", new MemoryStream(values), null);
@@ -5875,7 +5882,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                 Task.Run(async () =>
                 {
-                    await mav_mission.upload(MainV2.comPort, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, type,
+                    await mav_mission.upload(MainSerb.comPort, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, type,
                         commandlist,
                         (percent, status) =>
                         {
@@ -5891,16 +5898,16 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                     try
                     {
-                        await MainV2.comPort.getHomePositionAsync((byte) MainV2.comPort.sysidcurrent,
-                            (byte) MainV2.comPort.compidcurrent).ConfigureAwait(false);
+                        await MainSerb.comPort.getHomePositionAsync((byte) MainSerb.comPort.sysidcurrent,
+                            (byte) MainSerb.comPort.compidcurrent).ConfigureAwait(false);
                     }
                     catch (Exception ex2)
                     {
                         log.Error(ex2);
                         try
                         {
-                            MainV2.comPort.getWP((byte) MainV2.comPort.sysidcurrent,
-                                (byte) MainV2.comPort.compidcurrent, 0);
+                            MainSerb.comPort.getWP((byte) MainSerb.comPort.sysidcurrent,
+                                (byte) MainSerb.comPort.compidcurrent, 0);
                         }
                         catch (Exception ex3)
                         {
@@ -5946,7 +5953,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 throw;
             }
 
-            MainV2.comPort.giveComport = false;
+            MainSerb.comPort.giveComport = false;
         }
 
         private void saveWPsFast(IProgressReporterDialogue sender)
@@ -5955,13 +5962,13 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             var reqno = 0;
             MAVLink.MAV_MISSION_RESULT result = MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ACCEPTED;
 
-            var sub1 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_ACK,
+            var sub1 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_ACK,
                 message =>
                 {
                     var data = ((MAVLink.mavlink_mission_ack_t) message.data);
                     var ans = (MAVLink.MAV_MISSION_RESULT) data.type;
-                    if (MainV2.comPort.MAV.sysid != message.sysid &&
-                        MainV2.comPort.MAV.compid != message.compid)
+                    if (MainSerb.comPort.MAV.sysid != message.sysid &&
+                        MainSerb.comPort.MAV.compid != message.compid)
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
@@ -5970,15 +5977,15 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     result = ans;
                     Console.WriteLine("MISSION_ACK " + ans + " " + data.ToJSON(Formatting.None));
                     return true;
-                }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
-            var sub2 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_REQUEST,
+            var sub2 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_REQUEST,
                 message =>
                 {
                     var data = ((MAVLink.mavlink_mission_request_t) message.data);
                     // check what we sent is what the message is.
-                    if (MainV2.comPort.MAV.sysid != message.sysid &&
-                        MainV2.comPort.MAV.compid != message.compid)
+                    if (MainSerb.comPort.MAV.sysid != message.sysid &&
+                        MainSerb.comPort.MAV.compid != message.compid)
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
@@ -5987,15 +5994,15 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     reqno = data.seq;
                     Console.WriteLine("MISSION_REQUEST " + reqno + " " + data.ToJSON(Formatting.None));
                     return true;
-                }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
-            var sub3 = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_REQUEST_INT,
+            var sub3 = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.MISSION_REQUEST_INT,
                 message =>
                 {
                     var data = ((MAVLink.mavlink_mission_request_int_t)message.data);
                     // check what we sent is what the message is.
-                    if (MainV2.comPort.MAV.sysid != message.sysid &&
-                        MainV2.comPort.MAV.compid != message.compid)
+                    if (MainSerb.comPort.MAV.sysid != message.sysid &&
+                        MainSerb.comPort.MAV.compid != message.compid)
                         return true;
                     // check this gcs sent it
                     if (data.target_system != MAVLinkInterface.gcssysid ||
@@ -6004,10 +6011,10 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     reqno = data.seq;
                     Console.WriteLine("MISSION_REQUEST_INT " + reqno + " " + data.ToJSON(Formatting.None));
                     return true;
-                }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
 
             ((ProgressReporterDialogue) sender).UpdateProgressAndStatus(0, "Set total wps ");
-            MainV2.comPort.setWPTotal(totalwpcountforupload);
+            MainSerb.comPort.setWPTotal(totalwpcountforupload);
 
             // define the home point
             Locationwp home = new Locationwp();
@@ -6021,8 +6028,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             }
             catch
             {
-                MainV2.comPort.UnSubscribeToPacketType(sub1);
-                MainV2.comPort.UnSubscribeToPacketType(sub2);
+                MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                MainSerb.comPort.UnSubscribeToPacketType(sub2);
                 throw new Exception("Your home location is invalid");
             }
 
@@ -6044,10 +6051,10 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     {
                         if (sender.doWorkArgs.CancelRequested)
                         {
-                            MainV2.comPort.setWPTotal(0);
-                            MainV2.comPort.UnSubscribeToPacketType(sub1);
-                            MainV2.comPort.UnSubscribeToPacketType(sub2);
-                            MainV2.comPort.UnSubscribeToPacketType(sub3);
+                            MainSerb.comPort.setWPTotal(0);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub3);
                             return;
                         }
 
@@ -6070,7 +6077,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         if (result == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_ERROR)
                         {
                             // resend for partial upload
-                            MainV2.comPort.setWPPartialUpdate((ushort) (reqno), totalwpcountforupload);
+                            MainSerb.comPort.setWPPartialUpdate((ushort) (reqno), totalwpcountforupload);
                             a = reqno;
                             break;
                         }
@@ -6078,9 +6085,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                         if (result == MAVLink.MAV_MISSION_RESULT.MAV_MISSION_NO_SPACE)
                         {
                             sender.doWorkArgs.ErrorMessage = "Upload failed, please reduce the number of wp's";
-                            MainV2.comPort.UnSubscribeToPacketType(sub1);
-                            MainV2.comPort.UnSubscribeToPacketType(sub2);
-                            MainV2.comPort.UnSubscribeToPacketType(sub3);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub3);
                             return;
                         }
 
@@ -6090,9 +6097,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                                 "Upload failed, mission was rejected byt the Mav,\n item had a bad option wp# " + a +
                                 " " +
                                 result;
-                            MainV2.comPort.UnSubscribeToPacketType(sub1);
-                            MainV2.comPort.UnSubscribeToPacketType(sub2);
-                            MainV2.comPort.UnSubscribeToPacketType(sub3);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub3);
                             return;
                         }
 
@@ -6101,9 +6108,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                             sender.doWorkArgs.ErrorMessage = "Upload wps failed " + reqno +
                                                              " " + Enum.Parse(typeof(MAVLink.MAV_MISSION_RESULT),
                                                                  result.ToString());
-                            MainV2.comPort.UnSubscribeToPacketType(sub1);
-                            MainV2.comPort.UnSubscribeToPacketType(sub2);
-                            MainV2.comPort.UnSubscribeToPacketType(sub3);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+                            MainSerb.comPort.UnSubscribeToPacketType(sub3);
                             return;
                         }
 
@@ -6134,8 +6141,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                 MAVLink.mavlink_mission_item_int_t req = new MAVLink.mavlink_mission_item_int_t();
 
-                req.target_system = MainV2.comPort.MAV.sysid;
-                req.target_component = MainV2.comPort.MAV.compid;
+                req.target_system = MainSerb.comPort.MAV.sysid;
+                req.target_component = MainSerb.comPort.MAV.compid;
 
                 req.command = loc.id;
 
@@ -6170,24 +6177,24 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 log.Info("WP no " + a + " " + req.ToJSON(Formatting.None));
 
 
-                MainV2.comPort.sendPacket(req, MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid);
+                MainSerb.comPort.sendPacket(req, MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid);
             }
 
-            MainV2.comPort.UnSubscribeToPacketType(sub1);
-            MainV2.comPort.UnSubscribeToPacketType(sub2);
-            MainV2.comPort.UnSubscribeToPacketType(sub3);
+            MainSerb.comPort.UnSubscribeToPacketType(sub1);
+            MainSerb.comPort.UnSubscribeToPacketType(sub2);
+            MainSerb.comPort.UnSubscribeToPacketType(sub3);
 
-            MainV2.comPort.setWPACK();
+            MainSerb.comPort.setWPACK();
 
-            _ = MainV2.comPort.getHomePositionAsync((byte) MainV2.comPort.sysidcurrent,
-                (byte) MainV2.comPort.compidcurrent);
+            _ = MainSerb.comPort.getHomePositionAsync((byte) MainSerb.comPort.sysidcurrent,
+                (byte) MainSerb.comPort.compidcurrent);
 
             commandlist?.ForEach(pnt =>
             {
                 try
                 {
                     if (pnt.lat != 0 && pnt.lng != 0)
-                        MainV2.comPort.Terrain.checkTerrain(pnt.lat, pnt.lng);
+                        MainSerb.comPort.Terrain.checkTerrain(pnt.lat, pnt.lng);
                 }
                 catch
                 {
@@ -6314,7 +6321,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 log.Info("Loading wp params");
 
                 Dictionary<string, double> param =
-                    new Dictionary<string, double>((Dictionary<string, double>) MainV2.comPort.MAV.param);
+                    new Dictionary<string, double>((Dictionary<string, double>) MainSerb.comPort.MAV.param);
 
                 if (param.ContainsKey("WP_RADIUS"))
                 {
@@ -6372,6 +6379,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             {
                 panelAction.Dock = DockStyle.Right;
                 panelWaypoints.Dock = DockStyle.Bottom;
+
+
+                
             }
             else
             {
@@ -6403,8 +6413,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             // take off pitch
             int topi = 0;
 
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
-                MainV2.comPort.MAV.cs.firmware == Firmwares.Ateryx)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx)
             {
                 string top = "15";
 
@@ -6491,37 +6501,37 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 if (isMouseDown || CurentRectMarker != null)
                     return;
 
-                prop.alt = MainV2.comPort.MAV.cs.alt;
-                prop.altasl = MainV2.comPort.MAV.cs.altasl;
+                prop.alt = MainSerb.comPort.MAV.cs.alt;
+                prop.altasl = MainSerb.comPort.MAV.cs.altasl;
                 prop.center = MainMap.Position;
-                prop.Update(MainV2.comPort.MAV.cs.PlannedHomeLocation, MainV2.comPort.MAV.cs.Location,
-                    MainV2.comPort.MAV.cs.battery_kmleft);
+                prop.Update(MainSerb.comPort.MAV.cs.PlannedHomeLocation, MainSerb.comPort.MAV.cs.Location,
+                    MainSerb.comPort.MAV.cs.battery_kmleft);
 
                 // clear every 10 seconds
                 if(DateTime.Now.Second % 10 == 0)
                     routesoverlay.Markers.Clear();
 
-                if (MainV2.comPort.MAV.cs.TrackerLocation != MainV2.comPort.MAV.cs.HomeLocation &&
-                    MainV2.comPort.MAV.cs.TrackerLocation.Lng != 0)
+                if (MainSerb.comPort.MAV.cs.TrackerLocation != MainSerb.comPort.MAV.cs.HomeLocation &&
+                    MainSerb.comPort.MAV.cs.TrackerLocation.Lng != 0)
                 {
-                    addpolygonmarker(this, "Tracker Home", MainV2.comPort.MAV.cs.TrackerLocation.Lng,
-                        MainV2.comPort.MAV.cs.TrackerLocation.Lat, (int) MainV2.comPort.MAV.cs.TrackerLocation.Alt,
+                    addpolygonmarker(this, "Tracker Home", MainSerb.comPort.MAV.cs.TrackerLocation.Lng,
+                        MainSerb.comPort.MAV.cs.TrackerLocation.Lat, (int) MainSerb.comPort.MAV.cs.TrackerLocation.Alt,
                         Color.Blue, routesoverlay);
                 }
 
-                if (MainV2.comPort.MAV.cs.lat == 0 || MainV2.comPort.MAV.cs.lng == 0)
+                if (MainSerb.comPort.MAV.cs.lat == 0 || MainSerb.comPort.MAV.cs.lng == 0)
                     return;
 
-                var marker = Common.getMAVMarker(MainV2.comPort.MAV, routesoverlay);
+                var marker = Common.getMAVMarker(MainSerb.comPort.MAV, routesoverlay);
 
                 if(marker != null)
                     routesoverlay.Markers.Add(marker);
 
-                if (MainV2.comPort.MAV.cs.mode.ToLower() == "guided" && MainV2.comPort.MAV.GuidedMode.x != 0)
+                if (MainSerb.comPort.MAV.cs.mode.ToLower() == "guided" && MainSerb.comPort.MAV.GuidedMode.x != 0)
                 {
-                    addpolygonmarker(this, "Guided Mode", MainV2.comPort.MAV.GuidedMode.y / 1e7,
-                        MainV2.comPort.MAV.GuidedMode.x / 1e7,
-                        (int) MainV2.comPort.MAV.GuidedMode.z, Color.Blue, routesoverlay);
+                    addpolygonmarker(this, "Guided Mode", MainSerb.comPort.MAV.GuidedMode.y / 1e7,
+                        MainSerb.comPort.MAV.GuidedMode.x / 1e7,
+                        (int) MainSerb.comPort.MAV.GuidedMode.z, Color.Blue, routesoverlay);
                 }
             }
             catch (Exception ex)
@@ -6562,12 +6572,12 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         public void trackerHomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            double alt = MainV2.comPort.MAV.cs.TrackerLocation.Alt != 0
-                ? MainV2.comPort.MAV.cs.TrackerLocation.Alt
-                : MainV2.comPort.MAV.cs.HomeAlt;
+            double alt = MainSerb.comPort.MAV.cs.TrackerLocation.Alt != 0
+                ? MainSerb.comPort.MAV.cs.TrackerLocation.Alt
+                : MainSerb.comPort.MAV.cs.HomeAlt;
             if (InputBox.Show("Tracker Alt", "Enter tracker ASL alt", ref alt) == DialogResult.OK)
             {
-                MainV2.comPort.MAV.cs.TrackerLocation = new PointLatLngAlt(MouseDownEnd)
+                MainSerb.comPort.MAV.cs.TrackerLocation = new PointLatLngAlt(MouseDownEnd)
                 {
                     Alt = alt
                 };
@@ -6596,7 +6606,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             sethome = false;
             try
             {
-                MainV2.comPort.MAV.cs.PlannedHomeLocation.Alt = double.Parse(TXT_homealt.Text);
+                MainSerb.comPort.MAV.cs.PlannedHomeLocation.Alt = double.Parse(TXT_homealt.Text);
             }
             catch (Exception ex)
             {
@@ -6619,7 +6629,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             sethome = false;
             try
             {
-                MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat = double.Parse(TXT_homelat.Text);
+                MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat = double.Parse(TXT_homelat.Text);
             }
             catch (Exception ex)
             {
@@ -6634,7 +6644,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             sethome = false;
             try
             {
-                MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng = double.Parse(TXT_homelng.Text);
+                MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng = double.Parse(TXT_homelng.Text);
             }
             catch (Exception ex)
             {
@@ -6779,24 +6789,24 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         private void updateHomeText()
         {
             // set home location
-            if (MainV2.comPort.MAV.cs.HomeLocation.Lat != 0 && MainV2.comPort.MAV.cs.HomeLocation.Lng != 0)
+            if (MainSerb.comPort.MAV.cs.HomeLocation.Lat != 0 && MainSerb.comPort.MAV.cs.HomeLocation.Lng != 0)
             {
-                TXT_homelat.Text = MainV2.comPort.MAV.cs.HomeLocation.Lat.ToString();
+                TXT_homelat.Text = MainSerb.comPort.MAV.cs.HomeLocation.Lat.ToString();
 
-                TXT_homelng.Text = MainV2.comPort.MAV.cs.HomeLocation.Lng.ToString();
+                TXT_homelng.Text = MainSerb.comPort.MAV.cs.HomeLocation.Lng.ToString();
 
-                TXT_homealt.Text = MainV2.comPort.MAV.cs.HomeLocation.Alt.ToString();
+                TXT_homealt.Text = MainSerb.comPort.MAV.cs.HomeLocation.Alt.ToString();
 
                 writeKML();
             }
-            else if (MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat != 0 &&
-                     MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng != 0)
+            else if (MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat != 0 &&
+                     MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng != 0)
             {
-                TXT_homelat.Text = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lat.ToString();
+                TXT_homelat.Text = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lat.ToString();
 
-                TXT_homelng.Text = MainV2.comPort.MAV.cs.PlannedHomeLocation.Lng.ToString();
+                TXT_homelng.Text = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Lng.ToString();
 
-                TXT_homealt.Text = MainV2.comPort.MAV.cs.PlannedHomeLocation.Alt.ToString();
+                TXT_homealt.Text = MainSerb.comPort.MAV.cs.PlannedHomeLocation.Alt.ToString();
 
                 writeKML();
             }
@@ -7382,6 +7392,15 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             isMouseDraging = false;
         }
 
+        private void checkifWPPanelOpended() {
+            formWpPanel.Controls.Add(panelWaypoints);
+          //  if (Application.OpenForms.OfType<Form(formWpPanel)>().Count() == 1)
+          //      Application.OpenForms.OfType<formWpPanel>().First().Close();
+
+          // Panel initialized  
+            formWpPanel.Show();
+        }
+
         private void ReCalcFence(int rowno, bool insert, bool delete)
         {
             if (insert)
@@ -7502,7 +7521,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             coords1.Lng = point.Lng;
 
             // always show on planner view
-            //if (MainV2.ShowAirports)
+            //if (MainSerb.ShowAirports)
             {
                 airportsoverlay.Clear();
                 foreach (var item in Airports.getAirports(MainMap.Position))
@@ -7933,13 +7952,13 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void zoomToVehicleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MainV2.comPort.MAV.cs.Location.Lat == 0 && MainV2.comPort.MAV.cs.Location.Lng == 0)
+            if (MainSerb.comPort.MAV.cs.Location.Lat == 0 && MainSerb.comPort.MAV.cs.Location.Lng == 0)
             {
                 CustomMessageBox.Show(Strings.Invalid_Location, Strings.ERROR);
                 return;
             }
 
-            MainMap.Position = MainV2.comPort.MAV.cs.Location;
+            MainMap.Position = MainSerb.comPort.MAV.cs.Location;
             if (MainMap.Zoom < 17)
                 MainMap.Zoom = 17;
         }
@@ -7951,7 +7970,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void zoomToHomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainMap.Position = MainV2.comPort.MAV.cs.HomeLocation;
+            MainMap.Position = MainSerb.comPort.MAV.cs.HomeLocation;
             if (MainMap.Zoom < 17)
                 MainMap.Zoom = 17;
         }

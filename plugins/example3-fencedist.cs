@@ -225,16 +225,17 @@ namespace FenceDist
 
             byte[,] bitmap = new byte[size, size];
 
-            var va = FlightData.instance.gMapControl1.ViewArea;
+            //var va = FlightData.instance.gMapControl1.ViewArea;
+            var va = flightStatus.instance.gMapControlSerb.ViewArea;
             var spacingw = va.WidthLng / size;
             var spacingh = va.HeightLat / size;
-            var loc = MainV2.comPort.MAV.cs.Location;
+            var loc = MainSerb.comPort.MAV.cs.Location;
 
             Parallel.For(0, size, (x) =>
             {
                 for (int y = 0; y < size; y++)
                 {
-                    var colindex = (int) MathHelper.mapConstrained(testCode(MainV2.comPort.MAV,
+                    var colindex = (int) MathHelper.mapConstrained(testCode(MainSerb.comPort.MAV,
                         new PointLatLngAlt(va.Bottom + spacingh * y,
                             va.Left + spacingw * x)), 0, 10, 1, 255);
                     bitmap[x, size - y - 1] = (byte) colindex;

@@ -24,18 +24,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.MAV.param.ContainsKey("FRAME"))
+            if (!MainSerb.comPort.MAV.param.ContainsKey("FRAME"))
             {
                 Enabled = false;
                 return;
             }
 
-            DoChange((Frame)Enum.Parse(typeof(Frame), MainV2.comPort.MAV.param["FRAME"].ToString()));
+            DoChange((Frame)Enum.Parse(typeof(Frame), MainSerb.comPort.MAV.param["FRAME"].ToString()));
         }
 
         public void Deactivate()
         {
-            MainV2.comPort.giveComport = false;
+            MainSerb.comPort.giveComport = false;
         }
 
         private void configDefaultSettings1_OnChange(object sender, EventArgs e)
@@ -157,7 +157,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "FRAME", (int)frame);
+                MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "FRAME", (int)frame);
             }
             catch
             {

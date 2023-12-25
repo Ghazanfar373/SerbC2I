@@ -139,7 +139,7 @@ namespace MissionPlanner.Comms
 
             host = OnSettings("UDP_host" + ConfigRef, host);
 
-            //if (!MainV2.MONO)
+            //if (!MainSerb.MONO)
             {
                 if (inputboxreturn.Cancel == OnInputBoxShow("remote host",
                         "Enter host name/ip (ensure remote end is already started)", ref host))

@@ -13,7 +13,7 @@ namespace MissionPlanner.Joystick
 
             this.Tag = name;
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
             numericUpDownpwmmin.Text = config.p1.ToString();
             numericUpDownpwmmax.Text = config.p2.ToString();
@@ -21,20 +21,20 @@ namespace MissionPlanner.Joystick
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            var config = MainV2.joystick.getButton(int.Parse(this.Tag.ToString()));
+            var config = MainSerb.joystick.getButton(int.Parse(this.Tag.ToString()));
 
             config.p1 = (float)numericUpDownpwmmin.Value;
 
-            MainV2.joystick.setButton(int.Parse(this.Tag.ToString()), config);
+            MainSerb.joystick.setButton(int.Parse(this.Tag.ToString()), config);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            var config = MainV2.joystick.getButton(int.Parse(this.Tag.ToString()));
+            var config = MainSerb.joystick.getButton(int.Parse(this.Tag.ToString()));
 
             config.p2 = (float)numericUpDownpwmmax.Value;
 
-            MainV2.joystick.setButton(int.Parse(this.Tag.ToString()), config);
+            MainSerb.joystick.setButton(int.Parse(this.Tag.ToString()), config);
         }
     }
 }

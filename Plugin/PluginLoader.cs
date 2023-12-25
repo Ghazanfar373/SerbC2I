@@ -295,7 +295,7 @@ namespace MissionPlanner.Plugin
                     }
                 }
 
-                MainV2.instance.BeginInvokeIfRequired(() =>
+                MainSerb.instance.BeginInvokeIfRequired(() =>
                 {
                     PluginInit();
                 });

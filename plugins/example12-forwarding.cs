@@ -47,12 +47,12 @@ namespace Forwarding
         public override bool Loop()
         {
             {
-                MainV2.comPort.MirrorStreamWrite = true;
+                MainSerb.comPort.MirrorStreamWrite = true;
                 
                 if (!started)
                 {
                     started = true;
-                    MainV2.comPort.MirrorStream = new TcpSerial();
+                    MainSerb.comPort.MirrorStream = new TcpSerial();
                     var port = 14550;
                     listener = new TcpListener(System.Net.IPAddress.Any, port);
                                 listener.Start(0);
@@ -71,7 +71,7 @@ namespace Forwarding
             // the console.
             TcpClient client = listener.EndAcceptTcpClient(ar);
 
-            ((TcpSerial)MainV2.comPort.MirrorStream).client = client;
+            ((TcpSerial)MainSerb.comPort.MirrorStream).client = client;
 
             listener.BeginAcceptTcpClient(new AsyncCallback(DoAcceptTcpClientCallback), listener);
         }

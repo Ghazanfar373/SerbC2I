@@ -472,7 +472,7 @@ namespace MissionPlanner.Log
 
         private string get_param_value_string(string param_name, string VehicleType)
         {
-            var param = MainV2.comPort.MAV.param[param_name];
+            var param = MainSerb.comPort.MAV.param[param_name];
             if (param == null)
             {
                 return "";
@@ -515,7 +515,7 @@ namespace MissionPlanner.Log
                         var rc_map = new[] {"ROLL", "PITCH", "THROTTLE", "YAW", "FORWARD", "LATERAL"};
                         foreach (string map in rc_map)
                         {
-                            var map_param = MainV2.comPort.MAV.param["RCMAP_" + map];
+                            var map_param = MainSerb.comPort.MAV.param["RCMAP_" + map];
                             if ((map_param != null) && (map_param.Value == Convert.ToDouble(rc_in_num)))
                             {
                                 if (ret.Length > 0)
@@ -528,7 +528,7 @@ namespace MissionPlanner.Log
                         }
 
                         // Check flight mode switch
-                        var mode_param = MainV2.comPort.MAV.param["FLTMODE_CH"];
+                        var mode_param = MainSerb.comPort.MAV.param["FLTMODE_CH"];
                         if ((mode_param != null) && (mode_param.Value == Convert.ToDouble(rc_in_num)))
                         {
                             if (ret.Length > 0)
@@ -574,7 +574,7 @@ namespace MissionPlanner.Log
                     {
                         // convert to 1 indexed
                         var param = "BARO" + (Convert.ToUInt32(instance) + 1).ToString() + "_DEVID";
-                        var dev_id = MainV2.comPort.MAV.param[param];
+                        var dev_id = MainSerb.comPort.MAV.param[param];
                         if (dev_id == null)
                         {
                             return "";
@@ -600,7 +600,7 @@ namespace MissionPlanner.Log
                     case "MAG":
                     {
                         var param = "COMPASS_PRIO" + (Convert.ToUInt32(instance) + 1).ToString() + "_ID";
-                        var dev_id = MainV2.comPort.MAV.param[param];
+                        var dev_id = MainSerb.comPort.MAV.param[param];
                         if (dev_id == null)
                         {
                             return "";
@@ -628,8 +628,8 @@ namespace MissionPlanner.Log
             var parmdata = logdata.GetEnumeratorType("PARM").Select(a =>
                 new MAVLink.MAVLinkParam(a["Name"], double.Parse(a["Value"], CultureInfo.InvariantCulture),
                     MAVLink.MAV_PARAM_TYPE.REAL32));
-            MainV2.comPort.MAV.param.Clear();
-            MainV2.comPort.MAV.param.AddRange(parmdata);
+            MainSerb.comPort.MAV.param.Clear();
+            MainSerb.comPort.MAV.param.AddRange(parmdata);
 
             var sorted = new SortedList(dflog.logformat);
             // go through all fmt's
@@ -741,11 +741,11 @@ namespace MissionPlanner.Log
                 {
                     reader.Read();
                     reader.ReadStartElement("LOGFORMAT");
-                    if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
+                    if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane)
                     {
                         reader.ReadToFollowing("APM");
                     }
-                    else if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduRover)
+                    else if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduRover)
                     {
                         reader.ReadToFollowing("APRover");
                     }
@@ -2732,7 +2732,7 @@ main()
                     }
                 }
 
-                if (!MainV2.MONO)
+                if (!MainSerb.MONO)
                 {
                     dataGridView1.Rows.Clear();
                     dataGridView1.RowCount = logdatafilter.Count;
@@ -2741,7 +2741,7 @@ main()
             else
             {
                 logdatafilter.Clear();
-                if (!MainV2.MONO)
+                if (!MainSerb.MONO)
                 {
                     dataGridView1.Rows.Clear();
                     dataGridView1.RowCount = logdata.Count;
@@ -3502,7 +3502,7 @@ main()
                 {
                     log.Info("set dgv datasourse " + (GC.GetTotalMemory(false) / 1024.0 / 1024.0));
 
-                    if (MainV2.MONO)
+                    if (MainSerb.MONO)
                     {
                         int rowstartoffset = 0;
 
@@ -3674,8 +3674,8 @@ main()
                 newparamdata.Add(sourceItem);
             }
 
-            MainV2.comPort.MAV.param.Clear();
-            MainV2.comPort.MAV.param.AddRange(newparamdata);
+            MainSerb.comPort.MAV.param.Clear();
+            MainSerb.comPort.MAV.param.AddRange(newparamdata);
 
             var frm = new ConfigRawParamsTree().ShowUserControl();
         }

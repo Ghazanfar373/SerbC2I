@@ -21,7 +21,7 @@ namespace MissionPlanner.Utilities
             InputBox.Show("", "photos", ref photos);
             InputBox.Show("", "start heading", ref startheading);
 
-            MainV2.instance.FlightPlanner.quickadd = true;
+            MainSerb.instance.FlightPlanner.quickadd = true;
 
             // set roi centerpoint
             FlightPlanner.instance.AddCommand(MAVLink.MAV_CMD.DO_SET_ROI, 0, 0, 0, 0, centerPoint.Lng, centerPoint.Lat,
@@ -33,7 +33,7 @@ namespace MissionPlanner.Utilities
                 // headings
                 for (int heading = startheading; heading <= startheading + 360; heading += 360 / photos)
                 {
-                    MainV2.instance.FlightPlanner.quickadd = true;
+                    MainSerb.instance.FlightPlanner.quickadd = true;
                     var newpoint = centerPoint.newpos(heading, radius);
                     // add wp
                     FlightPlanner.instance.AddCommand(MAVLink.MAV_CMD.WAYPOINT, 2, 0, 0, 0, newpoint.Lng,
@@ -43,9 +43,9 @@ namespace MissionPlanner.Utilities
                 }
             }
 
-            MainV2.instance.FlightPlanner.quickadd = false;
+            MainSerb.instance.FlightPlanner.quickadd = false;
 
-            MainV2.instance.FlightPlanner.writeKML();
+            MainSerb.instance.FlightPlanner.writeKML();
         }
     }
 }

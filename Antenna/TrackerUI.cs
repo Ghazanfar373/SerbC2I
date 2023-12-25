@@ -12,7 +12,7 @@ namespace MissionPlanner.Antenna
         {
             InitializeComponent();
 
-            TrackerGeneric = new TrackerGeneric(this, () => MainV2.comPort);
+            TrackerGeneric = new TrackerGeneric(this, () => MainSerb.comPort);
         }
 
         public void Deactivate()

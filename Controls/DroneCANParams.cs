@@ -288,7 +288,7 @@ namespace MissionPlanner.Controls
                 {
                     param2 = ParamFile.loadParamFile(ofd.FileName);
 
-                    Form paramCompareForm = new ParamCompare(Params, MainV2.comPort.MAV.param, param2);
+                    Form paramCompareForm = new ParamCompare(Params, MainSerb.comPort.MAV.param, param2);
 
                     ThemeManager.ApplyThemeTo(paramCompareForm);
                     paramCompareForm.ShowDialog();
@@ -353,10 +353,10 @@ namespace MissionPlanner.Controls
             {
                 try
                 {
-                    MainV2.comPort.setParam(new[] { "FORMAT_VERSION", "SYSID_SW_MREV" }, 0);
+                    MainSerb.comPort.setParam(new[] { "FORMAT_VERSION", "SYSID_SW_MREV" }, 0);
                     Thread.Sleep(1000);
-                    MainV2.comPort.doReboot(false, true);
-                    MainV2.comPort.BaseStream.Close();
+                    MainSerb.comPort.doReboot(false, true);
+                    MainSerb.comPort.BaseStream.Close();
 
 
                     CustomMessageBox.Show(

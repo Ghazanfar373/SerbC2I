@@ -329,7 +329,7 @@ namespace MissionPlanner.Controls
                 this.progressBar1.Style = ProgressBarStyle.Continuous;
                 try
                 {
-                    this.progressBar1.Value = pgv;
+                this.progressBar1.Value = pgv;
                 } // Exception System.ArgumentOutOfRangeException: Value of '-12959800' is not valid for 'Value'. 'Value' should be between 'minimum' and 'maximum'.
                 catch { } // clean fail. and ignore, chances are we will hit this again in the next 100 ms
             }

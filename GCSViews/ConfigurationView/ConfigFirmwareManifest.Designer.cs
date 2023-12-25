@@ -115,7 +115,7 @@
             // 
             // imageLabel1
             // 
-            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
+         //   this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
             this.imageLabel1.Location = new System.Drawing.Point(783, 159);
             this.imageLabel1.Name = "imageLabel1";
             this.imageLabel1.Size = new System.Drawing.Size(150, 150);
@@ -125,7 +125,7 @@
             // 
             // pictureBoxSub
             // 
-            this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
+            //this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
             this.pictureBoxSub.Location = new System.Drawing.Point(783, 3);
             this.pictureBoxSub.Name = "pictureBoxSub";
             this.pictureBoxSub.Size = new System.Drawing.Size(150, 150);

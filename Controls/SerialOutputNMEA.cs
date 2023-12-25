@@ -135,16 +135,16 @@ namespace MissionPlanner.Controls
                         continue;
                     }
                     //GGA
-                    double lat = (int)MainV2.comPort.MAV.cs.lat +
-                                 ((MainV2.comPort.MAV.cs.lat - (int)MainV2.comPort.MAV.cs.lat) * .6f);
-                    double lng = (int)MainV2.comPort.MAV.cs.lng +
-                                 ((MainV2.comPort.MAV.cs.lng - (int)MainV2.comPort.MAV.cs.lng) * .6f);
+                    double lat = (int)MainSerb.comPort.MAV.cs.lat +
+                                 ((MainSerb.comPort.MAV.cs.lat - (int)MainSerb.comPort.MAV.cs.lat) * .6f);
+                    double lng = (int)MainSerb.comPort.MAV.cs.lng +
+                                 ((MainSerb.comPort.MAV.cs.lng - (int)MainSerb.comPort.MAV.cs.lng) * .6f);
                     string line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         "$GP{0},{1:HHmmss.fff},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},", "GGA",
-                        DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100).ToString("0.00000", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.lat < 0 ? "S" : "N",
-                        Math.Abs(lng * 100).ToString("0.00000", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.lng < 0 ? "W" : "E",
-                        MainV2.comPort.MAV.cs.gpsstatus >= 3 ? 1 : 0, MainV2.comPort.MAV.cs.satcount,
-                        MainV2.comPort.MAV.cs.gpshdop, MainV2.comPort.MAV.cs.altasl, "M", 0, "M", "");
+                        DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100).ToString("0.00000", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.lat < 0 ? "S" : "N",
+                        Math.Abs(lng * 100).ToString("0.00000", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.lng < 0 ? "W" : "E",
+                        MainSerb.comPort.MAV.cs.gpsstatus >= 3 ? 1 : 0, MainSerb.comPort.MAV.cs.satcount,
+                        MainSerb.comPort.MAV.cs.gpshdop, MainSerb.comPort.MAV.cs.altasl, "M", 0, "M", "");
 
                     string checksum = GetChecksum(line);
                     NmeaStream.WriteLine(line + "*" + checksum+"\r");
@@ -152,8 +152,8 @@ namespace MissionPlanner.Controls
                     //GLL
                     line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         "$GP{0},{1},{2},{3},{4},{5:HHmmss.fff},{6},{7}", "GLL",
-                        Math.Abs(lat * 100).ToString("0.00", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.lat < 0 ? "S" : "N",
-                        Math.Abs(lng * 100).ToString("0.00", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.lng < 0 ? "W" : "E",
+                        Math.Abs(lat * 100).ToString("0.00", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.lat < 0 ? "S" : "N",
+                        Math.Abs(lng * 100).ToString("0.00", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.lng < 0 ? "W" : "E",
                         DateTime.Now.ToUniversalTime(), "A", "A");
 
                     checksum = GetChecksum(line);
@@ -193,7 +193,7 @@ namespace MissionPlanner.Controls
                     //HDG
                     line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         "$GP{0},{1:0.0},{2},{3},{4},{5}", "HDG",
-                        MainV2.comPort.MAV.cs.yaw, 0, "E", 0, "E");
+                        MainSerb.comPort.MAV.cs.yaw, 0, "E", 0, "E");
 
                     checksum = GetChecksum(line);
                     NmeaStream.WriteLine(line + "*" + checksum + "\r");
@@ -201,9 +201,9 @@ namespace MissionPlanner.Controls
                     //VTG
                     line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         "$GP{0},{1},{2},{3},{4}", "VTG",
-                        MainV2.comPort.MAV.cs.groundcourse.ToString("000"), MainV2.comPort.MAV.cs.yaw.ToString("000"),
-                        (MainV2.comPort.MAV.cs.groundspeed * 1.943844).ToString("00.0", CultureInfo.InvariantCulture),
-                        (MainV2.comPort.MAV.cs.groundspeed * 3.6).ToString("00.0", CultureInfo.InvariantCulture));
+                        MainSerb.comPort.MAV.cs.groundcourse.ToString("000"), MainSerb.comPort.MAV.cs.yaw.ToString("000"),
+                        (MainSerb.comPort.MAV.cs.groundspeed * 1.943844).ToString("00.0", CultureInfo.InvariantCulture),
+                        (MainSerb.comPort.MAV.cs.groundspeed * 3.6).ToString("00.0", CultureInfo.InvariantCulture));
 
                     checksum = GetChecksum(line);
                     NmeaStream.WriteLine(line + "*" + checksum + "\r");
@@ -212,9 +212,9 @@ namespace MissionPlanner.Controls
                     line = string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         "$GP{0},{1:HHmmss.fff},{2},{3},{4},{5},{6},{7},{8},{9:ddMMyy},{10},{11},{12}", "RMC",
                         DateTime.Now.ToUniversalTime(), "A", Math.Abs(lat * 100).ToString("0.00000", CultureInfo.InvariantCulture),
-                        MainV2.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100).ToString("0.00000", CultureInfo.InvariantCulture),
-                        MainV2.comPort.MAV.cs.lng < 0 ? "W" : "E", (MainV2.comPort.MAV.cs.groundspeed * 1.943844).ToString("0.0", CultureInfo.InvariantCulture),
-                        MainV2.comPort.MAV.cs.groundcourse.ToString("0.0", CultureInfo.InvariantCulture), DateTime.Now, 0, "E", "A");
+                        MainSerb.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100).ToString("0.00000", CultureInfo.InvariantCulture),
+                        MainSerb.comPort.MAV.cs.lng < 0 ? "W" : "E", (MainSerb.comPort.MAV.cs.groundspeed * 1.943844).ToString("0.0", CultureInfo.InvariantCulture),
+                        MainSerb.comPort.MAV.cs.groundcourse.ToString("0.0", CultureInfo.InvariantCulture), DateTime.Now, 0, "E", "A");
 
                     checksum = GetChecksum(line);
                     NmeaStream.WriteLine(line + "*" + checksum + "\r");
@@ -231,7 +231,7 @@ namespace MissionPlanner.Controls
                     }
 
                     line = string.Format(System.Globalization.CultureInfo.InvariantCulture, "$GP{0},{1},{2},{3},", "RPY",
-                        MainV2.comPort.MAV.cs.roll.ToString("0.00000", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.pitch.ToString("0.00000", CultureInfo.InvariantCulture), MainV2.comPort.MAV.cs.yaw.ToString("0.00000", CultureInfo.InvariantCulture));
+                        MainSerb.comPort.MAV.cs.roll.ToString("0.00000", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.pitch.ToString("0.00000", CultureInfo.InvariantCulture), MainSerb.comPort.MAV.cs.yaw.ToString("0.00000", CultureInfo.InvariantCulture));
 
                     checksum = GetChecksum(line);
                     NmeaStream.WriteLine(line + "*" + checksum + "\r");

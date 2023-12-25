@@ -21,7 +21,7 @@ namespace MissionPlanner.Controls
         private MAVLinkInterface _mav;
         private MAVFtp _mavftp;
 
-        public MavFTPUI() : this(MainV2.comPort)
+        public MavFTPUI() : this(MainSerb.comPort)
         {
         }
 

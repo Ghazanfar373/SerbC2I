@@ -31,7 +31,7 @@ namespace Shortcuts
         //[DebuggerHidden]
         public override bool Init()
         {
-            MainV2.instance.ProcessCmdKeyCallback += this.Instance_ProcessCmdKeyCallback;
+            MainSerb.instance.ProcessCmdKeyCallback += this.Instance_ProcessCmdKeyCallback;
 
             return true;
         }
@@ -40,51 +40,51 @@ namespace Shortcuts
         {
             if (keyData == (Keys.Alt | Keys.A))
             {
-                MainV2.comPort.setMode("Auto");
+                MainSerb.comPort.setMode("Auto");
                 return true;
             }
             if (keyData == (Keys.Alt | Keys.G))
             {
-                MainV2.comPort.setMode("Loiter");
+                MainSerb.comPort.setMode("Loiter");
                 return true;
             }
             if (keyData == (Keys.Alt | Keys.U))
             {
-                MainV2.comPort.setMode("AltHold");
+                MainSerb.comPort.setMode("AltHold");
                 return true;
             }
             if (keyData == (Keys.Alt | Keys.S))
             {
-                MainV2.comPort.setMode("Stabalize");
+                MainSerb.comPort.setMode("Stabalize");
                 return true;
             }
             if (keyData == (Keys.Alt | Keys.H))
             {
-                MainV2.comPort.setMode("RTL");
+                MainSerb.comPort.setMode("RTL");
                 return true;
             }
 
             if (keyData == (Keys.Alt | Keys.T))
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.TAKEOFF, 0, 0, 0, 0, 0, 0, 2);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.TAKEOFF, 0, 0, 0, 0, 0, 0, 2);
                 return true;
             }
             if (keyData == (Keys.Alt | Keys.L))
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.LAND, 0, 0, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.LAND, 0, 0, 0, 0, 0, 0, 0);
                 return true;
             }
 
             if (keyData == (Keys.Alt | Keys.D0))
             {
-                MainV2.comPort.SendRCOverride(MainV2.comPort.MAV.sysid, MainV2.comPort.MAV.compid, 0, 0, 1000, 0, 0, 0,
+                MainSerb.comPort.SendRCOverride(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid, 0, 0, 1000, 0, 0, 0,
                     0, 0);
                 return true;
             }
 
             if (keyData == (Keys.Alt | Keys.F1))
             {
-                //MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 1, MainV2.comPort.MAV., 0, 0, 0, 0, 0, true);
+                //MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 1, MainSerb.comPort.MAV., 0, 0, 0, 0, 0, true);
                 return true;
             }
 

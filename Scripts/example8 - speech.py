@@ -8,11 +8,11 @@ clr.AddReference("MissionPlanner.Utilities") # includes the Utilities class
 
 print 'Start Script'
 
-MissionPlanner.MainV2.speechEnable = True
+MissionPlanner.MainSerb.speechEnable = True
 
 while True:
 	print 'speech ...'
-	MissionPlanner.MainV2.speechEngine.SpeakAsync("test " + cs.roll.ToString())
+	MissionPlanner.MainSerb.speechEngine.SpeakAsync("test " + cs.roll.ToString())
 	time.sleep(1)
 
 

@@ -21,6 +21,13 @@ namespace MissionPlanner.Controls
             CMB_serialport.Items.Add("UDPCl");
             CMB_serialport.Items.Add("WS");
 
+           
+             rjComboBoxPorts.Items.AddRange(SerialPort.GetPortNames());
+             rjComboBoxPorts.Items.Add("TCP");
+             rjComboBoxPorts.Items.Add("UDP");
+             rjComboBoxPorts.Items.Add("UDPCl");
+             rjComboBoxPorts.Items.Add("WS");
+
             ThemeManager.ApplyThemeTo(this);
 
             MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
@@ -32,15 +39,50 @@ namespace MissionPlanner.Controls
 
             try
             {
-                MainV2.instance.doConnect(mav, CMB_serialport.Text, CMB_baudrate.Text);
+                MainSerb.instance.doConnect(mav, CMB_serialport.Text, CMB_baudrate.Text);
 
-                MainV2.Comports.Add(mav);
+                MainSerb.Comports.Add(mav);
 
-                MainV2._connectionControl.UpdateSysIDS();
+                MainSerb._connectionControl.UpdateSysIDS();
             }
             catch (Exception)
             {
             }
+        }
+
+        private void klcButtonConnect_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(rjComboBoxPorts.Texts, rjComboBoxBaudRate.Texts);
+            var mav = new MAVLinkInterface();
+
+            try
+            {
+                MainSerb.instance.doConnect(mav, rjComboBoxPorts.Texts, rjComboBoxBaudRate.Texts);
+
+                MainSerb.Comports.Add(mav);
+
+                MainSerb._connectionControl.UpdateSysIDS();
+
+                this.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void klcButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ConnectionOptions_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void klcButtonCancel_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen || !MainV2.comPort.MAV.param.ContainsKey("BATT2_MONITOR"))
+            if (!MainSerb.comPort.BaseStream.IsOpen || !MainSerb.comPort.MAV.param.ContainsKey("BATT2_MONITOR"))
             {
                 Enabled = false;
                 return;
@@ -24,18 +24,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             _startup = true;
 
-            if (MainV2.comPort.MAV.param["BATT2_CAPACITY"] != null)
-                TXT_battcapacity.Text = MainV2.comPort.MAV.param["BATT2_CAPACITY"].ToString();
+            if (MainSerb.comPort.MAV.param["BATT2_CAPACITY"] != null)
+                TXT_battcapacity.Text = MainSerb.comPort.MAV.param["BATT2_CAPACITY"].ToString();
 
-            TXT_voltage.Text = MainV2.comPort.MAV.cs.battery_voltage2.ToString();
+            TXT_voltage.Text = MainSerb.comPort.MAV.cs.battery_voltage2.ToString();
             TXT_measuredvoltage.Text = TXT_voltage.Text;
 
             // new
-            if (MainV2.comPort.MAV.param["BATT2_VOLT_MULT"] != null)
-                TXT_divider.Text = MainV2.comPort.MAV.param["BATT2_VOLT_MULT"].ToString();
+            if (MainSerb.comPort.MAV.param["BATT2_VOLT_MULT"] != null)
+                TXT_divider.Text = MainSerb.comPort.MAV.param["BATT2_VOLT_MULT"].ToString();
 
-            if (MainV2.comPort.MAV.param["BATT2_AMP_PERVOL"] != null)
-                TXT_ampspervolt.Text = MainV2.comPort.MAV.param["BATT2_AMP_PERVOL"].ToString();
+            if (MainSerb.comPort.MAV.param["BATT2_AMP_PERVOL"] != null)
+                TXT_ampspervolt.Text = MainSerb.comPort.MAV.param["BATT2_AMP_PERVOL"].ToString();
 
             if (Settings.Instance.GetBoolean("speechbatteryenabled") && Settings.Instance.GetBoolean("speechenable"))
             {
@@ -50,11 +50,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             //
 
             mavlinkComboBox1.setup(ParameterMetaDataRepository.GetParameterOptionsInt("BATT2_MONITOR",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "BATT2_MONITOR", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "BATT2_MONITOR", MainSerb.comPort.MAV.param);
             mavlinkComboBox2.setup(ParameterMetaDataRepository.GetParameterOptionsInt("BATT2_VOLT_PIN",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "BATT2_VOLT_PIN", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "BATT2_VOLT_PIN", MainSerb.comPort.MAV.param);
             mavlinkComboBox3.setup(ParameterMetaDataRepository.GetParameterOptionsInt("BATT2_CURR_PIN",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "BATT2_CURR_PIN", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "BATT2_CURR_PIN", MainSerb.comPort.MAV.param);
 
             _startup = false;
 
@@ -73,13 +73,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                if (MainV2.comPort.MAV.param["BATT2_CAPACITY"] == null)
+                if (MainSerb.comPort.MAV.param["BATT2_CAPACITY"] == null)
                 {
                     CustomMessageBox.Show(Strings.ErrorFeatureNotEnabled, Strings.ERROR);
                 }
                 else
                 {
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "BATT2_CAPACITY", float.Parse(TXT_battcapacity.Text));
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "BATT2_CAPACITY", float.Parse(TXT_battcapacity.Text));
                 }
             }
             catch
@@ -110,7 +110,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.setParam(new[] { "BATT2_VOLT_MULT" }, float.Parse(TXT_divider.Text));
+                MainSerb.comPort.setParam(new[] { "BATT2_VOLT_MULT" }, float.Parse(TXT_divider.Text));
             }
             catch
             {
@@ -124,7 +124,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                MainV2.comPort.setParam(new[] { "BATT2_VOLT_MULT" }, float.Parse(TXT_divider.Text));
+                MainSerb.comPort.setParam(new[] { "BATT2_VOLT_MULT" }, float.Parse(TXT_divider.Text));
             }
             catch
             {
@@ -138,7 +138,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             try
             {
-                MainV2.comPort.setParam(new[] { "BATT2_AMP_PERVOL" }, float.Parse(TXT_ampspervolt.Text));
+                MainSerb.comPort.setParam(new[] { "BATT2_AMP_PERVOL" }, float.Parse(TXT_ampspervolt.Text));
             }
             catch
             {
@@ -161,8 +161,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TXT_voltage.Text = MainV2.comPort.MAV.cs.battery_voltage2.ToString();
-            txt_current.Text = MainV2.comPort.MAV.cs.current2.ToString();
+            TXT_voltage.Text = MainSerb.comPort.MAV.cs.battery_voltage2.ToString();
+            txt_current.Text = MainSerb.comPort.MAV.cs.current2.ToString();
         }
 
         private void CHK_speechbattery_CheckedChanged(object sender, EventArgs e)
@@ -243,7 +243,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.setParam(new[] { "BATT2_AMP_PERVOL" }, float.Parse(TXT_ampspervolt.Text));
+                MainSerb.comPort.setParam(new[] { "BATT2_AMP_PERVOL" }, float.Parse(TXT_ampspervolt.Text));
             }
             catch
             {

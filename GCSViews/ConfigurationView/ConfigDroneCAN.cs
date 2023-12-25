@@ -26,7 +26,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             uAVCANModelBindingSource.DataSource = allnodes;
 
-            if (MainV2.comPort.BaseStream.IsOpen && !MainV2.comPort.MAV.param.ContainsKey("CAN_SLCAN_TIMOUT"))
+            if (MainSerb.comPort.BaseStream.IsOpen && !MainSerb.comPort.MAV.param.ContainsKey("CAN_SLCAN_TIMOUT"))
                 this.Enabled = false;
         }
 
@@ -34,7 +34,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (MainV2.comPort.MAV.param.Count > 5 && !MainV2.comPort.MAV.param.ContainsKey("CAN_SLCAN_TIMOUT"))
+            if (MainSerb.comPort.MAV.param.Count > 5 && !MainSerb.comPort.MAV.param.ContainsKey("CAN_SLCAN_TIMOUT"))
                 this.Enabled = false;
 
             timer = new Timer();
@@ -82,7 +82,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     try
                     {
                         // setup forwarding on can port 1
-                        var ans = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.CAN_FORWARD, bus, 0, 0, 0, 0, 0, 0, false);
+                        var ans = MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.CAN_FORWARD, bus, 0, 0, 0, 0, 0, 0, false);
 
                         if (ans == false) // MAVLink.MAV_RESULT.UNSUPPORTED)
                         {
@@ -106,21 +106,21 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 //  message_id |= 1 << 31
 
                 if (payload.packet_data.Length > 8)
-                    MainV2.comPort.sendPacket(new MAVLink.mavlink_canfd_frame_t(BitConverter.ToUInt32(frame.packet_data, 0) + (frame.Extended ? 0x80000000: 0),
-                            (byte)MainV2.comPort.sysidcurrent,
-                            (byte)MainV2.comPort.compidcurrent, (byte)(bus-1), (byte)DroneCAN.DroneCAN.dataLengthToDlc(payload.packet_data.Length),
+                    MainSerb.comPort.sendPacket(new MAVLink.mavlink_canfd_frame_t(BitConverter.ToUInt32(frame.packet_data, 0) + (frame.Extended ? 0x80000000: 0),
+                            (byte)MainSerb.comPort.sysidcurrent,
+                            (byte)MainSerb.comPort.compidcurrent, (byte)(bus-1), (byte)DroneCAN.DroneCAN.dataLengthToDlc(payload.packet_data.Length),
                             payload.packet_data),
-                        (byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent);
+                        (byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent);
                 else
                 {
                     var frame2 = new MAVLink.mavlink_can_frame_t(BitConverter.ToUInt32(frame.packet_data, 0) + (frame.Extended ? 0x80000000 : 0),
-                            (byte)MainV2.comPort.sysidcurrent,
-                            (byte)MainV2.comPort.compidcurrent, (byte)(bus-1), (byte)DroneCAN.DroneCAN.dataLengthToDlc(payload.packet_data.Length),
+                            (byte)MainSerb.comPort.sysidcurrent,
+                            (byte)MainSerb.comPort.compidcurrent, (byte)(bus-1), (byte)DroneCAN.DroneCAN.dataLengthToDlc(payload.packet_data.Length),
                             payload.packet_data);
-                    MainV2.comPort.sendPacket(frame2,
-                        (byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent);
+                    MainSerb.comPort.sendPacket(frame2,
+                        (byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent);
                 }
             };
 
@@ -139,7 +139,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             };
 
             // mavlink to slcan
-            MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.CAN_FRAME, (m) =>
+            MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.CAN_FRAME, (m) =>
             {
                 if (m.msgid == (uint)MAVLink.MAVLINK_MSG_ID.CAN_FRAME)
                 {
@@ -169,7 +169,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 }
 
                 return true;
-            }, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, true);
+            }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, true);
 
             SetupSLCanPort(port);
         }
@@ -183,7 +183,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                if (!MainV2.comPort.BaseStream.IsOpen)
+                if (!MainSerb.comPort.BaseStream.IsOpen)
                 {
                     if (CustomMessageBox.Show(
                             "You are not currently connected via mavlink. Please make sure the device is already in slcan mode or this is the slcan serialport.",
@@ -191,10 +191,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         return;
                 }
 
-                if (MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort.BaseStream.IsOpen)
                 {
-                    var cport = MainV2.comPort.MAV.param["CAN_SLCAN_CPORT"].Value;
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent,
+                    var cport = MainSerb.comPort.MAV.param["CAN_SLCAN_CPORT"].Value;
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
                         "CAN_SLCAN_CPORT", canport, true);
                     if (cport == 0)
                     {
@@ -203,26 +203,26 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         return;
                     }
 
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
                         "CAN_SLCAN_TIMOUT", 2, true);
-                    MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent,
+                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
                         "CAN_P" + canport + "_DRIVER", 1);
-                    //MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, "CAN_SLCAN_SERNUM", 0, true); // usb
+                    //MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, "CAN_SLCAN_SERNUM", 0, true); // usb
                     // blind send
                     var paramname = "CAN_SLCAN_SERNUM";
                     var req = new MAVLink.mavlink_param_set_t
                     {
-                        target_system = (byte) MainV2.comPort.sysidcurrent,
-                        target_component = (byte) MainV2.comPort.compidcurrent,
-                        param_type = (byte) MainV2.comPort
-                            .MAVlist[(byte) MainV2.comPort.sysidcurrent, (byte) MainV2.comPort.compidcurrent]
+                        target_system = (byte) MainSerb.comPort.sysidcurrent,
+                        target_component = (byte) MainSerb.comPort.compidcurrent,
+                        param_type = (byte) MainSerb.comPort
+                            .MAVlist[(byte) MainSerb.comPort.sysidcurrent, (byte) MainSerb.comPort.compidcurrent]
                             .param_types[paramname],
                         param_id = paramname.MakeBytesSize(16)
                     };
-                    MainV2.comPort.sendPacket(req, (byte) MainV2.comPort.sysidcurrent,
-                        (byte) MainV2.comPort.compidcurrent);
-                    MainV2.comPort.sendPacket(req, (byte)MainV2.comPort.sysidcurrent,
-                        (byte)MainV2.comPort.compidcurrent);
+                    MainSerb.comPort.sendPacket(req, (byte) MainSerb.comPort.sysidcurrent,
+                        (byte) MainSerb.comPort.compidcurrent);
+                    MainSerb.comPort.sendPacket(req, (byte)MainSerb.comPort.sysidcurrent,
+                        (byte)MainSerb.comPort.compidcurrent);
                 }
             }
             catch
@@ -231,10 +231,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
                 // grab the connected port
-                var port = MainV2.comPort.BaseStream;
+                var port = MainSerb.comPort.BaseStream;
                 // place an invalid port in its place
                 if (port != null)
-                    MainV2.comPort.BaseStream = new Comms.SerialPort() { PortName = port.PortName, BaudRate = port.BaudRate };
+                    MainSerb.comPort.BaseStream = new Comms.SerialPort() { PortName = port.PortName, BaudRate = port.BaudRate };
             SetupSLCanPort(port);
 
         }
@@ -244,7 +244,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             //check if we started from within mavlink - if not get settings from menu and create port
             if (port == null || !port.IsOpen)
             {
-                switch (MainV2._connectionControl.CMB_serialport.Text)
+                switch (MainSerb._connectionControl.CMB_serialport.Text)
                 {
                     case "TCP":
                         port = new TcpSerial();
@@ -261,8 +261,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     default:
                         port = new SerialPort()
                         {
-                            PortName = MainV2._connectionControl.CMB_serialport.Text,
-                            BaudRate = int.Parse(MainV2._connectionControl.CMB_baudrate.Text)
+                            PortName = MainSerb._connectionControl.CMB_serialport.Text,
+                            BaudRate = int.Parse(MainSerb._connectionControl.CMB_baudrate.Text)
                         };
                         break;
                 }
@@ -823,13 +823,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             cball.CheckedChanged += (s, e2) =>
             {
                 // update custom
-                MAVLink.mavlink_can_filter_modify_t filter2 = new MAVLink.mavlink_can_filter_modify_t(defaultfilter.ToArray().MakeSize(16), (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, BusInUse, (byte)MAVLink.CAN_FILTER_OP.CAN_FILTER_REPLACE, 0);
+                MAVLink.mavlink_can_filter_modify_t filter2 = new MAVLink.mavlink_can_filter_modify_t(defaultfilter.ToArray().MakeSize(16), (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, BusInUse, (byte)MAVLink.CAN_FILTER_OP.CAN_FILTER_REPLACE, 0);
 
                 if (mavlinkCANRun)
                 {
                     try
                     {
-                        MainV2.comPort.sendPacket(filter2, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                        MainSerb.comPort.sendPacket(filter2, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
                     }
                     catch (Exception ex) { Console.WriteLine(ex.ToString()); }
                 }
@@ -852,13 +852,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     }
 
                     // update custom
-                    MAVLink.mavlink_can_filter_modify_t filter2 = new MAVLink.mavlink_can_filter_modify_t(defaultfilter.ToArray().MakeSize(16), (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, BusInUse, (byte)MAVLink.CAN_FILTER_OP.CAN_FILTER_REPLACE, (byte)defaultfilter.Count());
+                    MAVLink.mavlink_can_filter_modify_t filter2 = new MAVLink.mavlink_can_filter_modify_t(defaultfilter.ToArray().MakeSize(16), (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, BusInUse, (byte)MAVLink.CAN_FILTER_OP.CAN_FILTER_REPLACE, (byte)defaultfilter.Count());
 
                     if (mavlinkCANRun)
                     {
                         try
                         {
-                            MainV2.comPort.sendPacket(filter2, (byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent);
+                            MainSerb.comPort.sendPacket(filter2, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
                         }
                         catch (Exception ex) { Console.WriteLine(ex.ToString()); }
                     }

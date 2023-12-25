@@ -75,8 +75,10 @@ namespace MissionPlanner.Controls
         private float _gpshdop = 0;
         private float _gpshdop2 = 0;
         float _greenSSAp = 10;
-        private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
-        private Color _groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+        //private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
+        //private Color _groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+        private Color _groundColor1 = Color.FromArgb(0xad, 0x68, 0x0D);
+        private Color _groundColor2 = Color.FromArgb(0xf7, 0x93, 0x11);
         private float _groundcourse = 0;
         private float _groundspeed = 0;
         private float _heading = 0;
@@ -1202,39 +1204,39 @@ namespace MissionPlanner.Controls
                     int lengthshort = this.Width / 14;
                     int lengthlong = this.Width / 10;
 
-                    for (int a = -90; a <= 90; a += 5)
-                    {
-                        // limit to 40 degrees
-                        if (a >= _pitch - 29 && a <= _pitch + 20)
-                        {
-                            if (a % 10 == 0)
-                            {
-                                if (a == 0)
-                                {
-                                    graphicsObject.DrawLine(this._greenPen, this.Width / 2 - lengthlong - halfwidth,
-                                        pitchoffset + a * every5deg, this.Width / 2 + lengthlong - halfwidth,
-                                        pitchoffset + a * every5deg);
-                                }
-                                else
-                                {
-                                    graphicsObject.DrawLine(this._whitePen, this.Width / 2 - lengthlong - halfwidth,
-                                        pitchoffset + a * every5deg, this.Width / 2 + lengthlong - halfwidth,
-                                        pitchoffset + a * every5deg);
-                                }
+                    //for (int a = -90; a <= 90; a += 5)
+                    //{
+                    //    // limit to 40 degrees
+                    //    if (a >= _pitch - 29 && a <= _pitch + 20)
+                    //    {
+                    //        if (a % 10 == 0)
+                    //        {
+                    //            if (a == 0)
+                    //            {
+                    //                graphicsObject.DrawLine(this._greenPen, this.Width / 2 - lengthlong - halfwidth,
+                    //                    pitchoffset + a * every5deg, this.Width / 2 + lengthlong - halfwidth,
+                    //                    pitchoffset + a * every5deg);
+                    //            }
+                    //            else
+                    //            {
+                    //                graphicsObject.DrawLine(this._whitePen, this.Width / 2 - lengthlong - halfwidth,
+                    //                    pitchoffset + a * every5deg, this.Width / 2 + lengthlong - halfwidth,
+                    //                    pitchoffset + a * every5deg);
+                    //            }
 
-                                drawstring(a.ToString(), font, fontsize + 2, _whiteBrush,
-                                    this.Width / 2 - lengthlong - 30 - halfwidth - (int)(fontoffset * 1.7),
-                                    pitchoffset + a * every5deg - 8 - fontoffset);
-                            }
-                            else
-                            {
-                                graphicsObject.DrawLine(this._whitePen, this.Width / 2 - lengthshort - halfwidth,
-                                    pitchoffset + a * every5deg, this.Width / 2 + lengthshort - halfwidth,
-                                    pitchoffset + a * every5deg);
-                                //drawstring(e,a.ToString(), new Font("Arial", 10), whiteBrush, this.Width / 2 - lengthshort - 20 - halfwidth, this.Height / 2 + pitchoffset + a * every5deg - 8);
-                            }
-                        }
-                    }
+                    //            drawstring(a.ToString(), font, fontsize + 2, _whiteBrush,
+                    //                this.Width / 2 - lengthlong - 30 - halfwidth - (int)(fontoffset * 1.7),
+                    //                pitchoffset + a * every5deg - 8 - fontoffset);
+                    //        }
+                    //        else
+                    //        {
+                    //            graphicsObject.DrawLine(this._whitePen, this.Width / 2 - lengthshort - halfwidth,
+                    //                pitchoffset + a * every5deg, this.Width / 2 + lengthshort - halfwidth,
+                    //                pitchoffset + a * every5deg);
+                    //            //drawstring(e,a.ToString(), new Font("Arial", 10), whiteBrush, this.Width / 2 - lengthshort - 20 - halfwidth, this.Height / 2 + pitchoffset + a * every5deg - 8);
+                    //        }
+                    //    }
+                    //}
 
                     graphicsObject.ResetTransform();
 

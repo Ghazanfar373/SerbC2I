@@ -83,7 +83,7 @@ namespace MissionPlanner.Controls
 
                 string alt = "100";
 
-                if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+                if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
                 {
                     alt = (10 * CurrentState.multiplierdist).ToString("0");
                 }
@@ -129,7 +129,7 @@ namespace MissionPlanner.Controls
 
                     sw.WriteLine(line);
 
-                    //string line = string.Format("$GP{0},{1:HHmmss},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},", "GGA", DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100), MainV2.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100), MainV2.comPort.MAV.cs.lng < 0 ? "W" : "E", MainV2.comPort.MAV.cs.gpsstatus, MainV2.comPort.MAV.cs.satcount, MainV2.comPort.MAV.cs.gpshdop, MainV2.comPort.MAV.cs.alt, "M", 0, "M", "");
+                    //string line = string.Format("$GP{0},{1:HHmmss},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},", "GGA", DateTime.Now.ToUniversalTime(), Math.Abs(lat * 100), MainSerb.comPort.MAV.cs.lat < 0 ? "S" : "N", Math.Abs(lng * 100), MainSerb.comPort.MAV.cs.lng < 0 ? "W" : "E", MainSerb.comPort.MAV.cs.gpsstatus, MainSerb.comPort.MAV.cs.satcount, MainSerb.comPort.MAV.cs.gpshdop, MainSerb.comPort.MAV.cs.alt, "M", 0, "M", "");
                     if (line.StartsWith("$GPGGA") || line.StartsWith("$GNGGA")) // 
                     {
                         string[] items = line.Trim().Split(',', '*');
@@ -189,11 +189,11 @@ namespace MissionPlanner.Controls
                         {
                         }
 
-                        if (MainV2.comPort.BaseStream.IsOpen && MainV2.comPort.giveComport == false)
+                        if (MainSerb.comPort.BaseStream.IsOpen && MainSerb.comPort.giveComport == false)
                         {
                             try
                             {
-                                MainV2.comPort.setGuidedModeWP(gotohere, false);
+                                MainSerb.comPort.setGuidedModeWP(gotohere, false);
                             }
                             catch
                             {

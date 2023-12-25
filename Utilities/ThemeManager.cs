@@ -115,23 +115,23 @@ namespace MissionPlanner.Utilities
                 }
             }
 
-            if (MainV2.instance != null)
+            if (MainSerb.instance != null)
             {
                 switch (iconSet)
                 {
                     case IconSet.BurnKermitIconSet:
-                        MainV2.instance.switchicons(new MainV2.burntkermitmenuicons());
+                        //MainSerb.instance.switchicons(new MainSerb.burntkermitmenuicons());
                         break;
                     case IconSet.HighContrastIconSet:
-                        MainV2.instance.switchicons(new MainV2.highcontrastmenuicons());
+                        //MainSerb.instance.switchicons(new MainSerb.highcontrastmenuicons());
                         break;
                     default:                                                            
-                        MainV2.instance.switchicons(new MainV2.burntkermitmenuicons());     //Fall back to BurntKermit
+                        //MainSerb.instance.switchicons(new MainSerb.burntkermitmenuicons());     //Fall back to BurntKermit
                         break;
                 }
             }
 
-            MainV2.TerminalTheming = terminalTheming;
+            MainSerb.TerminalTheming = terminalTheming;
             Settings.Instance["terminaltheming"] = terminalTheming.ToString();
             //HUD Color setting
             if (GCSViews.FlightData.myhud != null)
@@ -938,7 +938,7 @@ mc:Ignorable=""d""
                 else if (ctl.GetType() == typeof(RichTextBox))
                 {
 
-                    if ((ctl.Name == "TXT_terminal") && !MainV2.TerminalTheming)
+                    if ((ctl.Name == "TXT_terminal") && !MainSerb.TerminalTheming)
                     {
                         RichTextBox txtr = (RichTextBox)ctl;
                         txtr.BorderStyle = BorderStyle.None;
@@ -1242,7 +1242,7 @@ mc:Ignorable=""d""
                 }
                 else if (ctl.GetType() == typeof(RichTextBox))
                 {
-                    if ((ctl.Name == "TXT_terminal") && !MainV2.TerminalTheming)
+                    if ((ctl.Name == "TXT_terminal") && !MainSerb.TerminalTheming)
                     {
                         RichTextBox txtr = (RichTextBox)ctl;
                         txtr.BorderStyle = BorderStyle.None;

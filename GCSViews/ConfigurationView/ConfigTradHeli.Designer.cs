@@ -920,8 +920,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // Gservoloc
             // 
             this.Gservoloc.BackColor = System.Drawing.Color.Transparent;
-            this.Gservoloc.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
-            resources.ApplyResources(this.Gservoloc, "Gservoloc");
+            //this.Gservoloc.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
+            //resources.ApplyResources(this.Gservoloc, "Gservoloc");
             this.Gservoloc.BaseArcColor = System.Drawing.Color.Transparent;
             this.Gservoloc.BaseArcRadius = 60;
             this.Gservoloc.BaseArcStart = 90;

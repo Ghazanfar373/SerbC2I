@@ -17,7 +17,7 @@ namespace MissionPlanner.Swarm
 
             Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
 
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
                 {
@@ -41,11 +41,11 @@ namespace MissionPlanner.Swarm
 
         private void CMB_mavs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 if (port.ToString() == CMB_mavs.Text)
                 {
-                    MainV2.comPort = port;
+                    MainSerb.comPort = port;
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace MissionPlanner.Swarm
         {
             if (SwarmInterface != null)
             {
-                SwarmInterface.setLeader(MainV2.comPort.MAV);
+                SwarmInterface.setLeader(MainSerb.comPort.MAV);
                 BUT_Start.Enabled = true;
             }
         }
@@ -154,14 +154,14 @@ namespace MissionPlanner.Swarm
             // clean up old
             foreach (Control ctl in PNL_status.Controls)
             {
-                if (!MainV2.Comports.Contains((MAVLinkInterface)ctl.Tag))
+                if (!MainSerb.Comports.Contains((MAVLinkInterface)ctl.Tag))
                 {
                     ctl.Dispose();
                 }
             }
 
             // setup new
-            foreach (var port in MainV2.Comports)
+            foreach (var port in MainSerb.Comports)
             {
                 bool exists = false;
                 foreach (Control ctl in PNL_status.Controls)

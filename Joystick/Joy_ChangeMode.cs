@@ -13,13 +13,13 @@ namespace MissionPlanner.Joystick
 
             this.Tag = name;
 
-            comboBox1.DataSource = ArduPilot.Common.getModesList(MainV2.comPort.MAV.cs.firmware);
+            comboBox1.DataSource = ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
             comboBox1.ValueMember = "Key";
             comboBox1.DisplayMember = "Value";
 
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 
-            var config = MainV2.joystick.getButton(int.Parse(name));
+            var config = MainSerb.joystick.getButton(int.Parse(name));
 
             comboBox1.Text = config.mode;
         }
@@ -30,14 +30,14 @@ namespace MissionPlanner.Joystick
             int name = int.Parse(this.Tag.ToString());
 
             // get existing config
-            var config = MainV2.joystick.getButton(name);
+            var config = MainSerb.joystick.getButton(name);
 
             // change what we modified
             config.function = buttonfunction.ChangeMode;
             config.mode = comboBox1.Text.ToString();
 
             // update entry
-            MainV2.joystick.setButton(name, config);
+            MainSerb.joystick.setButton(name, config);
         }
     }
 }

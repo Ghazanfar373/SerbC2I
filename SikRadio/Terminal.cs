@@ -131,7 +131,7 @@ namespace SikRadio
 
                 comPort.ReadBufferSize = 1024*1024;
 
-                comPort.PortName = MainV2.comPort.BaseStream.PortName;
+                comPort.PortName = MainSerb.comPort.BaseStream.PortName;
 
                 comPort.Open();
 

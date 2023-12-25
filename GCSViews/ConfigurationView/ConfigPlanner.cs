@@ -45,15 +45,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         public void Activate()
         {
             startup = true; // flag to ignore changes while we programatically populate controls
-            if (MainV2.DisplayConfiguration.displayName == DisplayNames.Advanced)
+            if (MainSerb.DisplayConfiguration.displayName == DisplayNames.Advanced)
             {
                 CMB_Layout.SelectedIndex = 1;
             }
-            else if (MainV2.DisplayConfiguration.displayName == DisplayNames.Basic)
+            else if (MainSerb.DisplayConfiguration.displayName == DisplayNames.Basic)
             {
                 CMB_Layout.SelectedIndex = 0;
             }
-            else if (MainV2.DisplayConfiguration.displayName == DisplayNames.Custom)
+            else if (MainSerb.DisplayConfiguration.displayName == DisplayNames.Custom)
             {
                 CMB_Layout.SelectedIndex = 2;
             }
@@ -62,7 +62,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CMB_Layout.SelectedIndex = 0;
             }
 
-            if (!MainV2.DisplayConfiguration.displayPlannerLayout)
+            if (!MainSerb.DisplayConfiguration.displayPlannerLayout)
             {
                 label5.Visible = false;
                 CMB_Layout.Visible = false;
@@ -124,7 +124,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
             // setup up camera button states
-            if (MainV2.cam != null)
+            if (MainSerb.cam != null)
             {
                 BUT_videostart.Enabled = false;
                 CHK_hudshow.Checked = FlightData.myhud.hudon;
@@ -164,11 +164,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // setup other config state
             SetCheckboxFromConfig("CHK_resetapmonconnect", CHK_resetapmonconnect);
 
-            CMB_rateattitude.Text = MainV2.comPort.MAV.cs.rateattitude.ToString();
-            CMB_rateposition.Text = MainV2.comPort.MAV.cs.rateposition.ToString();
-            CMB_raterc.Text = MainV2.comPort.MAV.cs.raterc.ToString();
-            CMB_ratestatus.Text = MainV2.comPort.MAV.cs.ratestatus.ToString();
-            CMB_ratesensors.Text = MainV2.comPort.MAV.cs.ratesensors.ToString();
+            CMB_rateattitude.Text = MainSerb.comPort.MAV.cs.rateattitude.ToString();
+            CMB_rateposition.Text = MainSerb.comPort.MAV.cs.rateposition.ToString();
+            CMB_raterc.Text = MainSerb.comPort.MAV.cs.raterc.ToString();
+            CMB_ratestatus.Text = MainSerb.comPort.MAV.cs.ratestatus.ToString();
+            CMB_ratesensors.Text = MainSerb.comPort.MAV.cs.ratesensors.ToString();
 
             SetCheckboxFromConfig("analyticsoptout", chk_analytics);
 
@@ -177,7 +177,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             SetCheckboxFromConfig("CHK_disttohomeflightdata", CHK_disttohomeflightdata);
 
-            CHK_AutoParamCommit.Visible = MainV2.DisplayConfiguration.displayParamCommitButton;
+            CHK_AutoParamCommit.Visible = MainSerb.DisplayConfiguration.displayParamCommitButton;
 
             //set hud color state
             var hudcolor = Settings.Instance["hudcolor"];
@@ -228,7 +228,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_videostart_Click(object sender, EventArgs e)
         {
-            if (MainV2.MONO)
+            if (MainSerb.MONO)
                 return;
 
             // stop first
@@ -238,9 +238,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.cam = new Capture(CMB_videosources.SelectedIndex, bmp.Media);
+                MainSerb.cam = new Capture(CMB_videosources.SelectedIndex, bmp.Media);
 
-                MainV2.cam.Start();
+                MainSerb.cam.Start();
 
                 Settings.Instance["video_device"] = CMB_videosources.SelectedIndex.ToString();
 
@@ -257,16 +257,16 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void BUT_videostop_Click(object sender, EventArgs e)
         {
             BUT_videostart.Enabled = true;
-            if (MainV2.cam != null)
+            if (MainSerb.cam != null)
             {
-                MainV2.cam.Dispose();
-                MainV2.cam = null;
+                MainSerb.cam.Dispose();
+                MainSerb.cam = null;
             }
         }
 
         private void CMB_videosources_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (MainV2.MONO)
+            if (MainSerb.MONO)
                 return;
 
             int hr;
@@ -350,10 +350,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void CHK_enablespeech_CheckedChanged(object sender, EventArgs e)
         {
-            MainV2.speechEnable = CHK_enablespeech.Checked;
+            MainSerb.speechEnable = CHK_enablespeech.Checked;
             Settings.Instance["speechenable"] = CHK_enablespeech.Checked.ToString();
-            if (MainV2.speechEngine != null)
-                MainV2.speechEngine.SpeakAsyncCancelAll();
+            if (MainSerb.speechEngine != null)
+                MainSerb.speechEngine.SpeakAsyncCancelAll();
 
             if (CHK_enablespeech.Checked)
             {
@@ -388,11 +388,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             if (startup)
                 return;
-            MainV2.instance.changelanguage((CultureInfo)CMB_language.SelectedItem);
+            MainSerb.instance.changelanguage((CultureInfo)CMB_language.SelectedItem);
 
             MessageBox.Show("Please Restart the Planner");
 
-            MainV2.instance.Close();
+            MainSerb.instance.Close();
             //Application.Exit();
         }
 
@@ -466,12 +466,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
             ((MyButton)sender).Enabled = false;
             try
             {
-                MainV2.comPort.getParamList();
+                MainSerb.comPort.getParamList();
             }
             catch
             {
@@ -530,7 +530,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance["distunits"] = CMB_distunits.Text;
-            MainV2.instance.ChangeUnits();
+            MainSerb.instance.ChangeUnits();
         }
 
         private void CMB_speedunits_SelectedIndexChanged(object sender, EventArgs e)
@@ -538,7 +538,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance["speedunits"] = CMB_speedunits.Text;
-            MainV2.instance.ChangeUnits();
+            MainSerb.instance.ChangeUnits();
         }
 
         private void CMB_rateattitude_SelectedIndexChanged(object sender, EventArgs e)
@@ -546,13 +546,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance[((ComboBox)sender).Name] = ((ComboBox)sender).Text;
-            MainV2.comPort.MAV.cs.rateattitude = int.Parse(((ComboBox)sender).Text);
+            MainSerb.comPort.MAV.cs.rateattitude = int.Parse(((ComboBox)sender).Text);
 
-            CurrentState.rateattitudebackup = MainV2.comPort.MAV.cs.rateattitude;
+            CurrentState.rateattitudebackup = MainSerb.comPort.MAV.cs.rateattitude;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA1, MainV2.comPort.MAV.cs.rateattitude);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA1, MainSerb.comPort.MAV.cs.rateattitude);
             // request attitude
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA2, MainV2.comPort.MAV.cs.rateattitude);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA2, MainSerb.comPort.MAV.cs.rateattitude);
             // request vfr
         }
 
@@ -561,11 +561,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance[((ComboBox)sender).Name] = ((ComboBox)sender).Text;
-            MainV2.comPort.MAV.cs.rateposition = int.Parse(((ComboBox)sender).Text);
+            MainSerb.comPort.MAV.cs.rateposition = int.Parse(((ComboBox)sender).Text);
 
-            CurrentState.ratepositionbackup = MainV2.comPort.MAV.cs.rateposition;
+            CurrentState.ratepositionbackup = MainSerb.comPort.MAV.cs.rateposition;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.POSITION, MainV2.comPort.MAV.cs.rateposition);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.POSITION, MainSerb.comPort.MAV.cs.rateposition);
             // request gps
         }
 
@@ -574,11 +574,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance[((ComboBox)sender).Name] = ((ComboBox)sender).Text;
-            MainV2.comPort.MAV.cs.ratestatus = int.Parse(((ComboBox)sender).Text);
+            MainSerb.comPort.MAV.cs.ratestatus = int.Parse(((ComboBox)sender).Text);
 
-            CurrentState.ratestatusbackup = MainV2.comPort.MAV.cs.ratestatus;
+            CurrentState.ratestatusbackup = MainSerb.comPort.MAV.cs.ratestatus;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTENDED_STATUS, MainV2.comPort.MAV.cs.ratestatus);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTENDED_STATUS, MainSerb.comPort.MAV.cs.ratestatus);
             // mode
         }
 
@@ -587,11 +587,11 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance[((ComboBox)sender).Name] = ((ComboBox)sender).Text;
-            MainV2.comPort.MAV.cs.raterc = int.Parse(((ComboBox)sender).Text);
+            MainSerb.comPort.MAV.cs.raterc = int.Parse(((ComboBox)sender).Text);
 
-            CurrentState.ratercbackup = MainV2.comPort.MAV.cs.raterc;
+            CurrentState.ratercbackup = MainSerb.comPort.MAV.cs.raterc;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, MainV2.comPort.MAV.cs.raterc);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RC_CHANNELS, MainSerb.comPort.MAV.cs.raterc);
             // request rc info 
         }
 
@@ -600,19 +600,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance[((ComboBox)sender).Name] = ((ComboBox)sender).Text;
-            MainV2.comPort.MAV.cs.ratesensors = int.Parse(((ComboBox)sender).Text);
+            MainSerb.comPort.MAV.cs.ratesensors = int.Parse(((ComboBox)sender).Text);
 
-            CurrentState.ratesensorsbackup = MainV2.comPort.MAV.cs.ratesensors;
+            CurrentState.ratesensorsbackup = MainSerb.comPort.MAV.cs.ratesensors;
 
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA3, MainV2.comPort.MAV.cs.ratesensors);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.EXTRA3, MainSerb.comPort.MAV.cs.ratesensors);
             // request extra stuff - tridge
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainV2.comPort.MAV.cs.ratesensors);
+            MainSerb.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, MainSerb.comPort.MAV.cs.ratesensors);
             // request raw sensor
         }
 
         private void CHK_mavdebug_CheckedChanged(object sender, EventArgs e)
         {
-            MainV2.comPort.debugmavlink = CHK_mavdebug.Checked;
+            MainSerb.comPort.debugmavlink = CHK_mavdebug.Checked;
         }
 
         private void CHK_resetapmonconnect_CheckedChanged(object sender, EventArgs e)
@@ -703,7 +703,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void CMB_videosources_Click(object sender, EventArgs e)
         {
-            if (MainV2.MONO)
+            if (MainSerb.MONO)
                 return;
             // the reason why i dont populate this list is because on linux/mac this call will fail.
             var capt = new Capture();
@@ -721,6 +721,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             Settings.Instance["CHK_maprotation"] = CHK_maprotation.Checked.ToString();
             FlightData.instance.gMapControl1.Bearing = 0;
+            FlightStatus.instance.gMapControlSerb.Bearing = 0;
         }
 
         private static void SetCheckboxFromConfig(string configKey, CheckBox chk)
@@ -758,7 +759,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
 
             ThemeManager.LoadTheme(CMB_theme.Text);
-            ThemeManager.ApplyThemeTo(MainV2.instance);
+            ThemeManager.ApplyThemeTo(MainSerb.instance);
             CustomMessageBox.Show("You may need to select another tab or restart to see the full effect.");
         }
 
@@ -877,7 +878,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void CHK_showairports_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Instance["showairports"] = CHK_showairports.Checked.ToString();
-            MainV2.ShowAirports = CHK_showairports.Checked;
+            MainSerb.ShowAirports = CHK_showairports.Checked;
         }
 
         private void chk_ADSB_CheckedChanged(object sender, EventArgs e)
@@ -903,13 +904,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
 
             Settings.Instance["enableadsb"] = chk_ADSB.Checked.ToString();
-            MainV2.instance.EnableADSB = chk_ADSB.Checked;
+            MainSerb.instance.EnableADSB = chk_ADSB.Checked;
         }
 
         private void chk_tfr_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Instance["showtfr"] = chk_tfr.Checked.ToString();
-            MainV2.ShowTFR = chk_tfr.Checked;
+            MainSerb.ShowTFR = chk_tfr.Checked;
         }
 
         public class GCSBitmapInfo
@@ -966,17 +967,17 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             if ((DisplayNames)CMB_Layout.SelectedItem == DisplayNames.Advanced)
             {
-                MainV2.DisplayConfiguration = MainV2.DisplayConfiguration.Advanced();
+                MainSerb.DisplayConfiguration = MainSerb.DisplayConfiguration.Advanced();
             }
             else if ((DisplayNames)CMB_Layout.SelectedItem == DisplayNames.Basic)
             {
-                MainV2.DisplayConfiguration = MainV2.DisplayConfiguration.Basic();
+                MainSerb.DisplayConfiguration = MainSerb.DisplayConfiguration.Basic();
             }
             else if ((DisplayNames)CMB_Layout.SelectedItem == DisplayNames.Custom)
             {
-                MainV2.DisplayConfiguration = MainV2.DisplayConfiguration.Custom();
+                MainSerb.DisplayConfiguration = MainSerb.DisplayConfiguration.Custom();
             }
-            Settings.Instance["displayview"] = MainV2.DisplayConfiguration.ConvertToString();
+            Settings.Instance["displayview"] = MainSerb.DisplayConfiguration.ConvertToString();
         }
 
         private void CHK_AutoParamCommit_CheckedChanged(object sender, EventArgs e)
@@ -994,7 +995,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (startup)
                 return;
             Settings.Instance["altunits"] = CMB_altunits.Text;
-            MainV2.instance.ChangeUnits();
+            MainSerb.instance.ChangeUnits();
         }
 
         private void num_gcsid_ValueChanged(object sender, EventArgs e)
@@ -1015,7 +1016,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void CHK_speechArmedOnly_CheckedChanged(object sender, EventArgs e)
         {
-            MainV2.speech_armed_only = CHK_speechArmedOnly.Checked;
+            MainSerb.speech_armed_only = CHK_speechArmedOnly.Checked;
             Settings.Instance["speech_armed_only"] = CHK_speechArmedOnly.Checked.ToString();
         }
     }

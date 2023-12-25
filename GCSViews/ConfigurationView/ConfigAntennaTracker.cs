@@ -24,12 +24,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
             {
                 Enabled = false;
                 return;
             }
-            if (MainV2.comPort.MAV.cs.firmware == Firmwares.ArduTracker)
+            if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduTracker)
             {
                 Enabled = true;
             }
@@ -45,49 +45,49 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             mavlinkComboBox1.setup(
                 ParameterMetaDataRepository.GetParameterOptionsInt("AHRS_ORIENTATION",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "AHRS_ORIENTATION", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "AHRS_ORIENTATION", MainSerb.comPort.MAV.param);
             mavlinkComboBoxservo_yaw_type.setup(
                 ParameterMetaDataRepository.GetParameterOptionsInt("SERVO_YAW_TYPE",
-                    MainV2.comPort.MAV.cs.firmware.ToString()), "SERVO_YAW_TYPE", MainV2.comPort.MAV.param);
+                    MainSerb.comPort.MAV.cs.firmware.ToString()), "SERVO_YAW_TYPE", MainSerb.comPort.MAV.param);
             mavlinkComboBoxservo_pitch_type.setup(
             ParameterMetaDataRepository.GetParameterOptionsInt("SERVO_PITCH_TYPE",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "SERVO_PITCH_TYPE", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "SERVO_PITCH_TYPE", MainSerb.comPort.MAV.param);
 
             mavlinkComboBoxalt_source.setup(
             ParameterMetaDataRepository.GetParameterOptionsInt("ALT_SOURCE",
-                MainV2.comPort.MAV.cs.firmware.ToString()), "ALT_SOURCE", MainV2.comPort.MAV.param);
+                MainSerb.comPort.MAV.cs.firmware.ToString()), "ALT_SOURCE", MainSerb.comPort.MAV.param);
 
 
             // yaw
-            mavlinkNumericUpDown1.setup(900, 2200, 1, 1, "RC1_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown2.setup(900, 2200, 1, 1, "RC1_MAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown3.setup(900, 2200, 1, 1, "RC1_TRIM", MainV2.comPort.MAV.param);
-            mavlinkCheckBox1.setup(1, -1, "RC1_REV", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDown1.setup(900, 2200, 1, 1, "RC1_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown2.setup(900, 2200, 1, 1, "RC1_MAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown3.setup(900, 2200, 1, 1, "RC1_TRIM", MainSerb.comPort.MAV.param);
+            mavlinkCheckBox1.setup(1, -1, "RC1_REV", MainSerb.comPort.MAV.param);
 
             // pitch
-            mavlinkNumericUpDown6.setup(900, 2200, 1, 1, "RC2_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown5.setup(900, 2200, 1, 1, "RC2_MAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown4.setup(900, 2200, 1, 1, "RC2_TRIM", MainV2.comPort.MAV.param);
-            mavlinkCheckBox2.setup(-1, 1, "RC2_REV", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDown6.setup(900, 2200, 1, 1, "RC2_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown5.setup(900, 2200, 1, 1, "RC2_MAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown4.setup(900, 2200, 1, 1, "RC2_TRIM", MainSerb.comPort.MAV.param);
+            mavlinkCheckBox2.setup(-1, 1, "RC2_REV", MainSerb.comPort.MAV.param);
 
             // ranges
-            mavlinkNumericUpDown7.setup(0, 360, 1, 1, "YAW_RANGE", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown8.setup(-90, 90, 1, 1, "PITCH_MIN", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown19.setup(-90, 90, 1, 1, "PITCH_MAX", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDown7.setup(0, 360, 1, 1, "YAW_RANGE", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown8.setup(-90, 90, 1, 1, "PITCH_MIN", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown19.setup(-90, 90, 1, 1, "PITCH_MAX", MainSerb.comPort.MAV.param);
 
             // yaw gain
-            mavlinkNumericUpDown9.setup(0, 100, 1, .1f, "YAW2SRV_P", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown10.setup(0, 100, 1, .1f, "YAW2SRV_I", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown11.setup(0, 100, 1, .1f, "YAW2SRV_D", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown12.setup(0, 100, 1, 1, "YAW2SRV_IMAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown13.setup(0, 100, 1, .1f, "YAW_SLEW_TIME", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDown9.setup(0, 100, 1, .1f, "YAW2SRV_P", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown10.setup(0, 100, 1, .1f, "YAW2SRV_I", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown11.setup(0, 100, 1, .1f, "YAW2SRV_D", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown12.setup(0, 100, 1, 1, "YAW2SRV_IMAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown13.setup(0, 100, 1, .1f, "YAW_SLEW_TIME", MainSerb.comPort.MAV.param);
 
             // pitch gain
-            mavlinkNumericUpDown14.setup(0, 100, 1, .1f, "PITCH2SRV_P", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown15.setup(0, 100, 1, .1f, "PITCH2SRV_I", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown16.setup(0, 100, 1, .1f, "PITCH2SRV_D", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown17.setup(0, 100, 1, 1, "PITCH2SRV_IMAX", MainV2.comPort.MAV.param);
-            mavlinkNumericUpDown18.setup(0, 100, 1, .1f, "PITCH_SLEW_TIME", MainV2.comPort.MAV.param);
+            mavlinkNumericUpDown14.setup(0, 100, 1, .1f, "PITCH2SRV_P", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown15.setup(0, 100, 1, .1f, "PITCH2SRV_I", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown16.setup(0, 100, 1, .1f, "PITCH2SRV_D", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown17.setup(0, 100, 1, 1, "PITCH2SRV_IMAX", MainSerb.comPort.MAV.param);
+            mavlinkNumericUpDown18.setup(0, 100, 1, .1f, "PITCH_SLEW_TIME", MainSerb.comPort.MAV.param);
 
             timer1.Start();
 
@@ -141,19 +141,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
                 try
                 {
-                    if ((float)changes[value] > MainV2.comPort.MAV.param[value].Value * 2.0f)
+                    if ((float)changes[value] > MainSerb.comPort.MAV.param[value].Value * 2.0f)
                         if (
                             CustomMessageBox.Show(value + " has more than doubled the last input. Are you sure?",
                                 "Large Value", MessageBoxButtons.YesNo) == (int)DialogResult.No)
                             return;
 
-                    if (MainV2.comPort.BaseStream == null || !MainV2.comPort.BaseStream.IsOpen)
+                    if (MainSerb.comPort.BaseStream == null || !MainSerb.comPort.BaseStream.IsOpen)
                     {
                         CustomMessageBox.Show("Your are not connected", Strings.ERROR);
                         return;
                     }
 
-                    MainV2.comPort.setParam(value, (float)changes[value]);
+                    MainSerb.comPort.setParam(value, (float)changes[value]);
 
                     try
                     {
@@ -182,14 +182,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         /// <param name="e">The <see cref="System.EventArgs" /> instance containing the event data.</param>
         protected void BUT_rerequestparams_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
 
             try
             {
-                MainV2.comPort.getParamList();
+                MainSerb.comPort.getParamList();
             }
             catch (Exception ex)
             {
@@ -205,7 +205,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_refreshpart_Click(object sender, EventArgs e)
         {
-            if (!MainV2.comPort.BaseStream.IsOpen)
+            if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
             ((Control)sender).Enabled = false;
@@ -227,7 +227,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 {
                     try
                     {
-                        MainV2.comPort.GetParam(ctl.Name);
+                        MainSerb.comPort.GetParam(ctl.Name);
                     }
                     catch
                     {
@@ -258,7 +258,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 1, (float)output, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 1, (float)output, 0, 0, 0, 0, 0);
             }
             catch
             {
@@ -282,7 +282,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 2, (float)output, 0, 0, 0, 0, 0);
+                MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent, MAVLink.MAV_CMD.DO_SET_SERVO, 2, (float)output, 0, 0, 0, 0, 0);
             }
             catch
             {
@@ -297,8 +297,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lbl_yawpwm.Text = MainV2.comPort.MAV.cs.ch1out.ToString();
-            lbl_pitchpwm.Text = MainV2.comPort.MAV.cs.ch2out.ToString();
+            lbl_yawpwm.Text = MainSerb.comPort.MAV.cs.ch1out.ToString();
+            lbl_pitchpwm.Text = MainSerb.comPort.MAV.cs.ch2out.ToString();
         }
 
         public void Deactivate()

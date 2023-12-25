@@ -64,21 +64,21 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             foreach (var option in Options)
             {
-                if (!MainV2.comPort.MAV.param.ContainsKey(option))
+                if (!MainSerb.comPort.MAV.param.ContainsKey(option))
                     continue;
                 tableLayoutPanel1.RowCount++;
                 tableLayoutPanel1.Controls.Add(new Label() { Text = option, Name = option });
-                var options = ParameterMetaDataRepository.GetParameterOptionsInt(option, MainV2.comPort.MAV.cs.firmware.ToString());
+                var options = ParameterMetaDataRepository.GetParameterOptionsInt(option, MainSerb.comPort.MAV.cs.firmware.ToString());
                 if(options.Count == 0)
                 {
                     double min = 0,max = 0;
-                    var opt = ParameterMetaDataRepository.GetParameterRange(option,ref min,ref max, MainV2.comPort.MAV.cs.firmware.ToString());
+                    var opt = ParameterMetaDataRepository.GetParameterRange(option,ref min,ref max, MainSerb.comPort.MAV.cs.firmware.ToString());
                     var num = new MavlinkNumericUpDown();
-                    num.setup((float)min,(float)max,1,1,option, MainV2.comPort.MAV.param);
+                    num.setup((float)min,(float)max,1,1,option, MainSerb.comPort.MAV.param);
                 } else { 
                     var cmb = new MavlinkComboBox();
                     tableLayoutPanel1.Controls.Add(cmb);
-                    cmb.setup(options, option, MainV2.comPort.MAV.param);             
+                    cmb.setup(options, option, MainSerb.comPort.MAV.param);             
                 }
             }
 

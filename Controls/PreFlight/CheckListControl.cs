@@ -32,7 +32,7 @@ namespace MissionPlanner.Controls.PreFlight
 
             try
             {
-                MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainV2.comPort.MAV.cs;
+                MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainSerb.comPort.MAV.cs;
 
                 LoadConfig();
             }
@@ -203,7 +203,7 @@ namespace MissionPlanner.Controls.PreFlight
         {
             base.OnVisibleChanged(e);
 
-            if (!MainV2.DisplayConfiguration.displayPreFlightTabEdit)
+            if (!MainSerb.DisplayConfiguration.displayPreFlightTabEdit)
             {
                 BUT_edit.Visible = false;
             }

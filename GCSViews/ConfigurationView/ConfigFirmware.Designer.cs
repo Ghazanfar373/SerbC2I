@@ -257,7 +257,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // pictureBoxSub
             // 
-            this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
+           // this.pictureBoxSub.Image = global::MissionPlanner.Properties.Resources.sub;
             resources.ApplyResources(this.pictureBoxSub, "pictureBoxSub");
             this.pictureBoxSub.Name = "pictureBoxSub";
             this.pictureBoxSub.TabStop = false;
@@ -266,7 +266,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // imageLabel1
             // 
-            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
+           // this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.pixhawk2cube;
             resources.ApplyResources(this.imageLabel1, "imageLabel1");
             this.imageLabel1.Name = "imageLabel1";
             this.imageLabel1.TabStop = false;

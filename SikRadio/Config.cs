@@ -115,14 +115,14 @@ namespace SikRadio
 
         private void CMB_SerialPort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainV2.comPort.BaseStream.PortName = CMB_SerialPort.Text;
-            MainV2.comPortName = CMB_SerialPort.Text;
+            MainSerb.comPort.BaseStream.PortName = CMB_SerialPort.Text;
+            MainSerb.comPortName = CMB_SerialPort.Text;
         }
 
         private void CMB_Baudrate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MainV2.comPort.BaseStream.BaudRate = int.Parse(CMB_Baudrate.Text);
-            MainV2.comPortBaud = int.Parse(CMB_Baudrate.Text);
+            MainSerb.comPort.BaseStream.BaudRate = int.Parse(CMB_Baudrate.Text);
+            MainSerb.comPortBaud = int.Parse(CMB_Baudrate.Text);
         }
 
         private void CMB_SerialPort_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace SikRadio
         {
             // try telem1
 
-            comPort = new MAVLinkSerialPort(MainV2.comPort, (int)MAVLink.SERIAL_CONTROL_DEV.TELEM1);
+            comPort = new MAVLinkSerialPort(MainSerb.comPort, (int)MAVLink.SERIAL_CONTROL_DEV.TELEM1);
 
             comPort.ReadTimeout = 4000;
 
@@ -189,10 +189,10 @@ namespace SikRadio
         {
             try
             {
-                if (MainV2.comPort.BaseStream.PortName.Contains("TCP"))
+                if (MainSerb.comPort.BaseStream.PortName.Contains("TCP"))
                 {
                     _comPort = new TcpSerial();
-                    _comPort.BaudRate = MainV2.comPort.BaseStream.BaudRate;
+                    _comPort.BaudRate = MainSerb.comPort.BaseStream.BaudRate;
                     _comPort.ReadTimeout = 4000;
                     _comPort.Open();
                 }
@@ -200,14 +200,14 @@ namespace SikRadio
                 {
                     _comPort = new SerialPort();
 
-                    if (MainV2.comPort.BaseStream.IsOpen)
+                    if (MainSerb.comPort.BaseStream.IsOpen)
                     {
                         getTelemPortWithRadio(ref _comPort);
                     }
                     else
                     {
-                        _comPort.PortName = MainV2.comPort.BaseStream.PortName;
-                        _comPort.BaudRate = MainV2.comPort.BaseStream.BaudRate;
+                        _comPort.PortName = MainSerb.comPort.BaseStream.PortName;
+                        _comPort.BaudRate = MainSerb.comPort.BaseStream.BaudRate;
                     }
 
                     _comPort.ReadTimeout = 4000;

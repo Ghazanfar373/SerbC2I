@@ -16,7 +16,7 @@ namespace MissionPlanner.Warnings
         {
             InitializeComponent();
 
-            CustomWarning.defaultsrc = MainV2.comPort.MAV.cs;
+            CustomWarning.defaultsrc = MainSerb.comPort.MAV.cs;
             item.SetField(item.Name);
 
             CMB_condition.DataSource = Enum.GetNames(typeof(CustomWarning.Conditional));

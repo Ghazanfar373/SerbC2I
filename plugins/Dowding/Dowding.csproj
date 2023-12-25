@@ -51,7 +51,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\ExtLibs\Utilities\MissionPlanner.Utilities.csproj" />
     <ProjectReference Include="..\..\ExtLibs\WebAPIs\MissionPlanner.WebAPIs.csproj" />
-    <ProjectReference Include="..\..\MissionPlanner.csproj" />
+    <ProjectReference Include="..\..\SerbC2I.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="DowdingUI.cs" />

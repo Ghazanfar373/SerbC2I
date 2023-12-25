@@ -2,7 +2,6 @@
 extern alias Drawing;
 #endif
 
-using GMap.NET.WindowsForms;
 using log4net;
 using MissionPlanner.ArduPilot;
 using MissionPlanner.Comms;
@@ -32,12 +31,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MissionPlanner.ArduPilot.Mavlink;
-using MissionPlanner.Utilities.HW;
 using Transitions;
 using System.Linq;
 using MissionPlanner.Joystick;
 using System.Net;
-using Newtonsoft.Json;
 
 namespace MissionPlanner
 {
@@ -700,7 +697,7 @@ namespace MissionPlanner
 
         public MainV2()
         {
-            log.Info("Mainv2 ctor");
+            log.Info("MainV2 ctor");
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
@@ -4550,7 +4547,7 @@ namespace MissionPlanner
 
                     foreach (var item in MissionPlanner.Plugin.PluginLoader.Plugins)
                     {
-                        item.Host.ProcessDeviceChanged((WM_DEVICECHANGE_enum) m.WParam);
+                       // item.Host.ProcessDeviceChanged((MainV2.WM_DEVICECHANGE_enum) m.WParam);
                     }
 
                     break;

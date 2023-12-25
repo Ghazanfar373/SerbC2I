@@ -178,9 +178,9 @@ namespace MissionPlanner.Controls.PreFlight
                 {
                     var paramname = match.Groups[1].Value;
 
-                    if (MainV2.comPort.MAV.param.ContainsKey(paramname))
+                    if (MainSerb.comPort.MAV.param.ContainsKey(paramname))
                     {
-                        var answer = MainV2.comPort.MAV.param[paramname].Value;
+                        var answer = MainSerb.comPort.MAV.param[paramname].Value;
                         return answer;
                     }
                 }

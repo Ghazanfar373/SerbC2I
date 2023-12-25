@@ -49,6 +49,7 @@ namespace MissionPlanner.plugins
 
             overlay = new GMapOverlay("positions");
             FlightData.instance.gMapControl1.Overlays.Add(overlay);
+            FlightStatus.instance.gMapControlSerb.Overlays.Add(overlay);
 
             return true;
         }
@@ -57,8 +58,8 @@ namespace MissionPlanner.plugins
         {
             loopratehz = 1;
             // this needs to be set per "comport" - prevent any duplicates
-            MainV2.comPort.OnPacketReceived -= OnComPortOnOnPacketReceived;
-            MainV2.comPort.OnPacketReceived += OnComPortOnOnPacketReceived;
+            MainSerb.comPort.OnPacketReceived -= OnComPortOnOnPacketReceived;
+            MainSerb.comPort.OnPacketReceived += OnComPortOnOnPacketReceived;
         }
 
         private void OnComPortOnOnPacketReceived(object sender, MAVLink.MAVLinkMessage message)

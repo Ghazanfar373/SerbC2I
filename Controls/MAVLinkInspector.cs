@@ -191,17 +191,17 @@ namespace MissionPlanner.Controls
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.FullRowSelect = true;
-            this.treeView1.Location = new System.Drawing.Point(3, 16);
+            this.treeView1.Location = new System.Drawing.Point(3, 18);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(521, 259);
+            this.treeView1.Size = new System.Drawing.Size(521, 257);
             this.treeView1.TabIndex = 0;
             this.treeView1.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeView1_DrawNode);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Location = new System.Drawing.Point(0, 30);
@@ -215,7 +215,7 @@ namespace MissionPlanner.Controls
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(206, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.Visible = false;
             // 
@@ -224,7 +224,7 @@ namespace MissionPlanner.Controls
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(356, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 3;
             this.comboBox2.Visible = false;
             // 
@@ -240,6 +240,7 @@ namespace MissionPlanner.Controls
             this.but_graphit.Size = new System.Drawing.Size(75, 23);
             this.but_graphit.TabIndex = 4;
             this.but_graphit.Text = "Graph It";
+            this.but_graphit.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.but_graphit.UseVisualStyleBackColor = true;
             this.but_graphit.Click += new System.EventHandler(this.but_graphit_Click);
             // 
@@ -248,7 +249,7 @@ namespace MissionPlanner.Controls
             this.chk_gcstraffic.AutoSize = true;
             this.chk_gcstraffic.Location = new System.Drawing.Point(93, 5);
             this.chk_gcstraffic.Name = "chk_gcstraffic";
-            this.chk_gcstraffic.Size = new System.Drawing.Size(111, 17);
+            this.chk_gcstraffic.Size = new System.Drawing.Size(133, 20);
             this.chk_gcstraffic.TabIndex = 5;
             this.chk_gcstraffic.Text = "Show GCS Traffic";
             this.chk_gcstraffic.UseVisualStyleBackColor = true;
@@ -263,7 +264,7 @@ namespace MissionPlanner.Controls
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "MAVLinkInspector";
-            this.Text = "Mavlink Inspector";
+            this.Text = "Datalink Analyzer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MAVLinkInspector_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

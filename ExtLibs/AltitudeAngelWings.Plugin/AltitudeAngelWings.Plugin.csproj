@@ -31,7 +31,7 @@
     <PackageReference Include="DotSpatial.Topology" Version="1.9.0" />
   </ItemGroup>
   <ItemGroup>
-	  <ProjectReference Include="..\..\MissionPlanner.csproj">
+	  <ProjectReference Include="..\..\SerbC2I.csproj">
 		  <Project>{A2E22272-95FE-47B6-B050-9AE7E2055BF5}</Project>
 		  <Name>MissionPlanner</Name>
 		  <Private>False</Private>

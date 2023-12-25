@@ -38,7 +38,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            MainV2.instance.MenuConnect.Visible = false;
+          //  MainSerb.instance.MenuConnect.Visible = false;
         }
 
         public void Deactivate()
@@ -59,7 +59,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             {
             }
 
-            MainV2.instance.MenuConnect.Visible = true;
+            //MainSerb.instance.MenuConnect.Visible = true;
         }
 
         private void comPort_DataReceived(object sender, object e)
@@ -228,7 +228,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         var cmd = "";
                         lock (thisLock)
                         {
-                            if (MainV2.MONO)
+                            if (MainSerb.MONO)
                             {
                                 cmd = TXT_terminal.Text.Substring(inputStartPos,
                                     TXT_terminal.Text.Length - inputStartPos);
@@ -335,8 +335,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 try
                 {
                     comPort = new SerialPort();
-                    comPort.PortName = MainV2.comPortName;
-                    comPort.BaudRate = int.Parse(MainV2._connectionControl.CMB_baudrate.Text);
+                    comPort.PortName = MainSerb.comPortName;
+                    comPort.BaudRate = int.Parse(MainSerb._connectionControl.CMB_baudrate.Text);
                     comPort.ReadBufferSize = 1024 * 1024 * 4;
                 }
                 catch
@@ -352,8 +352,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             try
             {
-                if (MainV2.comPort != null && MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen)
-                    MainV2.comPort.BaseStream.Close();
+                if (MainSerb.comPort != null && MainSerb.comPort.BaseStream != null && MainSerb.comPort.BaseStream.IsOpen)
+                    MainSerb.comPort.BaseStream.Close();
 
                 if (comPort.IsOpen)
                 {
@@ -372,19 +372,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
                 comPort.ReadBufferSize = 1024 * 1024 * 4;
 
-                comPort.PortName = MainV2.comPortName;
+                comPort.PortName = MainSerb.comPortName;
 
                 // test moving baud rate line
 
-                comPort.BaudRate = int.Parse(MainV2._connectionControl.CMB_baudrate.Text);
+                comPort.BaudRate = int.Parse(MainSerb._connectionControl.CMB_baudrate.Text);
 
                 if (px4)
                 {
-                    TXT_terminal.AppendText("Rebooting " + MainV2.comPortName + " at " + comPort.BaudRate + "\n");
+                    TXT_terminal.AppendText("Rebooting " + MainSerb.comPortName + " at " + comPort.BaudRate + "\n");
                     // keep it local
                     using (var mine = new MAVLinkInterface())
                     {
-                        mine.BaseStream.PortName = MainV2.comPortName;
+                        mine.BaseStream.PortName = MainSerb.comPortName;
                         mine.BaseStream.BaudRate = comPort.BaudRate;
 
                         mine.giveComport = true;
@@ -709,7 +709,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 return;
             }
 
-            if (MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream.IsOpen)
             {
                 if (CMB_boardtype.Text.Contains("NSH"))
                 {
@@ -717,7 +717,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     return;
                 }
 
-                MainV2.comPort.BaseStream.Close();
+                MainSerb.comPort.BaseStream.Close();
             }
 
             if (CMB_boardtype.Text.Contains("APM"))
@@ -740,9 +740,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             try
             {
-                if (MainV2.comPort != null && MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen)
+                if (MainSerb.comPort != null && MainSerb.comPort.BaseStream != null && MainSerb.comPort.BaseStream.IsOpen)
                 {
-                    comPort = new MAVLinkSerialPort(MainV2.comPort, MAVLink.SERIAL_CONTROL_DEV.SHELL);
+                    comPort = new MAVLinkSerialPort(MainSerb.comPort, MAVLink.SERIAL_CONTROL_DEV.SHELL);
 
                     comPort.BaudRate = 0;
 

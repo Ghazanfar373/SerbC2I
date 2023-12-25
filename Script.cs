@@ -43,15 +43,15 @@ namespace MissionPlanner
             {
                 engine.Runtime.LoadAssembly(ass);
             }
-            scope.SetVariable("MainV2", MainV2.instance);
+            scope.SetVariable("MainSerb", MainSerb.instance);
             scope.SetVariable("FlightPlanner", FlightPlanner.instance);
             scope.SetVariable("FlightData", FlightData.instance);
-            scope.SetVariable("Ports", MainV2.Comports);
-            scope.SetVariable("MAV", MainV2.comPort);
-            scope.SetVariable("cs", MainV2.comPort.MAV.cs);
+            scope.SetVariable("Ports", MainSerb.Comports);
+            scope.SetVariable("MAV", MainSerb.comPort);
+            scope.SetVariable("cs", MainSerb.comPort.MAV.cs);
             scope.SetVariable("Script", this);
             scope.SetVariable("mavutil", this);
-            scope.SetVariable("Joystick", MainV2.joystick);
+            scope.SetVariable("Joystick", MainSerb.joystick);
 
             engine.CreateScriptSourceFromString("print 'hello world from python'").Execute(scope);
             engine.CreateScriptSourceFromString("print cs.roll").Execute(scope);
@@ -68,7 +68,7 @@ namespace MissionPlanner
                 OutputWriter = null;
 
             /*
-            object thisBoxed = MainV2.comPort.MAV.cs;
+            object thisBoxed = MainSerb.comPort.MAV.cs;
             Type test = thisBoxed.GetType();
 
             foreach (var field in test.GetProperties())
@@ -135,27 +135,27 @@ namespace MissionPlanner
 
         public bool ChangeParam(string param, float value)
         {
-            return MainV2.comPort.setParam(param, value);
+            return MainSerb.comPort.setParam(param, value);
         }
 
         public float GetParam(string param)
         {
-            if (MainV2.comPort.MAV.param[param] != null)
-                return (float)MainV2.comPort.MAV.param[param];
+            if (MainSerb.comPort.MAV.param[param] != null)
+                return (float)MainSerb.comPort.MAV.param[param];
 
             return 0.0f;
         }
 
         public bool ChangeMode(string mode)
         {
-            MainV2.comPort.setMode(mode);
+            MainSerb.comPort.setMode(mode);
             return true;
         }
 
         public bool WaitFor(string message, int timeout)
         {
             int timein = 0;
-            while (!MainV2.comPort.MAV.cs.messages.Any(a => a.message.Contains(message)))
+            while (!MainSerb.comPort.MAV.cs.messages.Any(a => a.message.Contains(message)))
             {
                 System.Threading.Thread.Sleep(5);
                 timein += 5;
@@ -171,47 +171,47 @@ namespace MissionPlanner
             switch (channel)
             {
                 case 1:
-                    MainV2.comPort.MAV.cs.rcoverridech1 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech1 = pwm;
                     rc.chan1_raw = (ushort)pwm;
                     break;
                 case 2:
-                    MainV2.comPort.MAV.cs.rcoverridech2 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech2 = pwm;
                     rc.chan2_raw = (ushort)pwm;
                     break;
                 case 3:
-                    MainV2.comPort.MAV.cs.rcoverridech3 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech3 = pwm;
                     rc.chan3_raw = (ushort)pwm;
                     break;
                 case 4:
-                    MainV2.comPort.MAV.cs.rcoverridech4 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech4 = pwm;
                     rc.chan4_raw = (ushort)pwm;
                     break;
                 case 5:
-                    MainV2.comPort.MAV.cs.rcoverridech5 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech5 = pwm;
                     rc.chan5_raw = (ushort)pwm;
                     break;
                 case 6:
-                    MainV2.comPort.MAV.cs.rcoverridech6 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech6 = pwm;
                     rc.chan6_raw = (ushort)pwm;
                     break;
                 case 7:
-                    MainV2.comPort.MAV.cs.rcoverridech7 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech7 = pwm;
                     rc.chan7_raw = (ushort)pwm;
                     break;
                 case 8:
-                    MainV2.comPort.MAV.cs.rcoverridech8 = pwm;
+                    MainSerb.comPort.MAV.cs.rcoverridech8 = pwm;
                     rc.chan8_raw = (ushort)pwm;
                     break;
             }
 
-            rc.target_component = MainV2.comPort.MAV.compid;
-            rc.target_system = MainV2.comPort.MAV.sysid;
+            rc.target_component = MainSerb.comPort.MAV.compid;
+            rc.target_system = MainSerb.comPort.MAV.sysid;
 
             if (sendnow)
             {
-                MainV2.comPort.sendPacket(rc, rc.target_system, rc.target_component);
+                MainSerb.comPort.sendPacket(rc, rc.target_system, rc.target_component);
                 System.Threading.Thread.Sleep(20);
-                MainV2.comPort.sendPacket(rc, rc.target_system, rc.target_component);
+                MainSerb.comPort.sendPacket(rc, rc.target_system, rc.target_component);
             }
 
             return true;

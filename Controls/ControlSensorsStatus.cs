@@ -48,7 +48,7 @@ namespace MissionPlanner.Controls
             var mask = 1;
             foreach (var name in names)
             {
-                if ((MainV2.comPort.MAV.cs.sensors_enabled.Value & mask) > 0)
+                if ((MainSerb.comPort.MAV.cs.sensors_enabled.Value & mask) > 0)
                 {
                     updateLabel(1, a, "En", Color.Green);
                 }
@@ -65,7 +65,7 @@ namespace MissionPlanner.Controls
             mask = 1;
             foreach (var name in names)
             {
-                if ((MainV2.comPort.MAV.cs.sensors_present.Value & mask) > 0)
+                if ((MainSerb.comPort.MAV.cs.sensors_present.Value & mask) > 0)
                 {
                     updateLabel(2, a, "Present", Color.Green);
                 }
@@ -82,7 +82,7 @@ namespace MissionPlanner.Controls
             mask = 1;
             foreach (var name in names)
             {
-                if ((MainV2.comPort.MAV.cs.sensors_health.Value & mask) > 0)
+                if ((MainSerb.comPort.MAV.cs.sensors_health.Value & mask) > 0)
                 {
                     updateLabel(3, a, "Ok", Color.Green);
                 }

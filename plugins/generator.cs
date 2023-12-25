@@ -396,12 +396,12 @@ namespace generator
 
             public override bool Loop()
             {
-                if (MainV2.comPort.BaseStream.IsOpen || MainV2.comPort.logreadmode)
+                if (MainSerb.comPort.BaseStream.IsOpen || MainSerb.comPort.logreadmode)
                 {
                     if (sub == null)
-                        sub = MainV2.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GENERATOR_STATUS, message =>
+                        sub = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.GENERATOR_STATUS, message =>
                         {
-                            MainV2.instance.BeginInvoke((MethodInvoker)delegate
+                            MainSerb.instance.BeginInvoke((MethodInvoker)delegate
                             {
                                 if (!FlightData.instance.tabControlactions.Parent.Controls.Contains(gen))
                                     FlightData.instance.tabControlactions.Parent.Controls.Add(gen);
@@ -417,7 +417,7 @@ namespace generator
                             return true;
                         }, 0, 0);
 
-                    MainV2.instance.BeginInvoke((MethodInvoker)delegate
+                    MainSerb.instance.BeginInvoke((MethodInvoker)delegate
                    {
                        gen.aGaugeSpeed.Value1 = (float)(generator_speed / 1000.0);
                        uint min = ((run_time) / 60) % 60;
@@ -448,7 +448,7 @@ namespace generator
                 else
                 {
                     if (sub != null)
-                        MainV2.comPort.UnSubscribeToPacketType(sub);
+                        MainSerb.comPort.UnSubscribeToPacketType(sub);
                 }
 
                 return true;

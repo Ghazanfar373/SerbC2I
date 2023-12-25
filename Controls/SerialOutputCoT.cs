@@ -172,7 +172,7 @@ namespace MissionPlanner.Controls
                 try
                 {
                     string view = "";
-                    MainV2.Comports.ForEach(port => {
+                    MainSerb.Comports.ForEach(port => {
                         port.MAVlist.ForEach(mav =>
                         {
                             String xmlStr = getXmlString(mav.sysid, mav.compid);
@@ -225,11 +225,11 @@ namespace MissionPlanner.Controls
 
         private String getXmlString(byte sysid, byte compid)
         {
-            double lat = MainV2.comPort.MAVlist[sysid,compid].cs.lat;
-            double lng = MainV2.comPort.MAVlist[sysid, compid].cs.lng;
-            double altitude = MainV2.comPort.MAVlist[sysid, compid].cs.altasl;
-            double groundSpeed = MainV2.comPort.MAVlist[sysid, compid].cs.groundspeed;
-            double groundcourse = MainV2.comPort.MAVlist[sysid, compid].cs.groundcourse;
+            double lat = MainSerb.comPort.MAVlist[sysid,compid].cs.lat;
+            double lng = MainSerb.comPort.MAVlist[sysid, compid].cs.lng;
+            double altitude = MainSerb.comPort.MAVlist[sysid, compid].cs.altasl;
+            double groundSpeed = MainSerb.comPort.MAVlist[sysid, compid].cs.groundspeed;
+            double groundcourse = MainSerb.comPort.MAVlist[sysid, compid].cs.groundcourse;
 
             // See Appendix A
             // where h- means human and m- means machine

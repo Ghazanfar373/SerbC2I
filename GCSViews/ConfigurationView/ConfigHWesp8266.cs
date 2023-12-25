@@ -19,21 +19,21 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         public void Activate()
         {
-            if (MainV2.comPort.BaseStream.IsOpen)
+            if (MainSerb.comPort.BaseStream.IsOpen)
             {
-                MainV2.comPort.sendPacket(new MAVLink.mavlink_param_request_list_t()
+                MainSerb.comPort.sendPacket(new MAVLink.mavlink_param_request_list_t()
                 {
                     target_system = (byte)0,
                     target_component = (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE
-                }, MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE);
+                }, MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE);
             }
 
-            if (MainV2.comPort.BaseStream.IsOpen
-            ) // && MainV2.comPort.MAV.compid == (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE)
+            if (MainSerb.comPort.BaseStream.IsOpen
+            ) // && MainSerb.comPort.MAV.compid == (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE)
             {
-                byte sysid = MainV2.comPort.MAV.sysid;
+                byte sysid = MainSerb.comPort.MAV.sysid;
 
-                var mav = MainV2.comPort.MAVlist[sysid, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE];
+                var mav = MainSerb.comPort.MAVlist[sysid, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE];
 
                 if (mav.param.ContainsKey("WIFI_SSID1"))
                 {
@@ -114,40 +114,40 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_ESPsettings_Click(object sender, EventArgs e)
         {
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_CHANNEL", int.Parse(cmb_channel.Text));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "UART_BAUDRATE", int.Parse(cmb_baud.Text));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_CHANNEL", int.Parse(cmb_channel.Text));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "UART_BAUDRATE", int.Parse(cmb_baud.Text));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID1", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 0, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID2", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 4, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID3", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 8, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID4", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 12, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID1", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 0, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID2", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 4, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID3", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 8, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSID4", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 12, 4), 0));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD1", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 0, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD2", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 4, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD3", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 8, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD4", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 12, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD1", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 0, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD2", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 4, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD3", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 8, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PASSWORD4", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 12, 4), 0));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA1", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 0, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA2", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 4, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA3", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 8, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA4", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 12, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA1", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 0, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA2", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 4, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA3", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 8, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SSIDSTA4", BitConverter.ToUInt32(stringTobytearray(txt_ssid.Text, 12, 4), 0));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA1", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 0, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA2", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 4, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA3", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 8, 4), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA4", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 12, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA1", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 0, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA2", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 4, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA3", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 8, 4), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_PWDSTA4", BitConverter.ToUInt32(stringTobytearray(txt_password.Text, 12, 4), 0));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_IPSTA", BitConverter.ToUInt32(IPAddress.Parse(txt_ip.Text).GetAddressBytes(), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_GATEWAYSTA", BitConverter.ToUInt32(IPAddress.Parse(txt_gateway.Text).GetAddressBytes(), 0));
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SUBNET_STA", BitConverter.ToUInt32(IPAddress.Parse(txt_subnet.Text).GetAddressBytes(), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_IPSTA", BitConverter.ToUInt32(IPAddress.Parse(txt_ip.Text).GetAddressBytes(), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_GATEWAYSTA", BitConverter.ToUInt32(IPAddress.Parse(txt_gateway.Text).GetAddressBytes(), 0));
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_SUBNET_STA", BitConverter.ToUInt32(IPAddress.Parse(txt_subnet.Text).GetAddressBytes(), 0));
 
-            MainV2.comPort.setParam((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_MODE", chk_mode.Checked ? 1 : 0);
+            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, "WIFI_MODE", chk_mode.Checked ? 1 : 0);
 
             // save to eeprom
-            bool pass = MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1, 0, 0, 0, 0, 0, 0);
+            bool pass = MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1, 0, 0, 0, 0, 0, 0);
 
             // reboot
-            pass = pass & MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_REBOOT_SHUTDOWN, 0, 1, 0, 0, 0, 0, 0);
+            pass = pass & MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_REBOOT_SHUTDOWN, 0, 1, 0, 0, 0, 0, 0);
 
             if (!pass)
                 CustomMessageBox.Show(Strings.ErrorSettingParameter, Strings.ERROR);
@@ -158,12 +158,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private void but_resetdefault_Click(object sender, EventArgs e)
         {
             // reset to defaults
-            if (MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,
+            if (MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent,
                 (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 2, 0, 0, 0, 0,
                 0, 0))
             {
                 // save the defaults
-                if (MainV2.comPort.doCommand((byte)MainV2.comPort.sysidcurrent,
+                if (MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent,
                     (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_UDP_BRIDGE, MAVLink.MAV_CMD.PREFLIGHT_STORAGE, 1, 0, 0, 0,
                     0, 0, 0))
                 {

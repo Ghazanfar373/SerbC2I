@@ -105,7 +105,7 @@ namespace MissionPlanner.NoFly
 
                                         nfzpolygon.Fill = new SolidBrush(Color.FromArgb(30, Color.Blue));
 
-                                        MainV2.instance.BeginInvoke(new Action(() =>
+                                        MainSerb.instance.BeginInvoke(new Action(() =>
                                         {
                                             if (kmlpolygonsoverlay.Polygons.Any(a => a.Name == "HK" + name.ToString()))
                                                 return;
@@ -164,7 +164,7 @@ namespace MissionPlanner.NoFly
                                     if (kmlpolygonsoverlay.Control.IsMouseOverPolygon) { 
 
                                     }
-                                    MainV2.instance.BeginInvoke(new Action(() =>
+                                    MainSerb.instance.BeginInvoke(new Action(() =>
                                     {
                                         if (kmlpolygonsoverlay.Polygons.Any(a => a.Name == feat.Name))
                                             return;
@@ -186,7 +186,7 @@ namespace MissionPlanner.NoFly
                                     nfzcircle.ToolTipMode = MarkerTooltipMode.OnMouseOver;
                                     nfzcircle.ToolTipText = feat.Name +"\r\n"+ feat.Message;
 
-                                    MainV2.instance.BeginInvoke(new Action(() =>
+                                    MainSerb.instance.BeginInvoke(new Action(() =>
                                     {
                                         if (kmlpolygonsoverlay.Markers.Any(a => ((Utilities.nfz.Feature)a.Tag).Name == feat.Name))
                                             return;
