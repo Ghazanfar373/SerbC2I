@@ -8,14 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
+
 namespace MissionPlanner.GCSViews
 {
     public partial class MainBoard : MyUserControl,IActivate,IDeactivate
     {
         bool flagLed = false;
+        WPDialog wPDialog;
         public MainBoard()
         {
             InitializeComponent();
+           
         }
 
         public void Activate()
@@ -53,6 +57,8 @@ namespace MissionPlanner.GCSViews
         {
             timerLed.Start();
             timerLed.Interval = 100;
+            
+           
         }
 
         private void timerLed_Tick(object sender, EventArgs e)
@@ -97,6 +103,35 @@ namespace MissionPlanner.GCSViews
 
         private void labeledTextBox1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void rjButtonStatus_Click(object sender, EventArgs e)
+        {
+           
+        }
+        bool flag = false;
+        private void btnledstop_MouseEnter(object sender, EventArgs e)
+        {
+            wPDialog = new WPDialog();
+            if (flag == false)
+            {
+                flag = true;
+                wPDialog.ShowDialog();
+            }
+         
+            Console.WriteLine("Mouse Entered!");
+        }
+
+        private void btnledstop_MouseLeave(object sender, EventArgs e)
+        {
+            if (flag == true)
+            {
+                flag = false;
+                this.wPDialog.Close();
+            }
+            
+            Console.WriteLine("Mouse Leaved!");
 
         }
     }

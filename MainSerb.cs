@@ -348,7 +348,7 @@ namespace MissionPlanner
 
             ThemeManager.LoadTheme(Settings.Instance["theme"]);
 
-            Utilities.ThemeManager.ApplyThemeTo(this);
+            //Utilities.ThemeManager.ApplyThemeTo(this);
 
 
             // define default basestream
@@ -705,10 +705,10 @@ namespace MissionPlanner
 #endif
 #endif
 
-            if (Program.IconFile != null)
-            {
-                this.Icon = Icon.FromHandle(((Bitmap)Program.IconFile).GetHicon());
-            }
+            //if (Program.IconFile != null)
+            //{
+            //    this.Icon = Icon.FromHandle(((Bitmap)Program.IconFile).GetHicon());
+            //}
 
             //  MenuArduPilot.Image = new Bitmap(Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70,
             //      (int)(200), 31);
@@ -1166,7 +1166,7 @@ namespace MissionPlanner
             {
             }
 
-            this.connectionToolStripMenuItem.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
+            this.btnConnection.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
         }
         private void SaveConfig()
         {
@@ -1660,32 +1660,34 @@ namespace MissionPlanner
                 //                        Console.WriteLine(DateTime.Now.Millisecond);
                 if (comPort.BaseStream.IsOpen)
                 {
-                    if (this.connectionToolStripMenuItem.Image == null || (string)this.connectionToolStripMenuItem.Image.Tag != "Disconnect")
+                    if (this.btnConnection.Image == null || (string)this.btnConnection.Image.Tag != "Disconnect")
                     {
                         this.BeginInvoke((MethodInvoker)delegate
                         {
-                            this.connectionToolStripMenuItem.Image = displayicons.disconnect;
-                            this.connectionToolStripMenuItem.Image.Tag = "Disconnect";
-                            this.connectionToolStripMenuItem.Text = Strings.DISCONNECTc;
+                            this.btnConnection.Image = displayicons.disconnect;
+                            this.btnConnection.Image.Tag = "Disconnect";
+                            this.btnConnection.Text = Strings.DISCONNECTc;
                             _connectionControl.IsConnected(true);
                         });
+                        this.Invalidate();
                     }
                 }
                 else
                 {
-                    if (this.connectionToolStripMenuItem.Image != null && (string)this.connectionToolStripMenuItem.Image.Tag != "Connect")
+                    if (this.btnConnection.Image != null && (string)this.btnConnection.Image.Tag != "Connect")
                     {
                         this.BeginInvoke((MethodInvoker)delegate
                         {
-                            this.connectionToolStripMenuItem.Image = displayicons.connect;
-                            this.connectionToolStripMenuItem.Image.Tag = "Connect";
-                            this.connectionToolStripMenuItem.Text = Strings.CONNECTc;
+                            this.btnConnection.Image = displayicons.connect;
+                            this.btnConnection.Image.Tag = "Connect";
+                            this.btnConnection.Text = Strings.CONNECTc;
                             _connectionControl.IsConnected(false);
                             if (_connectionStats != null)
                             {
                                 _connectionStats.StopUpdates();
                             }
                         });
+                        this.Invalidate(true);
                     }
 
                     if (comPort.logreadmode)
@@ -3517,6 +3519,85 @@ namespace MissionPlanner
             Form form = new ThemeEditor();
             ThemeManager.ApplyThemeTo(form);
             form.Show();
+        }
+        bool sidBarExpand = true;
+        private void timerMenu_Tick(object sender, EventArgs e)
+        {
+            if (sidBarExpand)
+            {
+
+                sideBar.Width -= 10;
+                if (sideBar.Width == sideBar.MinimumSize.Width)
+                {
+                    sidBarExpand = false;
+                    timerMenu.Stop();
+
+                }
+            }
+            else {
+                sideBar.Width += 10;
+                if (sideBar.Width == sideBar.MaximumSize.Width) { 
+                sidBarExpand=true;
+                    timerMenu.Stop();
+                }
+            }
+        }
+
+        private void menuStartBtn_Click(object sender, EventArgs e)
+        {
+            timerMenu.Start();
+        }
+
+        private void sideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnFlightData_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("FlightStatus");
+
+            // save config
+            SaveConfig();
+        }
+
+        private void btnFlightPlan_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("FlightPlanner");
+
+            // save config
+            SaveConfig();
+        }
+
+        private void btnHWConfig_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("HWConfig");
+
+            // save config
+            SaveConfig();
+        }
+
+        private void btnSoftwareConfig_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("MainBoard");   //actual SWConfig
+
+            // save config
+            SaveConfig();
+        }
+
+        private void connectionControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConnection_Click(object sender, EventArgs e)
+        {
+            new ConnectionOptions().Show(this);
         }
     }
 }

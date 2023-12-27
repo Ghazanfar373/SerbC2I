@@ -1102,17 +1102,17 @@ namespace MissionPlanner.GCSViews
             {
                 lock (updateBindingSourcelock)
                 {
-                    if (MainSerb.comPort.MAV.cs.armed)
-                    {
-                        if (counterArmed < 5) { mavlinkMsgViewControl1.status = "Armed"; counterArmed++; }
-                        mavlinkMsgViewControl1.status = MainSerb.comPort.MAV.cs.mode;
-                        mavlinkMsgViewControl1.message = MainSerb.comPort.MAV.cs.message;
-                    }
-                    else
-                    {
-                        mavlinkMsgViewControl1.status = "DisArmed";
-                        mavlinkMsgViewControl1.message = "Warning";
-                    }
+                    //if (MainSerb.comPort.MAV.cs.armed)
+                    //{
+                    //    if (counterArmed < 5) { mavlinkMsgViewControl1.status = "Armed"; counterArmed++; }
+                    //    mavlinkMsgViewControl1.status = MainSerb.comPort.MAV.cs.mode;
+                    //    mavlinkMsgViewControl1.message = MainSerb.comPort.MAV.cs.message;
+                    //}
+                    //else
+                    //{
+                    //    mavlinkMsgViewControl1.status = "DisArmed";
+                    //    mavlinkMsgViewControl1.message = "Warning";
+                    //}
 
                         //mavlinkMsgViewControl1.message = MainSerb.comPort.MAV.cs.messageHigh;
                         //string msg = MainSerb.comPort.MAV.cs.failsafe.ToString();
@@ -3007,8 +3007,10 @@ namespace MissionPlanner.GCSViews
                     xScale.Max = time + xScale.MajorStep;
                     xScale.Min = xScale.Max - 10.0;
                 }
+
                 // Make sure the Y axis is rescaled to accommodate actual data
                 zedGraph.AxisChange();
+
                 // Force a redraw
                 zedGraph.Invalidate();
                 zedGraph.Update();
@@ -3065,4 +3067,3 @@ namespace MissionPlanner.GCSViews
         }
     }
     }
-

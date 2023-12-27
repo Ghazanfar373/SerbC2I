@@ -14,6 +14,8 @@ namespace MissionPlanner.Controls
     [System.ComponentModel.DefaultBindingProperty("status")]
     public partial class MavlinkMsgViewControl : UserControl
     {
+       // private const string V = "hudStatus";
+
         public MavlinkMsgViewControl()
         {
             InitializeComponent();

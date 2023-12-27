@@ -422,7 +422,7 @@ namespace MissionPlanner
             catch
             {
             }
-           
+
             Type type = Type.GetType("Mono.Runtime");
             if (type != null)
             {

@@ -2531,7 +2531,7 @@ namespace MissionPlanner.GCSViews
                         }
                     }
                 }
-                
+
                 for (int i = 0; i < Commands.ColumnCount; i++)
                 {
                     DataGridViewCell tcell = Commands.Rows[selectedrow].Cells[i];
