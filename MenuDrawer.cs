@@ -16,5 +16,13 @@ namespace MissionPlanner
         {
             InitializeComponent();
         }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.ResumeLayout();
+
+            Program.Splash?.Close();
+        }
     }
 }

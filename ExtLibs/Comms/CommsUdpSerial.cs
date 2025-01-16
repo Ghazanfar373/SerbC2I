@@ -41,7 +41,7 @@ namespace MissionPlanner.Comms
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
-            Port = "14550";
+            this.Port = Port;
             ReadTimeout = 500;
         }
 

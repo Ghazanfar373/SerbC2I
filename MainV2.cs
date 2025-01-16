@@ -2861,7 +2861,7 @@ namespace MissionPlanner
                     if ((DateTime.Now - MainV2.comPort.MAV.lastvalidpacket).TotalSeconds > 3
                         && (DateTime.Now - connecttime).TotalSeconds > 30
                         && (DateTime.Now - nodatawarning).TotalSeconds > 5
-                        && (MainV2.comPort.logreadmode || comPort.BaseStream.IsOpen)
+                        && (MainV2.comPort.logreadmode | comPort.BaseStream.IsOpen)
                         && MainV2.comPort.MAV.cs.armed)
                     {
                         var msg = "WARNING No Data for " + (int)(DateTime.Now - MainV2.comPort.MAV.lastvalidpacket).TotalSeconds + " Seconds";
@@ -4795,6 +4795,11 @@ namespace MissionPlanner
                     break;
                 }
             }
+        }
+
+        private void toolStripConnectionControl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,6 +29,7 @@ using Microsoft.Diagnostics.Runtime;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Architecture = System.Runtime.InteropServices.Architecture;
+using Menu = System.Web.UI.WebControls.Menu;
 using Trace = System.Diagnostics.Trace;
 
 namespace MissionPlanner

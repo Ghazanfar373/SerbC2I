@@ -111,16 +111,16 @@
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel6, 0, 1);
-            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(4, 2);
-            this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(5, 2);
+            this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.tableLayoutPanelHUD.Name = "tableLayoutPanelHUD";
             this.tableLayoutPanelHUD.RowCount = 4;
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.014553F));
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58929F));
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.3816F));
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.014553F));
-            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(280, 375);
+            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(373, 462);
             this.tableLayoutPanelHUD.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -132,29 +132,29 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel10, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.hsiHeading, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 205);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 253);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(276, 132);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 162);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel9, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel10, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(214, 2);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(285, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(60, 128);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(79, 158);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // flowLayoutPanel9
@@ -164,11 +164,11 @@
             this.flowLayoutPanel9.Controls.Add(this.label14);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(2, 66);
-            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 81);
+            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(56, 60);
+            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(73, 75);
             this.flowLayoutPanel9.TabIndex = 2;
             // 
             // labelCapGS
@@ -176,11 +176,11 @@
             this.labelCapGS.AutoSize = true;
             this.labelCapGS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelCapGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapGS.Location = new System.Drawing.Point(4, 4);
+            this.labelCapGS.Location = new System.Drawing.Point(5, 5);
             this.labelCapGS.Margin = new System.Windows.Forms.Padding(0);
             this.labelCapGS.Name = "labelCapGS";
-            this.labelCapGS.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.labelCapGS.Size = new System.Drawing.Size(28, 16);
+            this.labelCapGS.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.labelCapGS.Size = new System.Drawing.Size(35, 20);
             this.labelCapGS.TabIndex = 9;
             this.labelCapGS.Text = "GS";
             this.labelCapGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -191,12 +191,12 @@
             this.labelHudGS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelHudGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHudGS.Location = new System.Drawing.Point(4, 20);
+            this.labelHudGS.Location = new System.Drawing.Point(5, 25);
             this.labelHudGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHudGS.MaximumSize = new System.Drawing.Size(0, 16);
-            this.labelHudGS.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelHudGS.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelHudGS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelHudGS.Name = "labelHudGS";
-            this.labelHudGS.Size = new System.Drawing.Size(45, 16);
+            this.labelHudGS.Size = new System.Drawing.Size(60, 20);
             this.labelHudGS.TabIndex = 10;
             this.labelHudGS.Text = "100";
             this.labelHudGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -204,13 +204,12 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 36);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.MaximumSize = new System.Drawing.Size(0, 11);
-            this.label14.MinimumSize = new System.Drawing.Size(24, 0);
+            this.label14.Location = new System.Drawing.Point(8, 45);
+            this.label14.MaximumSize = new System.Drawing.Size(0, 14);
+            this.label14.MinimumSize = new System.Drawing.Size(32, 0);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(8, 1, 0, 0);
-            this.label14.Size = new System.Drawing.Size(33, 11);
+            this.label14.Padding = new System.Windows.Forms.Padding(11, 1, 0, 0);
+            this.label14.Size = new System.Drawing.Size(40, 14);
             this.label14.TabIndex = 11;
             this.label14.Text = "m/s";
             // 
@@ -222,11 +221,11 @@
             this.flowLayoutPanel10.Controls.Add(this.label17);
             this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(56, 60);
+            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(73, 75);
             this.flowLayoutPanel10.TabIndex = 1;
             // 
             // labelCapAS
@@ -234,12 +233,12 @@
             this.labelCapAS.AutoSize = true;
             this.labelCapAS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelCapAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapAS.Location = new System.Drawing.Point(4, 4);
+            this.labelCapAS.Location = new System.Drawing.Point(5, 5);
             this.labelCapAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCapAS.MinimumSize = new System.Drawing.Size(27, 0);
+            this.labelCapAS.MinimumSize = new System.Drawing.Size(36, 0);
             this.labelCapAS.Name = "labelCapAS";
-            this.labelCapAS.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelCapAS.Size = new System.Drawing.Size(30, 16);
+            this.labelCapAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelCapAS.Size = new System.Drawing.Size(39, 20);
             this.labelCapAS.TabIndex = 4;
             this.labelCapAS.Text = "AS";
             this.labelCapAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -249,12 +248,12 @@
             this.labelHudAS.AutoSize = true;
             this.labelHudAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHudAS.Location = new System.Drawing.Point(4, 20);
+            this.labelHudAS.Location = new System.Drawing.Point(5, 25);
             this.labelHudAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHudAS.MaximumSize = new System.Drawing.Size(0, 16);
-            this.labelHudAS.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelHudAS.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelHudAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelHudAS.Name = "labelHudAS";
-            this.labelHudAS.Size = new System.Drawing.Size(45, 16);
+            this.labelHudAS.Size = new System.Drawing.Size(60, 20);
             this.labelHudAS.TabIndex = 5;
             this.labelHudAS.Text = "180";
             this.labelHudAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -262,50 +261,49 @@
             // labelASUnit
             // 
             this.labelASUnit.AutoSize = true;
-            this.labelASUnit.Location = new System.Drawing.Point(6, 36);
-            this.labelASUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelASUnit.MaximumSize = new System.Drawing.Size(0, 11);
-            this.labelASUnit.MinimumSize = new System.Drawing.Size(24, 0);
+            this.labelASUnit.Location = new System.Drawing.Point(8, 45);
+            this.labelASUnit.MaximumSize = new System.Drawing.Size(0, 14);
+            this.labelASUnit.MinimumSize = new System.Drawing.Size(32, 0);
             this.labelASUnit.Name = "labelASUnit";
-            this.labelASUnit.Padding = new System.Windows.Forms.Padding(8, 1, 0, 0);
-            this.labelASUnit.Size = new System.Drawing.Size(33, 11);
+            this.labelASUnit.Padding = new System.Windows.Forms.Padding(11, 1, 0, 0);
+            this.labelASUnit.Size = new System.Drawing.Size(40, 14);
             this.labelASUnit.TabIndex = 12;
             this.labelASUnit.Text = "m/s";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(49, 4);
+            this.label17.Location = new System.Drawing.Point(65, 5);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 13);
+            this.label17.Size = new System.Drawing.Size(0, 16);
             this.label17.TabIndex = 6;
             // 
             // hsiHeading
             // 
             this.hsiHeading.Heading = 0;
-            this.hsiHeading.Location = new System.Drawing.Point(74, 4);
-            this.hsiHeading.Margin = new System.Windows.Forms.Padding(11, 4, 11, 2);
+            this.hsiHeading.Location = new System.Drawing.Point(99, 5);
+            this.hsiHeading.Margin = new System.Windows.Forms.Padding(15, 5, 15, 2);
             this.hsiHeading.Name = "hsiHeading";
             this.hsiHeading.NavHeading = 0;
-            this.hsiHeading.Size = new System.Drawing.Size(126, 126);
+            this.hsiHeading.Size = new System.Drawing.Size(155, 155);
             this.hsiHeading.TabIndex = 0;
             // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel8, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel7, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(59, 128);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(78, 158);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // flowLayoutPanel8
@@ -315,22 +313,22 @@
             this.flowLayoutPanel8.Controls.Add(this.labelUnitAOA);
             this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(2, 66);
-            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 81);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(55, 60);
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(72, 75);
             this.flowLayoutPanel8.TabIndex = 2;
             // 
             // labelCapAOA
             // 
             this.labelCapAOA.AutoSize = true;
             this.labelCapAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapAOA.Location = new System.Drawing.Point(4, 4);
+            this.labelCapAOA.Location = new System.Drawing.Point(5, 5);
             this.labelCapAOA.Margin = new System.Windows.Forms.Padding(0);
             this.labelCapAOA.Name = "labelCapAOA";
-            this.labelCapAOA.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelCapAOA.Size = new System.Drawing.Size(40, 16);
+            this.labelCapAOA.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelCapAOA.Size = new System.Drawing.Size(53, 20);
             this.labelCapAOA.TabIndex = 9;
             this.labelCapAOA.Text = "AOA";
             this.labelCapAOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -340,11 +338,11 @@
             this.labelValAOA.AutoSize = true;
             this.labelValAOA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAOA.Location = new System.Drawing.Point(4, 20);
+            this.labelValAOA.Location = new System.Drawing.Point(5, 25);
             this.labelValAOA.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAOA.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValAOA.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValAOA.Name = "labelValAOA";
-            this.labelValAOA.Size = new System.Drawing.Size(45, 19);
+            this.labelValAOA.Size = new System.Drawing.Size(60, 22);
             this.labelValAOA.TabIndex = 10;
             this.labelValAOA.Text = "7000";
             this.labelValAOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -352,11 +350,10 @@
             // labelUnitAOA
             // 
             this.labelUnitAOA.AutoSize = true;
-            this.labelUnitAOA.Location = new System.Drawing.Point(6, 39);
-            this.labelUnitAOA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUnitAOA.Location = new System.Drawing.Point(8, 47);
             this.labelUnitAOA.Name = "labelUnitAOA";
-            this.labelUnitAOA.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelUnitAOA.Size = new System.Drawing.Size(24, 13);
+            this.labelUnitAOA.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelUnitAOA.Size = new System.Drawing.Size(27, 16);
             this.labelUnitAOA.TabIndex = 11;
             this.labelUnitAOA.Text = "...";
             // 
@@ -368,23 +365,23 @@
             this.flowLayoutPanel7.Controls.Add(this.labelUnitHdg);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(55, 60);
+            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(72, 75);
             this.flowLayoutPanel7.TabIndex = 1;
             // 
             // labelHg
             // 
             this.labelHg.AutoSize = true;
             this.labelHg.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHg.Location = new System.Drawing.Point(4, 4);
+            this.labelHg.Location = new System.Drawing.Point(5, 5);
             this.labelHg.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHg.MinimumSize = new System.Drawing.Size(27, 0);
+            this.labelHg.MinimumSize = new System.Drawing.Size(36, 0);
             this.labelHg.Name = "labelHg";
-            this.labelHg.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelHg.Size = new System.Drawing.Size(42, 16);
+            this.labelHg.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelHg.Size = new System.Drawing.Size(53, 20);
             this.labelHg.TabIndex = 4;
             this.labelHg.Text = "HDG";
             this.labelHg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -394,11 +391,11 @@
             this.label4.AutoSize = true;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 20);
+            this.label4.Location = new System.Drawing.Point(5, 25);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.MinimumSize = new System.Drawing.Size(45, 0);
+            this.label4.MinimumSize = new System.Drawing.Size(60, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.Size = new System.Drawing.Size(60, 22);
             this.label4.TabIndex = 5;
             this.label4.Text = "180";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -406,21 +403,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(8, 47);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(27, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "...";
             // 
             // labelUnitHdg
             // 
             this.labelUnitHdg.AutoSize = true;
-            this.labelUnitHdg.Location = new System.Drawing.Point(49, 4);
+            this.labelUnitHdg.Location = new System.Drawing.Point(65, 5);
             this.labelUnitHdg.Margin = new System.Windows.Forms.Padding(0);
             this.labelUnitHdg.Name = "labelUnitHdg";
-            this.labelUnitHdg.Size = new System.Drawing.Size(0, 13);
+            this.labelUnitHdg.Size = new System.Drawing.Size(0, 16);
             this.labelUnitHdg.TabIndex = 6;
             // 
             // tableLayoutPanel5
@@ -432,12 +428,12 @@
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.panelClock, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(276, 28);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(367, 34);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -446,19 +442,19 @@
             this.flowLayoutPanel3.Controls.Add(this.label2);
             this.flowLayoutPanel3.Controls.Add(this.labelGPS);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(81, 24);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(108, 30);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MissionPlanner.Properties.Resources.satellite_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox1.Size = new System.Drawing.Size(29, 25);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -467,11 +463,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Text", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(28, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.MinimumSize = new System.Drawing.Size(49, 0);
+            this.label2.Location = new System.Drawing.Point(38, 0);
+            this.label2.MinimumSize = new System.Drawing.Size(65, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
+            this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "No GPS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -482,10 +477,9 @@
             this.labelGPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelGPS.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGPS.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGPS.Location = new System.Drawing.Point(2, 24);
-            this.labelGPS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelGPS.Location = new System.Drawing.Point(3, 29);
             this.labelGPS.Name = "labelGPS";
-            this.labelGPS.Size = new System.Drawing.Size(51, 28);
+            this.labelGPS.Size = new System.Drawing.Size(101, 16);
             this.labelGPS.TabIndex = 6;
             this.labelGPS.Text = "GPS: NO Signal";
             this.labelGPS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -495,19 +489,19 @@
             this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
             this.flowLayoutPanel1.Controls.Add(this.label12);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(191, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(255, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(83, 24);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(109, 30);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::MissionPlanner.Properties.Resources.radio_wav_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 25);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
@@ -516,10 +510,9 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(28, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(38, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 16);
+            this.label12.Size = new System.Drawing.Size(47, 20);
             this.label12.TabIndex = 8;
             this.label12.Text = "100%";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -528,10 +521,10 @@
             // 
             this.panelClock.Controls.Add(this.labelClock);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelClock.Location = new System.Drawing.Point(87, 2);
-            this.panelClock.Margin = new System.Windows.Forms.Padding(2);
+            this.panelClock.Location = new System.Drawing.Point(117, 2);
+            this.panelClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(100, 24);
+            this.panelClock.Size = new System.Drawing.Size(132, 30);
             this.panelClock.TabIndex = 2;
             // 
             // labelClock
@@ -542,7 +535,7 @@
             this.labelClock.Location = new System.Drawing.Point(0, 0);
             this.labelClock.Margin = new System.Windows.Forms.Padding(0);
             this.labelClock.Name = "labelClock";
-            this.labelClock.Size = new System.Drawing.Size(55, 16);
+            this.labelClock.Size = new System.Drawing.Size(71, 20);
             this.labelClock.TabIndex = 2;
             this.labelClock.Text = "09:08:23";
             this.labelClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -557,12 +550,12 @@
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.hud, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 35);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(276, 166);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(367, 204);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // tableLayoutPanel8
@@ -572,13 +565,13 @@
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel5, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(214, 2);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(285, 2);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(60, 162);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(79, 200);
             this.tableLayoutPanel8.TabIndex = 6;
             // 
             // flowLayoutPanel6
@@ -588,11 +581,11 @@
             this.flowLayoutPanel6.Controls.Add(this.labelAGLUnit);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(2, 88);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 109);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(56, 72);
+            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(73, 89);
             this.flowLayoutPanel6.TabIndex = 3;
             // 
             // labelAGL
@@ -601,11 +594,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAGL.AutoSize = true;
             this.labelAGL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAGL.Location = new System.Drawing.Point(4, 4);
+            this.labelAGL.Location = new System.Drawing.Point(5, 5);
             this.labelAGL.Margin = new System.Windows.Forms.Padding(0);
             this.labelAGL.Name = "labelAGL";
-            this.labelAGL.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelAGL.Size = new System.Drawing.Size(45, 16);
+            this.labelAGL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelAGL.Size = new System.Drawing.Size(60, 20);
             this.labelAGL.TabIndex = 9;
             this.labelAGL.Text = "AGL";
             this.labelAGL.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -616,11 +609,11 @@
             this.labelValAgl.AutoSize = true;
             this.labelValAgl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAgl.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAgl.Location = new System.Drawing.Point(4, 20);
+            this.labelValAgl.Location = new System.Drawing.Point(5, 25);
             this.labelValAgl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAgl.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValAgl.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValAgl.Name = "labelValAgl";
-            this.labelValAgl.Size = new System.Drawing.Size(45, 23);
+            this.labelValAgl.Size = new System.Drawing.Size(60, 28);
             this.labelValAgl.TabIndex = 10;
             this.labelValAgl.Text = "N/D";
             this.labelValAgl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -629,11 +622,10 @@
             // labelAGLUnit
             // 
             this.labelAGLUnit.AutoSize = true;
-            this.labelAGLUnit.Location = new System.Drawing.Point(6, 43);
-            this.labelAGLUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAGLUnit.Location = new System.Drawing.Point(8, 53);
             this.labelAGLUnit.Name = "labelAGLUnit";
-            this.labelAGLUnit.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelAGLUnit.Size = new System.Drawing.Size(41, 13);
+            this.labelAGLUnit.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelAGLUnit.Size = new System.Drawing.Size(52, 16);
             this.labelAGLUnit.TabIndex = 11;
             this.labelAGLUnit.Text = "meter";
             // 
@@ -644,22 +636,22 @@
             this.flowLayoutPanel5.Controls.Add(this.label9);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(56, 82);
+            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(73, 103);
             this.flowLayoutPanel5.TabIndex = 2;
             // 
             // labelASL
             // 
             this.labelASL.AutoSize = true;
             this.labelASL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelASL.Location = new System.Drawing.Point(4, 4);
+            this.labelASL.Location = new System.Drawing.Point(5, 5);
             this.labelASL.Margin = new System.Windows.Forms.Padding(0);
             this.labelASL.Name = "labelASL";
-            this.labelASL.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelASL.Size = new System.Drawing.Size(36, 16);
+            this.labelASL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelASL.Size = new System.Drawing.Size(47, 20);
             this.labelASL.TabIndex = 9;
             this.labelASL.Text = "ASL";
             this.labelASL.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -668,11 +660,11 @@
             // 
             this.labelValAsl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAsl.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAsl.Location = new System.Drawing.Point(4, 20);
+            this.labelValAsl.Location = new System.Drawing.Point(5, 25);
             this.labelValAsl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAsl.MinimumSize = new System.Drawing.Size(34, 0);
+            this.labelValAsl.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelValAsl.Name = "labelValAsl";
-            this.labelValAsl.Size = new System.Drawing.Size(45, 18);
+            this.labelValAsl.Size = new System.Drawing.Size(60, 22);
             this.labelValAsl.TabIndex = 10;
             this.labelValAsl.Text = "N/D";
             this.labelValAsl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -680,11 +672,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 38);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(8, 47);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label9.Size = new System.Drawing.Size(52, 16);
             this.label9.TabIndex = 11;
             this.label9.Text = "meter";
             // 
@@ -738,15 +729,15 @@
             this.hud.hudcolor = System.Drawing.Color.LightGray;
             this.hud.linkqualitygcs = 0F;
             this.hud.load = 0F;
-            this.hud.Location = new System.Drawing.Point(63, 3);
+            this.hud.Location = new System.Drawing.Point(84, 4);
             this.hud.lowairspeed = false;
             this.hud.lowgroundspeed = false;
             this.hud.lowvoltagealert = false;
-            this.hud.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.hud.MaximumSize = new System.Drawing.Size(150, 162);
+            this.hud.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.hud.MaximumSize = new System.Drawing.Size(200, 199);
             this.hud.message = "";
             this.hud.messageSeverity = MAVLink.MAV_SEVERITY.EMERGENCY;
-            this.hud.MinimumSize = new System.Drawing.Size(150, 162);
+            this.hud.MinimumSize = new System.Drawing.Size(200, 199);
             this.hud.mode = "Unknown";
             this.hud.Name = "hud";
             this.hud.navpitch = 0F;
@@ -754,7 +745,7 @@
             this.hud.pitch = 0F;
             this.hud.roll = 0F;
             this.hud.Russian = false;
-            this.hud.Size = new System.Drawing.Size(150, 162);
+            this.hud.Size = new System.Drawing.Size(200, 199);
             this.hud.skyColor1 = System.Drawing.Color.Blue;
             this.hud.skyColor2 = System.Drawing.Color.LightBlue;
             this.hud.speedunit = null;
@@ -780,13 +771,13 @@
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanelPitch, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanelRoll, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(59, 162);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(78, 200);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // flowLayoutPanelPitch
@@ -796,22 +787,22 @@
             this.flowLayoutPanelPitch.Controls.Add(this.labelSpeedUnit);
             this.flowLayoutPanelPitch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelPitch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(2, 88);
-            this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(3, 109);
+            this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelPitch.Name = "flowLayoutPanelPitch";
-            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(55, 72);
+            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(72, 89);
             this.flowLayoutPanelPitch.TabIndex = 1;
             // 
             // labelTitleAS
             // 
             this.labelTitleAS.AutoSize = true;
             this.labelTitleAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleAS.Location = new System.Drawing.Point(4, 4);
+            this.labelTitleAS.Location = new System.Drawing.Point(5, 5);
             this.labelTitleAS.Margin = new System.Windows.Forms.Padding(0);
             this.labelTitleAS.Name = "labelTitleAS";
-            this.labelTitleAS.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelTitleAS.Size = new System.Drawing.Size(43, 16);
+            this.labelTitleAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelTitleAS.Size = new System.Drawing.Size(55, 20);
             this.labelTitleAS.TabIndex = 9;
             this.labelTitleAS.Text = "Pitch";
             this.labelTitleAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -821,11 +812,11 @@
             this.labelValAS.AutoSize = true;
             this.labelValAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAS.Location = new System.Drawing.Point(4, 20);
+            this.labelValAS.Location = new System.Drawing.Point(5, 25);
             this.labelValAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAS.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValAS.Name = "labelValAS";
-            this.labelValAS.Size = new System.Drawing.Size(45, 23);
+            this.labelValAS.Size = new System.Drawing.Size(60, 28);
             this.labelValAS.TabIndex = 10;
             this.labelValAS.Text = "7000";
             this.labelValAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -834,11 +825,10 @@
             // labelSpeedUnit
             // 
             this.labelSpeedUnit.AutoSize = true;
-            this.labelSpeedUnit.Location = new System.Drawing.Point(6, 43);
-            this.labelSpeedUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSpeedUnit.Location = new System.Drawing.Point(8, 53);
             this.labelSpeedUnit.Name = "labelSpeedUnit";
-            this.labelSpeedUnit.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelSpeedUnit.Size = new System.Drawing.Size(42, 13);
+            this.labelSpeedUnit.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelSpeedUnit.Size = new System.Drawing.Size(51, 16);
             this.labelSpeedUnit.TabIndex = 11;
             this.labelSpeedUnit.Text = "Knots";
             // 
@@ -849,23 +839,23 @@
             this.flowLayoutPanelRoll.Controls.Add(this.labelUnitRoll);
             this.flowLayoutPanelRoll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelRoll.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelRoll.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanelRoll.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelRoll.Name = "flowLayoutPanelRoll";
-            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(55, 82);
+            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(72, 103);
             this.flowLayoutPanelRoll.TabIndex = 0;
             // 
             // labelTitleGS
             // 
             this.labelTitleGS.AutoSize = true;
             this.labelTitleGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleGS.Location = new System.Drawing.Point(4, 4);
+            this.labelTitleGS.Location = new System.Drawing.Point(5, 5);
             this.labelTitleGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTitleGS.MinimumSize = new System.Drawing.Size(27, 0);
+            this.labelTitleGS.MinimumSize = new System.Drawing.Size(36, 0);
             this.labelTitleGS.Name = "labelTitleGS";
-            this.labelTitleGS.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelTitleGS.Size = new System.Drawing.Size(36, 16);
+            this.labelTitleGS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelTitleGS.Size = new System.Drawing.Size(47, 20);
             this.labelTitleGS.TabIndex = 4;
             this.labelTitleGS.Text = "Roll";
             this.labelTitleGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -875,11 +865,11 @@
             this.labelValGS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelValGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValGS.Location = new System.Drawing.Point(4, 20);
+            this.labelValGS.Location = new System.Drawing.Point(5, 25);
             this.labelValGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValGS.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValGS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValGS.Name = "labelValGS";
-            this.labelValGS.Size = new System.Drawing.Size(45, 18);
+            this.labelValGS.Size = new System.Drawing.Size(60, 22);
             this.labelValGS.TabIndex = 5;
             this.labelValGS.Text = "8000";
             this.labelValGS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -887,21 +877,22 @@
             // labelUnitRoll
             // 
             this.labelUnitRoll.AutoSize = true;
-            this.labelUnitRoll.Location = new System.Drawing.Point(4, 38);
+            this.labelUnitRoll.Location = new System.Drawing.Point(5, 47);
             this.labelUnitRoll.Margin = new System.Windows.Forms.Padding(0);
             this.labelUnitRoll.Name = "labelUnitRoll";
-            this.labelUnitRoll.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.labelUnitRoll.Size = new System.Drawing.Size(33, 13);
+            this.labelUnitRoll.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelUnitRoll.Size = new System.Drawing.Size(42, 16);
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
             // 
             // SerbHUD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanelHUD);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SerbHUD";
-            this.Size = new System.Drawing.Size(288, 379);
+            this.Size = new System.Drawing.Size(384, 466);
             this.tableLayoutPanelHUD.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);

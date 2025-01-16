@@ -25,6 +25,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
@@ -431,8 +432,9 @@ namespace MissionPlanner
 
             if (splash != null)
             {
-                this.Text = splash?.Text;
-                titlebar = splash?.Text;
+                // this.Text = splash?.Text;
+                //titlebar = splash?.Text;
+                this.Text = "SERB Command & Control 1.0.3";
             }
 
             if (!MONO) // windows only
@@ -2680,11 +2682,11 @@ namespace MissionPlanner
 
                 // invalidate update url
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationVersion"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/";
+                    "https://serb.sa/";
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocation"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/";
+                    "https://serb.sa/";
                 System.Configuration.ConfigurationManager.AppSettings["UpdateLocationMD5"] =
-                    "https://firmware.ardupilot.org/MissionPlanner/xp/checksums.txt";
+                    "https://serb.sa/";
                 System.Configuration.ConfigurationManager.AppSettings["BetaUpdateLocationVersion"] = "";
             }
 
@@ -3251,6 +3253,7 @@ namespace MissionPlanner
 
                     //Add HUD custom items source
                     HUD.Custom.src = MainSerb.comPort.MAV.cs;
+                    //MainSerb.comPort.MAV.cs.
 
                     // set connected icon
                     //this.connectionToolStripMenuItem.Image = displayicons.disconnect;
@@ -3555,7 +3558,101 @@ namespace MissionPlanner
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
+            //connectionListToolStripMenuItem_Click(sender,e);
+            new ConnectionOptions().Show(this);
+        }
+        private void connectionListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+
+            if (File.Exists(openFileDialog.FileName))
+            {
+                var lines = File.ReadAllLines(openFileDialog.FileName);
+
+                Regex tcp = new Regex("tcp://(.*):([0-9]+)");
+                Regex udp = new Regex("udp://(.*):([0-9]+)");
+                Regex udpcl = new Regex("udpcl://(.*):([0-9]+)");
+                Regex serial = new Regex("serial:(.*):([0-9]+)");
+
+                ConcurrentBag<MAVLinkInterface> mavs = new ConcurrentBag<MAVLinkInterface>();
+
+                Parallel.ForEach(lines, line =>
+                //foreach (var line in lines)
+                {
+                    try
+                    {
+                        Console.WriteLine("Process port " + line);
+                        MAVLinkInterface mav = new MAVLinkInterface();
+
+                        if (tcp.IsMatch(line))
+                        {
+                            var matches = tcp.Match(line);
+                            var tc = new TcpSerial();
+                            tc.client = new TcpClient(matches.Groups[1].Value, int.Parse(matches.Groups[2].Value));
+                            mav.BaseStream = tc;
+                        }
+                        else if (udp.IsMatch(line))
+                        {
+                            var matches = udp.Match(line);
+                            var uc = new UdpSerial(new UdpClient(int.Parse(matches.Groups[2].Value)));
+                            uc.Port = matches.Groups[2].Value;
+                            mav.BaseStream = uc;
+                        }
+                        else if (udpcl.IsMatch(line))
+                        {
+                            var matches = udpcl.Match(line);
+                            var udc = new UdpSerialConnect();
+                            udc.Port = matches.Groups[2].Value;
+                            udc.client = new UdpClient(matches.Groups[1].Value, int.Parse(matches.Groups[2].Value));
+                            mav.BaseStream = udc;
+                        }
+                        else if (serial.IsMatch(line))
+                        {
+                            var matches = serial.Match(line);
+                            var port = new Comms.SerialPort();
+                            port.PortName = matches.Groups[1].Value;
+                            port.BaudRate = int.Parse(matches.Groups[2].Value);
+                            mav.BaseStream = port;
+                            mav.BaseStream.Open();
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                        mavs.Add(mav);
+                    }
+                    catch
+                    {
+                    }
+                }
+                );
+                /*
+                foreach (var mav in mavs)
+                {
+                    MainV2.instance.BeginInvoke((Action) delegate
+                    {
+                        doConnect(mav, "preset", "0", false, false);
+                        Comports.Add(mav);
+                    });
+                }
+                
+                */
+
+                Parallel.ForEach(mavs, mav =>
+                {
+                    Console.WriteLine("Process connect " + mav);
+                    doConnect(mav, "preset", "0", false, false);
+                    Comports.Add(mav);
+
+                    try
+                    {
+                        Comports = Comports.Distinct().ToList();
+                    }
+                    catch { }
+                });
+            }
         }
 
         private void btnFlightData_Click(object sender, EventArgs e)

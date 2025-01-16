@@ -18,7 +18,7 @@ namespace MissionPlanner.Controls
 
         public event EventHandler ShowLinkStats;
 
-        public ComboBox CMB_baudrate
+        public ComboBox CMB_baudrate    
         {
             get { return this.cmb_Baud; }
         }
