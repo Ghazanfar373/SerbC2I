@@ -45,8 +45,7 @@
     <DebugType>portable</DebugType>
     <DefineConstants>DEBUG</DefineConstants>
     <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\Release\net461\</OutputPath>
@@ -115,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MovingBase.uk.resx">
       <DependentUpon>MovingBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OpenTKClock.resx">
+      <DependentUpon>OpenTKClock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PropagationSettings.uk.resx">
       <DependentUpon>PropagationSettings.cs</DependentUpon>
@@ -692,11 +694,11 @@
     </PackageReference>
     <PackageReference Include="SharpDX" version="4.1.0" targetFramework="net462" />
     <PackageReference Include="SharpDX.DirectInput" version="4.1.0" targetFramework="net462" />
-    <PackageReference Include="SkiaSharp" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp" Version="2.88.6" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies">
       <Version>2.80.3</Version>
     </PackageReference>
-    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.88.6" />
     <PackageReference Include="SSH.NET" version="2020.0.2" targetFramework="net40" />
     <PackageReference Include="System.CodeDom">
       <Version>4.7.0</Version>
@@ -766,6 +768,12 @@
     </Compile>
     <Compile Include="Controls\MavlinkMsgViewControl.Designer.cs">
       <DependentUpon>MavlinkMsgViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpenTKClock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\OpenTKClock.Designer.cs">
+      <DependentUpon>OpenTKClock.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SerbHUD.cs">
       <SubType>UserControl</SubType>

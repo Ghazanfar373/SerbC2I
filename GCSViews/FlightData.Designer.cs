@@ -321,7 +321,7 @@ namespace MissionPlanner.GCSViews
             this.toolTip1.SetToolTip(this.SubMainLeft, resources.GetString("SubMainLeft.ToolTip"));
             // 
             // hud1
-            // 
+            // Ajnabi mujhy tum yad aty ho
             this.hud1.airspeed = 0F;
             this.hud1.alt = 0F;
             this.hud1.altunit = null;
@@ -410,7 +410,7 @@ namespace MissionPlanner.GCSViews
             this.hud1.groundColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(104)))), ((int)(((byte)(13)))));
             this.hud1.groundColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(17)))));
             this.hud1.groundcourse = 0F;
-            this.hud1.groundspeed = 0F;
+            this.hud1.groundspeed =  0F;
             this.hud1.heading = 0F;
             this.hud1.hudcolor = System.Drawing.Color.LightGray;
             this.hud1.linkqualitygcs = 0F;
@@ -465,7 +465,7 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.contextMenuStripHud, "contextMenuStripHud");
             // 
             // videoToolStripMenuItem
-            // 
+            //  Account Dhamen Internationally
             this.videoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.recordHudToAVIToolStripMenuItem,
             this.stopRecordToolStripMenuItem,

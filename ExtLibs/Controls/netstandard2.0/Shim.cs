@@ -2086,7 +2086,7 @@ public static class Extension
                         ((LinearGradientBrush) brush).LinearColors[0].SKColor(),
                         ((LinearGradientBrush) brush).LinearColors[1].SKColor()
                     }
-                    , null, SKShaderTileMode.Clamp, SKMatrix.MakeIdentity())
+                    , null, SKShaderTileMode.Clamp, SKMatrix.Identity)
             };
         }
 

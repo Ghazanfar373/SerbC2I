@@ -63,11 +63,7 @@ namespace MissionPlanner.GCSViews
 
         private void timerLed_Tick(object sender, EventArgs e)
         {
-            if (flagLed)
-            {
-                ledBulb.On = true; flagLed = false;
-            }
-            else{ ledBulb.On = false;flagLed = true; }
+            
             
         }
 

@@ -255,14 +255,14 @@ namespace GDAL
                 foreach (var image in _cache.ToArray())
                 {
                     // calc the pixel coord within the image rect
-                    var ImageTop = (float)map(request.Top, image.Rect.Top, image.Rect.Bottom, 0, image.RasterYSize);
+                    var ImageTop =  (float)map(request.Top, image.Rect.Top, image.Rect.Bottom, 0, image.RasterYSize);
                     var ImageLeft = (float)map(request.Left, image.Rect.Left, image.Rect.Right, 0, image.RasterXSize);
 
                     var ImageBottom = (float)map(request.Bottom, image.Rect.Top, image.Rect.Bottom, 0, image.RasterYSize);
-                    var ImageRight = (float)map(request.Right, image.Rect.Left, image.Rect.Right, 0, image.RasterXSize);
+                    var ImageRight =  (float)map(request.Right, image.Rect.Left, image.Rect.Right, 0, image.RasterXSize);
 
                     RectangleF rect = new RectangleF(ImageLeft, ImageTop, ImageRight - ImageLeft, ImageBottom - ImageTop);
-
+                    
                     var res = (request.Right - request.Left) / width;
 
 

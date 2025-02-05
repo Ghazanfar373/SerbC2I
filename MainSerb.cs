@@ -3555,7 +3555,7 @@ namespace MissionPlanner
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
+            new OpenTKClock().Show();
         }
 
         private void btnFlightData_Click(object sender, EventArgs e)

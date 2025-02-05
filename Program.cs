@@ -276,6 +276,8 @@ namespace MissionPlanner
             Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
             Console.WriteLine("Splash.Show()");
             Splash.Show();
+            
+            
 
             Console.WriteLine("Debugger.IsAttached " + Debugger.IsAttached);
             if (Debugger.IsAttached)
@@ -451,7 +453,8 @@ namespace MissionPlanner
             {
                 Thread.CurrentThread.Name = "Base Thread";
                 Console.WriteLine("Application.Run(new MainSerb())");
-                Application.Run(new MainSerb());
+                
+                Application.Run( new MainSerb());
             }
             catch (Exception ex)
             {
