@@ -118,7 +118,7 @@ namespace MissionPlanner
         {
             return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         }
-
+        //fwegrewg
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Start(string[] args)
         {
