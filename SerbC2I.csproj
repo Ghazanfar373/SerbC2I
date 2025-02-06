@@ -694,11 +694,11 @@
     </PackageReference>
     <PackageReference Include="SharpDX" version="4.1.0" targetFramework="net462" />
     <PackageReference Include="SharpDX.DirectInput" version="4.1.0" targetFramework="net462" />
-    <PackageReference Include="SkiaSharp" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies">
       <Version>2.80.3</Version>
     </PackageReference>
-    <PackageReference Include="SkiaSharp.Views" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.80.0" />
     <PackageReference Include="SSH.NET" version="2020.0.2" targetFramework="net40" />
     <PackageReference Include="System.CodeDom">
       <Version>4.7.0</Version>
@@ -750,6 +750,9 @@
     </Compile>
     <Compile Include="Controls\DigitalSkyUI.Designer.cs">
       <DependentUpon>DigitalSkyUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GraphicLabel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\LabelView.cs">
       <SubType>UserControl</SubType>

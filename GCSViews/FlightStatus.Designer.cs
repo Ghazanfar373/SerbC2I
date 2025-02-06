@@ -1241,7 +1241,7 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(796, 214);
+            this.tabPage2.Size = new System.Drawing.Size(924, 214);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1259,7 +1259,7 @@ namespace MissionPlanner.GCSViews
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(790, 210);
+            this.zedGraphControl1.Size = new System.Drawing.Size(918, 210);
             this.zedGraphControl1.TabIndex = 0;
             // 
             // tableLayoutPanelHUD
@@ -1325,7 +1325,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 81);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel9.Size = new System.Drawing.Size(73, 75);
             this.flowLayoutPanel9.TabIndex = 2;
             // 
@@ -1383,7 +1383,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel10.Size = new System.Drawing.Size(73, 75);
             this.flowLayoutPanel10.TabIndex = 1;
             // 
@@ -1478,7 +1478,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 81);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel8.Size = new System.Drawing.Size(72, 75);
             this.flowLayoutPanel8.TabIndex = 2;
             // 
@@ -1529,7 +1529,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel7.Size = new System.Drawing.Size(72, 75);
             this.flowLayoutPanel7.TabIndex = 1;
             // 
@@ -1737,7 +1737,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 109);
             this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel6.Size = new System.Drawing.Size(73, 89);
             this.flowLayoutPanel6.TabIndex = 3;
             // 
@@ -1793,7 +1793,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel5.Size = new System.Drawing.Size(73, 103);
             this.flowLayoutPanel5.TabIndex = 2;
             // 
@@ -1989,7 +1989,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelPitch.Location = new System.Drawing.Point(3, 109);
             this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelPitch.Name = "flowLayoutPanelPitch";
-            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanelPitch.Size = new System.Drawing.Size(72, 89);
             this.flowLayoutPanelPitch.TabIndex = 1;
             // 
@@ -2042,7 +2042,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelRoll.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelRoll.Name = "flowLayoutPanelRoll";
-            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanelRoll.Size = new System.Drawing.Size(72, 103);
             this.flowLayoutPanelRoll.TabIndex = 0;
             // 
