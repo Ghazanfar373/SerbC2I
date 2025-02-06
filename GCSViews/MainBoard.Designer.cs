@@ -124,52 +124,52 @@
             this.quickView17 = new MissionPlanner.Controls.QuickView();
             this.btnledstop = new MissionPlanner.Controls.MyButton();
             this.btnLed = new System.Windows.Forms.Button();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.rjToggleBtnArm = new RJCodeAdvance.RJControls.RJToggleButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButton13 = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButton = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButton16 = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.klcButton14 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonDoAction = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton15 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton23 = new KLCToolbox.KLCControls.KLCButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.CMB_modes1 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.CMB_mountmode = new System.Windows.Forms.ComboBox();
-            this.klcButton21 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton17 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton18 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton19 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton20 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton22 = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
-            this.hud1 = new MissionPlanner.Controls.HUD();
             this.timerLed = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton22 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton20 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton19 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton18 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton17 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton21 = new KLCToolbox.KLCControls.KLCButton();
+            this.CMB_mountmode = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.CMB_modes1 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.klcButton23 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton15 = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonDoAction = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton14 = new KLCToolbox.KLCControls.KLCButton();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.klcButton16 = new KLCToolbox.KLCControls.KLCButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.klcButton = new KLCToolbox.KLCControls.KLCButton();
+            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.klcButton13 = new KLCToolbox.KLCControls.KLCButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.rjToggleBtnArm = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -200,21 +200,21 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            this.flowLayoutPanel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.flowLayoutPanel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.flowLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.flowLayoutPanel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            this.flowLayoutPanel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.flowLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            this.tableLayoutPanel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -226,19 +226,18 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanelHUD);
-         
+            this.splitContainerMain.Panel1.Controls.Add(this.graphicLabel1);
             this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanelMessage);
             this.splitContainerMain.Panel1.Controls.Add(this.rjButtonStatus);
             this.splitContainerMain.Panel1.Controls.Add(this.panel1);
             this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanel11);
             this.splitContainerMain.Panel1.Controls.Add(this.btnledstop);
             this.splitContainerMain.Panel1.Controls.Add(this.btnLed);
-            
             // 
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.tableLayoutPanel6);
+            this.splitContainerMain.Panel2.Controls.Add(this.tableLayoutPanelHUD);
             this.splitContainerMain.Size = new System.Drawing.Size(955, 700);
             this.splitContainerMain.SplitterDistance = 564;
             this.splitContainerMain.TabIndex = 0;
@@ -251,7 +250,7 @@
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(89, 94);
+            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(6, 2);
             this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanelHUD.Name = "tableLayoutPanelHUD";
             this.tableLayoutPanelHUD.RowCount = 3;
@@ -985,7 +984,6 @@
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
             // 
-            
             // tableLayoutPanelMessage
             // 
             this.tableLayoutPanelMessage.ColumnCount = 2;
@@ -1635,7 +1633,19 @@
             this.btnLed.UseVisualStyleBackColor = true;
             this.btnLed.Click += new System.EventHandler(this.btnLed_Click);
             // 
-            
+            // timerLed
+            // 
+            this.timerLed.Tick += new System.EventHandler(this.timerLed_Tick);
+            // 
+            // graphicLabel1
+            // 
+            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabel1.Location = new System.Drawing.Point(160, 278);
+            this.graphicLabel1.Name = "graphicLabel1";
+            this.graphicLabel1.Size = new System.Drawing.Size(130, 23);
+            this.graphicLabel1.TabIndex = 27;
+            this.graphicLabel1.Text = "Hello Serb World !";
             // 
             // tableLayoutPanel6
             // 
@@ -1683,7 +1693,6 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel13, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.hud1, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(34, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
@@ -1693,350 +1702,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(353, 700);
             this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 422);
-            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 2;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.54663F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.45337F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(347, 276);
-            this.tableLayoutPanel13.TabIndex = 22;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04533F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
-            this.tableLayoutPanel5.Controls.Add(this.label18, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.rjToggleBtnArm, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.label15, 2, 2);
-            this.tableLayoutPanel5.Controls.Add(this.label10, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel16, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel17, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label16, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel18, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel4, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel15, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel14, 0, 1);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(341, 110);
-            this.tableLayoutPanel5.TabIndex = 23;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(98, 81);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label18.Size = new System.Drawing.Size(116, 25);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Arm/DisArm";
-            // 
-            // rjToggleBtnArm
-            // 
-            this.rjToggleBtnArm.AutoSize = true;
-            this.rjToggleBtnArm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjToggleBtnArm.Location = new System.Drawing.Point(3, 83);
-            this.rjToggleBtnArm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rjToggleBtnArm.MaximumSize = new System.Drawing.Size(85, 90);
-            this.rjToggleBtnArm.MinimumSize = new System.Drawing.Size(80, 25);
-            this.rjToggleBtnArm.Name = "rjToggleBtnArm";
-            this.rjToggleBtnArm.OffBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.rjToggleBtnArm.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleBtnArm.OnBackColor = System.Drawing.Color.DarkRed;
-            this.rjToggleBtnArm.OnToggleColor = System.Drawing.Color.Goldenrod;
-            this.rjToggleBtnArm.Size = new System.Drawing.Size(85, 25);
-            this.rjToggleBtnArm.TabIndex = 25;
-            this.rjToggleBtnArm.UseVisualStyleBackColor = true;
-            this.rjToggleBtnArm.CheckedChanged += new System.EventHandler(this.rjToggleBtnArm_CheckedChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(220, 54);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label15.Size = new System.Drawing.Size(107, 27);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Set Loiter Rad";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(220, 27);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label10.Size = new System.Drawing.Size(77, 27);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Set Speed";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // flowLayoutPanel16
-            // 
-            this.flowLayoutPanel16.Controls.Add(this.klcButton13);
-            this.flowLayoutPanel16.Controls.Add(this.numericUpDown5);
-            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(98, 29);
-            this.flowLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(116, 23);
-            this.flowLayoutPanel16.TabIndex = 19;
-            // 
-            // klcButton13
-            // 
-            this.klcButton13.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton13.FlatAppearance.BorderSize = 0;
-            this.klcButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton13.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton13.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
-            this.klcButton13.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton13.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton13.KLCBorderRadius = 8;
-            this.klcButton13.KLCBorderSize = 0;
-            this.klcButton13.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton13.Location = new System.Drawing.Point(3, 0);
-            this.klcButton13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButton13.Name = "klcButton13";
-            this.klcButton13.Size = new System.Drawing.Size(40, 25);
-            this.klcButton13.TabIndex = 20;
-            this.klcButton13.UseCompatibleTextRendering = true;
-            this.klcButton13.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(3, 27);
-            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDown5.TabIndex = 13;
-            // 
-            // flowLayoutPanel17
-            // 
-            this.flowLayoutPanel17.Controls.Add(this.klcButton);
-            this.flowLayoutPanel17.Controls.Add(this.numericUpDown4);
-            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel17.Location = new System.Drawing.Point(98, 2);
-            this.flowLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
-            this.flowLayoutPanel17.Size = new System.Drawing.Size(116, 23);
-            this.flowLayoutPanel17.TabIndex = 22;
-            // 
-            // klcButton
-            // 
-            this.klcButton.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton.FlatAppearance.BorderSize = 0;
-            this.klcButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
-            this.klcButton.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton.KLCBorderRadius = 8;
-            this.klcButton.KLCBorderSize = 0;
-            this.klcButton.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton.Location = new System.Drawing.Point(3, 0);
-            this.klcButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButton.Name = "klcButton";
-            this.klcButton.Size = new System.Drawing.Size(40, 25);
-            this.klcButton.TabIndex = 19;
-            this.klcButton.UseCompatibleTextRendering = true;
-            this.klcButton.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(3, 27);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDown4.TabIndex = 13;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(220, 0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label16.Size = new System.Drawing.Size(56, 27);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Set Alt";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel18
-            // 
-            this.flowLayoutPanel18.Controls.Add(this.klcButton16);
-            this.flowLayoutPanel18.Controls.Add(this.numericUpDown6);
-            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel18.Location = new System.Drawing.Point(98, 56);
-            this.flowLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(116, 23);
-            this.flowLayoutPanel18.TabIndex = 23;
-            // 
-            // klcButton16
-            // 
-            this.klcButton16.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton16.FlatAppearance.BorderSize = 0;
-            this.klcButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton16.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton16.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
-            this.klcButton16.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton16.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton16.KLCBorderRadius = 8;
-            this.klcButton16.KLCBorderSize = 0;
-            this.klcButton16.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton16.Location = new System.Drawing.Point(3, 0);
-            this.klcButton16.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButton16.Name = "klcButton16";
-            this.klcButton16.Size = new System.Drawing.Size(40, 25);
-            this.klcButton16.TabIndex = 20;
-            this.klcButton16.UseCompatibleTextRendering = true;
-            this.klcButton16.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(3, 27);
-            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDown6.TabIndex = 13;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel4.Controls.Add(this.label5);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(89, 23);
-            this.flowLayoutPanel4.TabIndex = 16;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(25, 2);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.label5.MaximumSize = new System.Drawing.Size(0, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "87 %";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel15
-            // 
-            this.flowLayoutPanel15.Controls.Add(this.pictureBox8);
-            this.flowLayoutPanel15.Controls.Add(this.label8);
-            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 56);
-            this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(89, 23);
-            this.flowLayoutPanel15.TabIndex = 18;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.icons8_time_16;
-            this.pictureBox8.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 22);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.label8.MaximumSize = new System.Drawing.Size(0, 20);
-            this.label8.MinimumSize = new System.Drawing.Size(68, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "00:23:34";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel14
-            // 
-            this.flowLayoutPanel14.Controls.Add(this.pictureBox7);
-            this.flowLayoutPanel14.Controls.Add(this.label7);
-            this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 29);
-            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(89, 23);
-            this.flowLayoutPanel14.TabIndex = 18;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::MissionPlanner.Properties.Resources.icons8_plus_161;
-            this.pictureBox7.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(25, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.label7.MaximumSize = new System.Drawing.Size(0, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Test ok";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
@@ -2074,259 +1739,26 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(341, 158);
             this.tableLayoutPanel3.TabIndex = 21;
             // 
-            // klcButton14
+            // klcButton24
             // 
-            this.klcButton14.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton14.FlatAppearance.BorderSize = 0;
-            this.klcButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton14.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton14.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton14.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton14.KLCBorderRadius = 1;
-            this.klcButton14.KLCBorderSize = 0;
-            this.klcButton14.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton14.Location = new System.Drawing.Point(88, 80);
-            this.klcButton14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton14.Name = "klcButton14";
-            this.klcButton14.Size = new System.Drawing.Size(79, 35);
-            this.klcButton14.TabIndex = 15;
-            this.klcButton14.Text = "Arm/DisArm";
-            this.klcButton14.UseVisualStyleBackColor = false;
-            // 
-            // klcButtonAuto
-            // 
-            this.klcButtonAuto.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonAuto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonAuto.FlatAppearance.BorderSize = 0;
-            this.klcButtonAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonAuto.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonAuto.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonAuto.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonAuto.KLCBorderRadius = 1;
-            this.klcButtonAuto.KLCBorderSize = 0;
-            this.klcButtonAuto.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonAuto.Location = new System.Drawing.Point(3, 80);
-            this.klcButtonAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonAuto.Name = "klcButtonAuto";
-            this.klcButtonAuto.Size = new System.Drawing.Size(79, 35);
-            this.klcButtonAuto.TabIndex = 14;
-            this.klcButtonAuto.Text = "Auto";
-            this.klcButtonAuto.UseVisualStyleBackColor = false;
-            // 
-            // klcButtonDoAction
-            // 
-            this.klcButtonDoAction.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonDoAction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonDoAction.FlatAppearance.BorderSize = 0;
-            this.klcButtonDoAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonDoAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonDoAction.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonDoAction.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonDoAction.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonDoAction.KLCBorderRadius = 1;
-            this.klcButtonDoAction.KLCBorderSize = 0;
-            this.klcButtonDoAction.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonDoAction.Location = new System.Drawing.Point(3, 41);
-            this.klcButtonDoAction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonDoAction.Name = "klcButtonDoAction";
-            this.klcButtonDoAction.Size = new System.Drawing.Size(79, 35);
-            this.klcButtonDoAction.TabIndex = 13;
-            this.klcButtonDoAction.Text = "Do Action";
-            this.klcButtonDoAction.UseVisualStyleBackColor = false;
-            // 
-            // klcButton15
-            // 
-            this.klcButton15.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton15.FlatAppearance.BorderSize = 0;
-            this.klcButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton15.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton15.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton15.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton15.KLCBorderRadius = 1;
-            this.klcButton15.KLCBorderSize = 0;
-            this.klcButton15.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton15.Location = new System.Drawing.Point(3, 119);
-            this.klcButton15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton15.Name = "klcButton15";
-            this.klcButton15.Size = new System.Drawing.Size(79, 37);
-            this.klcButton15.TabIndex = 7;
-            this.klcButton15.Text = "Abort Landing";
-            this.klcButton15.UseVisualStyleBackColor = false;
-            // 
-            // klcButton23
-            // 
-            this.klcButton23.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton23.FlatAppearance.BorderSize = 0;
-            this.klcButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton23.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton23.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton23.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton23.KLCBorderRadius = 1;
-            this.klcButton23.KLCBorderSize = 0;
-            this.klcButton23.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton23.Location = new System.Drawing.Point(88, 119);
-            this.klcButton23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton23.Name = "klcButton23";
-            this.klcButton23.Size = new System.Drawing.Size(79, 37);
-            this.klcButton23.TabIndex = 6;
-            this.klcButton23.Text = "Clear Track";
-            this.klcButton23.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownWidth = 200;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 2);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 28);
-            this.comboBox1.TabIndex = 11;
-            // 
-            // CMB_modes1
-            // 
-            this.CMB_modes1.DropDownWidth = 200;
-            this.CMB_modes1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_modes1.FormattingEnabled = true;
-            this.CMB_modes1.Location = new System.Drawing.Point(3, 2);
-            this.CMB_modes1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_modes1.Name = "CMB_modes1";
-            this.CMB_modes1.Size = new System.Drawing.Size(79, 28);
-            this.CMB_modes1.TabIndex = 9;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownWidth = 200;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(173, 2);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(79, 28);
-            this.comboBox3.TabIndex = 10;
-            // 
-            // CMB_mountmode
-            // 
-            this.CMB_mountmode.DropDownWidth = 200;
-            this.CMB_mountmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_mountmode.FormattingEnabled = true;
-            this.CMB_mountmode.Location = new System.Drawing.Point(258, 2);
-            this.CMB_mountmode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_mountmode.Name = "CMB_mountmode";
-            this.CMB_mountmode.Size = new System.Drawing.Size(80, 28);
-            this.CMB_mountmode.TabIndex = 12;
-            // 
-            // klcButton21
-            // 
-            this.klcButton21.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton21.FlatAppearance.BorderSize = 0;
-            this.klcButton21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klcButton21.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton21.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton21.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton21.KLCBorderRadius = 1;
-            this.klcButton21.KLCBorderSize = 0;
-            this.klcButton21.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton21.Location = new System.Drawing.Point(173, 119);
-            this.klcButton21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton21.Name = "klcButton21";
-            this.klcButton21.Size = new System.Drawing.Size(79, 37);
-            this.klcButton21.TabIndex = 2;
-            this.klcButton21.Text = "Loiter";
-            this.klcButton21.UseVisualStyleBackColor = false;
-            // 
-            // klcButton17
-            // 
-            this.klcButton17.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButton17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton17.FlatAppearance.BorderSize = 0;
-            this.klcButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton17.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton17.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButton17.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton17.KLCBorderRadius = 1;
-            this.klcButton17.KLCBorderSize = 0;
-            this.klcButton17.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton17.Location = new System.Drawing.Point(88, 41);
-            this.klcButton17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton17.Name = "klcButton17";
-            this.klcButton17.Size = new System.Drawing.Size(79, 35);
-            this.klcButton17.TabIndex = 6;
-            this.klcButton17.Text = "Set WP";
-            this.klcButton17.UseVisualStyleBackColor = false;
-            // 
-            // klcButton18
-            // 
-            this.klcButton18.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButton18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton18.FlatAppearance.BorderSize = 0;
-            this.klcButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klcButton18.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton18.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButton18.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton18.KLCBorderRadius = 1;
-            this.klcButton18.KLCBorderSize = 0;
-            this.klcButton18.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton18.Location = new System.Drawing.Point(173, 41);
-            this.klcButton18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton18.Name = "klcButton18";
-            this.klcButton18.Size = new System.Drawing.Size(79, 35);
-            this.klcButton18.TabIndex = 7;
-            this.klcButton18.Text = "Set Mode";
-            this.klcButton18.UseVisualStyleBackColor = false;
-            // 
-            // klcButton19
-            // 
-            this.klcButton19.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButton19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton19.FlatAppearance.BorderSize = 0;
-            this.klcButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton19.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton19.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButton19.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton19.KLCBorderRadius = 1;
-            this.klcButton19.KLCBorderSize = 0;
-            this.klcButton19.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton19.Location = new System.Drawing.Point(258, 41);
-            this.klcButton19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton19.Name = "klcButton19";
-            this.klcButton19.Size = new System.Drawing.Size(80, 35);
-            this.klcButton19.TabIndex = 8;
-            this.klcButton19.Text = "Set Mount";
-            this.klcButton19.UseVisualStyleBackColor = false;
-            // 
-            // klcButton20
-            // 
-            this.klcButton20.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton20.FlatAppearance.BorderSize = 0;
-            this.klcButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton20.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton20.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton20.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton20.KLCBorderRadius = 1;
-            this.klcButton20.KLCBorderSize = 0;
-            this.klcButton20.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton20.Location = new System.Drawing.Point(258, 119);
-            this.klcButton20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton20.Name = "klcButton20";
-            this.klcButton20.Size = new System.Drawing.Size(80, 37);
-            this.klcButton20.TabIndex = 3;
-            this.klcButton20.Text = "Restart Mission";
-            this.klcButton20.UseVisualStyleBackColor = false;
+            this.klcButton24.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton24.FlatAppearance.BorderSize = 0;
+            this.klcButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton24.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton24.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton24.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton24.KLCBorderRadius = 1;
+            this.klcButton24.KLCBorderSize = 0;
+            this.klcButton24.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton24.Location = new System.Drawing.Point(258, 80);
+            this.klcButton24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton24.Name = "klcButton24";
+            this.klcButton24.Size = new System.Drawing.Size(80, 35);
+            this.klcButton24.TabIndex = 5;
+            this.klcButton24.Text = "Resume Mission";
+            this.klcButton24.UseVisualStyleBackColor = false;
             // 
             // klcButton22
             // 
@@ -2349,112 +1781,603 @@
             this.klcButton22.Text = "RTL";
             this.klcButton22.UseVisualStyleBackColor = false;
             // 
-            // klcButton24
+            // klcButton20
             // 
-            this.klcButton24.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton24.FlatAppearance.BorderSize = 0;
-            this.klcButton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton24.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton24.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton24.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton24.KLCBorderRadius = 1;
-            this.klcButton24.KLCBorderSize = 0;
-            this.klcButton24.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton24.Location = new System.Drawing.Point(258, 80);
-            this.klcButton24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton24.Name = "klcButton24";
-            this.klcButton24.Size = new System.Drawing.Size(80, 35);
-            this.klcButton24.TabIndex = 5;
-            this.klcButton24.Text = "Resume Mission";
-            this.klcButton24.UseVisualStyleBackColor = false;
+            this.klcButton20.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton20.FlatAppearance.BorderSize = 0;
+            this.klcButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton20.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton20.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton20.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton20.KLCBorderRadius = 1;
+            this.klcButton20.KLCBorderSize = 0;
+            this.klcButton20.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton20.Location = new System.Drawing.Point(258, 119);
+            this.klcButton20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton20.Name = "klcButton20";
+            this.klcButton20.Size = new System.Drawing.Size(80, 37);
+            this.klcButton20.TabIndex = 3;
+            this.klcButton20.Text = "Restart Mission";
+            this.klcButton20.UseVisualStyleBackColor = false;
             // 
-            // hud1
+            // klcButton19
             // 
-            this.hud1.airspeed = 0F;
-            this.hud1.alt = 0F;
-            this.hud1.altunit = "";
-            this.hud1.AOA = 0F;
-            this.hud1.BackColor = System.Drawing.Color.Black;
-            this.hud1.batterycellcount = 0;
-            this.hud1.batterylevel = 0F;
-            this.hud1.batterylevel2 = 0F;
-            this.hud1.batteryon = false;
-            this.hud1.batteryremaining = 0F;
-            this.hud1.batteryremaining2 = 0F;
-            this.hud1.bgimage = null;
-            this.hud1.connected = false;
-            this.hud1.critAOA = 25F;
-            this.hud1.criticalvoltagealert = false;
-            this.hud1.critSSA = 30F;
-            this.hud1.current = 0F;
-            this.hud1.current2 = 0F;
-            this.hud1.datetime = new System.DateTime(((long)(0)));
-            this.hud1.displayalt = false;
-            this.hud1.displayAOASSA = false;
-            this.hud1.displayCellVoltage = false;
-            this.hud1.displayconninfo = false;
-            this.hud1.displayekf = false;
-            this.hud1.displaygps = false;
-            this.hud1.displayheading = false;
-            this.hud1.displayicons = false;
-            this.hud1.displayspeed = false;
-            this.hud1.displayvibe = false;
-            this.hud1.displayxtrack = false;
-            this.hud1.disttowp = 0F;
-            this.hud1.distunit = "";
-            this.hud1.ekfstatus = 0F;
-            this.hud1.failsafe = false;
-            this.hud1.gpsfix = 0F;
-            this.hud1.gpsfix2 = 0F;
-            this.hud1.gpshdop = 0F;
-            this.hud1.gpshdop2 = 0F;
-            this.hud1.groundalt = 0F;
-            this.hud1.groundColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(104)))), ((int)(((byte)(13)))));
-            this.hud1.groundColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(17)))));
-            this.hud1.groundcourse = 0F;
-            this.hud1.groundspeed = 0F;
-            this.hud1.heading = 0F;
-            this.hud1.hudcolor = System.Drawing.Color.LightGray;
-            this.hud1.linkqualitygcs = 0F;
-            this.hud1.load = 0F;
-            this.hud1.Location = new System.Drawing.Point(5, 5);
-            this.hud1.lowairspeed = false;
-            this.hud1.lowgroundspeed = false;
-            this.hud1.lowvoltagealert = false;
-            this.hud1.Margin = new System.Windows.Forms.Padding(5);
-            this.hud1.message = "";
-            this.hud1.messageSeverity = MAVLink.MAV_SEVERITY.EMERGENCY;
-            this.hud1.mode = "Manual";
-            this.hud1.Name = "hud1";
-            this.hud1.navpitch = 0F;
-            this.hud1.navroll = 0F;
-            this.hud1.pitch = 0F;
-            this.hud1.roll = 0F;
-            this.hud1.Russian = false;
-            this.hud1.Size = new System.Drawing.Size(343, 410);
-            this.hud1.skyColor1 = System.Drawing.Color.Blue;
-            this.hud1.skyColor2 = System.Drawing.Color.LightBlue;
-            this.hud1.speedunit = "";
-            this.hud1.SSA = 0F;
-            this.hud1.status = false;
-            this.hud1.TabIndex = 27;
-            this.hud1.targetalt = 0F;
-            this.hud1.targetheading = 0F;
-            this.hud1.targetspeed = 0F;
-            this.hud1.turnrate = 0F;
-            this.hud1.verticalspeed = 0F;
-            this.hud1.vibex = 0F;
-            this.hud1.vibey = 0F;
-            this.hud1.vibez = 0F;
-            this.hud1.VSync = false;
-            this.hud1.wpno = 0;
-            this.hud1.xtrack_error = 0F;
+            this.klcButton19.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButton19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton19.FlatAppearance.BorderSize = 0;
+            this.klcButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton19.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton19.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButton19.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton19.KLCBorderRadius = 1;
+            this.klcButton19.KLCBorderSize = 0;
+            this.klcButton19.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton19.Location = new System.Drawing.Point(258, 41);
+            this.klcButton19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton19.Name = "klcButton19";
+            this.klcButton19.Size = new System.Drawing.Size(80, 35);
+            this.klcButton19.TabIndex = 8;
+            this.klcButton19.Text = "Set Mount";
+            this.klcButton19.UseVisualStyleBackColor = false;
             // 
-            // timerLed
+            // klcButton18
             // 
-            this.timerLed.Tick += new System.EventHandler(this.timerLed_Tick);
+            this.klcButton18.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButton18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton18.FlatAppearance.BorderSize = 0;
+            this.klcButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klcButton18.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton18.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButton18.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton18.KLCBorderRadius = 1;
+            this.klcButton18.KLCBorderSize = 0;
+            this.klcButton18.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton18.Location = new System.Drawing.Point(173, 41);
+            this.klcButton18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton18.Name = "klcButton18";
+            this.klcButton18.Size = new System.Drawing.Size(79, 35);
+            this.klcButton18.TabIndex = 7;
+            this.klcButton18.Text = "Set Mode";
+            this.klcButton18.UseVisualStyleBackColor = false;
+            // 
+            // klcButton17
+            // 
+            this.klcButton17.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButton17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton17.FlatAppearance.BorderSize = 0;
+            this.klcButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton17.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton17.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButton17.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton17.KLCBorderRadius = 1;
+            this.klcButton17.KLCBorderSize = 0;
+            this.klcButton17.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton17.Location = new System.Drawing.Point(88, 41);
+            this.klcButton17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton17.Name = "klcButton17";
+            this.klcButton17.Size = new System.Drawing.Size(79, 35);
+            this.klcButton17.TabIndex = 6;
+            this.klcButton17.Text = "Set WP";
+            this.klcButton17.UseVisualStyleBackColor = false;
+            // 
+            // klcButton21
+            // 
+            this.klcButton21.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton21.FlatAppearance.BorderSize = 0;
+            this.klcButton21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klcButton21.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton21.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton21.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton21.KLCBorderRadius = 1;
+            this.klcButton21.KLCBorderSize = 0;
+            this.klcButton21.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton21.Location = new System.Drawing.Point(173, 119);
+            this.klcButton21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton21.Name = "klcButton21";
+            this.klcButton21.Size = new System.Drawing.Size(79, 37);
+            this.klcButton21.TabIndex = 2;
+            this.klcButton21.Text = "Loiter";
+            this.klcButton21.UseVisualStyleBackColor = false;
+            // 
+            // CMB_mountmode
+            // 
+            this.CMB_mountmode.DropDownWidth = 200;
+            this.CMB_mountmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_mountmode.FormattingEnabled = true;
+            this.CMB_mountmode.Location = new System.Drawing.Point(258, 2);
+            this.CMB_mountmode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CMB_mountmode.Name = "CMB_mountmode";
+            this.CMB_mountmode.Size = new System.Drawing.Size(80, 28);
+            this.CMB_mountmode.TabIndex = 12;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownWidth = 200;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(173, 2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(79, 28);
+            this.comboBox3.TabIndex = 10;
+            // 
+            // CMB_modes1
+            // 
+            this.CMB_modes1.DropDownWidth = 200;
+            this.CMB_modes1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_modes1.FormattingEnabled = true;
+            this.CMB_modes1.Location = new System.Drawing.Point(3, 2);
+            this.CMB_modes1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CMB_modes1.Name = "CMB_modes1";
+            this.CMB_modes1.Size = new System.Drawing.Size(79, 28);
+            this.CMB_modes1.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownWidth = 200;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(88, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(79, 28);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // klcButton23
+            // 
+            this.klcButton23.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton23.FlatAppearance.BorderSize = 0;
+            this.klcButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton23.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton23.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton23.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton23.KLCBorderRadius = 1;
+            this.klcButton23.KLCBorderSize = 0;
+            this.klcButton23.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton23.Location = new System.Drawing.Point(88, 119);
+            this.klcButton23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton23.Name = "klcButton23";
+            this.klcButton23.Size = new System.Drawing.Size(79, 37);
+            this.klcButton23.TabIndex = 6;
+            this.klcButton23.Text = "Clear Track";
+            this.klcButton23.UseVisualStyleBackColor = false;
+            // 
+            // klcButton15
+            // 
+            this.klcButton15.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton15.FlatAppearance.BorderSize = 0;
+            this.klcButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton15.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton15.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton15.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton15.KLCBorderRadius = 1;
+            this.klcButton15.KLCBorderSize = 0;
+            this.klcButton15.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton15.Location = new System.Drawing.Point(3, 119);
+            this.klcButton15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton15.Name = "klcButton15";
+            this.klcButton15.Size = new System.Drawing.Size(79, 37);
+            this.klcButton15.TabIndex = 7;
+            this.klcButton15.Text = "Abort Landing";
+            this.klcButton15.UseVisualStyleBackColor = false;
+            // 
+            // klcButtonDoAction
+            // 
+            this.klcButtonDoAction.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonDoAction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonDoAction.FlatAppearance.BorderSize = 0;
+            this.klcButtonDoAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonDoAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonDoAction.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonDoAction.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonDoAction.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonDoAction.KLCBorderRadius = 1;
+            this.klcButtonDoAction.KLCBorderSize = 0;
+            this.klcButtonDoAction.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonDoAction.Location = new System.Drawing.Point(3, 41);
+            this.klcButtonDoAction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButtonDoAction.Name = "klcButtonDoAction";
+            this.klcButtonDoAction.Size = new System.Drawing.Size(79, 35);
+            this.klcButtonDoAction.TabIndex = 13;
+            this.klcButtonDoAction.Text = "Do Action";
+            this.klcButtonDoAction.UseVisualStyleBackColor = false;
+            // 
+            // klcButtonAuto
+            // 
+            this.klcButtonAuto.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonAuto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonAuto.FlatAppearance.BorderSize = 0;
+            this.klcButtonAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonAuto.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonAuto.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonAuto.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonAuto.KLCBorderRadius = 1;
+            this.klcButtonAuto.KLCBorderSize = 0;
+            this.klcButtonAuto.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonAuto.Location = new System.Drawing.Point(3, 80);
+            this.klcButtonAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButtonAuto.Name = "klcButtonAuto";
+            this.klcButtonAuto.Size = new System.Drawing.Size(79, 35);
+            this.klcButtonAuto.TabIndex = 14;
+            this.klcButtonAuto.Text = "Auto";
+            this.klcButtonAuto.UseVisualStyleBackColor = false;
+            // 
+            // klcButton14
+            // 
+            this.klcButton14.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton14.FlatAppearance.BorderSize = 0;
+            this.klcButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton14.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton14.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton14.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton14.KLCBorderRadius = 1;
+            this.klcButton14.KLCBorderSize = 0;
+            this.klcButton14.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton14.Location = new System.Drawing.Point(88, 80);
+            this.klcButton14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.klcButton14.Name = "klcButton14";
+            this.klcButton14.Size = new System.Drawing.Size(79, 35);
+            this.klcButton14.TabIndex = 15;
+            this.klcButton14.Text = "Arm/DisArm";
+            this.klcButton14.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04533F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
+            this.tableLayoutPanel5.Controls.Add(this.label18, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.rjToggleBtnArm, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label15, 2, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label10, 2, 1);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel16, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel17, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label16, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel18, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel4, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel15, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel14, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(341, 110);
+            this.tableLayoutPanel5.TabIndex = 23;
+            // 
+            // flowLayoutPanel14
+            // 
+            this.flowLayoutPanel14.Controls.Add(this.pictureBox7);
+            this.flowLayoutPanel14.Controls.Add(this.label7);
+            this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 29);
+            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(89, 23);
+            this.flowLayoutPanel14.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(25, 2);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.label7.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 20);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Test ok";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::MissionPlanner.Properties.Resources.icons8_plus_161;
+            this.pictureBox7.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // flowLayoutPanel15
+            // 
+            this.flowLayoutPanel15.Controls.Add(this.pictureBox8);
+            this.flowLayoutPanel15.Controls.Add(this.label8);
+            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 56);
+            this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(89, 23);
+            this.flowLayoutPanel15.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 22);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.label8.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label8.MinimumSize = new System.Drawing.Size(68, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "00:23:34";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.icons8_time_16;
+            this.pictureBox8.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.pictureBox6);
+            this.flowLayoutPanel4.Controls.Add(this.label5);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(89, 23);
+            this.flowLayoutPanel4.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(25, 2);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.label5.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "87 %";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // flowLayoutPanel18
+            // 
+            this.flowLayoutPanel18.Controls.Add(this.klcButton16);
+            this.flowLayoutPanel18.Controls.Add(this.numericUpDown6);
+            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(98, 56);
+            this.flowLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(116, 23);
+            this.flowLayoutPanel18.TabIndex = 23;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDown6.TabIndex = 13;
+            // 
+            // klcButton16
+            // 
+            this.klcButton16.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton16.FlatAppearance.BorderSize = 0;
+            this.klcButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton16.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton16.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButton16.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton16.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton16.KLCBorderRadius = 8;
+            this.klcButton16.KLCBorderSize = 0;
+            this.klcButton16.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton16.Location = new System.Drawing.Point(3, 0);
+            this.klcButton16.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButton16.Name = "klcButton16";
+            this.klcButton16.Size = new System.Drawing.Size(40, 25);
+            this.klcButton16.TabIndex = 20;
+            this.klcButton16.UseCompatibleTextRendering = true;
+            this.klcButton16.UseVisualStyleBackColor = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(220, 0);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label16.Size = new System.Drawing.Size(56, 27);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Set Alt";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Controls.Add(this.klcButton);
+            this.flowLayoutPanel17.Controls.Add(this.numericUpDown4);
+            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(98, 2);
+            this.flowLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(116, 23);
+            this.flowLayoutPanel17.TabIndex = 22;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDown4.TabIndex = 13;
+            // 
+            // klcButton
+            // 
+            this.klcButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton.FlatAppearance.BorderSize = 0;
+            this.klcButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButton.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton.KLCBorderRadius = 8;
+            this.klcButton.KLCBorderSize = 0;
+            this.klcButton.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton.Location = new System.Drawing.Point(3, 0);
+            this.klcButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButton.Name = "klcButton";
+            this.klcButton.Size = new System.Drawing.Size(40, 25);
+            this.klcButton.TabIndex = 19;
+            this.klcButton.UseCompatibleTextRendering = true;
+            this.klcButton.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel16
+            // 
+            this.flowLayoutPanel16.Controls.Add(this.klcButton13);
+            this.flowLayoutPanel16.Controls.Add(this.numericUpDown5);
+            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(98, 29);
+            this.flowLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(116, 23);
+            this.flowLayoutPanel16.TabIndex = 19;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDown5.TabIndex = 13;
+            // 
+            // klcButton13
+            // 
+            this.klcButton13.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton13.FlatAppearance.BorderSize = 0;
+            this.klcButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton13.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton13.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButton13.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton13.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton13.KLCBorderRadius = 8;
+            this.klcButton13.KLCBorderSize = 0;
+            this.klcButton13.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton13.Location = new System.Drawing.Point(3, 0);
+            this.klcButton13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButton13.Name = "klcButton13";
+            this.klcButton13.Size = new System.Drawing.Size(40, 25);
+            this.klcButton13.TabIndex = 20;
+            this.klcButton13.UseCompatibleTextRendering = true;
+            this.klcButton13.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(220, 27);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label10.Size = new System.Drawing.Size(77, 27);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Set Speed";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(220, 54);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label15.Size = new System.Drawing.Size(107, 27);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Set Loiter Rad";
+            // 
+            // rjToggleBtnArm
+            // 
+            this.rjToggleBtnArm.AutoSize = true;
+            this.rjToggleBtnArm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rjToggleBtnArm.Location = new System.Drawing.Point(3, 83);
+            this.rjToggleBtnArm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjToggleBtnArm.MaximumSize = new System.Drawing.Size(85, 90);
+            this.rjToggleBtnArm.MinimumSize = new System.Drawing.Size(80, 25);
+            this.rjToggleBtnArm.Name = "rjToggleBtnArm";
+            this.rjToggleBtnArm.OffBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.rjToggleBtnArm.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjToggleBtnArm.OnBackColor = System.Drawing.Color.DarkRed;
+            this.rjToggleBtnArm.OnToggleColor = System.Drawing.Color.Goldenrod;
+            this.rjToggleBtnArm.Size = new System.Drawing.Size(85, 25);
+            this.rjToggleBtnArm.TabIndex = 25;
+            this.rjToggleBtnArm.UseVisualStyleBackColor = true;
+            this.rjToggleBtnArm.CheckedChanged += new System.EventHandler(this.rjToggleBtnArm_CheckedChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(98, 81);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label18.Size = new System.Drawing.Size(116, 25);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "Arm/DisArm";
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 422);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 2;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.54663F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.45337F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(347, 276);
+            this.tableLayoutPanel13.TabIndex = 22;
             // 
             // MainBoard
             // 
@@ -2510,26 +2433,26 @@
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            this.flowLayoutPanel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            this.flowLayoutPanel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.flowLayoutPanel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.flowLayoutPanel15.ResumeLayout(false);
-            this.flowLayoutPanel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel15.ResumeLayout(false);
+            this.flowLayoutPanel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.flowLayoutPanel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            this.flowLayoutPanel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.flowLayoutPanel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2594,48 +2517,6 @@
         private System.Windows.Forms.Label labelValGS;
         private System.Windows.Forms.Label labelUnitRoll;
         private RJCodeAdvance.RJControls.RJButton rjButtonStatus;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
-        private KLCToolbox.KLCControls.KLCButton klcButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private KLCToolbox.KLCControls.KLCButton klcButton14;
-        private KLCToolbox.KLCControls.KLCButton klcButtonAuto;
-        private KLCToolbox.KLCControls.KLCButton klcButtonDoAction;
-        private KLCToolbox.KLCControls.KLCButton klcButton15;
-        private KLCToolbox.KLCControls.KLCButton klcButton23;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox CMB_modes1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox CMB_mountmode;
-        private KLCToolbox.KLCControls.KLCButton klcButton21;
-        private KLCToolbox.KLCControls.KLCButton klcButton17;
-        private KLCToolbox.KLCControls.KLCButton klcButton18;
-        private KLCToolbox.KLCControls.KLCButton klcButton19;
-        private KLCToolbox.KLCControls.KLCButton klcButton20;
-        private KLCToolbox.KLCControls.KLCButton klcButton22;
-        private KLCToolbox.KLCControls.KLCButton klcButton24;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private KLCToolbox.KLCControls.KLCButton klcButton13;
-        private KLCToolbox.KLCControls.KLCButton klcButton16;
-        private RJCodeAdvance.RJControls.RJToggleButton rjToggleBtnArm;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private Controls.QuickView quickView21;
         private Controls.QuickView quickView13;
@@ -2676,7 +2557,49 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Label lblMode;
+        private Controls.GraphicLabel graphicLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private Controls.HUD hud1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label18;
+        private RJCodeAdvance.RJControls.RJToggleButton rjToggleBtnArm;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
+        private KLCToolbox.KLCControls.KLCButton klcButton13;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private KLCToolbox.KLCControls.KLCButton klcButton;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private KLCToolbox.KLCControls.KLCButton klcButton16;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private KLCToolbox.KLCControls.KLCButton klcButton14;
+        private KLCToolbox.KLCControls.KLCButton klcButtonAuto;
+        private KLCToolbox.KLCControls.KLCButton klcButtonDoAction;
+        private KLCToolbox.KLCControls.KLCButton klcButton15;
+        private KLCToolbox.KLCControls.KLCButton klcButton23;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CMB_modes1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox CMB_mountmode;
+        private KLCToolbox.KLCControls.KLCButton klcButton21;
+        private KLCToolbox.KLCControls.KLCButton klcButton17;
+        private KLCToolbox.KLCControls.KLCButton klcButton18;
+        private KLCToolbox.KLCControls.KLCButton klcButton19;
+        private KLCToolbox.KLCControls.KLCButton klcButton20;
+        private KLCToolbox.KLCControls.KLCButton klcButton22;
+        private KLCToolbox.KLCControls.KLCButton klcButton24;
     }
 }

@@ -195,6 +195,7 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
+            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -356,6 +357,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.lblhdopVal);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel4.Controls.Add(this.graphicLabelTime);
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel12);
             this.flowLayoutPanel4.Controls.Add(this.statusStrip1);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1295,6 +1297,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 162);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
@@ -1682,7 +1685,7 @@ namespace MissionPlanner.GCSViews
             // labelClock
             // 
             this.labelClock.AutoSize = true;
-            this.labelClock.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, ""));
+            this.labelClock.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
             this.labelClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelClock.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelClock.Location = new System.Drawing.Point(0, 0);
@@ -2853,6 +2856,17 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
+            // graphicLabelTime
+            // 
+            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
+            this.graphicLabelTime.Name = "graphicLabelTime";
+            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
+            this.graphicLabelTime.TabIndex = 28;
+            this.graphicLabelTime.Text = "Hello Serb World !";
+            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
+            // 
             // FlightStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3104,5 +3118,6 @@ namespace MissionPlanner.GCSViews
         private KLCToolbox.KLCControls.KLCButton btnSwarm;
         private KLCToolbox.KLCControls.KLCButton btnTelem;
         private KLCToolbox.KLCControls.KLCButton btnVideoVlc;
+        private Controls.GraphicLabel graphicLabelTime;
     }
 }
