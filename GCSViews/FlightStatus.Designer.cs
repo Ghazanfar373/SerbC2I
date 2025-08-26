@@ -53,18 +53,12 @@ namespace MissionPlanner.GCSViews
             this.btnVideoVlc = new KLCToolbox.KLCControls.KLCButton();
             this.btnTelem = new KLCToolbox.KLCControls.KLCButton();
             this.btnSwarm = new KLCToolbox.KLCControls.KLCButton();
+            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.statusLabel2 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel3 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel4 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.gEOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uTMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mGRSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.panelMap = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -97,6 +91,11 @@ namespace MissionPlanner.GCSViews
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.swarmHud4 = new HUD_Claude.SwarmHud();
+            this.swarmHud3 = new HUD_Claude.SwarmHud();
+            this.swarmHud2 = new HUD_Claude.SwarmHud();
+            this.swarmHud1 = new HUD_Claude.SwarmHud();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -195,7 +194,6 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
-            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -208,12 +206,12 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tableLayoutPanelHUD.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -301,7 +299,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainerMap.Panel2MinSize = 180;
             this.splitContainerMap.Size = new System.Drawing.Size(953, 670);
-            this.splitContainerMap.SplitterDistance = 444;
+            this.splitContainerMap.SplitterDistance = 376;
             this.splitContainerMap.TabIndex = 0;
             // 
             // gMapControlSerb
@@ -329,7 +327,7 @@ namespace MissionPlanner.GCSViews
             this.gMapControlSerb.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.gMapControlSerb.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControlSerb.ShowTileGridLines = false;
-            this.gMapControlSerb.Size = new System.Drawing.Size(953, 404);
+            this.gMapControlSerb.Size = new System.Drawing.Size(953, 336);
             this.gMapControlSerb.TabIndex = 0;
             this.gMapControlSerb.Zoom = 5D;
             this.gMapControlSerb.OnMarkerEnter += new GMap.NET.WindowsForms.MarkerEnter(this.gMapControlSerb_OnMarkerEnter);
@@ -359,10 +357,9 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel4.Controls.Add(this.graphicLabelTime);
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel12);
-            this.flowLayoutPanel4.Controls.Add(this.statusStrip1);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 404);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 336);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(953, 40);
@@ -378,7 +375,7 @@ namespace MissionPlanner.GCSViews
             this.btnMapMax.FlatAppearance.BorderSize = 0;
             this.btnMapMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMapMax.ForeColor = System.Drawing.Color.White;
-            this.btnMapMax.Image = global::MissionPlanner.Properties.Resources.icons8_plus_161;
+            this.btnMapMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMapMax.Image")));
             this.btnMapMax.Location = new System.Drawing.Point(913, 2);
             this.btnMapMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMapMax.Name = "btnMapMax";
@@ -411,7 +408,7 @@ namespace MissionPlanner.GCSViews
             this.btnMapMin.FlatAppearance.BorderSize = 0;
             this.btnMapMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMapMin.ForeColor = System.Drawing.Color.White;
-            this.btnMapMin.Image = global::MissionPlanner.Properties.Resources.icons8_minus_161;
+            this.btnMapMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMapMin.Image")));
             this.btnMapMin.Location = new System.Drawing.Point(847, 2);
             this.btnMapMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMapMin.Name = "btnMapMin";
@@ -596,6 +593,18 @@ namespace MissionPlanner.GCSViews
             this.btnSwarm.UseVisualStyleBackColor = false;
             this.btnSwarm.Click += new System.EventHandler(this.btnSwarm_Click);
             // 
+            // graphicLabelTime
+            // 
+            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
+            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
+            this.graphicLabelTime.Name = "graphicLabelTime";
+            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
+            this.graphicLabelTime.TabIndex = 28;
+            this.graphicLabelTime.Text = "Hello Serb World !";
+            this.graphicLabelTime.Visible = false;
+            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 4;
@@ -679,71 +688,13 @@ namespace MissionPlanner.GCSViews
             this.statusLabel1.TabIndex = 0;
             this.statusLabel1.Text = "Swarm";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripDropDownButton1,
-            this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(313, 38);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(187, 33);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(35, 27);
-            this.toolStripStatusLabel1.Text = "GPS";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gEOToolStripMenuItem,
-            this.uTMToolStripMenuItem,
-            this.mGRSToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 31);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // gEOToolStripMenuItem
-            // 
-            this.gEOToolStripMenuItem.Name = "gEOToolStripMenuItem";
-            this.gEOToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
-            this.gEOToolStripMenuItem.Text = "GEO";
-            // 
-            // uTMToolStripMenuItem
-            // 
-            this.uTMToolStripMenuItem.Name = "uTMToolStripMenuItem";
-            this.uTMToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
-            this.uTMToolStripMenuItem.Text = "UTM";
-            // 
-            // mGRSToolStripMenuItem
-            // 
-            this.mGRSToolStripMenuItem.Name = "mGRSToolStripMenuItem";
-            this.mGRSToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
-            this.mGRSToolStripMenuItem.Text = "MGRS";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 25);
-            // 
             // panelMap
             // 
             this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMap.Location = new System.Drawing.Point(0, 0);
             this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(953, 444);
+            this.panelMap.Size = new System.Drawing.Size(953, 376);
             this.panelMap.TabIndex = 5;
             // 
             // tabControl1
@@ -751,13 +702,14 @@ namespace MissionPlanner.GCSViews
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(953, 222);
+            this.tabControl1.Size = new System.Drawing.Size(953, 290);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -767,7 +719,7 @@ namespace MissionPlanner.GCSViews
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.tabPage1.Size = new System.Drawing.Size(924, 214);
+            this.tabPage1.Size = new System.Drawing.Size(924, 282);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -786,7 +738,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(924, 212);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(924, 280);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // zedGraph
@@ -802,7 +754,7 @@ namespace MissionPlanner.GCSViews
             this.zedGraph.ScrollMinX = 0D;
             this.zedGraph.ScrollMinY = 0D;
             this.zedGraph.ScrollMinY2 = 0D;
-            this.zedGraph.Size = new System.Drawing.Size(559, 208);
+            this.zedGraph.Size = new System.Drawing.Size(559, 276);
             this.zedGraph.TabIndex = 26;
             this.zedGraph.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zedGraph_MouseDoubleClick);
             // 
@@ -850,7 +802,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelQuickView.Size = new System.Drawing.Size(353, 208);
+            this.tableLayoutPanelQuickView.Size = new System.Drawing.Size(353, 276);
             this.tableLayoutPanelQuickView.TabIndex = 25;
             // 
             // labelQV12
@@ -860,7 +812,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV12.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV12.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV12.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV12.Location = new System.Drawing.Point(267, 140);
+            this.labelQV12.Location = new System.Drawing.Point(267, 184);
             this.labelQV12.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV12.Name = "labelQV12";
             this.labelQV12.Size = new System.Drawing.Size(83, 20);
@@ -875,7 +827,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV11.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV11.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV11.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV11.Location = new System.Drawing.Point(179, 140);
+            this.labelQV11.Location = new System.Drawing.Point(179, 184);
             this.labelQV11.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV11.Name = "labelQV11";
             this.labelQV11.Size = new System.Drawing.Size(82, 20);
@@ -890,7 +842,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV10.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV10.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV10.Location = new System.Drawing.Point(91, 140);
+            this.labelQV10.Location = new System.Drawing.Point(91, 184);
             this.labelQV10.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV10.Name = "labelQV10";
             this.labelQV10.Size = new System.Drawing.Size(82, 20);
@@ -905,7 +857,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV9.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV9.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV9.Location = new System.Drawing.Point(3, 140);
+            this.labelQV9.Location = new System.Drawing.Point(3, 184);
             this.labelQV9.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV9.Name = "labelQV9";
             this.labelQV9.Size = new System.Drawing.Size(82, 20);
@@ -920,7 +872,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV6.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV6.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV6.Location = new System.Drawing.Point(91, 72);
+            this.labelQV6.Location = new System.Drawing.Point(91, 94);
             this.labelQV6.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV6.Name = "labelQV6";
             this.labelQV6.Size = new System.Drawing.Size(82, 20);
@@ -935,7 +887,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV7.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV7.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV7.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV7.Location = new System.Drawing.Point(179, 72);
+            this.labelQV7.Location = new System.Drawing.Point(179, 94);
             this.labelQV7.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV7.Name = "labelQV7";
             this.labelQV7.Size = new System.Drawing.Size(82, 20);
@@ -950,7 +902,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV8.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV8.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV8.Location = new System.Drawing.Point(267, 72);
+            this.labelQV8.Location = new System.Drawing.Point(267, 94);
             this.labelQV8.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV8.Name = "labelQV8";
             this.labelQV8.Size = new System.Drawing.Size(83, 20);
@@ -1025,7 +977,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV5.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV5.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV5.Location = new System.Drawing.Point(3, 72);
+            this.labelQV5.Location = new System.Drawing.Point(3, 94);
             this.labelQV5.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelQV5.Name = "labelQV5";
             this.labelQV5.Size = new System.Drawing.Size(82, 20);
@@ -1039,14 +991,14 @@ namespace MissionPlanner.GCSViews
             this.quickView9.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "DistToHome", true));
             this.quickView9.desc = "";
             this.quickView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView9.Location = new System.Drawing.Point(3, 164);
+            this.quickView9.Location = new System.Drawing.Point(3, 208);
             this.quickView9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView9.Name = "quickView9";
             this.quickView9.number = -99D;
             this.quickView9.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView9.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView9.numberformat = "0.00";
-            this.quickView9.Size = new System.Drawing.Size(82, 42);
+            this.quickView9.Size = new System.Drawing.Size(82, 66);
             this.quickView9.TabIndex = 12;
             this.quickView9.Text = "quickView24";
             // 
@@ -1063,7 +1015,7 @@ namespace MissionPlanner.GCSViews
             this.quickView3.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView3.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView3.numberformat = "0.00";
-            this.quickView3.Size = new System.Drawing.Size(82, 42);
+            this.quickView3.Size = new System.Drawing.Size(82, 64);
             this.quickView3.TabIndex = 2;
             this.quickView3.Text = "quickView14";
             // 
@@ -1073,14 +1025,14 @@ namespace MissionPlanner.GCSViews
             this.quickView7.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "roll", true));
             this.quickView7.desc = "";
             this.quickView7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView7.Location = new System.Drawing.Point(179, 96);
+            this.quickView7.Location = new System.Drawing.Point(179, 118);
             this.quickView7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView7.Name = "quickView7";
             this.quickView7.number = -99D;
             this.quickView7.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView7.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView7.numberformat = "0.00";
-            this.quickView7.Size = new System.Drawing.Size(82, 42);
+            this.quickView7.Size = new System.Drawing.Size(82, 64);
             this.quickView7.TabIndex = 4;
             this.quickView7.Text = "quickView16";
             // 
@@ -1090,14 +1042,14 @@ namespace MissionPlanner.GCSViews
             this.quickView11.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_dir", true));
             this.quickView11.desc = "";
             this.quickView11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView11.Location = new System.Drawing.Point(179, 164);
+            this.quickView11.Location = new System.Drawing.Point(179, 208);
             this.quickView11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView11.Name = "quickView11";
             this.quickView11.number = 54D;
             this.quickView11.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView11.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView11.numberformat = "0.00";
-            this.quickView11.Size = new System.Drawing.Size(82, 42);
+            this.quickView11.Size = new System.Drawing.Size(82, 66);
             this.quickView11.TabIndex = 6;
             this.quickView11.Text = "quickView18";
             // 
@@ -1107,14 +1059,14 @@ namespace MissionPlanner.GCSViews
             this.quickView5.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "groundspeed", true));
             this.quickView5.desc = "";
             this.quickView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView5.Location = new System.Drawing.Point(3, 96);
+            this.quickView5.Location = new System.Drawing.Point(3, 118);
             this.quickView5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView5.Name = "quickView5";
             this.quickView5.number = -34D;
             this.quickView5.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView5.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView5.numberformat = "0.00";
-            this.quickView5.Size = new System.Drawing.Size(82, 42);
+            this.quickView5.Size = new System.Drawing.Size(82, 64);
             this.quickView5.TabIndex = 7;
             this.quickView5.Text = "quickView19";
             // 
@@ -1131,7 +1083,7 @@ namespace MissionPlanner.GCSViews
             this.quickView1.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.quickView1.numberColorBackup = System.Drawing.Color.Lime;
             this.quickView1.numberformat = "0.0";
-            this.quickView1.Size = new System.Drawing.Size(82, 42);
+            this.quickView1.Size = new System.Drawing.Size(82, 64);
             this.quickView1.TabIndex = 10;
             // 
             // quickView4
@@ -1147,7 +1099,7 @@ namespace MissionPlanner.GCSViews
             this.quickView4.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView4.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView4.numberformat = "0.00";
-            this.quickView4.Size = new System.Drawing.Size(83, 42);
+            this.quickView4.Size = new System.Drawing.Size(83, 64);
             this.quickView4.TabIndex = 1;
             this.quickView4.Text = "quickView13";
             // 
@@ -1164,7 +1116,7 @@ namespace MissionPlanner.GCSViews
             this.quickView2.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView2.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView2.numberformat = "0.00";
-            this.quickView2.Size = new System.Drawing.Size(82, 42);
+            this.quickView2.Size = new System.Drawing.Size(82, 64);
             this.quickView2.TabIndex = 11;
             this.quickView2.Text = "quickView2";
             // 
@@ -1174,14 +1126,14 @@ namespace MissionPlanner.GCSViews
             this.quickView6.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_dir", true));
             this.quickView6.desc = "";
             this.quickView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView6.Location = new System.Drawing.Point(91, 96);
+            this.quickView6.Location = new System.Drawing.Point(91, 118);
             this.quickView6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView6.Name = "quickView6";
             this.quickView6.number = -300D;
             this.quickView6.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView6.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView6.numberformat = "0.00";
-            this.quickView6.Size = new System.Drawing.Size(82, 42);
+            this.quickView6.Size = new System.Drawing.Size(82, 64);
             this.quickView6.TabIndex = 9;
             this.quickView6.Text = "quickView21";
             // 
@@ -1191,14 +1143,14 @@ namespace MissionPlanner.GCSViews
             this.quickView8.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "DistToHome", true));
             this.quickView8.desc = "";
             this.quickView8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView8.Location = new System.Drawing.Point(267, 96);
+            this.quickView8.Location = new System.Drawing.Point(267, 118);
             this.quickView8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView8.Name = "quickView8";
             this.quickView8.number = 11D;
             this.quickView8.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView8.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView8.numberformat = "0.00";
-            this.quickView8.Size = new System.Drawing.Size(83, 42);
+            this.quickView8.Size = new System.Drawing.Size(83, 64);
             this.quickView8.TabIndex = 3;
             this.quickView8.Text = "quickView15";
             // 
@@ -1208,14 +1160,14 @@ namespace MissionPlanner.GCSViews
             this.quickView10.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_vel", true));
             this.quickView10.desc = "";
             this.quickView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView10.Location = new System.Drawing.Point(91, 164);
+            this.quickView10.Location = new System.Drawing.Point(91, 208);
             this.quickView10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView10.Name = "quickView10";
             this.quickView10.number = -43D;
             this.quickView10.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView10.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView10.numberformat = "0.00";
-            this.quickView10.Size = new System.Drawing.Size(82, 42);
+            this.quickView10.Size = new System.Drawing.Size(82, 66);
             this.quickView10.TabIndex = 8;
             this.quickView10.Text = "quickView20";
             // 
@@ -1225,14 +1177,14 @@ namespace MissionPlanner.GCSViews
             this.quickView12.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "AOA", true));
             this.quickView12.desc = "";
             this.quickView12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView12.Location = new System.Drawing.Point(267, 164);
+            this.quickView12.Location = new System.Drawing.Point(267, 208);
             this.quickView12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickView12.Name = "quickView12";
             this.quickView12.number = 23D;
             this.quickView12.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView12.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView12.numberformat = "0.00";
-            this.quickView12.Size = new System.Drawing.Size(83, 42);
+            this.quickView12.Size = new System.Drawing.Size(83, 66);
             this.quickView12.TabIndex = 5;
             this.quickView12.Text = "quickView12";
             // 
@@ -1243,7 +1195,7 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(924, 214);
+            this.tabPage2.Size = new System.Drawing.Size(924, 282);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1261,8 +1213,93 @@ namespace MissionPlanner.GCSViews
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(918, 210);
+            this.zedGraphControl1.Size = new System.Drawing.Size(918, 278);
             this.zedGraphControl1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.swarmHud4);
+            this.tabPage3.Controls.Add(this.swarmHud3);
+            this.tabPage3.Controls.Add(this.swarmHud2);
+            this.tabPage3.Controls.Add(this.swarmHud1);
+            this.tabPage3.Location = new System.Drawing.Point(25, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(924, 282);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Test";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // swarmHud4
+            // 
+            this.swarmHud4.ArmButtonEnabled = true;
+            this.swarmHud4.ArmButtonText = "Arm";
+            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
+            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
+            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.swarmHud4.Heading = 0F;
+            this.swarmHud4.Location = new System.Drawing.Point(396, 4);
+            this.swarmHud4.LoiterButtonEnabled = true;
+            this.swarmHud4.LoiterButtonText = "Loiter";
+            this.swarmHud4.Name = "swarmHud4";
+            this.swarmHud4.Pitch = 0F;
+            this.swarmHud4.Roll = 0F;
+            this.swarmHud4.Size = new System.Drawing.Size(132, 275);
+            this.swarmHud4.TabIndex = 3;
+            this.swarmHud4.VehicleName = "Vehicle 1";
+            // 
+            // swarmHud3
+            // 
+            this.swarmHud3.ArmButtonEnabled = true;
+            this.swarmHud3.ArmButtonText = "Arm";
+            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
+            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
+            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.swarmHud3.Heading = 0F;
+            this.swarmHud3.Location = new System.Drawing.Point(527, 4);
+            this.swarmHud3.LoiterButtonEnabled = true;
+            this.swarmHud3.LoiterButtonText = "Loiter";
+            this.swarmHud3.Name = "swarmHud3";
+            this.swarmHud3.Pitch = 0F;
+            this.swarmHud3.Roll = 0F;
+            this.swarmHud3.Size = new System.Drawing.Size(132, 275);
+            this.swarmHud3.TabIndex = 2;
+            this.swarmHud3.VehicleName = "Vehicle 1";
+            // 
+            // swarmHud2
+            // 
+            this.swarmHud2.ArmButtonEnabled = true;
+            this.swarmHud2.ArmButtonText = "Arm";
+            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
+            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
+            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.swarmHud2.Heading = 0F;
+            this.swarmHud2.Location = new System.Drawing.Point(658, 4);
+            this.swarmHud2.LoiterButtonEnabled = true;
+            this.swarmHud2.LoiterButtonText = "Loiter";
+            this.swarmHud2.Name = "swarmHud2";
+            this.swarmHud2.Pitch = 0F;
+            this.swarmHud2.Roll = 0F;
+            this.swarmHud2.Size = new System.Drawing.Size(132, 275);
+            this.swarmHud2.TabIndex = 1;
+            this.swarmHud2.VehicleName = "Vehicle 1";
+            // 
+            // swarmHud1
+            // 
+            this.swarmHud1.ArmButtonEnabled = true;
+            this.swarmHud1.ArmButtonText = "Arm";
+            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
+            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
+            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.swarmHud1.Heading = 0F;
+            this.swarmHud1.Location = new System.Drawing.Point(789, 3);
+            this.swarmHud1.LoiterButtonEnabled = true;
+            this.swarmHud1.LoiterButtonText = "Loiter";
+            this.swarmHud1.Name = "swarmHud1";
+            this.swarmHud1.Pitch = 0F;
+            this.swarmHud1.Roll = 0F;
+            this.swarmHud1.Size = new System.Drawing.Size(132, 275);
+            this.swarmHud1.TabIndex = 0;
+            this.swarmHud1.VehicleName = "Vehicle 1";
             // 
             // tableLayoutPanelHUD
             // 
@@ -1297,7 +1334,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 162);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
@@ -1605,7 +1642,7 @@ namespace MissionPlanner.GCSViews
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MissionPlanner.Properties.Resources.satellite_icon;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
@@ -1652,7 +1689,7 @@ namespace MissionPlanner.GCSViews
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MissionPlanner.Properties.Resources.radio_wav_icon;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(3, 2);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
@@ -2236,7 +2273,7 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.klcButtonSetSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.klcButtonSetSpeed.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetSpeed.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButtonSetSpeed.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetSpeed.Image")));
             this.klcButtonSetSpeed.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.klcButtonSetSpeed.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
             this.klcButtonSetSpeed.KLCBorderRadius = 8;
@@ -2287,7 +2324,7 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.klcButtonSetAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.klcButtonSetAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetAlt.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButtonSetAlt.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetAlt.Image")));
             this.klcButtonSetAlt.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.klcButtonSetAlt.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
             this.klcButtonSetAlt.KLCBorderRadius = 8;
@@ -2352,7 +2389,7 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetLoiterRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.klcButtonSetLoiterRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.klcButtonSetLoiterRad.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetLoiterRad.Image = global::MissionPlanner.Properties.Resources.icons8_up_16;
+            this.klcButtonSetLoiterRad.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetLoiterRad.Image")));
             this.klcButtonSetLoiterRad.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
             this.klcButtonSetLoiterRad.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
             this.klcButtonSetLoiterRad.KLCBorderRadius = 8;
@@ -2403,7 +2440,7 @@ namespace MissionPlanner.GCSViews
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(3, 2);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox6.Name = "pictureBox6";
@@ -2440,7 +2477,7 @@ namespace MissionPlanner.GCSViews
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.icons8_time_16;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(3, 2);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox8.Name = "pictureBox8";
@@ -2478,7 +2515,7 @@ namespace MissionPlanner.GCSViews
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::MissionPlanner.Properties.Resources.icons8_plus_161;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(3, 2);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
@@ -2856,17 +2893,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
-            // graphicLabelTime
-            // 
-            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
-            this.graphicLabelTime.Name = "graphicLabelTime";
-            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
-            this.graphicLabelTime.TabIndex = 28;
-            this.graphicLabelTime.Text = "Hello Serb World !";
-            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
-            // 
             // FlightStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2891,14 +2917,13 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanelHUD.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -3017,16 +3042,9 @@ namespace MissionPlanner.GCSViews
         private RJCodeAdvance.RJControls.RJButton btnMapMin;
         private FlowLayoutPanel flowLayoutPanel4;
         private Panel panelMap;
-        private StatusStrip statusStrip1;
         internal Label lblMapZoom;
         private Label lblMapLat;
         private Label lblMapLong;
-        private ToolStripStatusLabel toolStripStatusLabel1;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripProgressBar toolStripProgressBar1;
-        private ToolStripMenuItem gEOToolStripMenuItem;
-        private ToolStripMenuItem uTMToolStripMenuItem;
-        private ToolStripMenuItem mGRSToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel12;
         private CodeArtEng.Controls.StatusLabel statusLabel4;
         private CodeArtEng.Controls.StatusLabel statusLabel1;
@@ -3119,5 +3137,10 @@ namespace MissionPlanner.GCSViews
         private KLCToolbox.KLCControls.KLCButton btnTelem;
         private KLCToolbox.KLCControls.KLCButton btnVideoVlc;
         private Controls.GraphicLabel graphicLabelTime;
+        private TabPage tabPage3;
+        private HUD_Claude.SwarmHud swarmHud4;
+        private HUD_Claude.SwarmHud swarmHud3;
+        private HUD_Claude.SwarmHud swarmHud2;
+        private HUD_Claude.SwarmHud swarmHud1;
     }
 }

@@ -2563,6 +2563,8 @@ namespace MissionPlanner.GCSViews
 
         private void FlightData_Load(object sender, EventArgs e)
         {
+            
+            
             POI.POIModified += POI_POIModified;
 
             if (!Settings.Instance.ContainsKey("ShowNoFly") || Settings.Instance.GetBoolean("ShowNoFly"))

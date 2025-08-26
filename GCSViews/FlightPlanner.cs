@@ -695,6 +695,7 @@ namespace MissionPlanner.GCSViews
                     {
                         if (cmd != (ushort) MAVLink.MAV_CMD.TAKEOFF &&
                             cmd != (ushort) MAVLink.MAV_CMD.LAND &&
+                            
                             cmd != (ushort) MAVLink.MAV_CMD.RETURN_TO_LAUNCH)
                         {
                             CustomMessageBox.Show("Low alt on WP#" + (a + 1) +

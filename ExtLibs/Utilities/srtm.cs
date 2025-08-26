@@ -643,7 +643,6 @@ namespace MissionPlanner.Utilities
             try
             {
                 log.Info("Get " + url);
-
                 using (var res = await client.GetAsync(url).ConfigureAwait(false))
                 using (Stream resstream = await res.Content.ReadAsStreamAsync().ConfigureAwait(false))
                 using (

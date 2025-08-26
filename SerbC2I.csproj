@@ -371,6 +371,9 @@
     <Reference Include="Bulb">
       <HintPath>ExtLibs\LEDBulb\Bulb\obj\x86\Debug\Bulb.dll</HintPath>
     </Reference>
+    <Reference Include="HUD_Claude">
+      <HintPath>..\Flight_Instruments\FlightInstrument_Net48\bin\Release\HUD_Claude.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MissionPlanner, Version=1.3.8527.19069, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="netstandard" />
