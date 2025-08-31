@@ -355,7 +355,6 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.lblhdopVal);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel4.Controls.Add(this.graphicLabelTime);
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel12);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -430,6 +429,7 @@ namespace MissionPlanner.GCSViews
             this.lblMapAlt.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.lblMapAlt.Size = new System.Drawing.Size(29, 22);
             this.lblMapAlt.TabIndex = 2;
+            this.lblMapAlt.Text = "700";
             this.lblMapAlt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bindingSourceHUD
@@ -446,6 +446,7 @@ namespace MissionPlanner.GCSViews
             this.lblMapLong.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.lblMapLong.Size = new System.Drawing.Size(91, 22);
             this.lblMapLong.TabIndex = 1;
+            this.lblMapLong.Text = "46.44512232";
             this.lblMapLong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMapLat
@@ -458,7 +459,7 @@ namespace MissionPlanner.GCSViews
             this.lblMapLat.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.lblMapLat.Size = new System.Drawing.Size(91, 22);
             this.lblMapLat.TabIndex = 0;
-            this.lblMapLat.Text = "123.7436649723";
+            this.lblMapLat.Text = "23.44512232";
             this.lblMapLat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMapLat.UseCompatibleTextRendering = true;
             // 
@@ -598,7 +599,7 @@ namespace MissionPlanner.GCSViews
             this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
             this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
             this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
+            this.graphicLabelTime.Location = new System.Drawing.Point(28, 45);
             this.graphicLabelTime.Name = "graphicLabelTime";
             this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
             this.graphicLabelTime.TabIndex = 28;
@@ -1222,6 +1223,7 @@ namespace MissionPlanner.GCSViews
             this.tabPage3.Controls.Add(this.swarmHud3);
             this.tabPage3.Controls.Add(this.swarmHud2);
             this.tabPage3.Controls.Add(this.swarmHud1);
+            this.tabPage3.Controls.Add(this.graphicLabelTime);
             this.tabPage3.Location = new System.Drawing.Point(25, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(924, 282);
