@@ -53,14 +53,13 @@ namespace MissionPlanner.GCSViews
             this.btnVideoVlc = new KLCToolbox.KLCControls.KLCButton();
             this.btnTelem = new KLCToolbox.KLCControls.KLCButton();
             this.btnSwarm = new KLCToolbox.KLCControls.KLCButton();
-            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.statusLabel2 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel3 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel4 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
             this.panelMap = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.zedGraph = new ZedGraph.ZedGraphControl();
@@ -91,11 +90,6 @@ namespace MissionPlanner.GCSViews
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.swarmHud4 = new HUD_Claude.SwarmHud();
-            this.swarmHud3 = new HUD_Claude.SwarmHud();
-            this.swarmHud2 = new HUD_Claude.SwarmHud();
-            this.swarmHud1 = new HUD_Claude.SwarmHud();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -148,7 +142,6 @@ namespace MissionPlanner.GCSViews
             this.labelTitleGS = new System.Windows.Forms.Label();
             this.labelValGS = new System.Windows.Forms.Label();
             this.labelUnitRoll = new System.Windows.Forms.Label();
-            this.mavlinkMsgViewControl1 = new MissionPlanner.Controls.MavlinkMsgViewControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -194,6 +187,8 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
+            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
+            this.mavlinkMsgViewControl1 = new MissionPlanner.Controls.MavlinkMsgViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -206,12 +201,11 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tableLayoutPanelHUD.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -295,7 +289,7 @@ namespace MissionPlanner.GCSViews
             // 
             // splitContainerMap.Panel2
             // 
-            this.splitContainerMap.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainerMap.Panel2.Controls.Add(this.tabControlMain);
             this.splitContainerMap.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainerMap.Panel2MinSize = 180;
             this.splitContainerMap.Size = new System.Drawing.Size(953, 670);
@@ -355,6 +349,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.lblhdopVal);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel4.Controls.Add(this.graphicLabelTime);
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel12);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -594,18 +589,6 @@ namespace MissionPlanner.GCSViews
             this.btnSwarm.UseVisualStyleBackColor = false;
             this.btnSwarm.Click += new System.EventHandler(this.btnSwarm_Click);
             // 
-            // graphicLabelTime
-            // 
-            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
-            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabelTime.Location = new System.Drawing.Point(28, 45);
-            this.graphicLabelTime.Name = "graphicLabelTime";
-            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
-            this.graphicLabelTime.TabIndex = 28;
-            this.graphicLabelTime.Text = "Hello Serb World !";
-            this.graphicLabelTime.Visible = false;
-            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 4;
@@ -698,20 +681,19 @@ namespace MissionPlanner.GCSViews
             this.panelMap.Size = new System.Drawing.Size(953, 376);
             this.panelMap.TabIndex = 5;
             // 
-            // tabControl1
+            // tabControlMain
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(953, 290);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControlMain.Controls.Add(this.tabPage1);
+            this.tabControlMain.Controls.Add(this.tabPage2);
+            this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlMain.Location = new System.Drawing.Point(0, 0);
+            this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControlMain.Multiline = true;
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(953, 290);
+            this.tabControlMain.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -1216,92 +1198,6 @@ namespace MissionPlanner.GCSViews
             this.zedGraphControl1.ScrollMinY2 = 0D;
             this.zedGraphControl1.Size = new System.Drawing.Size(918, 278);
             this.zedGraphControl1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.swarmHud4);
-            this.tabPage3.Controls.Add(this.swarmHud3);
-            this.tabPage3.Controls.Add(this.swarmHud2);
-            this.tabPage3.Controls.Add(this.swarmHud1);
-            this.tabPage3.Controls.Add(this.graphicLabelTime);
-            this.tabPage3.Location = new System.Drawing.Point(25, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(924, 282);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Test";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // swarmHud4
-            // 
-            this.swarmHud4.ArmButtonEnabled = true;
-            this.swarmHud4.ArmButtonText = "Arm";
-            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
-            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
-            this.swarmHud4.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
-            this.swarmHud4.Heading = 0F;
-            this.swarmHud4.Location = new System.Drawing.Point(396, 4);
-            this.swarmHud4.LoiterButtonEnabled = true;
-            this.swarmHud4.LoiterButtonText = "Loiter";
-            this.swarmHud4.Name = "swarmHud4";
-            this.swarmHud4.Pitch = 0F;
-            this.swarmHud4.Roll = 0F;
-            this.swarmHud4.Size = new System.Drawing.Size(132, 275);
-            this.swarmHud4.TabIndex = 3;
-            this.swarmHud4.VehicleName = "Vehicle 1";
-            // 
-            // swarmHud3
-            // 
-            this.swarmHud3.ArmButtonEnabled = true;
-            this.swarmHud3.ArmButtonText = "Arm";
-            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
-            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
-            this.swarmHud3.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
-            this.swarmHud3.Heading = 0F;
-            this.swarmHud3.Location = new System.Drawing.Point(527, 4);
-            this.swarmHud3.LoiterButtonEnabled = true;
-            this.swarmHud3.LoiterButtonText = "Loiter";
-            this.swarmHud3.Name = "swarmHud3";
-            this.swarmHud3.Pitch = 0F;
-            this.swarmHud3.Roll = 0F;
-            this.swarmHud3.Size = new System.Drawing.Size(132, 275);
-            this.swarmHud3.TabIndex = 2;
-            this.swarmHud3.VehicleName = "Vehicle 1";
-            // 
-            // swarmHud2
-            // 
-            this.swarmHud2.ArmButtonEnabled = true;
-            this.swarmHud2.ArmButtonText = "Arm";
-            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
-            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
-            this.swarmHud2.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
-            this.swarmHud2.Heading = 0F;
-            this.swarmHud2.Location = new System.Drawing.Point(658, 4);
-            this.swarmHud2.LoiterButtonEnabled = true;
-            this.swarmHud2.LoiterButtonText = "Loiter";
-            this.swarmHud2.Name = "swarmHud2";
-            this.swarmHud2.Pitch = 0F;
-            this.swarmHud2.Roll = 0F;
-            this.swarmHud2.Size = new System.Drawing.Size(132, 275);
-            this.swarmHud2.TabIndex = 1;
-            this.swarmHud2.VehicleName = "Vehicle 1";
-            // 
-            // swarmHud1
-            // 
-            this.swarmHud1.ArmButtonEnabled = true;
-            this.swarmHud1.ArmButtonText = "Arm";
-            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
-            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
-            this.swarmHud1.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
-            this.swarmHud1.Heading = 0F;
-            this.swarmHud1.Location = new System.Drawing.Point(789, 3);
-            this.swarmHud1.LoiterButtonEnabled = true;
-            this.swarmHud1.LoiterButtonText = "Loiter";
-            this.swarmHud1.Name = "swarmHud1";
-            this.swarmHud1.Pitch = 0F;
-            this.swarmHud1.Roll = 0F;
-            this.swarmHud1.Size = new System.Drawing.Size(132, 275);
-            this.swarmHud1.TabIndex = 0;
-            this.swarmHud1.VehicleName = "Vehicle 1";
             // 
             // tableLayoutPanelHUD
             // 
@@ -2128,17 +2024,6 @@ namespace MissionPlanner.GCSViews
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
             // 
-            // mavlinkMsgViewControl1
-            // 
-            this.mavlinkMsgViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mavlinkMsgViewControl1.Location = new System.Drawing.Point(3, 421);
-            this.mavlinkMsgViewControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mavlinkMsgViewControl1.message = "Warning";
-            this.mavlinkMsgViewControl1.Name = "mavlinkMsgViewControl1";
-            this.mavlinkMsgViewControl1.Size = new System.Drawing.Size(367, 39);
-            this.mavlinkMsgViewControl1.status = "Armed";
-            this.mavlinkMsgViewControl1.TabIndex = 15;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -2461,7 +2346,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelBatteryLevel.Name = "labelBatteryLevel";
-            this.labelBatteryLevel.Size = new System.Drawing.Size(44, 20);
+            this.labelBatteryLevel.Size = new System.Drawing.Size(0, 20);
             this.labelBatteryLevel.TabIndex = 1;
             this.labelBatteryLevel.Text = "87 %";
             this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2537,7 +2422,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryVolateges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.labelBatteryVolateges.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelBatteryVolateges.Name = "labelBatteryVolateges";
-            this.labelBatteryVolateges.Size = new System.Drawing.Size(59, 20);
+            this.labelBatteryVolateges.Size = new System.Drawing.Size(0, 20);
             this.labelBatteryVolateges.TabIndex = 1;
             this.labelBatteryVolateges.Text = "Test ok";
             this.labelBatteryVolateges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2895,6 +2780,29 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
+            // graphicLabelTime
+            // 
+            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
+            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
+            this.graphicLabelTime.Name = "graphicLabelTime";
+            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
+            this.graphicLabelTime.TabIndex = 28;
+            this.graphicLabelTime.Text = "Hello Serb World !";
+            this.graphicLabelTime.Visible = false;
+            // 
+            // mavlinkMsgViewControl1
+            // 
+            this.mavlinkMsgViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mavlinkMsgViewControl1.Location = new System.Drawing.Point(3, 421);
+            this.mavlinkMsgViewControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mavlinkMsgViewControl1.message = "Warning";
+            this.mavlinkMsgViewControl1.Name = "mavlinkMsgViewControl1";
+            this.mavlinkMsgViewControl1.Size = new System.Drawing.Size(367, 39);
+            this.mavlinkMsgViewControl1.status = "Armed";
+            this.mavlinkMsgViewControl1.TabIndex = 15;
+            // 
             // FlightStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2919,13 +2827,12 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanelHUD.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -3100,7 +3007,7 @@ namespace MissionPlanner.GCSViews
         private KLCToolbox.KLCControls.KLCButton klcButton20;
         private KLCToolbox.KLCControls.KLCButton klcButton22;
         private KLCToolbox.KLCControls.KLCButton klcButton24;
-        private TabControl tabControl1;
+        private TabControl tabControlMain;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private ZedGraph.ZedGraphControl zedGraphControl1;
@@ -3139,10 +3046,5 @@ namespace MissionPlanner.GCSViews
         private KLCToolbox.KLCControls.KLCButton btnTelem;
         private KLCToolbox.KLCControls.KLCButton btnVideoVlc;
         private Controls.GraphicLabel graphicLabelTime;
-        private TabPage tabPage3;
-        private HUD_Claude.SwarmHud swarmHud4;
-        private HUD_Claude.SwarmHud swarmHud3;
-        private HUD_Claude.SwarmHud swarmHud2;
-        private HUD_Claude.SwarmHud swarmHud1;
     }
 }

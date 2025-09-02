@@ -31,6 +31,20 @@ namespace MissionPlanner.Swarm
                 }
             }
         }
+        //Arm All
+        public void ArmAll()
+        {
+            foreach (var port in MainSerb.Comports)
+            {
+                foreach (var mav in port.MAVlist)
+                {
+                    //if (mav == Leader)
+                    //    continue;
+
+                    port.doARM(mav.sysid, mav.compid, true);
+                }
+            }
+        }
 
         public void Disarm()
         {

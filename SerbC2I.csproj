@@ -1669,7 +1669,7 @@
     </Compile>
     <Compile Include="Swarm\Formation.cs" />
     <Compile Include="Swarm\FormationControl.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Swarm\Grid.cs">
       <SubType>UserControl</SubType>

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.swarmHud1 = new HUD_Claude.SwarmHud();
             this.hsi1 = new MissionPlanner.Controls.HSI();
             this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             this.tableLayoutPanelMessage = new System.Windows.Forms.TableLayoutPanel();
@@ -200,6 +201,7 @@
             // 
             // splitContainerMain.Panel1
             // 
+            this.splitContainerMain.Panel1.Controls.Add(this.swarmHud1);
             this.splitContainerMain.Panel1.Controls.Add(this.hsi1);
             this.splitContainerMain.Panel1.Controls.Add(this.graphicLabel1);
             this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanelMessage);
@@ -213,6 +215,22 @@
             this.splitContainerMain.Size = new System.Drawing.Size(1200, 700);
             this.splitContainerMain.SplitterDistance = 708;
             this.splitContainerMain.TabIndex = 0;
+            // 
+            // swarmHud1
+            // 
+            this.swarmHud1.ArmButtonEnabled = true;
+            this.swarmHud1.ArmButtonText = "Arm";
+            this.swarmHud1.AutoSize = true;
+            this.swarmHud1.Heading = 0F;
+            this.swarmHud1.Location = new System.Drawing.Point(250, 53);
+            this.swarmHud1.LoiterButtonEnabled = true;
+            this.swarmHud1.LoiterButtonText = "Loiter";
+            this.swarmHud1.Name = "swarmHud1";
+            this.swarmHud1.Pitch = 0F;
+            this.swarmHud1.Roll = 0F;
+            this.swarmHud1.Size = new System.Drawing.Size(131, 280);
+            this.swarmHud1.TabIndex = 29;
+            this.swarmHud1.VehicleName = "Vehicle 1";
             // 
             // hsi1
             // 
@@ -1955,6 +1973,7 @@
             this.Name = "MainBoard";
             this.Size = new System.Drawing.Size(1200, 700);
             this.splitContainerMain.Panel1.ResumeLayout(false);
+            this.splitContainerMain.Panel1.PerformLayout();
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
@@ -2140,5 +2159,6 @@
         private KLCToolbox.KLCControls.KLCButton klcButton22;
         private KLCToolbox.KLCControls.KLCButton klcButton24;
         private Controls.HSI hsi1;
+        private HUD_Claude.SwarmHud swarmHud1;
     }
 }

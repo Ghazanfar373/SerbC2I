@@ -36,6 +36,7 @@ using System.Windows.Controls.Primitives;
 using OpenTK.Audio.OpenAL;
 using static MissionPlanner.Utilities.LTM;
 using MissionPlanner.Swarm;
+using HUD_Claude;
 
 namespace MissionPlanner.GCSViews
 {
@@ -324,6 +325,31 @@ namespace MissionPlanner.GCSViews
                 }
             }
             CreateChart(zedGraph);
+            TabPage tabPage = new TabPage("Formation");
+            FormationControl formationControl = new FormationControl();
+            formationControl.Dock = DockStyle.Fill;
+
+
+
+            //SwarmHud hud1 = new SwarmHud(); hud1.VehicleName = "1";
+            //SwarmHud hud2 = new SwarmHud();
+            //SwarmHud hud3 = new SwarmHud(); hud3.VehicleName = "3";
+            //FlowLayoutPanel flowLayoutPanelHUD = new FlowLayoutPanel();
+            //flowLayoutPanelHUD.FlowDirection = FlowDirection.LeftToRight;
+            //flowLayoutPanelHUD.Dock = DockStyle.Fill;
+            //flowLayoutPanelHUD.Controls.Clear();
+            //flowLayoutPanelHUD.Controls.Add(formationControl);
+            //flowLayoutPanelHUD.Controls.Add(hud1);
+            //flowLayoutPanelHUD.Controls.Add(hud2);
+            //flowLayoutPanelHUD.Controls.Add(hud3);
+            //tabPage.Controls.Add(formationControl);
+            tabPage.Controls.Add(formationControl);
+            tabPage.Dock = DockStyle.Fill;
+
+
+
+            tabControlMain.TabPages.Add(tabPage);
+            
         }
         [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
         public bool failsafe { get; set; }

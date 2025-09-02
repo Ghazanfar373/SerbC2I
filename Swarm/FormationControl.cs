@@ -10,7 +10,7 @@ using GeoAPI.CoordinateSystems.Transformations;
 
 namespace MissionPlanner.Swarm
 {
-    public partial class FormationControl : Form
+    public partial class FormationControl : UserControl
     {
         Formation SwarmInterface = null;
         bool threadrun = false;
@@ -20,11 +20,8 @@ namespace MissionPlanner.Swarm
             InitializeComponent();
 
             SwarmInterface = new Formation();
-
-            TopMost = true;
-
+            //TopMost = true;
             Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
-
             foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
@@ -32,16 +29,13 @@ namespace MissionPlanner.Swarm
                     mavStates.Add(port.BaseStream.PortName + " " + mav.sysid + " " + mav.compid, mav);
                 }
             }
-
             if (mavStates.Count == 0)
                 return;
 
             bindingSource1.DataSource = mavStates;
-
             CMB_mavs.DataSource = bindingSource1;
             CMB_mavs.ValueMember = "Value";
             CMB_mavs.DisplayMember = "Key";
-
             updateicons();
 
             this.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
@@ -369,6 +363,16 @@ namespace MissionPlanner.Swarm
             {
                 SwarmInterface.AutoMode();
             }
+        }
+
+        private void BUT_leader_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CMB_mavs_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4077,7 +4077,7 @@ namespace MissionPlanner
                 return true;
             }
 
-            if (keyData == (Keys.Control | Keys.F)) // temp
+            if (keyData == (Keys.Control | Keys.F)) // 
             {
                 Form frm = new temp();
                 ThemeManager.ApplyThemeTo(frm);
