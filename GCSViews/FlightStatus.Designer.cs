@@ -53,6 +53,7 @@ namespace MissionPlanner.GCSViews
             this.btnVideoVlc = new KLCToolbox.KLCControls.KLCButton();
             this.btnTelem = new KLCToolbox.KLCControls.KLCButton();
             this.btnSwarm = new KLCToolbox.KLCControls.KLCButton();
+            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.statusLabel2 = new CodeArtEng.Controls.StatusLabel();
             this.statusLabel3 = new CodeArtEng.Controls.StatusLabel();
@@ -142,6 +143,7 @@ namespace MissionPlanner.GCSViews
             this.labelTitleGS = new System.Windows.Forms.Label();
             this.labelValGS = new System.Windows.Forms.Label();
             this.labelUnitRoll = new System.Windows.Forms.Label();
+            this.mavlinkMsgViewControl1 = new MissionPlanner.Controls.MavlinkMsgViewControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -187,8 +189,6 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
-            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
-            this.mavlinkMsgViewControl1 = new MissionPlanner.Controls.MavlinkMsgViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -291,7 +291,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.splitContainerMap.Panel2.Controls.Add(this.tabControlMain);
             this.splitContainerMap.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainerMap.Panel2MinSize = 180;
+            this.splitContainerMap.Panel2MinSize = 190;
             this.splitContainerMap.Size = new System.Drawing.Size(953, 670);
             this.splitContainerMap.SplitterDistance = 376;
             this.splitContainerMap.TabIndex = 0;
@@ -589,6 +589,18 @@ namespace MissionPlanner.GCSViews
             this.btnSwarm.UseVisualStyleBackColor = false;
             this.btnSwarm.Click += new System.EventHandler(this.btnSwarm_Click);
             // 
+            // graphicLabelTime
+            // 
+            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
+            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
+            this.graphicLabelTime.Name = "graphicLabelTime";
+            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
+            this.graphicLabelTime.TabIndex = 28;
+            this.graphicLabelTime.Text = "Hello Serb World !";
+            this.graphicLabelTime.Visible = false;
+            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 4;
@@ -694,6 +706,7 @@ namespace MissionPlanner.GCSViews
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(953, 290);
             this.tabControlMain.TabIndex = 0;
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -2024,6 +2037,17 @@ namespace MissionPlanner.GCSViews
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
             // 
+            // mavlinkMsgViewControl1
+            // 
+            this.mavlinkMsgViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mavlinkMsgViewControl1.Location = new System.Drawing.Point(3, 421);
+            this.mavlinkMsgViewControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mavlinkMsgViewControl1.message = "Warning";
+            this.mavlinkMsgViewControl1.Name = "mavlinkMsgViewControl1";
+            this.mavlinkMsgViewControl1.Size = new System.Drawing.Size(367, 39);
+            this.mavlinkMsgViewControl1.status = "Armed";
+            this.mavlinkMsgViewControl1.TabIndex = 15;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -2346,7 +2370,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelBatteryLevel.Name = "labelBatteryLevel";
-            this.labelBatteryLevel.Size = new System.Drawing.Size(0, 20);
+            this.labelBatteryLevel.Size = new System.Drawing.Size(44, 20);
             this.labelBatteryLevel.TabIndex = 1;
             this.labelBatteryLevel.Text = "87 %";
             this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2422,7 +2446,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryVolateges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.labelBatteryVolateges.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelBatteryVolateges.Name = "labelBatteryVolateges";
-            this.labelBatteryVolateges.Size = new System.Drawing.Size(0, 20);
+            this.labelBatteryVolateges.Size = new System.Drawing.Size(59, 20);
             this.labelBatteryVolateges.TabIndex = 1;
             this.labelBatteryVolateges.Text = "Test ok";
             this.labelBatteryVolateges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2779,29 +2803,6 @@ namespace MissionPlanner.GCSViews
             // timerZedGraph
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
-            // 
-            // graphicLabelTime
-            // 
-            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
-            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
-            this.graphicLabelTime.Name = "graphicLabelTime";
-            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
-            this.graphicLabelTime.TabIndex = 28;
-            this.graphicLabelTime.Text = "Hello Serb World !";
-            this.graphicLabelTime.Visible = false;
-            // 
-            // mavlinkMsgViewControl1
-            // 
-            this.mavlinkMsgViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mavlinkMsgViewControl1.Location = new System.Drawing.Point(3, 421);
-            this.mavlinkMsgViewControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mavlinkMsgViewControl1.message = "Warning";
-            this.mavlinkMsgViewControl1.Name = "mavlinkMsgViewControl1";
-            this.mavlinkMsgViewControl1.Size = new System.Drawing.Size(367, 39);
-            this.mavlinkMsgViewControl1.status = "Armed";
-            this.mavlinkMsgViewControl1.TabIndex = 15;
             // 
             // FlightStatus
             // 

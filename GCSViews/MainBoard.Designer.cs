@@ -32,7 +32,6 @@
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.swarmHud1 = new HUD_Claude.SwarmHud();
             this.hsi1 = new MissionPlanner.Controls.HSI();
-            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             this.tableLayoutPanelMessage = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -146,6 +145,7 @@
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerLed = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -218,19 +218,22 @@
             // 
             // swarmHud1
             // 
+            this.swarmHud1.ApMode = "MANUAL";
             this.swarmHud1.ArmButtonEnabled = true;
             this.swarmHud1.ArmButtonText = "Arm";
             this.swarmHud1.AutoSize = true;
+            this.swarmHud1.GPS = true;
             this.swarmHud1.Heading = 0F;
+            this.swarmHud1.isArm = false;
             this.swarmHud1.Location = new System.Drawing.Point(250, 53);
             this.swarmHud1.LoiterButtonEnabled = true;
             this.swarmHud1.LoiterButtonText = "Loiter";
             this.swarmHud1.Name = "swarmHud1";
             this.swarmHud1.Pitch = 0F;
             this.swarmHud1.Roll = 0F;
-            this.swarmHud1.Size = new System.Drawing.Size(131, 280);
+            this.swarmHud1.Size = new System.Drawing.Size(132, 282);
             this.swarmHud1.TabIndex = 29;
-            this.swarmHud1.VehicleName = "Vehicle 1";
+            this.swarmHud1.VehicleInfo = "V001";
             // 
             // hsi1
             // 
@@ -241,17 +244,6 @@
             this.hsi1.NavHeading = 0;
             this.hsi1.Size = new System.Drawing.Size(150, 150);
             this.hsi1.TabIndex = 28;
-            // 
-            // graphicLabel1
-            // 
-            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabel1.Location = new System.Drawing.Point(0, 165);
-            this.graphicLabel1.Name = "graphicLabel1";
-            this.graphicLabel1.Size = new System.Drawing.Size(78, 23);
-            this.graphicLabel1.TabIndex = 27;
-            this.graphicLabel1.Text = "Hello Serb World !";
-            this.graphicLabel1.Visible = false;
             // 
             // tableLayoutPanelMessage
             // 
@@ -1548,7 +1540,7 @@
             this.label5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.label5.MaximumSize = new System.Drawing.Size(0, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "87 %";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1623,7 +1615,7 @@
             this.label7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.label7.MaximumSize = new System.Drawing.Size(0, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
+            this.label7.Size = new System.Drawing.Size(0, 20);
             this.label7.TabIndex = 1;
             this.label7.Text = "Test ok";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1963,6 +1955,17 @@
             // timerLed
             // 
             this.timerLed.Tick += new System.EventHandler(this.timerLed_Tick);
+            // 
+            // graphicLabel1
+            // 
+            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabel1.Location = new System.Drawing.Point(0, 165);
+            this.graphicLabel1.Name = "graphicLabel1";
+            this.graphicLabel1.Size = new System.Drawing.Size(78, 23);
+            this.graphicLabel1.TabIndex = 27;
+            this.graphicLabel1.Text = "Hello Serb World !";
+            this.graphicLabel1.Visible = false;
             // 
             // MainBoard
             // 

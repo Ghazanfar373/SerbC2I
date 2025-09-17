@@ -39,6 +39,9 @@
             this.rjComboBoxBaudRate = new RJCodeAdvance.RJControls.RJComboBox();
             this.labelWithPseudoOpacity1 = new MissionPlanner.Controls.LabelWithPseudoOpacity();
             this.labelWithPseudoOpacity2 = new MissionPlanner.Controls.LabelWithPseudoOpacity();
+            this.cmb_sysid = new System.Windows.Forms.ComboBox();
+            this.listView_sysid = new System.Windows.Forms.ListView();
+            this._connectionControl = new MissionPlanner.Controls.ConnectionControl();
             this.SuspendLayout();
             // 
             // CMB_serialport
@@ -158,10 +161,39 @@
             this.labelWithPseudoOpacity2.DoubleBuffered = true;
             this.labelWithPseudoOpacity2.Name = "labelWithPseudoOpacity2";
             // 
+            // cmb_sysid
+            // 
+            this.cmb_sysid.FormattingEnabled = true;
+            resources.ApplyResources(this.cmb_sysid, "cmb_sysid");
+            this.cmb_sysid.Name = "cmb_sysid";
+            this.cmb_sysid.SelectedIndexChanged += new System.EventHandler(this.CMB_sysid_SelectedIndexChanged);
+            this.cmb_sysid.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmb_sysid_Format);
+            // 
+            // listView_sysid
+            // 
+            resources.ApplyResources(this.listView_sysid, "listView_sysid");
+            this.listView_sysid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView_sysid.GridLines = true;
+            this.listView_sysid.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listView_sysid.HideSelection = false;
+            this.listView_sysid.MultiSelect = false;
+            this.listView_sysid.Name = "listView_sysid";
+            this.listView_sysid.UseCompatibleStateImageBehavior = false;
+            this.listView_sysid.View = System.Windows.Forms.View.Tile;
+            this.listView_sysid.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.listView_sysid_DrawItem);
+            this.listView_sysid.DoubleClick += new System.EventHandler(this.CMB_sysid_SelectedIndexChanged);
+            // 
+            // _connectionControl
+            // 
+            resources.ApplyResources(this._connectionControl, "_connectionControl");
+            this._connectionControl.Name = "_connectionControl";
+            // 
             // ConnectionOptions
             // 
             resources.ApplyResources(this, "$this");
-            this.ControlBox = false;
+            this.Controls.Add(this.listView_sysid);
+            this.Controls.Add(this.cmb_sysid);
+            this.Controls.Add(this._connectionControl);
             this.Controls.Add(this.labelWithPseudoOpacity2);
             this.Controls.Add(this.labelWithPseudoOpacity1);
             this.Controls.Add(this.rjComboBoxBaudRate);
@@ -172,6 +204,8 @@
             this.Controls.Add(this.CMB_baudrate);
             this.Controls.Add(this.BUT_connect);
             this.Controls.Add(this.CMB_serialport);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConnectionOptions";
             this.Load += new System.EventHandler(this.ConnectionOptions_Load);
             this.ResumeLayout(false);
@@ -191,5 +225,8 @@
         private RJCodeAdvance.RJControls.RJComboBox rjComboBoxBaudRate;
         private LabelWithPseudoOpacity labelWithPseudoOpacity1;
         private LabelWithPseudoOpacity labelWithPseudoOpacity2;
+        private ConnectionControl _connectionControl;
+        private System.Windows.Forms.ComboBox cmb_sysid;
+        private System.Windows.Forms.ListView listView_sysid;
     }
 }

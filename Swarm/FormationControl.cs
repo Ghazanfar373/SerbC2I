@@ -7,6 +7,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using GeoAPI.CoordinateSystems;
 using GeoAPI.CoordinateSystems.Transformations;
+using HUD_Claude;
+using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
+using Dowding.Model;
+using static MAVLink;
 
 namespace MissionPlanner.Swarm
 {
@@ -14,11 +18,17 @@ namespace MissionPlanner.Swarm
     {
         Formation SwarmInterface = null;
         bool threadrun = false;
+        bool isInit = false;
+
 
         public FormationControl()
         {
             InitializeComponent();
-
+            init();
+           
+        }
+        public void init() {
+            //isInit = true;
             SwarmInterface = new Formation();
             //TopMost = true;
             Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
@@ -37,12 +47,19 @@ namespace MissionPlanner.Swarm
             CMB_mavs.ValueMember = "Value";
             CMB_mavs.DisplayMember = "Key";
             updateicons();
-
+            //swarmHud1.ArmButtonClick += buttonARM_Click;
             this.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
 
-            MessageBox.Show("this is beta, use at own risk");
+            //MessageBox.Show("this is beta, use at own risk");
 
             MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            
+
+        }
+
+        private void SwarmHud1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         void FollowLeaderControl_MouseWheel(object sender, MouseEventArgs e)
@@ -83,6 +100,7 @@ namespace MissionPlanner.Swarm
 
         private void CMB_mavs_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //init();
             foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
@@ -137,10 +155,7 @@ namespace MissionPlanner.Swarm
 
         private void BUT_Arm_Click(object sender, EventArgs e)
         {
-            if (SwarmInterface != null)
-            {
-                SwarmInterface.Arm();
-            }
+
         }
 
         private void BUT_Disarm_Click(object sender, EventArgs e)
@@ -288,6 +303,7 @@ namespace MissionPlanner.Swarm
 
         private void timer_status_Tick(object sender, EventArgs e)
         {
+            //if (!isInit) init();
             // clean up old
             foreach (Control ctl in PNL_status.Controls)
             {
@@ -314,36 +330,74 @@ namespace MissionPlanner.Swarm
                 foreach (var mav in port.MAVlist)
                 {
                     bool exists = false;
-                    foreach (Control ctl in PNL_status.Controls)
+                    //foreach (Control ctl in PNL_status.Controls)
+                    //{
+                    //    if (ctl is Status && ctl.Tag == mav)
+                    //    {
+                    //        exists = true;
+                    //        ((Status)ctl).GPS.Text = mav.cs.gpsstatus >= 3 ? "OK" : "Bad";
+                    //        ((Status)ctl).Armed.Text = mav.cs.armed.ToString();
+                    //        ((Status)ctl).Mode.Text = mav.cs.mode;
+                    //        ((Status)ctl).MAV.Text = mav.ToString();
+                    //        ((Status)ctl).Guided.Text = mav.GuidedMode.x / 1e7 + "," + mav.GuidedMode.y / 1e7 + "," +
+                    //                                     mav.GuidedMode.z;
+                    //        ((Status)ctl).Location1.Text = mav.cs.lat + "," + mav.cs.lng + "," +
+                    //                                        mav.cs.alt;
+
+
+
+                    //        if (mav == SwarmInterface.Leader)
+                    //        {
+                    //            ((Status)ctl).ForeColor = Color.Red;
+                    //        }
+                    //        else
+                    //        {
+                    //            ((Status)ctl).ForeColor = Color.Black;
+                    //        }
+                    //    }
+                    //}
+
+                    //if (!exists)
+                    //{
+                    //    Status newstatus = new Status();
+                    //    newstatus.Tag = mav;
+                    //    PNL_status.Controls.Add(newstatus);
+                    //}
+                    foreach (Control ctl in flowLayoutPanelSwarm.Controls)
                     {
-                        if (ctl is Status && ctl.Tag == mav)
+                        if (ctl is SwarmHud && ctl.Tag == mav)
                         {
                             exists = true;
-                            ((Status)ctl).GPS.Text = mav.cs.gpsstatus >= 3 ? "OK" : "Bad";
-                            ((Status)ctl).Armed.Text = mav.cs.armed.ToString();
-                            ((Status)ctl).Mode.Text = mav.cs.mode;
-                            ((Status)ctl).MAV.Text = mav.ToString();
-                            ((Status)ctl).Guided.Text = mav.GuidedMode.x / 1e7 + "," + mav.GuidedMode.y / 1e7 + "," +
-                                                         mav.GuidedMode.z;
-                            ((Status)ctl).Location1.Text = mav.cs.lat + "," + mav.cs.lng + "," +
-                                                            mav.cs.alt;
+                            // ((SwarmHud)ctl).GPS = mav.cs.gpsstatus >= 3 ? "OK" : "Bad";
+                            ((SwarmHud)ctl).Roll = mav.cs.roll;
+                            ((SwarmHud)ctl).Pitch = mav.cs.pitch;
+                            ((SwarmHud)ctl).Heading = mav.cs.yaw;
+                            ((SwarmHud)ctl).isArm = mav.cs.armed;
+                            ((SwarmHud)ctl).ApMode = mav.cs.mode;
+                            ((SwarmHud)ctl).VehicleInfo=mav.ToString();
+                            ((SwarmHud)ctl).GPS=mav.cs.gpsstatus >=3 ? true : false;
+                            //((SwarmHud)ctl).MAV.Text = mav.ToString();
+                            //((SwarmHud)ctl).Guided.Text = mav.GuidedMode.x / 1e7 + "," + mav.GuidedMode.y / 1e7 + "," +
+                            //                             mav.GuidedMode.z;
+                            //((Status)ctl).Location1.Text = mav.cs.lat + "," + mav.cs.lng + "," +
+                            //                                mav.cs.alt;
 
                             if (mav == SwarmInterface.Leader)
                             {
-                                ((Status)ctl).ForeColor = Color.Red;
+                                ((SwarmHud)ctl).ForeColor = Color.Red;
                             }
                             else
                             {
-                                ((Status)ctl).ForeColor = Color.Black;
+                                ((SwarmHud)ctl).ForeColor = Color.Black;
                             }
                         }
                     }
 
                     if (!exists)
                     {
-                        Status newstatus = new Status();
+                        SwarmHud newstatus = new SwarmHud();
                         newstatus.Tag = mav;
-                        PNL_status.Controls.Add(newstatus);
+                        flowLayoutPanelSwarm.Controls.Add(newstatus);
                     }
                 }
             }
@@ -364,15 +418,45 @@ namespace MissionPlanner.Swarm
                 SwarmInterface.AutoMode();
             }
         }
-
-        private void BUT_leader_Click_1(object sender, EventArgs e)
+        int counter = 0;
+        private void buttonARM_Click(object sender, EventArgs e)
         {
+            counter++;
+            
+            //switch (counter)
+            //{
+            //    case 1:
+            //        swarmHud1.isArm = true;
+            //        swarmHud1.ApMode = "STABILIZE";
+            //        break;
+            //    case 2:
+            //        swarmHud1.isArm = true;
+            //        swarmHud1.ApMode = "Manual";
+            //        break;
+            //    case 3:
 
+            //        swarmHud1.isArm = true;
+            //        swarmHud1.ApMode = "Guided";
+            //        break;
+            //    case 4:
+            //        swarmHud1.isArm = true;
+            //        swarmHud1.ApMode = "lOITER";
+            //        counter = 0;
+            //        break;
+            //    case 5:
+            //        swarmHud1.isArm = true;
+            //        swarmHud1.ApMode = "ALT_HOLD";
+            //        counter = 0;
+            //        break;     
+            //}
         }
 
-        private void CMB_mavs_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void But_ArmAll_Click(object sender, EventArgs e)
         {
-
+            if (SwarmInterface != null)
+            {
+                SwarmInterface.ArmAll();
+            }
         }
     }
 }

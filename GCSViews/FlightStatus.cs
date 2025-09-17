@@ -37,6 +37,7 @@ using OpenTK.Audio.OpenAL;
 using static MissionPlanner.Utilities.LTM;
 using MissionPlanner.Swarm;
 using HUD_Claude;
+using Nevron.Nov.UI;
 
 namespace MissionPlanner.GCSViews
 {
@@ -158,7 +159,7 @@ namespace MissionPlanner.GCSViews
 
         public readonly List<TabPage> TabListOriginal = new List<TabPage>();
 
-
+        TabPage tabPageFormation;
         //private DockStateSerializer _serializer = null;
 
 
@@ -325,11 +326,9 @@ namespace MissionPlanner.GCSViews
                 }
             }
             CreateChart(zedGraph);
-            TabPage tabPage = new TabPage("Formation");
-            FormationControl formationControl = new FormationControl();
-            formationControl.Dock = DockStyle.Fill;
 
 
+            tabPageFormation = new TabPage("Formation");
 
             //SwarmHud hud1 = new SwarmHud(); hud1.VehicleName = "1";
             //SwarmHud hud2 = new SwarmHud();
@@ -343,12 +342,12 @@ namespace MissionPlanner.GCSViews
             //flowLayoutPanelHUD.Controls.Add(hud2);
             //flowLayoutPanelHUD.Controls.Add(hud3);
             //tabPage.Controls.Add(formationControl);
-            tabPage.Controls.Add(formationControl);
-            tabPage.Dock = DockStyle.Fill;
-
-
-
-            tabControlMain.TabPages.Add(tabPage);
+            //FormationControl formationControl = new FormationControl();
+            //formationControl.Dock = DockStyle.Fill;
+            //tabPage.Controls.Add(formationControl);
+            //tabPage.Dock = DockStyle.Fill;
+            tabControlMain.TabPages.Add(tabPageFormation);
+           
             
         }
         [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
@@ -3092,6 +3091,23 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tc = sender as TabControl;
+
+            // Log the tab change
+            //essageBox.Show($"Tab changed to: {tc.SelectedTab.Text} (Index: {tc.SelectedIndex})");
+
+            // Handle specific tabs
+            switch (tc.SelectedIndex)
+            {
+                case 2: // Home tab
+                    FormationControl formationControl = new FormationControl();
+                    formationControl.Dock = DockStyle.Fill;
+                    tabPageFormation.Controls.Add(formationControl);
+                    tabPageFormation.Dock = DockStyle.Fill;
+                    break;
+            }
+        }
     }
     }
