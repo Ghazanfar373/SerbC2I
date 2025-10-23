@@ -36,7 +36,7 @@ namespace MissionPlanner.Utilities
             client.Timeout = TimeSpan.FromSeconds(30);
         }
 
-        public static void updateCheckMain(IProgressReporterDialogue frmProgressReporter)
+        public static void updateCheckMain_Stop(IProgressReporterDialogue frmProgressReporter)
         {
             var t = Type.GetType("Mono.Runtime");
             MONO = (t != null);
@@ -112,7 +112,7 @@ namespace MissionPlanner.Utilities
             }
         }
 
-        public static void CheckForUpdate(bool NotifyNoUpdate = false)
+        public static void CheckForUpdate_Stop(bool NotifyNoUpdate = false)
         {
             var baseurl = ConfigurationManager.AppSettings["UpdateLocationVersion"];
 
@@ -736,7 +736,7 @@ namespace MissionPlanner.Utilities
                 }
             }
 
-            updateCheckMain(progressReporterDialogue);
+           // updateCheckMain(progressReporterDialogue);
         }
     }
 }

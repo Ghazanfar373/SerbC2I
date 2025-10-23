@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="contextMenuStripMap.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>466, 15</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnMapMax.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -134,7 +137,7 @@
 </value>
   </data>
   <metadata name="bindingSourceHUD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>137, 17</value>
+    <value>133, 17</value>
   </metadata>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -189,17 +192,6 @@
         ZWVG/nd1A1FWiwyrO8YjAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAARpJREFUOE/dUr0uhFEQ/eiotKJQEg0vIFFpbPLtOdcVjW4paHQ0bCQSichGSy2R
-        7AN4HPS07J35Ilfm7g977SZaTjK5mTMzJ3d+iuJ/QOr1XSXvBThLPnCpZHuM3QZy8asY8Ao8KrBfObdu
-        XAVsKLk3yoRsKfAcm83JvsCVABcDxR6i91OxKCZy3iBA5837ua5DtgQ4z5MUOBTyIQKzeSwAEsjj9Itc
-        QMlTAbbtVTIK+SrObX0XEOAjxYDlHwKxLGeUvLMEs+D9kgIn6tzqrwT6CMCmkC85b7AWFDjqtjBmiIZY
-        q03nnGF4iLZG8kmBg3xlaW1luWJ57+R88oHroTX2RBp2SCOOpi3kjuVUzq0lDrgJ3i8Miv8+PgE1WtZb
-        sdJFBgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -211,21 +203,13 @@
         RO/Iuhj+OHTc6MQQMAn2jEHBnd8nTxvL/hf4Ag0li8K3xrrsAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAGtJREFUOE9jMPZh4NL1ZjUmB4P0MoAYARud/0ecCiYJg/SA9IINAAkkv0onCYP0
-        EDQg6mIEGKOLE22A7yoHMEYXH8QGgPwL0wTCji0aYIwsBgsT2hiAjkn2AjoeeAMoTkj4MIoBFGUmSrMz
-        ACXeG+MMHOstAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="timerTest.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="timerZedGraph.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>462, 17</value>
+    <value>312, 15</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>31</value>
+    <value>25</value>
   </metadata>
 </root>

@@ -260,11 +260,13 @@ namespace MissionPlanner
                 }
             }
         }
-
+        Image originalImageSwConfig, originalImageHWConfig, originalImageFlightStatus, originalImageFlightPlan,originalImageConn;
         public MainSerb()
         {
             //InitializeComponent();
             log.Info("MainSerb ctor");
+           
+
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
@@ -349,10 +351,14 @@ namespace MissionPlanner
             ThemeManager.LoadTheme(Settings.Instance["theme"]);
 
             //Utilities.ThemeManager.ApplyThemeTo(this);
-
+            originalImageFlightPlan = btnFlightPlan.Image;
+            originalImageFlightStatus = btnFlightData.Image;
+            originalImageHWConfig = btnHWConfig.Image;
+            originalImageSwConfig = btnSoftwareConfig.Image;
+            originalImageConn = btnConnection.Image;
 
             // define default basestream
-               comPort.BaseStream = new SerialPort();
+            comPort.BaseStream = new SerialPort();
                comPort.BaseStream.BaudRate = 57600;
               _connectionControl = connectionControl1;
               _connectionControl.CMB_baudrate.TextChanged += this.CMB_baudrate_TextChanged;
@@ -1053,33 +1059,33 @@ namespace MissionPlanner
                 }
             }
 
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-                    //enable the payload control page if a mavlink gimbal is detected
-                    if (instance.flightStatus != null)
-                    {
-                      //  instance.FlightData.updatePayloadTabVisible();
-                    }
+            //if (this.InvokeRequired)
+            //{
+            //    this.BeginInvoke((MethodInvoker)delegate
+            //    {
+            //        //enable the payload control page if a mavlink gimbal is detected
+            //        if (instance.flightStatus != null)
+            //        {
+            //          //  instance.FlightData.updatePayloadTabVisible();
+            //        }
 
-                    instance.MyView.Reload();
+            //        instance.MyView.Reload();
 
-                    _connectionControl.UpdateSysIDS();
-                });
-            }
-            else
-            {
-                //enable the payload control page if a mavlink gimbal is detected
-                if (instance.flightStatus != null)
-                {
-                  //  instance.flightStatus.updatePayloadTabVisible();
-                }
+            //        _connectionControl.UpdateSysIDS();
+            //    });
+            //}
+            //else
+            //{
+            //    //enable the payload control page if a mavlink gimbal is detected
+            //    if (instance.flightStatus != null)
+            //    {
+            //      //  instance.flightStatus.updatePayloadTabVisible();
+            //    }
 
-                instance.MyView.Reload();
+            //    instance.MyView.Reload();
 
-                _connectionControl.UpdateSysIDS();
-            }
+            //    _connectionControl.UpdateSysIDS();
+            //}
         }
 #if !NETSTANDARD2_0
 #if !NETCOREAPP2_0
@@ -2230,12 +2236,12 @@ namespace MissionPlanner
                 }
                 else
                 {
-                    log.Info("Load Pluggins");
-                    Plugin.PluginLoader.DisabledPluginNames.Clear();
-                    foreach (var s in Settings.Instance.GetList("DisabledPlugins"))
-                        Plugin.PluginLoader.DisabledPluginNames.Add(s);
-                    Plugin.PluginLoader.LoadAll();
-                    log.Info("Load Pluggins... Done");
+                    //log.Info("Load Pluggins");           SERB oct 2025
+                    //Plugin.PluginLoader.DisabledPluginNames.Clear();
+                    //foreach (var s in Settings.Instance.GetList("DisabledPlugins"))
+                    //    Plugin.PluginLoader.DisabledPluginNames.Add(s);
+                    //Plugin.PluginLoader.LoadAll();
+                    //log.Info("Load Pluggins... Done");
                 }
             }
             catch (Exception ex)
@@ -2351,7 +2357,7 @@ namespace MissionPlanner
                 }
             });
 
-            log.Info("start AutoConnect");
+            //log.Info("start AutoConnect");
             AutoConnect.NewMavlinkConnection += (sender, serial) =>
             {
                 try
@@ -3504,7 +3510,7 @@ namespace MissionPlanner
 
         private void simulationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AutoConnect.Start();
         }
        
         private void flightStatusToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3555,11 +3561,16 @@ namespace MissionPlanner
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new OpenTKClock().Show();
+            //new OpenTKClock().Show();
         }
 
         private void btnFlightData_Click(object sender, EventArgs e)
         {
+            btnFlightData.Image = ChangeImageColor(originalImageFlightStatus, Color.LightGreen);
+            btnSoftwareConfig.Image = originalImageSwConfig;
+            btnFlightPlan.Image = originalImageFlightPlan;
+            btnHWConfig.Image = originalImageHWConfig;
+            btnConnection.Image = originalImageConn;
             MyView.ShowScreen("FlightStatus");
 
             // save config
@@ -3568,6 +3579,11 @@ namespace MissionPlanner
 
         private void btnFlightPlan_Click(object sender, EventArgs e)
         {
+            btnFlightPlan.Image = ChangeImageColor(originalImageFlightPlan, Color.LightGreen);
+            btnSoftwareConfig.Image = originalImageSwConfig;
+            btnFlightData.Image = originalImageFlightStatus;
+            btnHWConfig.Image = originalImageHWConfig;
+            btnConnection.Image = originalImageConn;
             MyView.ShowScreen("FlightPlanner");
 
             // save config
@@ -3576,18 +3592,26 @@ namespace MissionPlanner
 
         private void btnHWConfig_Click(object sender, EventArgs e)
         {
+            
+            btnHWConfig.Image = ChangeImageColor(originalImageHWConfig, Color.LightGreen);
+            btnSoftwareConfig.Image = originalImageSwConfig;
+            btnFlightData.Image = originalImageFlightStatus;
+            btnFlightPlan.Image = originalImageFlightPlan;
+            btnConnection.Image = originalImageConn;
             MyView.ShowScreen("HWConfig");
-
             // save config
             SaveConfig();
         }
 
         private void btnSoftwareConfig_Click(object sender, EventArgs e)
         {
-            MyView.ShowScreen("MainBoard");   //actual SWConfig
-
-            // save config
-            SaveConfig();
+            btnSoftwareConfig.Image = ChangeImageColor(originalImageSwConfig, Color.LightGreen);
+            btnHWConfig.Image = originalImageHWConfig;
+            btnFlightData.Image = originalImageFlightStatus;
+            btnFlightPlan.Image = originalImageFlightPlan;
+            btnConnection.Image = originalImageConn;
+            MyView.ShowScreen("MainBoard");
+             AutoConnect.Start();
         }
 
         private void connectionControl1_Load(object sender, EventArgs e)
@@ -3597,7 +3621,41 @@ namespace MissionPlanner
 
         private void btnConnection_Click(object sender, EventArgs e)
         {
+            btnConnection.Image = ChangeImageColor(originalImageConn, Color.LightGreen);
+            btnSoftwareConfig.Image = originalImageSwConfig;
+            btnFlightPlan.Image = originalImageFlightPlan;
+            btnHWConfig.Image = originalImageHWConfig;
+            btnFlightData.Image = originalImageFlightStatus;
             new ConnectionOptions().Show(this);
+        }
+        private bool isActive = false;
+       
+        private Image ChangeImageColor(Image image, Color newColor)
+        {
+            Bitmap bitmap = new Bitmap(image.Width, image.Height);
+
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Create color matrix for tinting
+                ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                {
+                new float[] {newColor.R / 255f, 0, 0, 0, 0},
+                new float[] {0, newColor.G / 255f, 0, 0, 0},
+                new float[] {0, 0, newColor.B / 255f, 0, 0},
+                new float[] {0, 0, 0, 1, 0},
+                new float[] {0, 0, 0, 0, 1}
+                });
+
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetColorMatrix(colorMatrix);
+
+                g.DrawImage(image,
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    0, 0, image.Width, image.Height,
+                    GraphicsUnit.Pixel, attributes);
+            }
+
+            return bitmap;
         }
     }
 }

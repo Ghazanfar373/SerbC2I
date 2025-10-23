@@ -4010,7 +4010,7 @@ namespace MissionPlanner
 
             try
             {
-                MissionPlanner.Utilities.Update.CheckForUpdate();
+               // MissionPlanner.Utilities.Update.CheckForUpdate();    SERB
             }
             catch (Exception ex)
             {

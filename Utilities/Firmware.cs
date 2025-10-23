@@ -218,7 +218,7 @@ namespace MissionPlanner.Utilities
                     {
                         try
                         {
-                            getAPMVersion(software);
+                            //getAPMVersion(software);
                         }
                         catch
                         {
@@ -262,7 +262,7 @@ namespace MissionPlanner.Utilities
         /// </summary>
         /// <param name="fwurl"></param>
         /// <returns></returns>
-        void getAPMVersion(object tempin)
+        void getAPMVersion_Stop(object tempin)
         {
             try
             {
@@ -358,7 +358,7 @@ namespace MissionPlanner.Utilities
         /// <param name="temp"></param>
         /// <param name="historyhash"></param>
         /// <param name="relType"></param>
-        public bool updateLegacy(string comport, software temp, string historyhash, List<DeviceInfo> ports)
+        public bool updateLegacy_Stop(string comport, software temp, string historyhash, List<DeviceInfo> ports)
         {
             BoardDetect.boards board = BoardDetect.boards.none;
             string baseurl = "";

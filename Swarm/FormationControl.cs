@@ -19,17 +19,15 @@ namespace MissionPlanner.Swarm
         Formation SwarmInterface = null;
         bool threadrun = false;
         bool isInit = false;
-
-
         public FormationControl()
         {
             InitializeComponent();
-            init();
-           
+            SwarmInterface = new Formation();
+            init(); 
         }
         public void init() {
             //isInit = true;
-            SwarmInterface = new Formation();
+            
             //TopMost = true;
             Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
             foreach (var port in MainSerb.Comports)
@@ -39,22 +37,24 @@ namespace MissionPlanner.Swarm
                     mavStates.Add(port.BaseStream.PortName + " " + mav.sysid + " " + mav.compid, mav);
                 }
             }
-            if (mavStates.Count == 0)
-                return;
+            if (mavStates.Count != 0)
+            {
+                //  return;
+                CMB_mavs.SuspendLayout();
+                bindingSource1.DataSource = mavStates;
+                CMB_mavs.DataSource = bindingSource1;
+                CMB_mavs.ValueMember = "Value";
+                CMB_mavs.DisplayMember = "Key";
+                updateicons();
+                
+                MessageBox.Show("After Update Icons");
+                CMB_mavs.ResumeLayout();
 
-            bindingSource1.DataSource = mavStates;
-            CMB_mavs.DataSource = bindingSource1;
-            CMB_mavs.ValueMember = "Value";
-            CMB_mavs.DisplayMember = "Key";
-            updateicons();
-            //swarmHud1.ArmButtonClick += buttonARM_Click;
-            this.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
-
-            //MessageBox.Show("this is beta, use at own risk");
-
-            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
-            
-
+                //swarmHud1.ArmButtonClick += buttonARM_Click;
+                grid1.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
+                //MessageBox.Show("this is beta, use at own risk");
+                MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            }
         }
 
         private void SwarmHud1_Click(object sender, EventArgs e)
@@ -66,11 +66,11 @@ namespace MissionPlanner.Swarm
         {
             if (e.Delta < 0)
             {
-                grid1.setScale(grid1.getScale() + 4);
+                grid1.setScale(grid1.getScale() + 2);
             }
             else
             {
-                grid1.setScale(grid1.getScale() - 4);
+                grid1.setScale(grid1.getScale() - 2);
             }
         }
 
@@ -240,27 +240,18 @@ namespace MissionPlanner.Swarm
                 leader.cs.lat < 0 ? false : true);
 
             ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(wgs84, utm);
-
             double[] masterpll = { leader.cs.lng, leader.cs.lat };
-
             // get leader utm coords
             double[] masterutm = trans.MathTransform.Transform(masterpll);
-
             double[] mavpll = { mav.cs.lng, mav.cs.lat };
-
             //getLeader follower utm coords
             double[] mavutm = trans.MathTransform.Transform(mavpll);
-
             var heading = -leader.cs.yaw;
-
             var norotation = new Vector3(masterutm[1] - mavutm[1], masterutm[0] - mavutm[0], 0);
-
             norotation.x *= -1;
             norotation.y *= -1;
-
             return new Vector3(norotation.x * Math.Cos(heading * MathHelper.deg2rad) - norotation.y * Math.Sin(heading * MathHelper.deg2rad), norotation.x * Math.Sin(heading * MathHelper.deg2rad) + norotation.y * Math.Cos(heading * MathHelper.deg2rad), 0);
         }
-
         private void grid1_UpdateOffsets(MAVState mav, float x, float y, float z, Grid.icon ico)
         {
             if (mav == SwarmInterface.Leader)
@@ -273,7 +264,6 @@ namespace MissionPlanner.Swarm
                 ((Formation)SwarmInterface).setOffsets(mav, x, y, z);
             }
         }
-
         private void Control_FormClosing(object sender, FormClosingEventArgs e)
         {
             threadrun = false;
@@ -291,7 +281,6 @@ namespace MissionPlanner.Swarm
                         continue;
 
                     Vector3 offset = getOffsetFromLeader(((Formation)SwarmInterface).getLeader(), mav);
-
                     if (Math.Abs(offset.x) < 200 && Math.Abs(offset.y) < 200)
                     {
                         grid1.UpdateIcon(mav, (float)offset.y, (float)offset.x, (float)offset.z, true);
@@ -300,7 +289,6 @@ namespace MissionPlanner.Swarm
                 }
             }
         }
-
         private void timer_status_Tick(object sender, EventArgs e)
         {
             //if (!isInit) init();
@@ -319,11 +307,9 @@ namespace MissionPlanner.Swarm
                         }
                     }
                 }
-
                 if (match == false)
                     ctl.Dispose();
             }
-
             // setup new
             foreach (var port in MainSerb.Comports)
             {
@@ -343,9 +329,6 @@ namespace MissionPlanner.Swarm
                     //                                     mav.GuidedMode.z;
                     //        ((Status)ctl).Location1.Text = mav.cs.lat + "," + mav.cs.lng + "," +
                     //                                        mav.cs.alt;
-
-
-
                     //        if (mav == SwarmInterface.Leader)
                     //        {
                     //            ((Status)ctl).ForeColor = Color.Red;
@@ -381,7 +364,6 @@ namespace MissionPlanner.Swarm
                             //                             mav.GuidedMode.z;
                             //((Status)ctl).Location1.Text = mav.cs.lat + "," + mav.cs.lng + "," +
                             //                                mav.cs.alt;
-
                             if (mav == SwarmInterface.Leader)
                             {
                                 ((SwarmHud)ctl).ForeColor = Color.Red;
@@ -397,11 +379,34 @@ namespace MissionPlanner.Swarm
                     {
                         SwarmHud newstatus = new SwarmHud();
                         newstatus.Tag = mav;
+                        newstatus.GetArmButton().Click += (s, ee) =>
+                        {
+                        ArmformPanel(mav.ToString());
+                        };
+                        newstatus.GetLoiterButton().Click += (s, ee) =>
+                        {
+                        LoiterformPanel(mav.ToString());
+                        };
                         flowLayoutPanelSwarm.Controls.Add(newstatus);
                     }
                 }
             }
         }
+
+        public void ArmformPanel(string sysId) {
+            if (SwarmInterface != null)
+            {
+                SwarmInterface.ArmSelected(sysId);
+            }
+        }
+        public void LoiterformPanel(string sysId)
+        {
+            if (SwarmInterface != null)
+            {
+                SwarmInterface.LoiterSelected(sysId);
+            }
+        }
+
 
         private void but_guided_Click(object sender, EventArgs e)
         {

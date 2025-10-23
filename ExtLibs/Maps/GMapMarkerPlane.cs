@@ -13,38 +13,146 @@ namespace MissionPlanner.Maps
 
         static SolidBrush shadow = new SolidBrush(Color.FromArgb(50, Color.Black));
 
+        //static Point[] plane = new Point[] {
+        //    new Point(28,0),
+        //    new Point(32,13),
+        //    new Point(53,27),
+        //    new Point(55,32),
+        //    new Point(31,28),
+        //    new Point(30,35),
+        //    new Point(30,43),
+        //    new Point(37,48),
+        //    new Point(37,50),
+        //    new Point(29,50),
+        //    new Point(29,53),
+        //    // inverse
+        //    new Point(inv(29,28),53),
+        //    new Point(inv(29,28),50),
+        //    new Point(inv(37,28),50),
+        //    new Point(inv(37,28),48),
+        //    new Point(inv(30,28),43),
+        //    new Point(inv(30,28),35),
+        //    new Point(inv(31,28),28),
+        //    new Point(inv(55,28),32),
+        //    new Point(inv(53,28),27),
+        //    new Point(inv(32,28),13),
+        //    new Point(inv(28,28),0),
+        //    };
+        //static Point[] plane = new Point[] {                  // Tactical Drone
+        //    // Right side
+        //     new Point(25, 0),      // Nose
+        //    new Point(28, 15),     // Front body
+        //    new Point(55, 15),     // Wing front (straight horizontal)
+        //    new Point(55, 20),     // Wing tip (straight vertical)
+        //    new Point(28, 20),     // Wing back (straight horizontal)
+        //    new Point(28, 30),     // Mid body (straight vertical)
+        //    new Point(40, 30),     // Tail front (straight horizontal)
+        //    new Point(40, 35),     // Tail tip (straight vertical)
+        //    new Point(28, 35),     // Tail back (straight horizontal)
+        //    new Point(25, 45),     // Rear end
+
+        //    // Left side (mirrored)
+        //    new Point(inv(25, 25), 45),
+        //    new Point(inv(28, 25), 35),
+        //    new Point(inv(40, 25), 35),
+        //    new Point(inv(40, 25), 30),
+        //    new Point(inv(28, 25), 30),
+        //    new Point(inv(28, 25), 20),
+        //    new Point(inv(55, 25), 20),
+        //    new Point(inv(55, 25), 15),
+        //    new Point(inv(28, 25), 15),
+        //    new Point(inv(25, 25), 0),
+        //};
+        // Define constants for clarity
+        const int CenterLineX = 25;
+        const int HalfWidth = 3;
+        const int MaxX = CenterLineX + HalfWidth; // 28
+        const int MinX = CenterLineX - HalfWidth; // 22
+
+        // Assuming inv(x, center) is defined as:
+        // static int inv(int x, int center) { return 2 * center - x; }
+
         static Point[] plane = new Point[] {
-            new Point(28,0),
-            new Point(32,13),
-            new Point(53,27),
-            new Point(55,32),
-            new Point(31,28),
-            new Point(30,35),
-            new Point(30,43),
-            new Point(37,48),
-            new Point(37,50),
-            new Point(29,50),
-            new Point(29,53),
-            // inverse
-            new Point(inv(29,28),53),
-            new Point(inv(29,28),50),
-            new Point(inv(37,28),50),
-            new Point(inv(37,28),48),
-            new Point(inv(30,28),43),
-            new Point(inv(30,28),35),
-            new Point(inv(31,28),28),
-            new Point(inv(55,28),32),
-            new Point(inv(53,28),27),
-            new Point(inv(32,28),13),
-            new Point(inv(28,28),0),
-            };
+    // --- Right Side (x >= CenterLineX) ---
 
-        private static int inv(int input, int mid)
+    // 1. Round Nose (Approximation of a Semicircle: Max width at y=5)
+    new Point(CenterLineX, 0),  // Nose Tip (25, 0)
+    new Point(26, 2),
+    new Point(27, 4),
+    new Point(MaxX, 5),         // Start of cylindrical body (28, 5)
+
+    // 2. Cylindrical Fuselage (Constant width, x=28)
+    new Point(MaxX, 10),
+
+    // 3. Wing Section (Attached to cylindrical body)
+    new Point(MaxX, 15),        // Wing Front connection (28, 15)
+    new Point(55, 15),          // Wing Front Tip (Horizontal)
+    new Point(55, 20),          // Wing Tip (Vertical)
+    new Point(MaxX, 20),        // Wing Back connection (28, 20)
+
+    // 4. Mid Body / Tail Boom (Constant width, x=28)
+    new Point(MaxX, 25),
+    
+    // 5. Tail Section (Stabilizers attached)
+    new Point(MaxX, 30),        // Tail Front connection (28, 30)
+    new Point(40, 30),          // Tail Stabilizer Front Tip
+    new Point(40, 35),          // Tail Stabilizer Tip (Vertical)
+    new Point(MaxX, 35),        // Tail Back connection (28, 35)
+
+    // 6. Tapered Rear End (Smooth taper back to centerline)
+    new Point(27, 38),          // Taper start
+    new Point(26, 41),
+    new Point(CenterLineX, 45), // Rear End (25, 45)
+
+    // -----------------------------------------------------------------
+    // --- Left Side (Mirrored using inv(x, CenterLineX)) ---
+    // -----------------------------------------------------------------
+
+    // Mirrored Tapered Rear End
+    new Point(inv(26, CenterLineX), 41),
+    new Point(inv(27, CenterLineX), 38),
+    new Point(inv(MaxX, CenterLineX), 35), // (22, 35)
+
+    // Mirrored Tail Section
+    new Point(inv(40, CenterLineX), 35),
+    new Point(inv(40, CenterLineX), 30),
+    new Point(inv(MaxX, CenterLineX), 30), // (22, 30)
+    
+    // Mirrored Mid Body
+    new Point(inv(MaxX, CenterLineX), 25), // (22, 25)
+
+    // Mirrored Wing Section
+    new Point(inv(MaxX, CenterLineX), 20), // (22, 20)
+    new Point(inv(55, CenterLineX), 20),
+    new Point(inv(55, CenterLineX), 15),
+    new Point(inv(MaxX, CenterLineX), 15), // (22, 15)
+
+    // Mirrored Cylindrical Fuselage
+    new Point(inv(MaxX, CenterLineX), 10), // (22, 10)
+
+    // Mirrored Round Nose
+    new Point(inv(MaxX, CenterLineX), 5),  // (22, 5)
+    new Point(inv(27, CenterLineX), 4),
+    new Point(inv(26, CenterLineX), 2),
+    new Point(CenterLineX, 0), // Closing the shape
+};
+        static int inv(int value, int center)
         {
-            var delta = input - mid;
-
-            return mid - delta;
+            return 2 * center - value;
         }
+
+        // Mirror function
+        //static int inv(int value, int center)
+        //{
+        //    return 2 * center - value;
+        //}
+
+        //private static int inv(int input, int mid)
+        //{
+        //    var delta = input - mid;
+
+        //    return mid - delta;
+        //}
 
         float cog = -1;
         float heading = 0;

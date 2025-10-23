@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using GeoAPI.CoordinateSystems;
 using GeoAPI.CoordinateSystems.Transformations;
 using Vector3 = MissionPlanner.Utilities.Vector3;
-
 namespace MissionPlanner.Swarm
 {
     /// <summary>

@@ -45,6 +45,7 @@
             this.flowLayoutPanelSwarm = new System.Windows.Forms.FlowLayoutPanel();
             this.grid1 = new MissionPlanner.Swarm.Grid();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.But_ArmAll = new MissionPlanner.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.flowLayoutPanelSwarm.SuspendLayout();
@@ -56,7 +57,7 @@
             this.PNL_status.AutoScroll = true;
             this.PNL_status.Location = new System.Drawing.Point(547, 3);
             this.PNL_status.Name = "PNL_status";
-            this.PNL_status.Size = new System.Drawing.Size(77, 177);
+            this.PNL_status.Size = new System.Drawing.Size(79, 177);
             this.PNL_status.TabIndex = 11;
             // 
             // timer_status
@@ -67,9 +68,10 @@
             // 
             // but_auto
             // 
-            this.but_auto.Location = new System.Drawing.Point(3, 132);
+            this.but_auto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_auto.Location = new System.Drawing.Point(3, 136);
             this.but_auto.Name = "but_auto";
-            this.but_auto.Size = new System.Drawing.Size(130, 28);
+            this.but_auto.Size = new System.Drawing.Size(130, 29);
             this.but_auto.TabIndex = 24;
             this.but_auto.Text = "Auto Mode  (exl leader)";
             this.but_auto.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -78,10 +80,11 @@
             // 
             // BUT_Updatepos
             // 
+            this.BUT_Updatepos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Updatepos.Enabled = false;
-            this.BUT_Updatepos.Location = new System.Drawing.Point(139, 99);
+            this.BUT_Updatepos.Location = new System.Drawing.Point(139, 136);
             this.BUT_Updatepos.Name = "BUT_Updatepos";
-            this.BUT_Updatepos.Size = new System.Drawing.Size(80, 27);
+            this.BUT_Updatepos.Size = new System.Drawing.Size(80, 29);
             this.BUT_Updatepos.TabIndex = 22;
             this.BUT_Updatepos.Text = "Update Pos";
             this.BUT_Updatepos.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -90,10 +93,12 @@
             // 
             // BUT_Start
             // 
+            this.BUT_Start.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Start.Enabled = false;
-            this.BUT_Start.Location = new System.Drawing.Point(139, 67);
+            this.BUT_Start.Location = new System.Drawing.Point(139, 102);
+            this.BUT_Start.MaximumSize = new System.Drawing.Size(0, 28);
             this.BUT_Start.Name = "BUT_Start";
-            this.BUT_Start.Size = new System.Drawing.Size(80, 26);
+            this.BUT_Start.Size = new System.Drawing.Size(80, 28);
             this.BUT_Start.TabIndex = 20;
             this.BUT_Start.Text = "Start";
             this.BUT_Start.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -102,9 +107,10 @@
             // 
             // but_guided
             // 
-            this.but_guided.Location = new System.Drawing.Point(3, 30);
+            this.but_guided.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_guided.Location = new System.Drawing.Point(3, 38);
             this.but_guided.Name = "but_guided";
-            this.but_guided.Size = new System.Drawing.Size(130, 30);
+            this.but_guided.Size = new System.Drawing.Size(130, 27);
             this.but_guided.TabIndex = 23;
             this.but_guided.Text = "Guided Mode (exl leader)";
             this.but_guided.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -113,9 +119,10 @@
             // 
             // BUT_Arm
             // 
-            this.BUT_Arm.Location = new System.Drawing.Point(3, 67);
+            this.BUT_Arm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BUT_Arm.Location = new System.Drawing.Point(3, 71);
             this.BUT_Arm.Name = "BUT_Arm";
-            this.BUT_Arm.Size = new System.Drawing.Size(129, 26);
+            this.BUT_Arm.Size = new System.Drawing.Size(130, 25);
             this.BUT_Arm.TabIndex = 14;
             this.BUT_Arm.Text = "Arm (exl leader)";
             this.BUT_Arm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -124,9 +131,10 @@
             // 
             // BUT_leader
             // 
-            this.BUT_leader.Location = new System.Drawing.Point(139, 132);
+            this.BUT_leader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BUT_leader.Location = new System.Drawing.Point(139, 3);
             this.BUT_leader.Name = "BUT_leader";
-            this.BUT_leader.Size = new System.Drawing.Size(80, 23);
+            this.BUT_leader.Size = new System.Drawing.Size(80, 29);
             this.BUT_leader.TabIndex = 19;
             this.BUT_leader.Text = "Set Leader";
             this.BUT_leader.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -135,9 +143,10 @@
             // 
             // BUT_Disarm
             // 
-            this.BUT_Disarm.Location = new System.Drawing.Point(3, 99);
+            this.BUT_Disarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BUT_Disarm.Location = new System.Drawing.Point(3, 102);
             this.BUT_Disarm.Name = "BUT_Disarm";
-            this.BUT_Disarm.Size = new System.Drawing.Size(129, 27);
+            this.BUT_Disarm.Size = new System.Drawing.Size(130, 28);
             this.BUT_Disarm.TabIndex = 15;
             this.BUT_Disarm.Text = "Disarm (exl leader)";
             this.BUT_Disarm.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -150,15 +159,17 @@
             this.CMB_mavs.FormattingEnabled = true;
             this.CMB_mavs.Location = new System.Drawing.Point(3, 3);
             this.CMB_mavs.Name = "CMB_mavs";
-            this.CMB_mavs.Size = new System.Drawing.Size(121, 24);
+            this.CMB_mavs.Size = new System.Drawing.Size(130, 24);
             this.CMB_mavs.TabIndex = 18;
             this.CMB_mavs.SelectedIndexChanged += new System.EventHandler(this.CMB_mavs_SelectedIndexChanged);
             // 
             // BUT_Takeoff
             // 
-            this.BUT_Takeoff.Location = new System.Drawing.Point(139, 3);
+            this.BUT_Takeoff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BUT_Takeoff.Location = new System.Drawing.Point(139, 38);
+            this.BUT_Takeoff.MinimumSize = new System.Drawing.Size(0, 28);
             this.BUT_Takeoff.Name = "BUT_Takeoff";
-            this.BUT_Takeoff.Size = new System.Drawing.Size(80, 21);
+            this.BUT_Takeoff.Size = new System.Drawing.Size(80, 28);
             this.BUT_Takeoff.TabIndex = 16;
             this.BUT_Takeoff.Text = "Takeoff";
             this.BUT_Takeoff.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -167,9 +178,10 @@
             // 
             // BUT_Land
             // 
-            this.BUT_Land.Location = new System.Drawing.Point(139, 30);
+            this.BUT_Land.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BUT_Land.Location = new System.Drawing.Point(139, 71);
             this.BUT_Land.Name = "BUT_Land";
-            this.BUT_Land.Size = new System.Drawing.Size(80, 30);
+            this.BUT_Land.Size = new System.Drawing.Size(80, 25);
             this.BUT_Land.TabIndex = 17;
             this.BUT_Land.Text = "Land (all)";
             this.BUT_Land.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -207,34 +219,47 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.64384F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.35616F));
+            this.tableLayoutPanel1.Controls.Add(this.BUT_leader, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.myButton1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.but_guided, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.BUT_Arm, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.BUT_Disarm, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_Takeoff, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_Land, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_leader, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_Updatepos, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BUT_Start, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.but_auto, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.CMB_mavs, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.But_ArmAll, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_Updatepos, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_Start, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_Land, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BUT_Takeoff, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(319, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.84746F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.15254F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(222, 198);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(222, 207);
             this.tableLayoutPanel1.TabIndex = 26;
+            // 
+            // myButton1
+            // 
+            this.myButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myButton1.Location = new System.Drawing.Point(3, 171);
+            this.myButton1.Name = "myButton1";
+            this.myButton1.Size = new System.Drawing.Size(130, 33);
+            this.myButton1.TabIndex = 26;
+            this.myButton1.Text = "Loiter All (exl leader)";
+            this.myButton1.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.myButton1.UseVisualStyleBackColor = true;
             // 
             // But_ArmAll
             // 
-            this.But_ArmAll.Location = new System.Drawing.Point(139, 166);
+            this.But_ArmAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.But_ArmAll.Location = new System.Drawing.Point(139, 171);
             this.But_ArmAll.Name = "But_ArmAll";
-            this.But_ArmAll.Size = new System.Drawing.Size(80, 23);
+            this.But_ArmAll.Size = new System.Drawing.Size(80, 33);
             this.But_ArmAll.TabIndex = 25;
             this.But_ArmAll.Text = "Arm All";
             this.But_ArmAll.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -273,5 +298,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSwarm;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Controls.MyButton But_ArmAll;
+        private Controls.MyButton myButton1;
     }
 }

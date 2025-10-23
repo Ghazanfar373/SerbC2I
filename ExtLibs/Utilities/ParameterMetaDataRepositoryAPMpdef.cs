@@ -26,11 +26,11 @@ namespace MissionPlanner.Utilities
             "ArduPlane", "AntennaTracker", "Blimp", "Heli"
         };
 
-        static string url = "https://autotest.ardupilot.org/Parameters/{0}/apm.pdef.xml.gz";
+        static string url = ""; //SERB //"https://autotest.ardupilot.org/Parameters/{0}/apm.pdef.xml.gz";
 
         static ParameterMetaDataRepositoryAPMpdef()
         {
-            GetMetaData();
+           // GetMetaData();      Serb
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace MissionPlanner.Utilities
                 Reload(vehicle);
         }
 
-        public static async Task GetMetaData(bool force = false)
+        public static async Task GetMetaData(bool force = false)   //SERB
         {
             List<Task> tlist = new List<Task>();
 

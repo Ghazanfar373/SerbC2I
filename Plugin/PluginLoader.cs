@@ -200,7 +200,7 @@ namespace MissionPlanner.Plugin
             }
         }
 
-        public static void LoadAll()
+        public static void LoadAll()        //SERB
         {
             string path = Settings.GetRunningDirectory() + "plugins" +
                           Path.DirectorySeparatorChar;

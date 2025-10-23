@@ -1,4 +1,5 @@
 ﻿///اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّم
+using System;
 using System.Windows.Forms;
 
 namespace MissionPlanner.GCSViews
@@ -37,6 +38,10 @@ namespace MissionPlanner.GCSViews
             this.splitMainPanel = new System.Windows.Forms.SplitContainer();
             this.splitContainerMap = new System.Windows.Forms.SplitContainer();
             this.gMapControlSerb = new MissionPlanner.Controls.myGMAP();
+            this.contextMenuStripMap = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.goHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flyToHereAltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMapMax = new RJCodeAdvance.RJControls.RJButton();
             this.lblMapZoom = new System.Windows.Forms.Label();
@@ -50,15 +55,7 @@ namespace MissionPlanner.GCSViews
             this.lblhdopVal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnVideoVlc = new KLCToolbox.KLCControls.KLCButton();
             this.btnTelem = new KLCToolbox.KLCControls.KLCButton();
-            this.btnSwarm = new KLCToolbox.KLCControls.KLCButton();
-            this.graphicLabelTime = new MissionPlanner.Controls.GraphicLabel();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.statusLabel2 = new CodeArtEng.Controls.StatusLabel();
-            this.statusLabel3 = new CodeArtEng.Controls.StatusLabel();
-            this.statusLabel4 = new CodeArtEng.Controls.StatusLabel();
-            this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
             this.panelMap = new System.Windows.Forms.Panel();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -91,6 +88,7 @@ namespace MissionPlanner.GCSViews
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+            this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -103,7 +101,6 @@ namespace MissionPlanner.GCSViews
             this.labelHudAS = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.hsiHeading = new MissionPlanner.Controls.HSI();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelCapAOA = new System.Windows.Forms.Label();
@@ -112,7 +109,9 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelHg = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.labelUnitHdg = new System.Windows.Forms.Label();
+            this.hsiHeading = new MissionPlanner.Controls.HSI();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -120,10 +119,11 @@ namespace MissionPlanner.GCSViews
             this.labelGPS = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelLinkQualityGcs = new System.Windows.Forms.Label();
             this.panelClock = new System.Windows.Forms.Panel();
             this.labelClock = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.hudSerb = new MissionPlanner.Controls.HUD();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelAGL = new System.Windows.Forms.Label();
@@ -133,7 +133,6 @@ namespace MissionPlanner.GCSViews
             this.labelASL = new System.Windows.Forms.Label();
             this.labelValAsl = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.hudSerb = new MissionPlanner.Controls.HUD();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanelPitch = new System.Windows.Forms.FlowLayoutPanel();
             this.labelTitleAS = new System.Windows.Forms.Label();
@@ -143,13 +142,13 @@ namespace MissionPlanner.GCSViews
             this.labelTitleGS = new System.Windows.Forms.Label();
             this.labelValGS = new System.Windows.Forms.Label();
             this.labelUnitRoll = new System.Windows.Forms.Label();
-            this.mavlinkMsgViewControl1 = new MissionPlanner.Controls.MavlinkMsgViewControl();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.rjToggleBtnArm = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.tableLayoutPanelMessage = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.lblMode = new System.Windows.Forms.Label();
+            this.tableLayoutPanelBatGPS = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
+            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
@@ -164,13 +163,16 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.labelBatteryLevel = new System.Windows.Forms.Label();
+            this.labelBatteryVoltages = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelBatteryCurrent = new System.Windows.Forms.Label();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.labelTimeInAir = new System.Windows.Forms.Label();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.labelBatteryVolateges = new System.Windows.Forms.Label();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelGPSStatus = new System.Windows.Forms.Label();
+            this.tableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
             this.klcButton14 = new KLCToolbox.KLCControls.KLCButton();
             this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
             this.klcButtonDoAction = new KLCToolbox.KLCControls.KLCButton();
@@ -189,6 +191,8 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
+            this.gLabelWarning2 = new MissionPlanner.Controls.GraphicLabel();
+            this.gLabelWarning1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -197,15 +201,16 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel1.SuspendLayout();
             this.splitContainerMap.Panel2.SuspendLayout();
             this.splitContainerMap.SuspendLayout();
+            this.contextMenuStripMap.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.flowLayoutPanelLayer1.SuspendLayout();
             this.tableLayoutPanelHUD.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -227,9 +232,9 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanelPitch.SuspendLayout();
             this.flowLayoutPanelRoll.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanelMessage.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanelBatGPS.SuspendLayout();
             this.flowLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             this.flowLayoutPanel17.SuspendLayout();
@@ -242,7 +247,7 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitMainPanel
@@ -262,9 +267,8 @@ namespace MissionPlanner.GCSViews
             // splitMainPanel.Panel2
             // 
             this.splitMainPanel.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitMainPanel.Panel2.Controls.Add(this.tableLayoutPanelHUD);
-            this.splitMainPanel.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitMainPanel.Panel2.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.splitMainPanel.Panel2.Controls.Add(this.flowLayoutPanelLayer1);
+            this.splitMainPanel.Panel2.Padding = new System.Windows.Forms.Padding(2, 0, 11, 0);
             this.splitMainPanel.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitMainPanel.Size = new System.Drawing.Size(1337, 670);
             this.splitMainPanel.SplitterDistance = 953;
@@ -301,6 +305,7 @@ namespace MissionPlanner.GCSViews
             this.gMapControlSerb.BackColor = System.Drawing.Color.Black;
             this.gMapControlSerb.Bearing = 0F;
             this.gMapControlSerb.CanDragMap = true;
+            this.gMapControlSerb.ContextMenuStrip = this.contextMenuStripMap;
             this.gMapControlSerb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gMapControlSerb.EmptyTileColor = System.Drawing.Color.Gray;
             this.gMapControlSerb.GrayScaleMode = false;
@@ -335,6 +340,37 @@ namespace MissionPlanner.GCSViews
             this.gMapControlSerb.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gMapControlSerb_MouseMove);
             this.gMapControlSerb.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gMapControlSerb_MouseUp);
             // 
+            // contextMenuStripMap
+            // 
+            this.contextMenuStripMap.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStripMap.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.goHereToolStripMenuItem,
+            this.flyToHereAltToolStripMenuItem,
+            this.takeOffToolStripMenuItem});
+            this.contextMenuStripMap.Name = "contextMenuStripMap";
+            this.contextMenuStripMap.Size = new System.Drawing.Size(174, 76);
+            // 
+            // goHereToolStripMenuItem
+            // 
+            this.goHereToolStripMenuItem.Name = "goHereToolStripMenuItem";
+            this.goHereToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.goHereToolStripMenuItem.Text = "Fly to Here";
+            this.goHereToolStripMenuItem.Click += new System.EventHandler(this.goHereToolStripMenuItem_Click);
+            // 
+            // flyToHereAltToolStripMenuItem
+            // 
+            this.flyToHereAltToolStripMenuItem.Name = "flyToHereAltToolStripMenuItem";
+            this.flyToHereAltToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.flyToHereAltToolStripMenuItem.Text = "Fly to Here Alt";
+            this.flyToHereAltToolStripMenuItem.Click += new System.EventHandler(this.flyToHereAltToolStripMenuItem_Click);
+            // 
+            // takeOffToolStripMenuItem
+            // 
+            this.takeOffToolStripMenuItem.Name = "takeOffToolStripMenuItem";
+            this.takeOffToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.takeOffToolStripMenuItem.Text = "TakeOff";
+            this.takeOffToolStripMenuItem.Click += new System.EventHandler(this.takeOffToolStripMenuItem_Click);
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -349,8 +385,8 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.lblhdopVal);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel4.Controls.Add(this.graphicLabelTime);
-            this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel12);
+            this.flowLayoutPanel4.Controls.Add(this.gLabelWarning2);
+            this.flowLayoutPanel4.Controls.Add(this.gLabelWarning1);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 336);
@@ -512,37 +548,13 @@ namespace MissionPlanner.GCSViews
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnVideoVlc);
             this.flowLayoutPanel2.Controls.Add(this.btnTelem);
-            this.flowLayoutPanel2.Controls.Add(this.btnSwarm);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(223, 14);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(397, 14);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(249, 22);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(75, 22);
             this.flowLayoutPanel2.TabIndex = 13;
-            // 
-            // btnVideoVlc
-            // 
-            this.btnVideoVlc.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnVideoVlc.FlatAppearance.BorderSize = 0;
-            this.btnVideoVlc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVideoVlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.btnVideoVlc.ForeColor = System.Drawing.Color.DimGray;
-            this.btnVideoVlc.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnVideoVlc.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnVideoVlc.KLCBorderRadius = 8;
-            this.btnVideoVlc.KLCBorderSize = 0;
-            this.btnVideoVlc.KLCTextColor = System.Drawing.Color.DimGray;
-            this.btnVideoVlc.Location = new System.Drawing.Point(3, 0);
-            this.btnVideoVlc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnVideoVlc.Name = "btnVideoVlc";
-            this.btnVideoVlc.Size = new System.Drawing.Size(76, 22);
-            this.btnVideoVlc.TabIndex = 24;
-            this.btnVideoVlc.Text = "Video";
-            this.btnVideoVlc.UseCompatibleTextRendering = true;
-            this.btnVideoVlc.UseVisualStyleBackColor = false;
-            this.btnVideoVlc.Click += new System.EventHandler(this.btnVideoVlc_Click);
             // 
             // btnTelem
             // 
@@ -556,7 +568,7 @@ namespace MissionPlanner.GCSViews
             this.btnTelem.KLCBorderRadius = 8;
             this.btnTelem.KLCBorderSize = 0;
             this.btnTelem.KLCTextColor = System.Drawing.Color.DimGray;
-            this.btnTelem.Location = new System.Drawing.Point(85, 0);
+            this.btnTelem.Location = new System.Drawing.Point(3, 0);
             this.btnTelem.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnTelem.Name = "btnTelem";
             this.btnTelem.Size = new System.Drawing.Size(76, 22);
@@ -565,124 +577,6 @@ namespace MissionPlanner.GCSViews
             this.btnTelem.UseCompatibleTextRendering = true;
             this.btnTelem.UseVisualStyleBackColor = false;
             this.btnTelem.Click += new System.EventHandler(this.btnTelem_Click);
-            // 
-            // btnSwarm
-            // 
-            this.btnSwarm.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnSwarm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSwarm.FlatAppearance.BorderSize = 0;
-            this.btnSwarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSwarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.btnSwarm.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSwarm.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnSwarm.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSwarm.KLCBorderRadius = 8;
-            this.btnSwarm.KLCBorderSize = 0;
-            this.btnSwarm.KLCTextColor = System.Drawing.Color.DimGray;
-            this.btnSwarm.Location = new System.Drawing.Point(167, 0);
-            this.btnSwarm.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnSwarm.Name = "btnSwarm";
-            this.btnSwarm.Size = new System.Drawing.Size(76, 22);
-            this.btnSwarm.TabIndex = 22;
-            this.btnSwarm.Text = "Swarm";
-            this.btnSwarm.UseCompatibleTextRendering = true;
-            this.btnSwarm.UseVisualStyleBackColor = false;
-            this.btnSwarm.Click += new System.EventHandler(this.btnSwarm_Click);
-            // 
-            // graphicLabelTime
-            // 
-            this.graphicLabelTime.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabelTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
-            this.graphicLabelTime.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabelTime.Location = new System.Drawing.Point(87, 3);
-            this.graphicLabelTime.Name = "graphicLabelTime";
-            this.graphicLabelTime.Size = new System.Drawing.Size(130, 24);
-            this.graphicLabelTime.TabIndex = 28;
-            this.graphicLabelTime.Text = "Hello Serb World !";
-            this.graphicLabelTime.Visible = false;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 4;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.18182F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.20354F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.00885F));
-            this.tableLayoutPanel12.Controls.Add(this.statusLabel2, 2, 0);
-            this.tableLayoutPanel12.Controls.Add(this.statusLabel3, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.statusLabel4, 1, 0);
-            this.tableLayoutPanel12.Controls.Add(this.statusLabel1, 3, 0);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(503, 40);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(445, 33);
-            this.tableLayoutPanel12.TabIndex = 8;
-            // 
-            // statusLabel2
-            // 
-            this.statusLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.statusLabel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.statusLabel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.statusLabel2.Font = new System.Drawing.Font("Calibri Light", 7.8F);
-            this.statusLabel2.Location = new System.Drawing.Point(215, 11);
-            this.statusLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.statusLabel2.MaximumSize = new System.Drawing.Size(999, 18);
-            this.statusLabel2.MinimumSize = new System.Drawing.Size(0, 18);
-            this.statusLabel2.Name = "statusLabel2";
-            this.statusLabel2.Size = new System.Drawing.Size(123, 18);
-            this.statusLabel2.State = CodeArtEng.Controls.StatusLabelState.Red;
-            this.statusLabel2.TabIndex = 5;
-            this.statusLabel2.Text = "Target Heading";
-            // 
-            // statusLabel3
-            // 
-            this.statusLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.statusLabel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.statusLabel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.statusLabel3.Font = new System.Drawing.Font("Calibri Light", 7.8F);
-            this.statusLabel3.Location = new System.Drawing.Point(4, 13);
-            this.statusLabel3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.statusLabel3.MaximumSize = new System.Drawing.Size(1332, 18);
-            this.statusLabel3.MinimumSize = new System.Drawing.Size(0, 18);
-            this.statusLabel3.Name = "statusLabel3";
-            this.statusLabel3.Size = new System.Drawing.Size(102, 18);
-            this.statusLabel3.State = CodeArtEng.Controls.StatusLabelState.Green;
-            this.statusLabel3.TabIndex = 4;
-            this.statusLabel3.Text = "Target Heading";
-            // 
-            // statusLabel4
-            // 
-            this.statusLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.statusLabel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.statusLabel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.statusLabel4.Font = new System.Drawing.Font("Calibri Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel4.Location = new System.Drawing.Point(113, 9);
-            this.statusLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.statusLabel4.MaximumSize = new System.Drawing.Size(1165, 20);
-            this.statusLabel4.MinimumSize = new System.Drawing.Size(0, 20);
-            this.statusLabel4.Name = "statusLabel4";
-            this.statusLabel4.Size = new System.Drawing.Size(96, 20);
-            this.statusLabel4.State = CodeArtEng.Controls.StatusLabelState.Yellow;
-            this.statusLabel4.TabIndex = 3;
-            this.statusLabel4.Text = "Current WP";
-            // 
-            // statusLabel1
-            // 
-            this.statusLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.statusLabel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.statusLabel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.statusLabel1.Font = new System.Drawing.Font("Calibri Light", 7.8F);
-            this.statusLabel1.Location = new System.Drawing.Point(344, 11);
-            this.statusLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.statusLabel1.MaximumSize = new System.Drawing.Size(999, 18);
-            this.statusLabel1.MinimumSize = new System.Drawing.Size(0, 18);
-            this.statusLabel1.Name = "statusLabel1";
-            this.statusLabel1.Size = new System.Drawing.Size(98, 18);
-            this.statusLabel1.TabIndex = 0;
-            this.statusLabel1.Text = "Swarm";
             // 
             // panelMap
             // 
@@ -756,6 +650,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableLayoutPanelQuickView
             // 
+            this.tableLayoutPanelQuickView.AutoSize = true;
             this.tableLayoutPanelQuickView.ColumnCount = 4;
             this.tableLayoutPanelQuickView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelQuickView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -1198,7 +1093,6 @@ namespace MissionPlanner.GCSViews
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zedGraphControl1.Location = new System.Drawing.Point(3, 2);
             this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.zedGraphControl1.Name = "zedGraphControl1";
@@ -1209,8 +1103,21 @@ namespace MissionPlanner.GCSViews
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(918, 278);
+            this.zedGraphControl1.Size = new System.Drawing.Size(410, 278);
             this.zedGraphControl1.TabIndex = 0;
+            // 
+            // flowLayoutPanelLayer1
+            // 
+            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelHUD);
+            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelMessage);
+            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelBatGPS);
+            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelButtons);
+            this.flowLayoutPanelLayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelLayer1.Location = new System.Drawing.Point(2, 0);
+            this.flowLayoutPanelLayer1.Margin = new System.Windows.Forms.Padding(1);
+            this.flowLayoutPanelLayer1.Name = "flowLayoutPanelLayer1";
+            this.flowLayoutPanelLayer1.Size = new System.Drawing.Size(367, 670);
+            this.flowLayoutPanelLayer1.TabIndex = 0;
             // 
             // tableLayoutPanelHUD
             // 
@@ -1219,16 +1126,14 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel6, 0, 1);
-            this.tableLayoutPanelHUD.Controls.Add(this.mavlinkMsgViewControl1, 0, 3);
-            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(11, 2);
-            this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.tableLayoutPanelHUD.Name = "tableLayoutPanelHUD";
-            this.tableLayoutPanelHUD.RowCount = 4;
-            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.014553F));
-            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58929F));
-            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.3816F));
-            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.014553F));
-            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(373, 462);
+            this.tableLayoutPanelHUD.RowCount = 3;
+            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.266736F));
+            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.69603F));
+            this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.05286F));
+            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(358, 454);
             this.tableLayoutPanelHUD.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -1238,15 +1143,15 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel10, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.hsiHeading, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 253);
+            this.tableLayoutPanel4.Controls.Add(this.hsiHeading, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 255);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(367, 162);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(352, 178);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
             // tableLayoutPanel10
@@ -1257,13 +1162,13 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel9, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel10, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(285, 2);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(273, 2);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(79, 158);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(76, 174);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // flowLayoutPanel9
@@ -1273,11 +1178,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel9.Controls.Add(this.label14);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 81);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 89);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(73, 75);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(70, 83);
             this.flowLayoutPanel9.TabIndex = 2;
             // 
             // labelCapGS
@@ -1287,12 +1192,13 @@ namespace MissionPlanner.GCSViews
             this.labelCapGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCapGS.Location = new System.Drawing.Point(5, 5);
             this.labelCapGS.Margin = new System.Windows.Forms.Padding(0);
+            this.labelCapGS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelCapGS.Name = "labelCapGS";
             this.labelCapGS.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.labelCapGS.Size = new System.Drawing.Size(35, 20);
+            this.labelCapGS.Size = new System.Drawing.Size(60, 20);
             this.labelCapGS.TabIndex = 9;
             this.labelCapGS.Text = "GS";
-            this.labelCapGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelCapGS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelHudGS
             // 
@@ -1300,11 +1206,11 @@ namespace MissionPlanner.GCSViews
             this.labelHudGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "groundspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.labelHudGS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelHudGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelHudGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHudGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHudGS.Location = new System.Drawing.Point(5, 25);
             this.labelHudGS.Margin = new System.Windows.Forms.Padding(0);
             this.labelHudGS.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelHudGS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelHudGS.MinimumSize = new System.Drawing.Size(60, 20);
             this.labelHudGS.Name = "labelHudGS";
             this.labelHudGS.Size = new System.Drawing.Size(60, 20);
             this.labelHudGS.TabIndex = 10;
@@ -1314,14 +1220,16 @@ namespace MissionPlanner.GCSViews
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label14.Location = new System.Drawing.Point(8, 45);
             this.label14.MaximumSize = new System.Drawing.Size(0, 14);
-            this.label14.MinimumSize = new System.Drawing.Size(32, 0);
+            this.label14.MinimumSize = new System.Drawing.Size(52, 0);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.label14.Size = new System.Drawing.Size(32, 14);
+            this.label14.Size = new System.Drawing.Size(52, 14);
             this.label14.TabIndex = 11;
             this.label14.Text = "m/s";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel10
             // 
@@ -1335,7 +1243,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(73, 75);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(70, 83);
             this.flowLayoutPanel10.TabIndex = 1;
             // 
             // labelCapAS
@@ -1345,24 +1253,23 @@ namespace MissionPlanner.GCSViews
             this.labelCapAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCapAS.Location = new System.Drawing.Point(5, 5);
             this.labelCapAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCapAS.MinimumSize = new System.Drawing.Size(36, 0);
+            this.labelCapAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelCapAS.Name = "labelCapAS";
             this.labelCapAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelCapAS.Size = new System.Drawing.Size(39, 20);
+            this.labelCapAS.Size = new System.Drawing.Size(60, 20);
             this.labelCapAS.TabIndex = 4;
             this.labelCapAS.Text = "AS";
-            this.labelCapAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelHudAS
             // 
             this.labelHudAS.AutoSize = true;
             this.labelHudAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "airspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.labelHudAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelHudAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHudAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHudAS.Location = new System.Drawing.Point(5, 25);
             this.labelHudAS.Margin = new System.Windows.Forms.Padding(0);
             this.labelHudAS.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelHudAS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelHudAS.MinimumSize = new System.Drawing.Size(60, 20);
             this.labelHudAS.Name = "labelHudAS";
             this.labelHudAS.Size = new System.Drawing.Size(60, 20);
             this.labelHudAS.TabIndex = 5;
@@ -1374,33 +1281,22 @@ namespace MissionPlanner.GCSViews
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 45);
             this.label1.MaximumSize = new System.Drawing.Size(0, 14);
-            this.label1.MinimumSize = new System.Drawing.Size(32, 0);
+            this.label1.MinimumSize = new System.Drawing.Size(52, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.label1.Size = new System.Drawing.Size(32, 14);
+            this.label1.Size = new System.Drawing.Size(52, 14);
             this.label1.TabIndex = 12;
             this.label1.Text = "m/s";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(65, 5);
+            this.label17.Location = new System.Drawing.Point(5, 59);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(0, 16);
             this.label17.TabIndex = 6;
-            // 
-            // hsiHeading
-            // 
-            this.hsiHeading.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
-            this.hsiHeading.Heading = 0;
-            this.hsiHeading.Location = new System.Drawing.Point(99, 5);
-            this.hsiHeading.Margin = new System.Windows.Forms.Padding(15, 5, 15, 2);
-            this.hsiHeading.Name = "hsiHeading";
-            this.hsiHeading.NavHeading = 0;
-            this.hsiHeading.Size = new System.Drawing.Size(155, 155);
-            this.hsiHeading.TabIndex = 0;
-            this.hsiHeading.Load += new System.EventHandler(this.hsi1_Load);
             // 
             // tableLayoutPanel9
             // 
@@ -1416,7 +1312,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(78, 158);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(74, 174);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // flowLayoutPanel8
@@ -1426,11 +1322,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel8.Controls.Add(this.labelUnitAOA);
             this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 81);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 89);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
             this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(72, 75);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(68, 83);
             this.flowLayoutPanel8.TabIndex = 2;
             // 
             // labelCapAOA
@@ -1439,24 +1335,26 @@ namespace MissionPlanner.GCSViews
             this.labelCapAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCapAOA.Location = new System.Drawing.Point(5, 5);
             this.labelCapAOA.Margin = new System.Windows.Forms.Padding(0);
+            this.labelCapAOA.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelCapAOA.Name = "labelCapAOA";
             this.labelCapAOA.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelCapAOA.Size = new System.Drawing.Size(53, 20);
+            this.labelCapAOA.Size = new System.Drawing.Size(60, 20);
             this.labelCapAOA.TabIndex = 9;
             this.labelCapAOA.Text = "AOA";
-            this.labelCapAOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelCapAOA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelValAOA
             // 
             this.labelValAOA.AutoSize = true;
             this.labelValAOA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.labelValAOA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelValAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAOA.Location = new System.Drawing.Point(5, 25);
             this.labelValAOA.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAOA.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelValAOA.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelValAOA.MinimumSize = new System.Drawing.Size(60, 20);
             this.labelValAOA.Name = "labelValAOA";
-            this.labelValAOA.Size = new System.Drawing.Size(60, 22);
+            this.labelValAOA.Size = new System.Drawing.Size(60, 20);
             this.labelValAOA.TabIndex = 10;
             this.labelValAOA.Text = "7000";
             this.labelValAOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1464,16 +1362,20 @@ namespace MissionPlanner.GCSViews
             // labelUnitAOA
             // 
             this.labelUnitAOA.AutoSize = true;
-            this.labelUnitAOA.Location = new System.Drawing.Point(8, 47);
+            this.labelUnitAOA.Location = new System.Drawing.Point(8, 45);
+            this.labelUnitAOA.MaximumSize = new System.Drawing.Size(52, 15);
+            this.labelUnitAOA.MinimumSize = new System.Drawing.Size(52, 16);
             this.labelUnitAOA.Name = "labelUnitAOA";
-            this.labelUnitAOA.Size = new System.Drawing.Size(16, 16);
+            this.labelUnitAOA.Size = new System.Drawing.Size(52, 16);
             this.labelUnitAOA.TabIndex = 11;
-            this.labelUnitAOA.Text = "...";
+            this.labelUnitAOA.Text = "deg";
+            this.labelUnitAOA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel7
             // 
             this.flowLayoutPanel7.Controls.Add(this.labelHg);
             this.flowLayoutPanel7.Controls.Add(this.label4);
+            this.flowLayoutPanel7.Controls.Add(this.label6);
             this.flowLayoutPanel7.Controls.Add(this.labelUnitHdg);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -1481,7 +1383,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(72, 75);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(68, 83);
             this.flowLayoutPanel7.TabIndex = 1;
             // 
             // labelHg
@@ -1490,44 +1392,68 @@ namespace MissionPlanner.GCSViews
             this.labelHg.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHg.Location = new System.Drawing.Point(5, 5);
             this.labelHg.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHg.MinimumSize = new System.Drawing.Size(36, 0);
+            this.labelHg.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelHg.Name = "labelHg";
             this.labelHg.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelHg.Size = new System.Drawing.Size(53, 20);
+            this.labelHg.Size = new System.Drawing.Size(60, 20);
             this.labelHg.TabIndex = 4;
             this.labelHg.Text = "HDG";
-            this.labelHg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(5, 25);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.MinimumSize = new System.Drawing.Size(60, 0);
+            this.label4.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label4.MinimumSize = new System.Drawing.Size(60, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 22);
+            this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "180";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 45);
+            this.label6.MaximumSize = new System.Drawing.Size(52, 15);
+            this.label6.MinimumSize = new System.Drawing.Size(52, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "deg";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelUnitHdg
             // 
             this.labelUnitHdg.AutoSize = true;
-            this.labelUnitHdg.Location = new System.Drawing.Point(5, 47);
+            this.labelUnitHdg.Location = new System.Drawing.Point(5, 60);
             this.labelUnitHdg.Margin = new System.Windows.Forms.Padding(0);
             this.labelUnitHdg.Name = "labelUnitHdg";
             this.labelUnitHdg.Size = new System.Drawing.Size(0, 16);
             this.labelUnitHdg.TabIndex = 6;
             // 
+            // hsiHeading
+            // 
+            this.hsiHeading.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.hsiHeading.Heading = 0;
+            this.hsiHeading.Location = new System.Drawing.Point(95, 5);
+            this.hsiHeading.Margin = new System.Windows.Forms.Padding(15, 5, 15, 2);
+            this.hsiHeading.Name = "hsiHeading";
+            this.hsiHeading.NavHeading = 0;
+            this.hsiHeading.Size = new System.Drawing.Size(155, 155);
+            this.hsiHeading.TabIndex = 0;
+            this.hsiHeading.Load += new System.EventHandler(this.hsi1_Load);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.15265F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.69471F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.15265F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.23442F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.90504F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.86053F));
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.panelClock, 1, 0);
@@ -1536,7 +1462,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(367, 34);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(337, 32);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -1548,7 +1474,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(108, 30);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(106, 28);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // pictureBox1
@@ -1582,7 +1508,7 @@ namespace MissionPlanner.GCSViews
             this.labelGPS.ForeColor = System.Drawing.SystemColors.Control;
             this.labelGPS.Location = new System.Drawing.Point(3, 29);
             this.labelGPS.Name = "labelGPS";
-            this.labelGPS.Size = new System.Drawing.Size(101, 16);
+            this.labelGPS.Size = new System.Drawing.Size(59, 32);
             this.labelGPS.TabIndex = 6;
             this.labelGPS.Text = "GPS: NO Signal";
             this.labelGPS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1590,12 +1516,12 @@ namespace MissionPlanner.GCSViews
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel1.Controls.Add(this.label12);
+            this.flowLayoutPanel1.Controls.Add(this.labelLinkQualityGcs);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(255, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(235, 2);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(109, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(99, 28);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pictureBox2
@@ -1608,182 +1534,61 @@ namespace MissionPlanner.GCSViews
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
-            // label12
+            // labelLinkQualityGcs
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(38, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 20);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "100%";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLinkQualityGcs.AutoSize = true;
+            this.labelLinkQualityGcs.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "linkqualitygcs", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "00 \'%\'"));
+            this.labelLinkQualityGcs.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.labelLinkQualityGcs.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelLinkQualityGcs.Location = new System.Drawing.Point(38, 0);
+            this.labelLinkQualityGcs.MinimumSize = new System.Drawing.Size(55, 25);
+            this.labelLinkQualityGcs.Name = "labelLinkQualityGcs";
+            this.labelLinkQualityGcs.Size = new System.Drawing.Size(55, 25);
+            this.labelLinkQualityGcs.TabIndex = 8;
+            this.labelLinkQualityGcs.Text = "100%";
+            this.labelLinkQualityGcs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelClock
             // 
             this.panelClock.Controls.Add(this.labelClock);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelClock.Location = new System.Drawing.Point(117, 2);
+            this.panelClock.Location = new System.Drawing.Point(115, 2);
             this.panelClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(132, 30);
+            this.panelClock.Size = new System.Drawing.Size(114, 28);
             this.panelClock.TabIndex = 2;
             // 
             // labelClock
             // 
             this.labelClock.AutoSize = true;
-            this.labelClock.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "datetime", true));
             this.labelClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelClock.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelClock.Location = new System.Drawing.Point(0, 0);
             this.labelClock.Margin = new System.Windows.Forms.Padding(0);
+            this.labelClock.MinimumSize = new System.Drawing.Size(125, 25);
             this.labelClock.Name = "labelClock";
-            this.labelClock.Size = new System.Drawing.Size(71, 20);
+            this.labelClock.Size = new System.Drawing.Size(125, 25);
             this.labelClock.TabIndex = 2;
             this.labelClock.Text = "09:08:23";
             this.labelClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.hudSerb, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 44);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(367, 204);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(352, 207);
             this.tableLayoutPanel6.TabIndex = 1;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel5, 0, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(285, 2);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(79, 200);
-            this.tableLayoutPanel8.TabIndex = 6;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.labelAGL);
-            this.flowLayoutPanel6.Controls.Add(this.labelValAgl);
-            this.flowLayoutPanel6.Controls.Add(this.label13);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 109);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(73, 89);
-            this.flowLayoutPanel6.TabIndex = 3;
-            // 
-            // labelAGL
-            // 
-            this.labelAGL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAGL.AutoSize = true;
-            this.labelAGL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAGL.Location = new System.Drawing.Point(5, 5);
-            this.labelAGL.Margin = new System.Windows.Forms.Padding(0);
-            this.labelAGL.Name = "labelAGL";
-            this.labelAGL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelAGL.Size = new System.Drawing.Size(60, 20);
-            this.labelAGL.TabIndex = 9;
-            this.labelAGL.Text = "AGL";
-            this.labelAGL.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // labelValAgl
-            // 
-            this.labelValAgl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelValAgl.AutoSize = true;
-            this.labelValAgl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
-            this.labelValAgl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelValAgl.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAgl.Location = new System.Drawing.Point(5, 25);
-            this.labelValAgl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAgl.MinimumSize = new System.Drawing.Size(60, 0);
-            this.labelValAgl.Name = "labelValAgl";
-            this.labelValAgl.Size = new System.Drawing.Size(60, 28);
-            this.labelValAgl.TabIndex = 10;
-            this.labelValAgl.Text = "N/D";
-            this.labelValAgl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelValAgl.UseCompatibleTextRendering = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 53);
-            this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label13.Size = new System.Drawing.Size(52, 16);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "meter";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.labelASL);
-            this.flowLayoutPanel5.Controls.Add(this.labelValAsl);
-            this.flowLayoutPanel5.Controls.Add(this.label9);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(73, 103);
-            this.flowLayoutPanel5.TabIndex = 2;
-            // 
-            // labelASL
-            // 
-            this.labelASL.AutoSize = true;
-            this.labelASL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelASL.Location = new System.Drawing.Point(5, 5);
-            this.labelASL.Margin = new System.Windows.Forms.Padding(0);
-            this.labelASL.Name = "labelASL";
-            this.labelASL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelASL.Size = new System.Drawing.Size(47, 20);
-            this.labelASL.TabIndex = 9;
-            this.labelASL.Text = "ASL";
-            this.labelASL.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // labelValAsl
-            // 
-            this.labelValAsl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "altasl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
-            this.labelValAsl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelValAsl.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAsl.Location = new System.Drawing.Point(5, 25);
-            this.labelValAsl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAsl.MinimumSize = new System.Drawing.Size(45, 0);
-            this.labelValAsl.Name = "labelValAsl";
-            this.labelValAsl.Size = new System.Drawing.Size(60, 22);
-            this.labelValAsl.TabIndex = 10;
-            this.labelValAsl.Text = "N/D";
-            this.labelValAsl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 47);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label9.Size = new System.Drawing.Size(52, 16);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "meter";
             // 
             // hudSerb
             // 
@@ -1878,15 +1683,15 @@ namespace MissionPlanner.GCSViews
             this.hudSerb.hudcolor = System.Drawing.Color.LightGray;
             this.hudSerb.linkqualitygcs = 0F;
             this.hudSerb.load = 0F;
-            this.hudSerb.Location = new System.Drawing.Point(84, 4);
+            this.hudSerb.Location = new System.Drawing.Point(80, 4);
             this.hudSerb.lowairspeed = false;
             this.hudSerb.lowgroundspeed = false;
             this.hudSerb.lowvoltagealert = false;
             this.hudSerb.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.hudSerb.MaximumSize = new System.Drawing.Size(200, 199);
+            this.hudSerb.MaximumSize = new System.Drawing.Size(190, 190);
             this.hudSerb.message = "";
             this.hudSerb.messageSeverity = MAVLink.MAV_SEVERITY.EMERGENCY;
-            this.hudSerb.MinimumSize = new System.Drawing.Size(200, 199);
+            this.hudSerb.MinimumSize = new System.Drawing.Size(190, 190);
             this.hudSerb.mode = "Unknown";
             this.hudSerb.Name = "hudSerb";
             this.hudSerb.navpitch = 0F;
@@ -1894,7 +1699,7 @@ namespace MissionPlanner.GCSViews
             this.hudSerb.pitch = 0F;
             this.hudSerb.roll = 0F;
             this.hudSerb.Russian = false;
-            this.hudSerb.Size = new System.Drawing.Size(200, 199);
+            this.hudSerb.Size = new System.Drawing.Size(190, 190);
             this.hudSerb.skyColor1 = System.Drawing.Color.Blue;
             this.hudSerb.skyColor2 = System.Drawing.Color.LightBlue;
             this.hudSerb.speedunit = null;
@@ -1914,6 +1719,130 @@ namespace MissionPlanner.GCSViews
             this.hudSerb.xtrack_error = 0F;
             this.hudSerb.Resize += new System.EventHandler(this.hudSerb_Resize);
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel5, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(273, 2);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(76, 203);
+            this.tableLayoutPanel8.TabIndex = 6;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.labelAGL);
+            this.flowLayoutPanel6.Controls.Add(this.labelValAgl);
+            this.flowLayoutPanel6.Controls.Add(this.label13);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 112);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(70, 89);
+            this.flowLayoutPanel6.TabIndex = 3;
+            // 
+            // labelAGL
+            // 
+            this.labelAGL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAGL.AutoSize = true;
+            this.labelAGL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAGL.Location = new System.Drawing.Point(5, 5);
+            this.labelAGL.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAGL.Name = "labelAGL";
+            this.labelAGL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelAGL.Size = new System.Drawing.Size(60, 20);
+            this.labelAGL.TabIndex = 9;
+            this.labelAGL.Text = "AGL";
+            this.labelAGL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelValAgl
+            // 
+            this.labelValAgl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelValAgl.AutoSize = true;
+            this.labelValAgl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAgl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.labelValAgl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValAgl.Location = new System.Drawing.Point(5, 25);
+            this.labelValAgl.Margin = new System.Windows.Forms.Padding(0);
+            this.labelValAgl.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelValAgl.Name = "labelValAgl";
+            this.labelValAgl.Size = new System.Drawing.Size(60, 24);
+            this.labelValAgl.TabIndex = 10;
+            this.labelValAgl.Text = "7000";
+            this.labelValAgl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelValAgl.UseCompatibleTextRendering = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 49);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label13.Size = new System.Drawing.Size(52, 16);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "meter";
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.labelASL);
+            this.flowLayoutPanel5.Controls.Add(this.labelValAsl);
+            this.flowLayoutPanel5.Controls.Add(this.label9);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(70, 106);
+            this.flowLayoutPanel5.TabIndex = 2;
+            // 
+            // labelASL
+            // 
+            this.labelASL.AutoSize = true;
+            this.labelASL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelASL.Location = new System.Drawing.Point(5, 5);
+            this.labelASL.Margin = new System.Windows.Forms.Padding(0);
+            this.labelASL.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelASL.Name = "labelASL";
+            this.labelASL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.labelASL.Size = new System.Drawing.Size(60, 20);
+            this.labelASL.TabIndex = 9;
+            this.labelASL.Text = "ASL";
+            this.labelASL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelValAsl
+            // 
+            this.labelValAsl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "altasl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAsl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.labelValAsl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValAsl.Location = new System.Drawing.Point(5, 25);
+            this.labelValAsl.Margin = new System.Windows.Forms.Padding(0);
+            this.labelValAsl.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValAsl.Name = "labelValAsl";
+            this.labelValAsl.Size = new System.Drawing.Size(60, 28);
+            this.labelValAsl.TabIndex = 10;
+            this.labelValAsl.Text = "8000";
+            this.labelValAsl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 53);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label9.Size = new System.Drawing.Size(52, 16);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "meter";
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
@@ -1927,7 +1856,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(78, 200);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(74, 203);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // flowLayoutPanelPitch
@@ -1937,11 +1866,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelPitch.Controls.Add(this.labelSpeedUnit);
             this.flowLayoutPanelPitch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelPitch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(3, 109);
+            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(3, 112);
             this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelPitch.Name = "flowLayoutPanelPitch";
             this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(72, 89);
+            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(68, 89);
             this.flowLayoutPanelPitch.TabIndex = 1;
             // 
             // labelTitleAS
@@ -1950,38 +1879,41 @@ namespace MissionPlanner.GCSViews
             this.labelTitleAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitleAS.Location = new System.Drawing.Point(5, 5);
             this.labelTitleAS.Margin = new System.Windows.Forms.Padding(0);
+            this.labelTitleAS.MaximumSize = new System.Drawing.Size(50, 0);
+            this.labelTitleAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelTitleAS.Name = "labelTitleAS";
             this.labelTitleAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelTitleAS.Size = new System.Drawing.Size(55, 20);
+            this.labelTitleAS.Size = new System.Drawing.Size(60, 0);
             this.labelTitleAS.TabIndex = 9;
             this.labelTitleAS.Text = "Pitch";
-            this.labelTitleAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTitleAS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelValAS
             // 
             this.labelValAS.AutoSize = true;
             this.labelValAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.labelValAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelValAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAS.Location = new System.Drawing.Point(5, 25);
             this.labelValAS.Margin = new System.Windows.Forms.Padding(0);
             this.labelValAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValAS.Name = "labelValAS";
-            this.labelValAS.Size = new System.Drawing.Size(60, 28);
+            this.labelValAS.Size = new System.Drawing.Size(60, 24);
             this.labelValAS.TabIndex = 10;
-            this.labelValAS.Text = "7000";
+            this.labelValAS.Text = "34.5";
             this.labelValAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelValAS.UseCompatibleTextRendering = true;
             // 
             // labelSpeedUnit
             // 
             this.labelSpeedUnit.AutoSize = true;
-            this.labelSpeedUnit.Location = new System.Drawing.Point(8, 53);
+            this.labelSpeedUnit.Location = new System.Drawing.Point(8, 49);
+            this.labelSpeedUnit.MinimumSize = new System.Drawing.Size(52, 0);
             this.labelSpeedUnit.Name = "labelSpeedUnit";
             this.labelSpeedUnit.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelSpeedUnit.Size = new System.Drawing.Size(51, 16);
+            this.labelSpeedUnit.Size = new System.Drawing.Size(52, 16);
             this.labelSpeedUnit.TabIndex = 11;
-            this.labelSpeedUnit.Text = "Knots";
+            this.labelSpeedUnit.Text = "deg";
             // 
             // flowLayoutPanelRoll
             // 
@@ -1994,7 +1926,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelRoll.Name = "flowLayoutPanelRoll";
             this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(72, 103);
+            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(68, 106);
             this.flowLayoutPanelRoll.TabIndex = 0;
             // 
             // labelTitleGS
@@ -2003,161 +1935,164 @@ namespace MissionPlanner.GCSViews
             this.labelTitleGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitleGS.Location = new System.Drawing.Point(5, 5);
             this.labelTitleGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTitleGS.MinimumSize = new System.Drawing.Size(36, 0);
+            this.labelTitleGS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelTitleGS.Name = "labelTitleGS";
             this.labelTitleGS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelTitleGS.Size = new System.Drawing.Size(47, 20);
+            this.labelTitleGS.Size = new System.Drawing.Size(60, 20);
             this.labelTitleGS.TabIndex = 4;
             this.labelTitleGS.Text = "Roll";
-            this.labelTitleGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTitleGS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelValGS
             // 
             this.labelValGS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelValGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
             this.labelValGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.labelValGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValGS.Location = new System.Drawing.Point(5, 25);
             this.labelValGS.Margin = new System.Windows.Forms.Padding(0);
             this.labelValGS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelValGS.Name = "labelValGS";
-            this.labelValGS.Size = new System.Drawing.Size(60, 22);
+            this.labelValGS.Size = new System.Drawing.Size(60, 28);
             this.labelValGS.TabIndex = 5;
-            this.labelValGS.Text = "8000";
+            this.labelValGS.Text = "45.7";
             this.labelValGS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelUnitRoll
             // 
             this.labelUnitRoll.AutoSize = true;
-            this.labelUnitRoll.Location = new System.Drawing.Point(5, 47);
+            this.labelUnitRoll.Location = new System.Drawing.Point(5, 53);
             this.labelUnitRoll.Margin = new System.Windows.Forms.Padding(0);
+            this.labelUnitRoll.MinimumSize = new System.Drawing.Size(52, 0);
             this.labelUnitRoll.Name = "labelUnitRoll";
             this.labelUnitRoll.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelUnitRoll.Size = new System.Drawing.Size(42, 16);
+            this.labelUnitRoll.Size = new System.Drawing.Size(52, 16);
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
             // 
-            // mavlinkMsgViewControl1
+            // tableLayoutPanelMessage
             // 
-            this.mavlinkMsgViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mavlinkMsgViewControl1.Location = new System.Drawing.Point(3, 421);
-            this.mavlinkMsgViewControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mavlinkMsgViewControl1.message = "Warning";
-            this.mavlinkMsgViewControl1.Name = "mavlinkMsgViewControl1";
-            this.mavlinkMsgViewControl1.Size = new System.Drawing.Size(367, 39);
-            this.mavlinkMsgViewControl1.status = "Armed";
-            this.mavlinkMsgViewControl1.TabIndex = 15;
+            this.tableLayoutPanelMessage.ColumnCount = 2;
+            this.tableLayoutPanelMessage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanelMessage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanelMessage.Controls.Add(this.tableLayoutPanel12, 1, 0);
+            this.tableLayoutPanelMessage.Controls.Add(this.lblMode, 0, 0);
+            this.tableLayoutPanelMessage.Location = new System.Drawing.Point(2, 460);
+            this.tableLayoutPanelMessage.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.tableLayoutPanelMessage.Name = "tableLayoutPanelMessage";
+            this.tableLayoutPanelMessage.RowCount = 1;
+            this.tableLayoutPanelMessage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMessage.Size = new System.Drawing.Size(365, 37);
+            this.tableLayoutPanelMessage.TabIndex = 27;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanel12
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel13, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(358, 670);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.lblMessage, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(112, 2);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(250, 33);
+            this.tableLayoutPanel12.TabIndex = 1;
             // 
-            // tableLayoutPanel13
+            // lblMessage
             // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel11, 0, 1);
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 337);
-            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 2;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.54663F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.45337F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(352, 331);
-            this.tableLayoutPanel13.TabIndex = 23;
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblMessage.Location = new System.Drawing.Point(3, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(244, 33);
+            this.lblMessage.TabIndex = 27;
+            this.lblMessage.Text = "No Connection Warning : 34";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
+            // lblMode
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04533F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.97734F));
-            this.tableLayoutPanel3.Controls.Add(this.label18, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.rjToggleBtnArm, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label15, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label10, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel16, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel17, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label16, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel18, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel11, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel15, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel14, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(346, 133);
-            this.tableLayoutPanel3.TabIndex = 23;
+            this.lblMode.AutoSize = true;
+            this.lblMode.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.lblMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMode.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblMode.Location = new System.Drawing.Point(3, 0);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(103, 37);
+            this.lblMode.TabIndex = 2;
+            this.lblMode.Text = "Guided";
+            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label18
+            // tableLayoutPanelBatGPS
             // 
-            this.label18.AutoSize = true;
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(100, 99);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label18.Size = new System.Drawing.Size(118, 25);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Arm/DisArm";
-            // 
-            // rjToggleBtnArm
-            // 
-            this.rjToggleBtnArm.AutoSize = true;
-            this.rjToggleBtnArm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rjToggleBtnArm.Location = new System.Drawing.Point(3, 101);
-            this.rjToggleBtnArm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rjToggleBtnArm.MaximumSize = new System.Drawing.Size(69, 90);
-            this.rjToggleBtnArm.MinimumSize = new System.Drawing.Size(69, 25);
-            this.rjToggleBtnArm.Name = "rjToggleBtnArm";
-            this.rjToggleBtnArm.OffBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.rjToggleBtnArm.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.rjToggleBtnArm.OnBackColor = System.Drawing.Color.DarkRed;
-            this.rjToggleBtnArm.OnToggleColor = System.Drawing.Color.Goldenrod;
-            this.rjToggleBtnArm.Size = new System.Drawing.Size(69, 25);
-            this.rjToggleBtnArm.TabIndex = 25;
-            this.rjToggleBtnArm.UseVisualStyleBackColor = true;
-            this.rjToggleBtnArm.CheckedChanged += new System.EventHandler(this.rjToggleBtnArm_CheckedChanged);
+            this.tableLayoutPanelBatGPS.ColumnCount = 3;
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25592F));
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.16667F));
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.72222F));
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label15, 2, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.klcButtonArmDisArm, 0, 3);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label10, 2, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel16, 1, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel17, 1, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label16, 2, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel18, 1, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel11, 0, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel15, 0, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel14, 0, 1);
+            this.tableLayoutPanelBatGPS.Location = new System.Drawing.Point(3, 508);
+            this.tableLayoutPanelBatGPS.Margin = new System.Windows.Forms.Padding(3, 9, 3, 0);
+            this.tableLayoutPanelBatGPS.Name = "tableLayoutPanelBatGPS";
+            this.tableLayoutPanelBatGPS.RowCount = 4;
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.Size = new System.Drawing.Size(360, 200);
+            this.tableLayoutPanelBatGPS.TabIndex = 23;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Dock = System.Windows.Forms.DockStyle.Left;
             this.label15.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(224, 66);
+            this.label15.Location = new System.Drawing.Point(273, 100);
             this.label15.MaximumSize = new System.Drawing.Size(0, 25);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label15.Size = new System.Drawing.Size(107, 25);
+            this.label15.Size = new System.Drawing.Size(76, 25);
             this.label15.TabIndex = 21;
             this.label15.Text = "Set Loiter Rad";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // klcButtonArmDisArm
+            // 
+            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.DarkRed;
+            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
+            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.DarkRed;
+            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.Purple;
+            this.klcButtonArmDisArm.KLCBorderRadius = 21;
+            this.klcButtonArmDisArm.KLCBorderSize = 0;
+            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.WhiteSmoke;
+            this.klcButtonArmDisArm.Location = new System.Drawing.Point(3, 153);
+            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
+            this.klcButtonArmDisArm.Size = new System.Drawing.Size(99, 28);
+            this.klcButtonArmDisArm.TabIndex = 27;
+            this.klcButtonArmDisArm.Text = "Arm/DisArm";
+            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
+            this.klcButtonArmDisArm.Click += new System.EventHandler(this.rjToggleBtnArm_CheckedChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(224, 33);
+            this.label10.Location = new System.Drawing.Point(273, 50);
             this.label10.MaximumSize = new System.Drawing.Size(0, 25);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
@@ -2171,10 +2106,10 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel16.Controls.Add(this.klcButtonSetSpeed);
             this.flowLayoutPanel16.Controls.Add(this.numericUpDownSpeed);
             this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(100, 35);
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(133, 52);
             this.flowLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(118, 29);
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(134, 46);
             this.flowLayoutPanel16.TabIndex = 19;
             // 
             // klcButtonSetSpeed
@@ -2201,7 +2136,7 @@ namespace MissionPlanner.GCSViews
             // 
             // numericUpDownSpeed
             // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(49, 2);
             this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownSpeed.Maximum = new decimal(new int[] {
             1000,
@@ -2222,10 +2157,10 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel17.Controls.Add(this.klcButtonSetAlt);
             this.flowLayoutPanel17.Controls.Add(this.numericUpDownAlt);
             this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel17.Location = new System.Drawing.Point(100, 2);
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(133, 2);
             this.flowLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel17.Name = "flowLayoutPanel17";
-            this.flowLayoutPanel17.Size = new System.Drawing.Size(118, 29);
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(134, 46);
             this.flowLayoutPanel17.TabIndex = 22;
             // 
             // klcButtonSetAlt
@@ -2252,7 +2187,7 @@ namespace MissionPlanner.GCSViews
             // 
             // numericUpDownAlt
             // 
-            this.numericUpDownAlt.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDownAlt.Location = new System.Drawing.Point(49, 2);
             this.numericUpDownAlt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownAlt.Maximum = new decimal(new int[] {
             1000,
@@ -2273,7 +2208,7 @@ namespace MissionPlanner.GCSViews
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Left;
             this.label16.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(224, 0);
+            this.label16.Location = new System.Drawing.Point(273, 0);
             this.label16.MaximumSize = new System.Drawing.Size(0, 25);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
@@ -2287,10 +2222,10 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel18.Controls.Add(this.klcButtonSetLoiterRad);
             this.flowLayoutPanel18.Controls.Add(this.numericUpDownLoiter);
             this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel18.Location = new System.Drawing.Point(100, 68);
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(133, 102);
             this.flowLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(118, 29);
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(134, 46);
             this.flowLayoutPanel18.TabIndex = 23;
             // 
             // klcButtonSetLoiterRad
@@ -2317,7 +2252,7 @@ namespace MissionPlanner.GCSViews
             // 
             // numericUpDownLoiter
             // 
-            this.numericUpDownLoiter.Location = new System.Drawing.Point(3, 27);
+            this.numericUpDownLoiter.Location = new System.Drawing.Point(49, 2);
             this.numericUpDownLoiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownLoiter.Maximum = new decimal(new int[] {
             10000,
@@ -2342,18 +2277,21 @@ namespace MissionPlanner.GCSViews
             // 
             this.flowLayoutPanel11.Controls.Add(this.pictureBox6);
             this.flowLayoutPanel11.Controls.Add(this.labelBatteryLevel);
+            this.flowLayoutPanel11.Controls.Add(this.labelBatteryVoltages);
+            this.flowLayoutPanel11.Controls.Add(this.label3);
+            this.flowLayoutPanel11.Controls.Add(this.labelBatteryCurrent);
             this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(91, 29);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(124, 46);
             this.flowLayoutPanel11.TabIndex = 16;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox6.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(16, 16);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -2364,26 +2302,63 @@ namespace MissionPlanner.GCSViews
             // 
             this.labelBatteryLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBatteryLevel.AutoSize = true;
-            this.labelBatteryLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_remaining", true));
-            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryLevel.Location = new System.Drawing.Point(25, 2);
-            this.labelBatteryLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelBatteryLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_remaining", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "00 \'%\'"));
+            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryLevel.Location = new System.Drawing.Point(25, 1);
+            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(34, 13);
+            this.labelBatteryLevel.MinimumSize = new System.Drawing.Size(34, 0);
             this.labelBatteryLevel.Name = "labelBatteryLevel";
-            this.labelBatteryLevel.Size = new System.Drawing.Size(44, 20);
+            this.labelBatteryLevel.Size = new System.Drawing.Size(34, 13);
             this.labelBatteryLevel.TabIndex = 1;
             this.labelBatteryLevel.Text = "87 %";
             this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelBatteryVoltages
+            // 
+            this.labelBatteryVoltages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryVoltages.AutoSize = true;
+            this.labelBatteryVoltages.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_voltage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 V"));
+            this.labelBatteryVoltages.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryVoltages.Location = new System.Drawing.Point(65, 1);
+            this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 14);
+            this.labelBatteryVoltages.Name = "labelBatteryVoltages";
+            this.labelBatteryVoltages.Size = new System.Drawing.Size(0, 14);
+            this.labelBatteryVoltages.TabIndex = 2;
+            this.labelBatteryVoltages.Text = "87 %";
+            this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "            ";
+            // 
+            // labelBatteryCurrent
+            // 
+            this.labelBatteryCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryCurrent.AutoSize = true;
+            this.labelBatteryCurrent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "current", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 A"));
+            this.labelBatteryCurrent.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryCurrent.Location = new System.Drawing.Point(52, 17);
+            this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 13);
+            this.labelBatteryCurrent.Name = "labelBatteryCurrent";
+            this.labelBatteryCurrent.Size = new System.Drawing.Size(0, 13);
+            this.labelBatteryCurrent.TabIndex = 3;
+            this.labelBatteryCurrent.Text = "87 %";
+            this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flowLayoutPanel15
             // 
             this.flowLayoutPanel15.Controls.Add(this.pictureBox8);
-            this.flowLayoutPanel15.Controls.Add(this.label19);
+            this.flowLayoutPanel15.Controls.Add(this.labelTimeInAir);
             this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 68);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 102);
             this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(91, 29);
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(124, 46);
             this.flowLayoutPanel15.TabIndex = 18;
             // 
             // pictureBox8
@@ -2397,36 +2372,36 @@ namespace MissionPlanner.GCSViews
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
-            // label19
+            // labelTimeInAir
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(3, 22);
-            this.label19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.label19.MaximumSize = new System.Drawing.Size(0, 20);
-            this.label19.MinimumSize = new System.Drawing.Size(65, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 17);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "00:23:34";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTimeInAir.AutoSize = true;
+            this.labelTimeInAir.BackColor = System.Drawing.Color.Transparent;
+            this.labelTimeInAir.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "timeInAir", true));
+            this.labelTimeInAir.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeInAir.Location = new System.Drawing.Point(25, 2);
+            this.labelTimeInAir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelTimeInAir.MinimumSize = new System.Drawing.Size(55, 0);
+            this.labelTimeInAir.Name = "labelTimeInAir";
+            this.labelTimeInAir.Size = new System.Drawing.Size(55, 20);
+            this.labelTimeInAir.TabIndex = 1;
+            this.labelTimeInAir.Text = "00:23:34";
+            this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel14
             // 
             this.flowLayoutPanel14.Controls.Add(this.pictureBox7);
-            this.flowLayoutPanel14.Controls.Add(this.labelBatteryVolateges);
+            this.flowLayoutPanel14.Controls.Add(this.labelGPSStatus);
             this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 35);
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 52);
             this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(91, 29);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(124, 46);
             this.flowLayoutPanel14.TabIndex = 18;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Image = global::MissionPlanner.Properties.Resources.icons8_place_marker_16;
             this.pictureBox7.Location = new System.Drawing.Point(3, 2);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
@@ -2435,57 +2410,58 @@ namespace MissionPlanner.GCSViews
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
             // 
-            // labelBatteryVolateges
+            // labelGPSStatus
             // 
-            this.labelBatteryVolateges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryVolateges.AutoSize = true;
-            this.labelBatteryVolateges.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_voltage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
-            this.labelBatteryVolateges.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryVolateges.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelBatteryVolateges.Location = new System.Drawing.Point(25, 2);
-            this.labelBatteryVolateges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelBatteryVolateges.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelBatteryVolateges.Name = "labelBatteryVolateges";
-            this.labelBatteryVolateges.Size = new System.Drawing.Size(59, 20);
-            this.labelBatteryVolateges.TabIndex = 1;
-            this.labelBatteryVolateges.Text = "Test ok";
-            this.labelBatteryVolateges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGPSStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelGPSStatus.AutoSize = true;
+            this.labelGPSStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 7.5F, System.Drawing.FontStyle.Bold);
+            this.labelGPSStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelGPSStatus.Location = new System.Drawing.Point(25, 2);
+            this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelGPSStatus.Name = "labelGPSStatus";
+            this.labelGPSStatus.Size = new System.Drawing.Size(0, 17);
+            this.labelGPSStatus.TabIndex = 1;
+            this.labelGPSStatus.Text = "GPS: No GPS";
+            this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel11
+            // tableLayoutPanelButtons
             // 
-            this.tableLayoutPanel11.AutoSize = true;
-            this.tableLayoutPanel11.ColumnCount = 4;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.Controls.Add(this.klcButton14, 1, 2);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonAuto, 0, 2);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonDoAction, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.klcButton15, 0, 3);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonZedGraph, 1, 3);
-            this.tableLayoutPanel11.Controls.Add(this.CMB_setwp, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.CMB_action, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.CMB_modes, 2, 0);
-            this.tableLayoutPanel11.Controls.Add(this.CMB_mountmode, 3, 0);
-            this.tableLayoutPanel11.Controls.Add(this.klcButton21, 2, 3);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonSetWP, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonSetMode, 2, 1);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonSetMount, 3, 1);
-            this.tableLayoutPanel11.Controls.Add(this.klcButton20, 3, 3);
-            this.tableLayoutPanel11.Controls.Add(this.klcButton22, 2, 2);
-            this.tableLayoutPanel11.Controls.Add(this.klcButton24, 3, 2);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 139);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 4;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.71264F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.28736F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(346, 190);
-            this.tableLayoutPanel11.TabIndex = 21;
+            this.tableLayoutPanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelButtons.AutoSize = true;
+            this.tableLayoutPanelButtons.ColumnCount = 4;
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton14, 1, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonAuto, 0, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonDoAction, 0, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton15, 0, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonZedGraph, 1, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_setwp, 1, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_action, 0, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_modes, 2, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_mountmode, 3, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton21, 2, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetWP, 1, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMode, 2, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMount, 3, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton20, 3, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton22, 2, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton24, 3, 2);
+            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 708);
+            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            this.tableLayoutPanelButtons.MinimumSize = new System.Drawing.Size(0, 230);
+            this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            this.tableLayoutPanelButtons.RowCount = 4;
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.71264F));
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.28736F));
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(352, 260);
+            this.tableLayoutPanelButtons.TabIndex = 21;
             // 
             // klcButton14
             // 
@@ -2500,10 +2476,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton14.KLCBorderRadius = 1;
             this.klcButton14.KLCBorderSize = 0;
             this.klcButton14.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton14.Location = new System.Drawing.Point(89, 96);
+            this.klcButton14.Location = new System.Drawing.Point(91, 131);
             this.klcButton14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton14.Name = "klcButton14";
-            this.klcButton14.Size = new System.Drawing.Size(80, 43);
+            this.klcButton14.Size = new System.Drawing.Size(82, 61);
             this.klcButton14.TabIndex = 15;
             this.klcButton14.Text = "Arm/DisArm";
             this.klcButton14.UseVisualStyleBackColor = false;
@@ -2521,10 +2497,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonAuto.KLCBorderRadius = 1;
             this.klcButtonAuto.KLCBorderSize = 0;
             this.klcButtonAuto.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonAuto.Location = new System.Drawing.Point(3, 96);
+            this.klcButtonAuto.Location = new System.Drawing.Point(3, 131);
             this.klcButtonAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonAuto.Name = "klcButtonAuto";
-            this.klcButtonAuto.Size = new System.Drawing.Size(80, 43);
+            this.klcButtonAuto.Size = new System.Drawing.Size(82, 61);
             this.klcButtonAuto.TabIndex = 14;
             this.klcButtonAuto.Text = "Auto";
             this.klcButtonAuto.UseVisualStyleBackColor = false;
@@ -2543,10 +2519,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonDoAction.KLCBorderRadius = 1;
             this.klcButtonDoAction.KLCBorderSize = 0;
             this.klcButtonDoAction.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonDoAction.Location = new System.Drawing.Point(3, 48);
+            this.klcButtonDoAction.Location = new System.Drawing.Point(3, 66);
             this.klcButtonDoAction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonDoAction.Name = "klcButtonDoAction";
-            this.klcButtonDoAction.Size = new System.Drawing.Size(80, 44);
+            this.klcButtonDoAction.Size = new System.Drawing.Size(82, 61);
             this.klcButtonDoAction.TabIndex = 13;
             this.klcButtonDoAction.Text = "Do Action";
             this.klcButtonDoAction.UseVisualStyleBackColor = false;
@@ -2565,10 +2541,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton15.KLCBorderRadius = 1;
             this.klcButton15.KLCBorderSize = 0;
             this.klcButton15.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton15.Location = new System.Drawing.Point(3, 143);
+            this.klcButton15.Location = new System.Drawing.Point(3, 196);
             this.klcButton15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton15.Name = "klcButton15";
-            this.klcButton15.Size = new System.Drawing.Size(80, 45);
+            this.klcButton15.Size = new System.Drawing.Size(82, 62);
             this.klcButton15.TabIndex = 7;
             this.klcButton15.Text = "Abort Landing";
             this.klcButton15.UseVisualStyleBackColor = false;
@@ -2586,10 +2562,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonZedGraph.KLCBorderRadius = 1;
             this.klcButtonZedGraph.KLCBorderSize = 0;
             this.klcButtonZedGraph.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonZedGraph.Location = new System.Drawing.Point(89, 143);
+            this.klcButtonZedGraph.Location = new System.Drawing.Point(91, 196);
             this.klcButtonZedGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonZedGraph.Name = "klcButtonZedGraph";
-            this.klcButtonZedGraph.Size = new System.Drawing.Size(80, 45);
+            this.klcButtonZedGraph.Size = new System.Drawing.Size(82, 62);
             this.klcButtonZedGraph.TabIndex = 6;
             this.klcButtonZedGraph.Text = "Clear Track";
             this.klcButtonZedGraph.UseVisualStyleBackColor = false;
@@ -2601,10 +2577,10 @@ namespace MissionPlanner.GCSViews
             this.CMB_setwp.DropDownWidth = 200;
             this.CMB_setwp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMB_setwp.FormattingEnabled = true;
-            this.CMB_setwp.Location = new System.Drawing.Point(89, 16);
+            this.CMB_setwp.Location = new System.Drawing.Point(91, 34);
             this.CMB_setwp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMB_setwp.Name = "CMB_setwp";
-            this.CMB_setwp.Size = new System.Drawing.Size(80, 28);
+            this.CMB_setwp.Size = new System.Drawing.Size(82, 28);
             this.CMB_setwp.TabIndex = 11;
             this.CMB_setwp.Click += new System.EventHandler(this.CMB_setwp_Click_1);
             // 
@@ -2614,10 +2590,10 @@ namespace MissionPlanner.GCSViews
             this.CMB_action.DropDownWidth = 200;
             this.CMB_action.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMB_action.FormattingEnabled = true;
-            this.CMB_action.Location = new System.Drawing.Point(3, 16);
+            this.CMB_action.Location = new System.Drawing.Point(3, 34);
             this.CMB_action.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMB_action.Name = "CMB_action";
-            this.CMB_action.Size = new System.Drawing.Size(80, 28);
+            this.CMB_action.Size = new System.Drawing.Size(82, 28);
             this.CMB_action.TabIndex = 9;
             // 
             // CMB_modes
@@ -2626,10 +2602,10 @@ namespace MissionPlanner.GCSViews
             this.CMB_modes.DropDownWidth = 200;
             this.CMB_modes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMB_modes.FormattingEnabled = true;
-            this.CMB_modes.Location = new System.Drawing.Point(175, 16);
+            this.CMB_modes.Location = new System.Drawing.Point(179, 34);
             this.CMB_modes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMB_modes.Name = "CMB_modes";
-            this.CMB_modes.Size = new System.Drawing.Size(80, 28);
+            this.CMB_modes.Size = new System.Drawing.Size(82, 28);
             this.CMB_modes.TabIndex = 10;
             // 
             // CMB_mountmode
@@ -2638,7 +2614,7 @@ namespace MissionPlanner.GCSViews
             this.CMB_mountmode.DropDownWidth = 200;
             this.CMB_mountmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.CMB_mountmode.FormattingEnabled = true;
-            this.CMB_mountmode.Location = new System.Drawing.Point(261, 16);
+            this.CMB_mountmode.Location = new System.Drawing.Point(267, 34);
             this.CMB_mountmode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMB_mountmode.Name = "CMB_mountmode";
             this.CMB_mountmode.Size = new System.Drawing.Size(82, 28);
@@ -2657,10 +2633,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton21.KLCBorderRadius = 1;
             this.klcButton21.KLCBorderSize = 0;
             this.klcButton21.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton21.Location = new System.Drawing.Point(175, 143);
+            this.klcButton21.Location = new System.Drawing.Point(179, 196);
             this.klcButton21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton21.Name = "klcButton21";
-            this.klcButton21.Size = new System.Drawing.Size(80, 45);
+            this.klcButton21.Size = new System.Drawing.Size(82, 62);
             this.klcButton21.TabIndex = 2;
             this.klcButton21.Text = "Loiter";
             this.klcButton21.UseVisualStyleBackColor = false;
@@ -2678,10 +2654,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetWP.KLCBorderRadius = 1;
             this.klcButtonSetWP.KLCBorderSize = 0;
             this.klcButtonSetWP.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetWP.Location = new System.Drawing.Point(89, 48);
+            this.klcButtonSetWP.Location = new System.Drawing.Point(91, 66);
             this.klcButtonSetWP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonSetWP.Name = "klcButtonSetWP";
-            this.klcButtonSetWP.Size = new System.Drawing.Size(80, 44);
+            this.klcButtonSetWP.Size = new System.Drawing.Size(82, 61);
             this.klcButtonSetWP.TabIndex = 6;
             this.klcButtonSetWP.Text = "Set WP";
             this.klcButtonSetWP.UseVisualStyleBackColor = false;
@@ -2700,10 +2676,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetMode.KLCBorderRadius = 1;
             this.klcButtonSetMode.KLCBorderSize = 0;
             this.klcButtonSetMode.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMode.Location = new System.Drawing.Point(175, 48);
+            this.klcButtonSetMode.Location = new System.Drawing.Point(179, 66);
             this.klcButtonSetMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonSetMode.Name = "klcButtonSetMode";
-            this.klcButtonSetMode.Size = new System.Drawing.Size(80, 44);
+            this.klcButtonSetMode.Size = new System.Drawing.Size(82, 61);
             this.klcButtonSetMode.TabIndex = 7;
             this.klcButtonSetMode.Text = "Set Mode";
             this.klcButtonSetMode.UseVisualStyleBackColor = false;
@@ -2722,10 +2698,10 @@ namespace MissionPlanner.GCSViews
             this.klcButtonSetMount.KLCBorderRadius = 1;
             this.klcButtonSetMount.KLCBorderSize = 0;
             this.klcButtonSetMount.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMount.Location = new System.Drawing.Point(261, 48);
+            this.klcButtonSetMount.Location = new System.Drawing.Point(267, 66);
             this.klcButtonSetMount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButtonSetMount.Name = "klcButtonSetMount";
-            this.klcButtonSetMount.Size = new System.Drawing.Size(82, 44);
+            this.klcButtonSetMount.Size = new System.Drawing.Size(82, 61);
             this.klcButtonSetMount.TabIndex = 8;
             this.klcButtonSetMount.Text = "Set Mount";
             this.klcButtonSetMount.UseVisualStyleBackColor = false;
@@ -2744,10 +2720,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton20.KLCBorderRadius = 1;
             this.klcButton20.KLCBorderSize = 0;
             this.klcButton20.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton20.Location = new System.Drawing.Point(261, 143);
+            this.klcButton20.Location = new System.Drawing.Point(267, 196);
             this.klcButton20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton20.Name = "klcButton20";
-            this.klcButton20.Size = new System.Drawing.Size(82, 45);
+            this.klcButton20.Size = new System.Drawing.Size(82, 62);
             this.klcButton20.TabIndex = 3;
             this.klcButton20.Text = "Restart Mission";
             this.klcButton20.UseVisualStyleBackColor = false;
@@ -2766,10 +2742,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton22.KLCBorderRadius = 1;
             this.klcButton22.KLCBorderSize = 0;
             this.klcButton22.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton22.Location = new System.Drawing.Point(175, 96);
+            this.klcButton22.Location = new System.Drawing.Point(179, 131);
             this.klcButton22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton22.Name = "klcButton22";
-            this.klcButton22.Size = new System.Drawing.Size(80, 43);
+            this.klcButton22.Size = new System.Drawing.Size(82, 61);
             this.klcButton22.TabIndex = 4;
             this.klcButton22.Text = "RTL";
             this.klcButton22.UseVisualStyleBackColor = false;
@@ -2787,10 +2763,10 @@ namespace MissionPlanner.GCSViews
             this.klcButton24.KLCBorderRadius = 1;
             this.klcButton24.KLCBorderSize = 0;
             this.klcButton24.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton24.Location = new System.Drawing.Point(261, 96);
+            this.klcButton24.Location = new System.Drawing.Point(267, 131);
             this.klcButton24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klcButton24.Name = "klcButton24";
-            this.klcButton24.Size = new System.Drawing.Size(82, 43);
+            this.klcButton24.Size = new System.Drawing.Size(82, 61);
             this.klcButton24.TabIndex = 5;
             this.klcButton24.Text = "Resume Mission";
             this.klcButton24.UseVisualStyleBackColor = false;
@@ -2803,6 +2779,34 @@ namespace MissionPlanner.GCSViews
             // timerZedGraph
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
+            // 
+            // gLabelWarning2
+            // 
+            this.gLabelWarning2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.gLabelWarning2.BackColor = System.Drawing.Color.Transparent;
+            this.gLabelWarning2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHighSeverity", true));
+            this.gLabelWarning2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gLabelWarning2.ForeColor = System.Drawing.Color.Red;
+            this.gLabelWarning2.Location = new System.Drawing.Point(211, 7);
+            this.gLabelWarning2.Name = "gLabelWarning2";
+            this.gLabelWarning2.Size = new System.Drawing.Size(180, 24);
+            this.gLabelWarning2.TabIndex = 28;
+            this.gLabelWarning2.Text = "Warning Text";
+            this.gLabelWarning2.Visible = false;
+            // 
+            // gLabelWarning1
+            // 
+            this.gLabelWarning1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.gLabelWarning1.BackColor = System.Drawing.Color.Transparent;
+            this.gLabelWarning1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHigh", true));
+            this.gLabelWarning1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gLabelWarning1.ForeColor = System.Drawing.Color.Red;
+            this.gLabelWarning1.Location = new System.Drawing.Point(25, 7);
+            this.gLabelWarning1.Name = "gLabelWarning1";
+            this.gLabelWarning1.Size = new System.Drawing.Size(180, 24);
+            this.gLabelWarning1.TabIndex = 29;
+            this.gLabelWarning1.Text = "Warning Text";
+            this.gLabelWarning1.Visible = false;
             // 
             // FlightStatus
             // 
@@ -2823,17 +2827,20 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMap)).EndInit();
             this.splitContainerMap.ResumeLayout(false);
+            this.contextMenuStripMap.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel12.ResumeLayout(false);
             this.tabControlMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.flowLayoutPanelLayer1.ResumeLayout(false);
+            this.flowLayoutPanelLayer1.PerformLayout();
             this.tableLayoutPanelHUD.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -2866,11 +2873,12 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelPitch.PerformLayout();
             this.flowLayoutPanelRoll.ResumeLayout(false);
             this.flowLayoutPanelRoll.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanelMessage.ResumeLayout(false);
+            this.tableLayoutPanelMessage.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
+            this.tableLayoutPanelBatGPS.ResumeLayout(false);
+            this.tableLayoutPanelBatGPS.PerformLayout();
             this.flowLayoutPanel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
             this.flowLayoutPanel17.ResumeLayout(false);
@@ -2886,11 +2894,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
-
+        
         #endregion
         private System.Windows.Forms.SplitContainer splitMainPanel;
         private Controls.HSI hsiHeading;
@@ -2905,7 +2913,7 @@ namespace MissionPlanner.GCSViews
         private BindingSource bindingSourceHUD;
         private TableLayoutPanel tableLayoutPanelHUD;
         private TableLayoutPanel tableLayoutPanel5;
-        private Label label12;
+        private Label labelLinkQualityGcs;
         private Label labelGPS;
         private FlowLayoutPanel flowLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel6;
@@ -2915,7 +2923,6 @@ namespace MissionPlanner.GCSViews
         private Label labelUnitRoll;
         private FlowLayoutPanel flowLayoutPanelPitch;
         private Label labelTitleAS;
-        private Label labelValAS;
         private Label labelSpeedUnit;
         private FlowLayoutPanel flowLayoutPanel6;
         private Label labelAGL;
@@ -2955,21 +2962,15 @@ namespace MissionPlanner.GCSViews
         internal Label lblMapZoom;
         private Label lblMapLat;
         private Label lblMapLong;
-        private TableLayoutPanel tableLayoutPanel12;
-        private CodeArtEng.Controls.StatusLabel statusLabel4;
-        private CodeArtEng.Controls.StatusLabel statusLabel1;
-        private CodeArtEng.Controls.StatusLabel statusLabel3;
-        private CodeArtEng.Controls.StatusLabel statusLabel2;
+       
+
+
         private Label lblMapAlt;
         private Label lblhdopVal;
         private Label label5;
         private Label label7;
         private Label labelSats;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel13;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Label label18;
-        private RJCodeAdvance.RJControls.RJToggleButton rjToggleBtnArm;
+        private TableLayoutPanel tableLayoutPanelBatGPS;
         private Label label15;
         private Label label10;
         private FlowLayoutPanel flowLayoutPanel16;
@@ -2987,11 +2988,11 @@ namespace MissionPlanner.GCSViews
         private Label labelBatteryLevel;
         private FlowLayoutPanel flowLayoutPanel15;
         private PictureBox pictureBox8;
-        private Label label19;
+        private Label labelTimeInAir;
         private FlowLayoutPanel flowLayoutPanel14;
         private PictureBox pictureBox7;
-        private Label labelBatteryVolateges;
-        private TableLayoutPanel tableLayoutPanel11;
+        private Label labelGPSStatus;
+        private TableLayoutPanel tableLayoutPanelButtons;
         private KLCToolbox.KLCControls.KLCButton klcButton14;
         private KLCToolbox.KLCControls.KLCButton klcButtonAuto;
         private KLCToolbox.KLCControls.KLCButton klcButtonDoAction;
@@ -3040,12 +3041,25 @@ namespace MissionPlanner.GCSViews
         private Controls.QuickView quickView8;
         private Controls.QuickView quickView12;
         private ZedGraph.ZedGraphControl zedGraph;
-        private Controls.MavlinkMsgViewControl mavlinkMsgViewControl1;
         private Timer timerZedGraph;
         private FlowLayoutPanel flowLayoutPanel2;
-        private KLCToolbox.KLCControls.KLCButton btnSwarm;
         private KLCToolbox.KLCControls.KLCButton btnTelem;
-        private KLCToolbox.KLCControls.KLCButton btnVideoVlc;
-        private Controls.GraphicLabel graphicLabelTime;
+        private Controls.GraphicLabel gLabelWarning2;
+        private ContextMenuStrip contextMenuStripMap;
+        private ToolStripMenuItem goHereToolStripMenuItem;
+        private ToolStripMenuItem flyToHereAltToolStripMenuItem;
+        private ToolStripMenuItem takeOffToolStripMenuItem;
+        private Controls.GraphicLabel gLabelWarning1;
+        private Label labelBatteryVoltages;
+        private Label labelBatteryCurrent;
+        private Label label3;
+        private KLCToolbox.KLCControls.KLCButton klcButtonArmDisArm;
+        private FlowLayoutPanel flowLayoutPanelLayer1;
+        private TableLayoutPanel tableLayoutPanelMessage;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label lblMessage;
+        private Label lblMode;
+        private Label label6;
+        private Label labelValAS;
     }
 }

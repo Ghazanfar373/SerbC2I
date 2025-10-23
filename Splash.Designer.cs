@@ -46,7 +46,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OliveDrab;
-            this.label1.Location = new System.Drawing.Point(472, 276);
+            this.label1.Location = new System.Drawing.Point(451, 303);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 17);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             this.TXT_version.BackColor = System.Drawing.Color.Transparent;
             this.TXT_version.ForeColor = System.Drawing.Color.White;
-            this.TXT_version.Location = new System.Drawing.Point(409, 251);
+            this.TXT_version.Location = new System.Drawing.Point(382, 275);
             this.TXT_version.Name = "TXT_version";
             this.TXT_version.Size = new System.Drawing.Size(155, 25);
             this.TXT_version.TabIndex = 1;
@@ -71,11 +71,11 @@
             this.labelHeader1.BackColor = System.Drawing.Color.Transparent;
             this.labelHeader1.Font = new System.Drawing.Font("Palatino Linotype", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHeader1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelHeader1.Location = new System.Drawing.Point(12, 214);
+            this.labelHeader1.Location = new System.Drawing.Point(15, 210);
             this.labelHeader1.Name = "labelHeader1";
-            this.labelHeader1.Size = new System.Drawing.Size(349, 46);
+            this.labelHeader1.Size = new System.Drawing.Size(180, 45);
             this.labelHeader1.TabIndex = 2;
-            this.labelHeader1.Text = "Unmanned Systems  ";
+            this.labelHeader1.Text = "JASER 2.0 ";
             this.labelHeader1.Click += new System.EventHandler(this.labelHeader1_Click);
             // 
             // progressBarSplash
@@ -85,7 +85,7 @@
             this.progressBarSplash.ChannelHeight = 12;
             this.progressBarSplash.ForeBackColor = System.Drawing.Color.Gold;
             this.progressBarSplash.ForeColor = System.Drawing.Color.Black;
-            this.progressBarSplash.Location = new System.Drawing.Point(0, 298);
+            this.progressBarSplash.Location = new System.Drawing.Point(1, 321);
             this.progressBarSplash.Name = "progressBarSplash";
             this.progressBarSplash.ShowMaximun = false;
             this.progressBarSplash.ShowValue = RJCodeAdvance.RJControls.TextPosition.Right;
@@ -102,17 +102,17 @@
             this.labelHeader2.BackColor = System.Drawing.Color.Transparent;
             this.labelHeader2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHeader2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelHeader2.Location = new System.Drawing.Point(12, 254);
+            this.labelHeader2.Location = new System.Drawing.Point(3, 252);
             this.labelHeader2.Name = "labelHeader2";
-            this.labelHeader2.Size = new System.Drawing.Size(340, 41);
+            this.labelHeader2.Size = new System.Drawing.Size(337, 41);
             this.labelHeader2.TabIndex = 4;
-            this.labelHeader2.Text = "Remote Command Post";
+            this.labelHeader2.Text = " The Swarm Advantage";
             // 
             // pictureBoxWithPseudoOpacity1
             // 
             this.pictureBoxWithPseudoOpacity1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxWithPseudoOpacity1.Image = global::MissionPlanner.Properties.Resources.logo_serb;
-            this.pictureBoxWithPseudoOpacity1.Location = new System.Drawing.Point(78, 120);
+            this.pictureBoxWithPseudoOpacity1.Location = new System.Drawing.Point(9, 119);
             this.pictureBoxWithPseudoOpacity1.Name = "pictureBoxWithPseudoOpacity1";
             this.pictureBoxWithPseudoOpacity1.Size = new System.Drawing.Size(126, 98);
             this.pictureBoxWithPseudoOpacity1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,9 +125,9 @@
             // 
             // Splash
             // 
-            this.BackgroundImage = global::MissionPlanner.Properties.Resources.unmanned_aerial1;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(582, 303);
+            this.ClientSize = new System.Drawing.Size(582, 333);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBoxWithPseudoOpacity1);
             this.Controls.Add(this.labelHeader2);
@@ -135,12 +135,13 @@
             this.Controls.Add(this.labelHeader1);
             this.Controls.Add(this.TXT_version);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(600, 350);
+            this.MaximumSize = new System.Drawing.Size(600, 380);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(600, 350);
+            this.MinimumSize = new System.Drawing.Size(600, 380);
             this.Name = "Splash";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

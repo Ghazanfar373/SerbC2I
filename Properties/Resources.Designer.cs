@@ -1461,6 +1461,26 @@ namespace MissionPlanner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap planetracker {
+            get {
+                object obj = ResourceManager.GetObject("planetracker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap planetracker1 {
+            get {
+                object obj = ResourceManager.GetObject("planetracker1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap PlusFrames_02 {
             get {
                 object obj = ResourceManager.GetObject("PlusFrames_02", resourceCulture);
@@ -1873,17 +1893,7 @@ namespace MissionPlanner.Properties {
         /// </summary>
         public static System.Drawing.Bitmap unmanned_aerial {
             get {
-                object obj = ResourceManager.GetObject("unmanned-aerial", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap unmanned_aerial1 {
-            get {
-                object obj = ResourceManager.GetObject("unmanned-aerial1", resourceCulture);
+                object obj = ResourceManager.GetObject("unmanned_aerial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

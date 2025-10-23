@@ -42,12 +42,10 @@
             this.btnHWConfig = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSoftwareConfig = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnSimulation = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnConnection = new System.Windows.Forms.Button();
-            this.connectionControl1 = new MissionPlanner.Controls.ConnectionControl();
             this.timerMenu = new System.Windows.Forms.Timer(this.components);
+            this.connectionControl1 = new MissionPlanner.Controls.ConnectionControl();
             this.sideBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuStartBtn)).BeginInit();
@@ -55,7 +53,6 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,13 +64,12 @@
             this.sideBar.Controls.Add(this.panel4);
             this.sideBar.Controls.Add(this.panel5);
             this.sideBar.Controls.Add(this.panel6);
-            this.sideBar.Controls.Add(this.panel7);
             this.sideBar.Controls.Add(this.panel8);
             this.sideBar.Controls.Add(this.connectionControl1);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.ForeColor = System.Drawing.Color.Gray;
             this.sideBar.Location = new System.Drawing.Point(0, 0);
-            this.sideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sideBar.Margin = new System.Windows.Forms.Padding(4);
             this.sideBar.MaximumSize = new System.Drawing.Size(229, 40044);
             this.sideBar.MinimumSize = new System.Drawing.Size(87, 660);
             this.sideBar.Name = "sideBar";
@@ -86,7 +82,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.menuStartBtn);
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(216, 87);
             this.panel2.TabIndex = 3;
@@ -112,7 +108,7 @@
             this.menuStartBtn.GradientAngle = 50F;
             this.menuStartBtn.Image = global::MissionPlanner.Properties.Resources.icons8_menu_48;
             this.menuStartBtn.Location = new System.Drawing.Point(4, 5);
-            this.menuStartBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menuStartBtn.Margin = new System.Windows.Forms.Padding(4);
             this.menuStartBtn.Name = "menuStartBtn";
             this.menuStartBtn.Size = new System.Drawing.Size(73, 73);
             this.menuStartBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,7 +120,7 @@
             // 
             this.panel3.Controls.Add(this.btnFlightData);
             this.panel3.Location = new System.Drawing.Point(4, 99);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(219, 64);
             this.panel3.TabIndex = 4;
@@ -137,7 +133,7 @@
             this.btnFlightData.Image = global::MissionPlanner.Properties.Resources.dashboard_layout_50;
             this.btnFlightData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFlightData.Location = new System.Drawing.Point(4, 1);
-            this.btnFlightData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFlightData.Margin = new System.Windows.Forms.Padding(2);
             this.btnFlightData.Name = "btnFlightData";
             this.btnFlightData.Padding = new System.Windows.Forms.Padding(0, 12, 13, 12);
             this.btnFlightData.Size = new System.Drawing.Size(212, 63);
@@ -151,7 +147,7 @@
             // 
             this.panel4.Controls.Add(this.btnFlightPlan);
             this.panel4.Location = new System.Drawing.Point(4, 171);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(219, 64);
             this.panel4.TabIndex = 5;
@@ -164,7 +160,7 @@
             this.btnFlightPlan.Image = global::MissionPlanner.Properties.Resources.plan_50;
             this.btnFlightPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFlightPlan.Location = new System.Drawing.Point(4, 1);
-            this.btnFlightPlan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFlightPlan.Margin = new System.Windows.Forms.Padding(4);
             this.btnFlightPlan.Name = "btnFlightPlan";
             this.btnFlightPlan.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
             this.btnFlightPlan.Size = new System.Drawing.Size(212, 63);
@@ -179,7 +175,7 @@
             this.panel5.Controls.Add(this.btnHWConfig);
             this.panel5.ForeColor = System.Drawing.Color.Transparent;
             this.panel5.Location = new System.Drawing.Point(4, 243);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 64);
             this.panel5.TabIndex = 6;
@@ -192,7 +188,7 @@
             this.btnHWConfig.Image = global::MissionPlanner.Properties.Resources.settings_50;
             this.btnHWConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHWConfig.Location = new System.Drawing.Point(4, 1);
-            this.btnHWConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHWConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnHWConfig.Name = "btnHWConfig";
             this.btnHWConfig.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
             this.btnHWConfig.Size = new System.Drawing.Size(212, 63);
@@ -206,7 +202,7 @@
             // 
             this.panel6.Controls.Add(this.btnSoftwareConfig);
             this.panel6.Location = new System.Drawing.Point(4, 315);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(219, 64);
             this.panel6.TabIndex = 7;
@@ -219,7 +215,7 @@
             this.btnSoftwareConfig.Image = global::MissionPlanner.Properties.Resources.configurations_50;
             this.btnSoftwareConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSoftwareConfig.Location = new System.Drawing.Point(4, 1);
-            this.btnSoftwareConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSoftwareConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnSoftwareConfig.Name = "btnSoftwareConfig";
             this.btnSoftwareConfig.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
             this.btnSoftwareConfig.Size = new System.Drawing.Size(212, 63);
@@ -229,41 +225,12 @@
             this.btnSoftwareConfig.UseVisualStyleBackColor = true;
             this.btnSoftwareConfig.Click += new System.EventHandler(this.btnSoftwareConfig_Click);
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnSimulation);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(4, 387);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(219, 64);
-            this.panel7.TabIndex = 8;
-            // 
-            // btnSimulation
-            // 
-            this.btnSimulation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSimulation.FlatAppearance.BorderSize = 0;
-            this.btnSimulation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSimulation.ForeColor = System.Drawing.Color.White;
-            this.btnSimulation.Image = global::MissionPlanner.Properties.Resources.simulation_50;
-            this.btnSimulation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSimulation.Location = new System.Drawing.Point(7, 4);
-            this.btnSimulation.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.btnSimulation.Name = "btnSimulation";
-            this.btnSimulation.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
-            this.btnSimulation.Size = new System.Drawing.Size(212, 63);
-            this.btnSimulation.TabIndex = 5;
-            this.btnSimulation.Text = "                  Simulations";
-            this.btnSimulation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSimulation.UseVisualStyleBackColor = true;
-            this.btnSimulation.Click += new System.EventHandler(this.button5_Click);
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.btnConnection);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(4, 459);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Location = new System.Drawing.Point(4, 387);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(219, 64);
             this.panel8.TabIndex = 9;
@@ -277,7 +244,7 @@
             this.btnConnection.Image = global::MissionPlanner.Properties.Resources.connect_50;
             this.btnConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConnection.Location = new System.Drawing.Point(7, 4);
-            this.btnConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnection.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnection.Name = "btnConnection";
             this.btnConnection.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
             this.btnConnection.Size = new System.Drawing.Size(212, 63);
@@ -287,11 +254,16 @@
             this.btnConnection.UseVisualStyleBackColor = true;
             this.btnConnection.Click += new System.EventHandler(this.btnConnection_Click);
             // 
+            // timerMenu
+            // 
+            this.timerMenu.Interval = 1;
+            this.timerMenu.Tick += new System.EventHandler(this.timerMenu_Tick);
+            // 
             // connectionControl1
             // 
             this.connectionControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.connectionControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("connectionControl1.BackgroundImage")));
-            this.connectionControl1.Location = new System.Drawing.Point(3, 529);
+            this.connectionControl1.Location = new System.Drawing.Point(3, 457);
             this.connectionControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.connectionControl1.MinimumSize = new System.Drawing.Size(200, 47);
             this.connectionControl1.Name = "connectionControl1";
@@ -299,11 +271,6 @@
             this.connectionControl1.TabIndex = 1;
             this.connectionControl1.Visible = false;
             this.connectionControl1.Load += new System.EventHandler(this.connectionControl1_Load);
-            // 
-            // timerMenu
-            // 
-            this.timerMenu.Interval = 1;
-            this.timerMenu.Tick += new System.EventHandler(this.timerMenu_Tick);
             // 
             // MainSerb
             // 
@@ -325,7 +292,6 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -342,8 +308,6 @@
         private System.Windows.Forms.Button btnHWConfig;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSoftwareConfig;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnSimulation;
         private System.Windows.Forms.Label label1;
         private RJCodeAdvance.RJControls.RJCircularPictureBox menuStartBtn;
         private System.Windows.Forms.Timer timerMenu;

@@ -1,5 +1,8 @@
 ﻿using log4net;
+using MissionPlanner.ArduPilot;
 using System.Reflection;
+using System.Windows;
+using Xamarin.Essentials;
 
 namespace MissionPlanner.Swarm
 {
@@ -45,6 +48,54 @@ namespace MissionPlanner.Swarm
                 }
             }
         }
+        //Arm Selected One
+         public void ArmSelected(string mavid)
+        {
+           // int counter = 0;
+            //string list="";
+            foreach (var port in MainSerb.Comports)
+            {
+                foreach (var mav in port.MAVlist)
+                {
+                   
+                   
+                    if(mavid==mav.sysid.ToString())    //compare with SysId always 
+                    port.doARM(mav.sysid, mav.compid, true);
+                   
+                   // list += "Mav SysID: " + mav.sysid + " MavCompId: " + mav.compid + " Counter "+counter+"\r\n";
+                }
+                //counter++;
+            }
+           // MessageBox.Show(list);
+        }
+
+
+        public void LoiterSelected(string sysID) {
+            try
+            {
+                foreach (var port in MainSerb.Comports)
+                {
+                    foreach (var mav in port.MAVlist)
+                    {
+
+
+                        if (sysID == mav.sysid.ToString())    //compare with SysId always 
+                            port.setMode(mav.sysid, mav.compid, "Loiter");
+
+                        // list += "Mav SysID: " + mav.sysid + " MavCompId: " + mav.compid + " Counter "+counter+"\r\n";
+                    }
+                    //counter++;
+                }
+            }
+            catch
+            {
+                MessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+
+            //((Control)sender).Enabled = true;
+
+
+        } 
 
         public void Disarm()
         {

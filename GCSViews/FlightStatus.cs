@@ -38,6 +38,7 @@ using static MissionPlanner.Utilities.LTM;
 using MissionPlanner.Swarm;
 using HUD_Claude;
 using Nevron.Nov.UI;
+using System.Globalization;
 
 namespace MissionPlanner.GCSViews
 {
@@ -428,6 +429,20 @@ namespace MissionPlanner.GCSViews
             {
                 statusloop();
             }
+            SetupTimeBinding();
+        }
+
+        private void SetupTimeBinding()
+        {
+            var binding = new Binding("Text", bindingSourceHUD, "datetime");
+            binding.Format += (s, e) =>
+            {
+                if (e.Value is DateTime dt)
+                {
+                    e.Value = dt.ToString("HH:mm:ss");
+                }
+            };
+            labelClock.DataBindings.Add(binding);
         }
         void POI_POIModified(object sender, EventArgs e)
         {
@@ -1139,9 +1154,10 @@ namespace MissionPlanner.GCSViews
                     //    mavlinkMsgViewControl1.message = "Warning";
                     //}
 
-                        //mavlinkMsgViewControl1.message = MainSerb.comPort.MAV.cs.messageHigh;
-                        //string msg = MainSerb.comPort.MAV.cs.failsafe.ToString();
-                        System.Diagnostics.Debug.WriteLine("##################################### Inside loop ");
+                    //mavlinkMsgViewControl1.message = MainSerb.comPort.MAV.cs.messageHigh;
+                    //string msg = MainSerb.comPort.MAV.cs.failsafe.ToString();
+                //    labelGPSStatus.Text = GetGPSStatusText(MainSerb.comPort.MAV.cs.gpsstatus, MainSerb.comPort.MAV.cs.gpsstatus2);
+                    System.Diagnostics.Debug.WriteLine("##################################### Inside loop ");
                     //his is an attempt to prevent an invoke queue on the binding update on slow machines
                     if (updateBindingSourcecount > 0)
                     {
@@ -1185,6 +1201,9 @@ namespace MissionPlanner.GCSViews
                     
                     MainSerb.comPort.MAV.cs.UpdateCurrentSettings(
                         bindingSourceHUD.UpdateDataSource(MainSerb.comPort.MAV.cs));
+
+
+                   
                     //Console.WriteLine("DONE ");
 
                     //if (tabControlactions.SelectedTab == tabStatus)
@@ -1781,6 +1800,7 @@ namespace MissionPlanner.GCSViews
 
         private void rjToggleBtnArm_CheckedChanged(object sender, EventArgs e)
         {   bool isButtonChecked = false;
+            //MessageBox.Show("Arm/DisArm Clicked");
             if (!MainSerb.comPort.BaseStream.IsOpen)
                 return;
 
@@ -1788,7 +1808,7 @@ namespace MissionPlanner.GCSViews
             try
             {
                 counterArmed = 0;
-                isButtonChecked = rjToggleBtnArm.Checked;
+               
                 var isitarmed = MainSerb.comPort.MAV.cs.armed;
                 var action = MainSerb.comPort.MAV.cs.armed ? "Disarm" : "Arm";
 
@@ -1829,19 +1849,19 @@ namespace MissionPlanner.GCSViews
             }
 
 
-            if (rjToggleBtnArm.Checked)
-            {
-                MainSerb.comPort.setMode("Guided");
-                //rjButtonStatus.Text = "ARMED";
-                //rjButtonStatus.BackColor = Color.DarkRed;
-                //rjButtonStatus.TextColor = Color.DarkGoldenrod;
-            }
-            else
-            {
-                //rjButtonStatus.Text = "DISARMED";
-                //rjButtonStatus.BackColor = Color.MediumSeaGreen;
-                //rjButtonStatus.TextColor = Color.WhiteSmoke;
-            }
+            //if (rjToggleBtnArm.Checked)
+            //{
+            //    MainSerb.comPort.setMode("Guided");
+            //    //rjButtonStatus.Text = "ARMED";
+            //    //rjButtonStatus.BackColor = Color.DarkRed;
+            //    //rjButtonStatus.TextColor = Color.DarkGoldenrod;
+            //}
+            //else
+            //{
+            //    //rjButtonStatus.Text = "DISARMED";
+            //    //rjButtonStatus.BackColor = Color.MediumSeaGreen;
+            //    //rjButtonStatus.TextColor = Color.WhiteSmoke;
+            //}
         }
 
         private void klcButton20_Click(object sender, EventArgs e)
@@ -2119,6 +2139,7 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
+                CustomMessageBox.Show("Value:" + (int)numericUpDownAlt.Value);
                 //CustomMessageBox.Show("Value: " + numericUpDownAlt.Value);
                 await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                         MAVLink.MAV_CMD.DO_CHANGE_ALTITUDE, 0, (int)numericUpDownAlt.Value, 0, 0, 0, 0, 0)
@@ -2136,6 +2157,7 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
+                CustomMessageBox.Show("Value:" + (int)numericUpDownSpeed.Value);
                 await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
                     MAVLink.MAV_CMD.DO_CHANGE_SPEED,0,(float)numericUpDownSpeed.Value,0,0,0,0,0).ConfigureAwait(true);
 
@@ -3102,11 +3124,95 @@ namespace MissionPlanner.GCSViews
             switch (tc.SelectedIndex)
             {
                 case 2: // Home tab
+                    MessageBox.Show("Inside Tab Page 2");
                     FormationControl formationControl = new FormationControl();
+
                     formationControl.Dock = DockStyle.Fill;
                     tabPageFormation.Controls.Add(formationControl);
                     tabPageFormation.Dock = DockStyle.Fill;
                     break;
+            }
+        }
+        public string GetGPSStatusText(float _gpsfix, float _gpsfix2)
+        {
+            StringBuilder gpsStatus = new StringBuilder();
+            int a = 0;
+
+            foreach (var _fix in new[] { _gpsfix, _gpsfix2 })
+            {
+                // Skip GPS2 if not detected
+                if (a >= 1 && _fix == 0)
+                {
+                    a++;
+                    continue;
+                }
+
+                string gpsText = GetGPSFixDescription(_fix);
+
+                // Modify label for GPS2
+                if (a == 1)
+                    gpsText = gpsText.Replace("GPS:", "GPS2:");
+
+                // Add to result
+                if (gpsStatus.Length > 0)
+                    gpsStatus.Append(" | "); // Separator between GPS1 and GPS2
+
+                gpsStatus.Append(gpsText);
+
+                a++;
+            }
+           // MessageBox.Show(gpsStatus.ToString());
+            return gpsStatus.ToString();
+        }
+
+        private string GetGPSFixDescription(float fixStatus)
+        {
+            switch (fixStatus)
+            {
+                case 0:
+                    return "GPS: No GPS";
+                case 1:
+                    return "GPS: No Fix";
+                case 2:
+                    return "GPS: 2D Fix";
+                case 3:
+                    return "GPS: 3D Fix";
+                case 4:
+                    return "GPS: DGPS";
+                case 5:
+                    return "GPS: RTK Float";
+                case 6:
+                    return "GPS: RTK Fixed";
+                default:
+                    return $"GPS: Unknown ({fixStatus})";
+            }
+        }
+
+        private void takeOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MainSerb.comPort.BaseStream.IsOpen)
+            {
+                string alt = Settings.Instance["takeoff_alt", "5"];
+
+                if (DialogResult.Cancel == InputBox.Show("Enter Alt", "Enter Takeoff Alt", ref alt))
+                    return;
+
+                var altf = float.Parse(alt, CultureInfo.InvariantCulture);
+
+                Settings.Instance["takeoff_alt"] = altf.ToString();
+
+                MainSerb.comPort.setMode("GUIDED");
+
+
+                try
+                {
+                    MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
+                        MAVLink.MAV_CMD.TAKEOFF, 0, 0, 0, 0, 0, 0, altf);
+                }
+                catch
+                {
+                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                }
             }
         }
     }

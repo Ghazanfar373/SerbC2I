@@ -39,7 +39,7 @@ namespace MissionPlanner.GCSViews
                 {
                     return;
                 }
-                Utilities.Update.CheckForUpdate(true);
+               // Utilities.Update.CheckForUpdate(true);   SERB
             }
             catch (Exception ex)
             {

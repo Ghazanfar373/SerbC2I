@@ -444,8 +444,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     }
                 }
 
-                var updated = fw.updateLegacy(MainSerb.comPortName, fwtoupload, history, ports);
-
+                //  var updated = fw.updateLegacy(MainSerb.comPortName, fwtoupload, history, ports);
+                var updated=false  ;   //SERB
                 if (updated)
                 {
                     if (fwtoupload.url2560_2 != null && fwtoupload.url2560_2.ToLower().Contains("copter") &&
