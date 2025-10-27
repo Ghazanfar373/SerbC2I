@@ -174,6 +174,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.labelGPSStatus = new System.Windows.Forms.Label();
+            this.animatedTextControl1 = new SerbLabelControls.AnimatedTextControl();
             this.tableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
             this.klcButton14 = new KLCToolbox.KLCControls.KLCButton();
             this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
@@ -2074,6 +2075,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel11, 0, 0);
             this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel15, 0, 2);
             this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel14, 0, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.animatedTextControl1, 1, 3);
             this.tableLayoutPanelBatGPS.Location = new System.Drawing.Point(3, 502);
             this.tableLayoutPanelBatGPS.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.tableLayoutPanelBatGPS.Name = "tableLayoutPanelBatGPS";
@@ -2457,6 +2459,19 @@ namespace MissionPlanner.GCSViews
             this.labelGPSStatus.TabIndex = 1;
             this.labelGPSStatus.Text = "GPS: No GPS";
             this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // animatedTextControl1
+            // 
+            this.animatedTextControl1.DataBindings.Add(new System.Windows.Forms.Binding("ArmStatus", this.bindingSourceHUD, "armed", true));
+            this.animatedTextControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.animatedTextControl1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.animatedTextControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.animatedTextControl1.Location = new System.Drawing.Point(133, 153);
+            this.animatedTextControl1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
+            this.animatedTextControl1.Name = "animatedTextControl1";
+            this.animatedTextControl1.Size = new System.Drawing.Size(128, 23);
+            this.animatedTextControl1.TabIndex = 28;
+            this.animatedTextControl1.Text = "animatedlblArm";
             // 
             // tableLayoutPanelButtons
             // 
@@ -3067,8 +3082,9 @@ namespace MissionPlanner.GCSViews
         private Label lblMode;
         private Label label6;
         private Label labelValAS;
-        
-     
-       // private AnimatedTextControl animatedlblArmS;
+        private SerbLabelControls.AnimatedTextControl animatedTextControl1;
+
+
+        // private AnimatedTextControl animatedTextControl1;
     }
 }
