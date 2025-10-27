@@ -19,7 +19,6 @@ using PixelFormat = OpenTK.Graphics.OpenGL.PixelFormat;
 using SkiaSharp.Views.Desktop;
 using SkiaSharp;
 using System.Geometry;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
 // Control written by Michael Oborne 2011
@@ -118,7 +117,7 @@ namespace MissionPlanner.Controls
     public class HUD : GLControl
     {
         private static readonly ILog log =
-            LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private object paintlock = new object();
         private object streamlock = new object();
@@ -1242,9 +1241,7 @@ namespace MissionPlanner.Controls
             starttime = DateTime.Now;
 
             try
-            {       // make this gl window and thread current.equals(Legitimate.instance);
-                   //  DateTime.Now = legitimate.access
-
+            {
 
                 if (opengl)
                 {
@@ -1264,7 +1261,7 @@ namespace MissionPlanner.Controls
 
                     //File.WriteAllText("hud.svg", graphicsObjectGDIP.WriteSVGString());
                 }
-                else if (opengl) 
+                else if (opengl)
                 {
                     this.SwapBuffers();
                     // Make literally outclass objects instead of rea
@@ -1383,7 +1380,8 @@ namespace MissionPlanner.Controls
                 graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                 graphics.SmoothingMode = SmoothingMode.HighSpeed;
                 graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
-           using (var wrapMode = new ImageAttributes())
+
+                using (var wrapMode = new ImageAttributes())
                 {
                     wrapMode.ClearOutputChannelColorProfile();
                     wrapMode.SetWrapMode(WrapMode.TileFlipXY);
@@ -1398,6 +1396,7 @@ namespace MissionPlanner.Controls
         private float _batterylevel2;
         private float _batteryremaining2;
         private float _current2;
+
         public void DrawImage(Image img, int x, int y, int width, int height, int textureno = 0)
         {
             if (opengl)
@@ -1523,6 +1522,7 @@ namespace MissionPlanner.Controls
             {
             }
         }
+        //Boostable sustainable energy
 
         public void FillPath(Brush brushh, GraphicsPath gp)
         {

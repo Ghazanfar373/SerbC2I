@@ -588,7 +588,8 @@ namespace MissionPlanner
             MAVlist.Clear();
 
             if (showui)
-                frmProgressReporter = CreateIProgressReporterDialogue(Strings.ConnectingMavlink);
+               // frmProgressReporter = CreateIProgressReporterDialogue(Strings.ConnectingMavlink);
+                frmProgressReporter = CreateIProgressReporterDialogue("Connecting Datalink");
             else
                 frmProgressReporter = new NoUIReporter();
 
@@ -601,7 +602,7 @@ namespace MissionPlanner
                 frmProgressReporter.DoWork += FrmProgressReporterDoWorkNOParams;
             }
 
-            frmProgressReporter.UpdateProgressAndStatus(-1, Strings.MavlinkConnecting);
+            frmProgressReporter.UpdateProgressAndStatus(-1, "Connecting Datalink");
 
             frmProgressReporter.RunBackgroundOperationAsync();
 
@@ -627,7 +628,7 @@ namespace MissionPlanner
         {
             _openComplete = false;
 
-            frmProgressReporter.UpdateProgressAndStatus(-1, Strings.MavlinkConnecting);
+            frmProgressReporter.UpdateProgressAndStatus(-1, "Connecting Datalink");
 
             if (BaseStream is SerialPort)
             {

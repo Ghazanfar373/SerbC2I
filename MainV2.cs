@@ -1382,10 +1382,8 @@ namespace MissionPlanner
         private void PopulateSerialportList()
         {
             _connectionControl.CMB_serialport.Items.Clear();
-
             _connectionControl.CMB_serialport.Items.Add("AUTO");
             _connectionControl.CMB_serialport.Items.AddRange(SerialPort.GetPortNames());
-
             _connectionControl.CMB_serialport.Items.Add("TCP");
             _connectionControl.CMB_serialport.Items.Add("UDP");
             _connectionControl.CMB_serialport.Items.Add("UDPCl");

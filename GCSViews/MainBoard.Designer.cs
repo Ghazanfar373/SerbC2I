@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBoard));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.labeledTextBox2 = new CodeArtEng.Controls.LabeledTextBox();
@@ -43,6 +44,32 @@
             this.labelWPNo = new System.Windows.Forms.Label();
             this.labelCAPNxtWP = new System.Windows.Forms.Label();
             this.btnledstop = new MissionPlanner.Controls.MyButton();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetAlt = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownAlt = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetLoiterRad = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownLoiter = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.labelBatteryLevel = new System.Windows.Forms.Label();
+            this.labelBatteryVoltages = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.labelBatteryCurrent = new System.Windows.Forms.Label();
+            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelTimeInAir = new System.Windows.Forms.Label();
+            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.labelGPSStatus = new System.Windows.Forms.Label();
             this.btnLed = new System.Windows.Forms.Button();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -97,32 +124,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
-            this.label20 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetAlt = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownAlt = new System.Windows.Forms.NumericUpDown();
-            this.label21 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetLoiterRad = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownLoiter = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.labelBatteryLevel = new System.Windows.Forms.Label();
-            this.labelBatteryVoltages = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.labelBatteryCurrent = new System.Windows.Forms.Label();
-            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.labelTimeInAir = new System.Windows.Forms.Label();
-            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.labelGPSStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanelMessage = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMessage = new System.Windows.Forms.Label();
@@ -146,12 +147,24 @@
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerLed = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
+            this.flowLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).BeginInit();
+            this.flowLayoutPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).BeginInit();
+            this.flowLayoutPanel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.flowLayoutPanel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.flowLayoutPanel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.flowLayoutPanelLayer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -173,19 +186,6 @@
             this.tableLayoutPanel13.SuspendLayout();
             this.flowLayoutPanel15.SuspendLayout();
             this.flowLayoutPanel16.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
-            this.flowLayoutPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).BeginInit();
-            this.flowLayoutPanel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).BeginInit();
-            this.flowLayoutPanel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.flowLayoutPanel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.flowLayoutPanel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanelMessage.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -212,6 +212,17 @@
             this.splitContainerMain.Size = new System.Drawing.Size(1200, 700);
             this.splitContainerMain.SplitterDistance = 815;
             this.splitContainerMain.TabIndex = 0;
+            // 
+            // graphicLabel1
+            // 
+            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabel1.Location = new System.Drawing.Point(0, 165);
+            this.graphicLabel1.Name = "graphicLabel1";
+            this.graphicLabel1.Size = new System.Drawing.Size(78, 23);
+            this.graphicLabel1.TabIndex = 27;
+            this.graphicLabel1.Text = "Hello Serb World !";
+            this.graphicLabel1.Visible = false;
             // 
             // panel1
             // 
@@ -377,6 +388,395 @@
             this.btnledstop.Click += new System.EventHandler(this.btnledstop_Click);
             this.btnledstop.MouseEnter += new System.EventHandler(this.btnledstop_MouseEnter);
             this.btnledstop.MouseLeave += new System.EventHandler(this.btnledstop_MouseLeave);
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25592F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.82991F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.09971F));
+            this.tableLayoutPanel11.Controls.Add(this.label19, 2, 2);
+            this.tableLayoutPanel11.Controls.Add(this.klcButtonArmDisArm, 0, 3);
+            this.tableLayoutPanel11.Controls.Add(this.label20, 2, 1);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel2, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel11, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label21, 2, 0);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel12, 1, 2);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel13, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel19, 0, 2);
+            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel20, 0, 1);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(355, 428);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 4;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.61194F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.37313F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.8806F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.62687F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(362, 183);
+            this.tableLayoutPanel11.TabIndex = 30;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label19.Location = new System.Drawing.Point(270, 94);
+            this.label19.MaximumSize = new System.Drawing.Size(0, 25);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label19.Size = new System.Drawing.Size(76, 25);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Set Loiter Rad";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // klcButtonArmDisArm
+            // 
+            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.DarkRed;
+            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
+            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.DarkRed;
+            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.Purple;
+            this.klcButtonArmDisArm.KLCBorderRadius = 21;
+            this.klcButtonArmDisArm.KLCBorderSize = 0;
+            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.WhiteSmoke;
+            this.klcButtonArmDisArm.Location = new System.Drawing.Point(3, 140);
+            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
+            this.klcButtonArmDisArm.Size = new System.Drawing.Size(99, 21);
+            this.klcButtonArmDisArm.TabIndex = 27;
+            this.klcButtonArmDisArm.Text = "Arm/DisArm";
+            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(270, 49);
+            this.label20.MaximumSize = new System.Drawing.Size(0, 25);
+            this.label20.Name = "label20";
+            this.label20.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label20.Size = new System.Drawing.Size(77, 25);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Set Speed";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.klcButtonSetSpeed);
+            this.flowLayoutPanel2.Controls.Add(this.numericUpDownSpeed);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(134, 51);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(130, 41);
+            this.flowLayoutPanel2.TabIndex = 19;
+            // 
+            // klcButtonSetSpeed
+            // 
+            this.klcButtonSetSpeed.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetSpeed.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetSpeed.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetSpeed.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetSpeed.Image")));
+            this.klcButtonSetSpeed.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetSpeed.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetSpeed.KLCBorderRadius = 8;
+            this.klcButtonSetSpeed.KLCBorderSize = 0;
+            this.klcButtonSetSpeed.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetSpeed.Location = new System.Drawing.Point(3, 0);
+            this.klcButtonSetSpeed.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButtonSetSpeed.Name = "klcButtonSetSpeed";
+            this.klcButtonSetSpeed.Size = new System.Drawing.Size(40, 25);
+            this.klcButtonSetSpeed.TabIndex = 20;
+            this.klcButtonSetSpeed.UseCompatibleTextRendering = true;
+            this.klcButtonSetSpeed.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(49, 2);
+            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDownSpeed.TabIndex = 13;
+            this.numericUpDownSpeed.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.Controls.Add(this.klcButtonSetAlt);
+            this.flowLayoutPanel11.Controls.Add(this.numericUpDownAlt);
+            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(134, 2);
+            this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(130, 45);
+            this.flowLayoutPanel11.TabIndex = 22;
+            // 
+            // klcButtonSetAlt
+            // 
+            this.klcButtonSetAlt.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetAlt.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetAlt.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetAlt.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetAlt.Image")));
+            this.klcButtonSetAlt.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetAlt.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetAlt.KLCBorderRadius = 8;
+            this.klcButtonSetAlt.KLCBorderSize = 0;
+            this.klcButtonSetAlt.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetAlt.Location = new System.Drawing.Point(3, 0);
+            this.klcButtonSetAlt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButtonSetAlt.Name = "klcButtonSetAlt";
+            this.klcButtonSetAlt.Size = new System.Drawing.Size(40, 25);
+            this.klcButtonSetAlt.TabIndex = 19;
+            this.klcButtonSetAlt.UseCompatibleTextRendering = true;
+            this.klcButtonSetAlt.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDownAlt
+            // 
+            this.numericUpDownAlt.Location = new System.Drawing.Point(49, 2);
+            this.numericUpDownAlt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownAlt.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownAlt.Name = "numericUpDownAlt";
+            this.numericUpDownAlt.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDownAlt.TabIndex = 13;
+            this.numericUpDownAlt.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label21.Location = new System.Drawing.Point(270, 0);
+            this.label21.MaximumSize = new System.Drawing.Size(0, 25);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.label21.Size = new System.Drawing.Size(56, 25);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "Set Alt";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel12
+            // 
+            this.flowLayoutPanel12.Controls.Add(this.klcButtonSetLoiterRad);
+            this.flowLayoutPanel12.Controls.Add(this.numericUpDownLoiter);
+            this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(134, 96);
+            this.flowLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(130, 39);
+            this.flowLayoutPanel12.TabIndex = 23;
+            // 
+            // klcButtonSetLoiterRad
+            // 
+            this.klcButtonSetLoiterRad.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetLoiterRad.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetLoiterRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetLoiterRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetLoiterRad.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetLoiterRad.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetLoiterRad.Image")));
+            this.klcButtonSetLoiterRad.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetLoiterRad.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetLoiterRad.KLCBorderRadius = 8;
+            this.klcButtonSetLoiterRad.KLCBorderSize = 0;
+            this.klcButtonSetLoiterRad.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetLoiterRad.Location = new System.Drawing.Point(3, 0);
+            this.klcButtonSetLoiterRad.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.klcButtonSetLoiterRad.Name = "klcButtonSetLoiterRad";
+            this.klcButtonSetLoiterRad.Size = new System.Drawing.Size(40, 25);
+            this.klcButtonSetLoiterRad.TabIndex = 20;
+            this.klcButtonSetLoiterRad.UseCompatibleTextRendering = true;
+            this.klcButtonSetLoiterRad.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDownLoiter
+            // 
+            this.numericUpDownLoiter.Location = new System.Drawing.Point(49, 2);
+            this.numericUpDownLoiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownLoiter.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownLoiter.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownLoiter.Name = "numericUpDownLoiter";
+            this.numericUpDownLoiter.Size = new System.Drawing.Size(69, 22);
+            this.numericUpDownLoiter.TabIndex = 13;
+            this.numericUpDownLoiter.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.Controls.Add(this.pictureBox3);
+            this.flowLayoutPanel13.Controls.Add(this.labelBatteryLevel);
+            this.flowLayoutPanel13.Controls.Add(this.labelBatteryVoltages);
+            this.flowLayoutPanel13.Controls.Add(this.label22);
+            this.flowLayoutPanel13.Controls.Add(this.labelBatteryCurrent);
+            this.flowLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 2);
+            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(125, 45);
+            this.flowLayoutPanel13.TabIndex = 16;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // labelBatteryLevel
+            // 
+            this.labelBatteryLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryLevel.AutoSize = true;
+            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryLevel.Location = new System.Drawing.Point(25, 1);
+            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(34, 13);
+            this.labelBatteryLevel.MinimumSize = new System.Drawing.Size(34, 0);
+            this.labelBatteryLevel.Name = "labelBatteryLevel";
+            this.labelBatteryLevel.Size = new System.Drawing.Size(34, 13);
+            this.labelBatteryLevel.TabIndex = 1;
+            this.labelBatteryLevel.Text = "87 %";
+            this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelBatteryVoltages
+            // 
+            this.labelBatteryVoltages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryVoltages.AutoSize = true;
+            this.labelBatteryVoltages.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryVoltages.Location = new System.Drawing.Point(65, 1);
+            this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 14);
+            this.labelBatteryVoltages.Name = "labelBatteryVoltages";
+            this.labelBatteryVoltages.Size = new System.Drawing.Size(34, 14);
+            this.labelBatteryVoltages.TabIndex = 2;
+            this.labelBatteryVoltages.Text = "87 %";
+            this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(43, 16);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "            ";
+            // 
+            // labelBatteryCurrent
+            // 
+            this.labelBatteryCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryCurrent.AutoSize = true;
+            this.labelBatteryCurrent.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryCurrent.Location = new System.Drawing.Point(52, 17);
+            this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 13);
+            this.labelBatteryCurrent.Name = "labelBatteryCurrent";
+            this.labelBatteryCurrent.Size = new System.Drawing.Size(34, 13);
+            this.labelBatteryCurrent.TabIndex = 3;
+            this.labelBatteryCurrent.Text = "87 %";
+            this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel19
+            // 
+            this.flowLayoutPanel19.Controls.Add(this.pictureBox4);
+            this.flowLayoutPanel19.Controls.Add(this.labelTimeInAir);
+            this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(3, 96);
+            this.flowLayoutPanel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(125, 39);
+            this.flowLayoutPanel19.TabIndex = 18;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // labelTimeInAir
+            // 
+            this.labelTimeInAir.AutoSize = true;
+            this.labelTimeInAir.BackColor = System.Drawing.Color.Transparent;
+            this.labelTimeInAir.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeInAir.Location = new System.Drawing.Point(25, 2);
+            this.labelTimeInAir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelTimeInAir.MinimumSize = new System.Drawing.Size(55, 0);
+            this.labelTimeInAir.Name = "labelTimeInAir";
+            this.labelTimeInAir.Size = new System.Drawing.Size(66, 20);
+            this.labelTimeInAir.TabIndex = 1;
+            this.labelTimeInAir.Text = "00:23:34";
+            this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel20
+            // 
+            this.flowLayoutPanel20.Controls.Add(this.pictureBox5);
+            this.flowLayoutPanel20.Controls.Add(this.labelGPSStatus);
+            this.flowLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 51);
+            this.flowLayoutPanel20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(125, 41);
+            this.flowLayoutPanel20.TabIndex = 18;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::MissionPlanner.Properties.Resources.icons8_place_marker_16;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // labelGPSStatus
+            // 
+            this.labelGPSStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelGPSStatus.AutoSize = true;
+            this.labelGPSStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.labelGPSStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelGPSStatus.Location = new System.Drawing.Point(25, 2);
+            this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
+            this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelGPSStatus.Name = "labelGPSStatus";
+            this.labelGPSStatus.Size = new System.Drawing.Size(0, 20);
+            this.labelGPSStatus.TabIndex = 1;
+            this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLed
             // 
@@ -953,7 +1353,7 @@
             this.label5.MinimumSize = new System.Drawing.Size(32, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(11, 1, 0, 0);
-            this.label5.Size = new System.Drawing.Size(32, 14);
+            this.label5.Size = new System.Drawing.Size(40, 14);
             this.label5.TabIndex = 11;
             this.label5.Text = "m/s";
             // 
@@ -1163,395 +1563,6 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(0, 16);
             this.label24.TabIndex = 6;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 3;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25592F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.82991F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.09971F));
-            this.tableLayoutPanel11.Controls.Add(this.label19, 2, 2);
-            this.tableLayoutPanel11.Controls.Add(this.klcButtonArmDisArm, 0, 3);
-            this.tableLayoutPanel11.Controls.Add(this.label20, 2, 1);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel2, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel11, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label21, 2, 0);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel12, 1, 2);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel13, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel19, 0, 2);
-            this.tableLayoutPanel11.Controls.Add(this.flowLayoutPanel20, 0, 1);
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(355, 428);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 4;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.61194F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.37313F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.8806F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.62687F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(362, 183);
-            this.tableLayoutPanel11.TabIndex = 30;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(270, 94);
-            this.label19.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label19.Size = new System.Drawing.Size(76, 25);
-            this.label19.TabIndex = 21;
-            this.label19.Text = "Set Loiter Rad";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // klcButtonArmDisArm
-            // 
-            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.DarkRed;
-            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
-            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.DarkRed;
-            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.Purple;
-            this.klcButtonArmDisArm.KLCBorderRadius = 21;
-            this.klcButtonArmDisArm.KLCBorderSize = 0;
-            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.WhiteSmoke;
-            this.klcButtonArmDisArm.Location = new System.Drawing.Point(3, 140);
-            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
-            this.klcButtonArmDisArm.Size = new System.Drawing.Size(99, 21);
-            this.klcButtonArmDisArm.TabIndex = 27;
-            this.klcButtonArmDisArm.Text = "Arm/DisArm";
-            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(270, 49);
-            this.label20.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label20.Name = "label20";
-            this.label20.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label20.Size = new System.Drawing.Size(77, 25);
-            this.label20.TabIndex = 20;
-            this.label20.Text = "Set Speed";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.klcButtonSetSpeed);
-            this.flowLayoutPanel2.Controls.Add(this.numericUpDownSpeed);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(134, 51);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(130, 41);
-            this.flowLayoutPanel2.TabIndex = 19;
-            // 
-            // klcButtonSetSpeed
-            // 
-            this.klcButtonSetSpeed.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetSpeed.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetSpeed.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetSpeed.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetSpeed.Image")));
-            this.klcButtonSetSpeed.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetSpeed.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetSpeed.KLCBorderRadius = 8;
-            this.klcButtonSetSpeed.KLCBorderSize = 0;
-            this.klcButtonSetSpeed.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetSpeed.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetSpeed.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetSpeed.Name = "klcButtonSetSpeed";
-            this.klcButtonSetSpeed.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetSpeed.TabIndex = 20;
-            this.klcButtonSetSpeed.UseCompatibleTextRendering = true;
-            this.klcButtonSetSpeed.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDownSpeed
-            // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownSpeed.TabIndex = 13;
-            this.numericUpDownSpeed.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Controls.Add(this.klcButtonSetAlt);
-            this.flowLayoutPanel11.Controls.Add(this.numericUpDownAlt);
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(134, 2);
-            this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(130, 45);
-            this.flowLayoutPanel11.TabIndex = 22;
-            // 
-            // klcButtonSetAlt
-            // 
-            this.klcButtonSetAlt.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetAlt.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetAlt.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetAlt.Image")));
-            this.klcButtonSetAlt.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetAlt.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetAlt.KLCBorderRadius = 8;
-            this.klcButtonSetAlt.KLCBorderSize = 0;
-            this.klcButtonSetAlt.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetAlt.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetAlt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetAlt.Name = "klcButtonSetAlt";
-            this.klcButtonSetAlt.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetAlt.TabIndex = 19;
-            this.klcButtonSetAlt.UseCompatibleTextRendering = true;
-            this.klcButtonSetAlt.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDownAlt
-            // 
-            this.numericUpDownAlt.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownAlt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownAlt.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownAlt.Name = "numericUpDownAlt";
-            this.numericUpDownAlt.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownAlt.TabIndex = 13;
-            this.numericUpDownAlt.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(270, 0);
-            this.label21.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label21.Name = "label21";
-            this.label21.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label21.Size = new System.Drawing.Size(56, 25);
-            this.label21.TabIndex = 24;
-            this.label21.Text = "Set Alt";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel12
-            // 
-            this.flowLayoutPanel12.Controls.Add(this.klcButtonSetLoiterRad);
-            this.flowLayoutPanel12.Controls.Add(this.numericUpDownLoiter);
-            this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(134, 96);
-            this.flowLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(130, 39);
-            this.flowLayoutPanel12.TabIndex = 23;
-            // 
-            // klcButtonSetLoiterRad
-            // 
-            this.klcButtonSetLoiterRad.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetLoiterRad.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetLoiterRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetLoiterRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetLoiterRad.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetLoiterRad.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetLoiterRad.Image")));
-            this.klcButtonSetLoiterRad.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetLoiterRad.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetLoiterRad.KLCBorderRadius = 8;
-            this.klcButtonSetLoiterRad.KLCBorderSize = 0;
-            this.klcButtonSetLoiterRad.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetLoiterRad.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetLoiterRad.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetLoiterRad.Name = "klcButtonSetLoiterRad";
-            this.klcButtonSetLoiterRad.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetLoiterRad.TabIndex = 20;
-            this.klcButtonSetLoiterRad.UseCompatibleTextRendering = true;
-            this.klcButtonSetLoiterRad.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDownLoiter
-            // 
-            this.numericUpDownLoiter.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownLoiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownLoiter.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownLoiter.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownLoiter.Name = "numericUpDownLoiter";
-            this.numericUpDownLoiter.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownLoiter.TabIndex = 13;
-            this.numericUpDownLoiter.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // flowLayoutPanel13
-            // 
-            this.flowLayoutPanel13.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel13.Controls.Add(this.labelBatteryLevel);
-            this.flowLayoutPanel13.Controls.Add(this.labelBatteryVoltages);
-            this.flowLayoutPanel13.Controls.Add(this.label22);
-            this.flowLayoutPanel13.Controls.Add(this.labelBatteryCurrent);
-            this.flowLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(125, 45);
-            this.flowLayoutPanel13.TabIndex = 16;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::MissionPlanner.Properties.Resources.icons8_battery_16;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // labelBatteryLevel
-            // 
-            this.labelBatteryLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryLevel.AutoSize = true;
-            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryLevel.Location = new System.Drawing.Point(25, 1);
-            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(34, 13);
-            this.labelBatteryLevel.MinimumSize = new System.Drawing.Size(34, 0);
-            this.labelBatteryLevel.Name = "labelBatteryLevel";
-            this.labelBatteryLevel.Size = new System.Drawing.Size(34, 13);
-            this.labelBatteryLevel.TabIndex = 1;
-            this.labelBatteryLevel.Text = "87 %";
-            this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelBatteryVoltages
-            // 
-            this.labelBatteryVoltages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryVoltages.AutoSize = true;
-            this.labelBatteryVoltages.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryVoltages.Location = new System.Drawing.Point(65, 1);
-            this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 14);
-            this.labelBatteryVoltages.Name = "labelBatteryVoltages";
-            this.labelBatteryVoltages.Size = new System.Drawing.Size(0, 14);
-            this.labelBatteryVoltages.TabIndex = 2;
-            this.labelBatteryVoltages.Text = "87 %";
-            this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 16);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(43, 16);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "            ";
-            // 
-            // labelBatteryCurrent
-            // 
-            this.labelBatteryCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryCurrent.AutoSize = true;
-            this.labelBatteryCurrent.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryCurrent.Location = new System.Drawing.Point(52, 17);
-            this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 13);
-            this.labelBatteryCurrent.Name = "labelBatteryCurrent";
-            this.labelBatteryCurrent.Size = new System.Drawing.Size(0, 13);
-            this.labelBatteryCurrent.TabIndex = 3;
-            this.labelBatteryCurrent.Text = "87 %";
-            this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel19
-            // 
-            this.flowLayoutPanel19.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel19.Controls.Add(this.labelTimeInAir);
-            this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(3, 96);
-            this.flowLayoutPanel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(125, 39);
-            this.flowLayoutPanel19.TabIndex = 18;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // labelTimeInAir
-            // 
-            this.labelTimeInAir.AutoSize = true;
-            this.labelTimeInAir.BackColor = System.Drawing.Color.Transparent;
-            this.labelTimeInAir.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeInAir.Location = new System.Drawing.Point(25, 2);
-            this.labelTimeInAir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelTimeInAir.MinimumSize = new System.Drawing.Size(55, 0);
-            this.labelTimeInAir.Name = "labelTimeInAir";
-            this.labelTimeInAir.Size = new System.Drawing.Size(55, 20);
-            this.labelTimeInAir.TabIndex = 1;
-            this.labelTimeInAir.Text = "00:23:34";
-            this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel20
-            // 
-            this.flowLayoutPanel20.Controls.Add(this.pictureBox5);
-            this.flowLayoutPanel20.Controls.Add(this.labelGPSStatus);
-            this.flowLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 51);
-            this.flowLayoutPanel20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
-            this.flowLayoutPanel20.Size = new System.Drawing.Size(125, 41);
-            this.flowLayoutPanel20.TabIndex = 18;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::MissionPlanner.Properties.Resources.icons8_place_marker_16;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // labelGPSStatus
-            // 
-            this.labelGPSStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelGPSStatus.AutoSize = true;
-            this.labelGPSStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.labelGPSStatus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelGPSStatus.Location = new System.Drawing.Point(25, 2);
-            this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelGPSStatus.Name = "labelGPSStatus";
-            this.labelGPSStatus.Size = new System.Drawing.Size(0, 20);
-            this.labelGPSStatus.TabIndex = 1;
-            this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanelMessage
             // 
@@ -1944,17 +1955,6 @@
             // 
             this.timerLed.Tick += new System.EventHandler(this.timerLed_Tick);
             // 
-            // graphicLabel1
-            // 
-            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabel1.Location = new System.Drawing.Point(0, 165);
-            this.graphicLabel1.Name = "graphicLabel1";
-            this.graphicLabel1.Size = new System.Drawing.Size(78, 23);
-            this.graphicLabel1.TabIndex = 27;
-            this.graphicLabel1.Text = "Hello Serb World !";
-            this.graphicLabel1.Visible = false;
-            // 
             // MainBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1969,6 +1969,23 @@
             this.splitContainerMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
+            this.flowLayoutPanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).EndInit();
+            this.flowLayoutPanel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).EndInit();
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.flowLayoutPanel19.ResumeLayout(false);
+            this.flowLayoutPanel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.flowLayoutPanel20.ResumeLayout(false);
+            this.flowLayoutPanel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.flowLayoutPanelLayer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -2001,23 +2018,6 @@
             this.flowLayoutPanel15.PerformLayout();
             this.flowLayoutPanel16.ResumeLayout(false);
             this.flowLayoutPanel16.PerformLayout();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
-            this.flowLayoutPanel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).EndInit();
-            this.flowLayoutPanel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).EndInit();
-            this.flowLayoutPanel13.ResumeLayout(false);
-            this.flowLayoutPanel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.flowLayoutPanel19.ResumeLayout(false);
-            this.flowLayoutPanel19.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.flowLayoutPanel20.ResumeLayout(false);
-            this.flowLayoutPanel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanelMessage.ResumeLayout(false);
             this.tableLayoutPanelMessage.PerformLayout();
             this.tableLayoutPanel12.ResumeLayout(false);

@@ -443,6 +443,14 @@ namespace MissionPlanner.GCSViews
                 }
             };
             labelClock.DataBindings.Add(binding);
+            //Mode Binding 
+            var bindingMode = new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "mode", true);
+            bindingMode.Format += (s, e) =>
+            {
+                if (e.Value == null || e.Value=="Unknown" ||string.IsNullOrEmpty(e.Value.ToString()))
+                    e.Value = "Manual";
+            };
+            this.lblMode.DataBindings.Add(bindingMode);
         }
         void POI_POIModified(object sender, EventArgs e)
         {
@@ -3214,6 +3222,11 @@ namespace MissionPlanner.GCSViews
                     CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
                 }
             }
+        }
+
+        private void rjTextBox1__TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
     }
