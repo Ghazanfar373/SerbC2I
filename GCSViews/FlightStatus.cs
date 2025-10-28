@@ -3132,7 +3132,7 @@ namespace MissionPlanner.GCSViews
             switch (tc.SelectedIndex)
             {
                 case 2: // Home tab
-                    MessageBox.Show("Inside Tab Page 2");
+                    
                     FormationControl formationControl = new FormationControl();
 
                     formationControl.Dock = DockStyle.Fill;
@@ -3227,6 +3227,63 @@ namespace MissionPlanner.GCSViews
         private void rjTextBox1__TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void circularButtonArm_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void klcButtonARMD_Click(object sender, EventArgs e)
+        {
+           
+            if (!MainSerb.comPort.BaseStream.IsOpen)
+                return;
+
+            // arm the MAV
+            try
+            {
+                counterArmed = 0;
+
+                var isitarmed = MainSerb.comPort.MAV.cs.armed;
+                var action = MainSerb.comPort.MAV.cs.armed ? "Disarm" : "Arm";
+
+                if (isitarmed)
+                    if (CustomMessageBox.Show(" Are you sure you want to " + action, action,
+                            CustomMessageBox.MessageBoxButtons.YesNo) !=
+                        CustomMessageBox.DialogResult.Yes)
+                        return;
+                StringBuilder sb = new StringBuilder();
+                var sub = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.STATUSTEXT, message =>
+                {
+                    sb.AppendLine(Encoding.ASCII.GetString(((MAVLink.mavlink_statustext_t)message.data).text)
+                        .TrimEnd('\0'));
+                    return true;
+                }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
+                bool ans = MainSerb.comPort.doARM(!isitarmed);
+                MainSerb.comPort.UnSubscribeToPacketType(sub);
+                if (ans == false)
+                {
+                    if (CustomMessageBox.Show(
+                            action + " failed.\n" + sb.ToString() + "\nForce " + action +
+                            " can bypass safety checks,\nwhich can lead to the vehicle crashing\nand causing serious injuries.\n\nDo you wish to Force " +
+                            action + "?", Strings.ERROR, CustomMessageBox.MessageBoxButtons.YesNo,
+                            CustomMessageBox.MessageBoxIcon.Exclamation, "Force " + action, "Cancel") ==
+                        CustomMessageBox.DialogResult.Yes)
+                    {
+                        ans = MainSerb.comPort.doARM(!isitarmed, true);
+                        if (ans == false)
+                        {
+                            CustomMessageBox.Show(Strings.ErrorRejectedByMAV, Strings.ERROR);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR);
+            }
+
         }
     }
     }

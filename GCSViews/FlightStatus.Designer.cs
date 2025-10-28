@@ -89,6 +89,7 @@ namespace MissionPlanner.GCSViews
             this.quickView10 = new MissionPlanner.Controls.QuickView();
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.angleControl1 = new DotSpatial.Symbology.Forms.AngleControl();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
@@ -150,7 +151,7 @@ namespace MissionPlanner.GCSViews
             this.lblMode = new System.Windows.Forms.Label();
             this.tableLayoutPanelBatGPS = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
-            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonARMD = new KLCToolbox.KLCControls.KLCButton();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
@@ -520,7 +521,6 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning2.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning2.TabIndex = 28;
             this.gLabelWarning2.Text = "Warning Text";
-            this.gLabelWarning2.Visible = false;
             // 
             // gLabelWarning1
             // 
@@ -534,7 +534,6 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning1.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning1.TabIndex = 29;
             this.gLabelWarning1.Text = "Warning Text";
-            this.gLabelWarning1.Visible = false;
             // 
             // gMapControlSerb
             // 
@@ -1112,6 +1111,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.angleControl1);
             this.tabPage2.Controls.Add(this.zedGraphControl1);
             this.tabPage2.Location = new System.Drawing.Point(25, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1121,6 +1121,19 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // angleControl1
+            // 
+            this.angleControl1.Angle = 0;
+            this.angleControl1.BackColor = System.Drawing.SystemColors.Control;
+            this.angleControl1.Caption = "&Angle:";
+            this.angleControl1.Clockwise = false;
+            this.angleControl1.KnobColor = System.Drawing.Color.Green;
+            this.angleControl1.Location = new System.Drawing.Point(534, 118);
+            this.angleControl1.Name = "angleControl1";
+            this.angleControl1.Size = new System.Drawing.Size(181, 63);
+            this.angleControl1.StartAngle = 0;
+            this.angleControl1.TabIndex = 1;
             // 
             // zedGraphControl1
             // 
@@ -2066,7 +2079,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.16667F));
             this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.72222F));
             this.tableLayoutPanelBatGPS.Controls.Add(this.label15, 2, 2);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.klcButtonArmDisArm, 0, 3);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.klcButtonARMD, 0, 3);
             this.tableLayoutPanelBatGPS.Controls.Add(this.label10, 2, 1);
             this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel16, 1, 1);
             this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel17, 1, 0);
@@ -2101,26 +2114,24 @@ namespace MissionPlanner.GCSViews
             this.label15.Text = "Set Loiter Rad";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // klcButtonArmDisArm
+            // klcButtonARMD
             // 
-            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.DarkRed;
-            this.klcButtonArmDisArm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
-            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.klcButtonArmDisArm.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.DarkRed;
-            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.DarkRed;
-            this.klcButtonArmDisArm.KLCBorderRadius = 21;
-            this.klcButtonArmDisArm.KLCBorderSize = 0;
-            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.WhiteSmoke;
-            this.klcButtonArmDisArm.Location = new System.Drawing.Point(3, 144);
-            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
-            this.klcButtonArmDisArm.Size = new System.Drawing.Size(108, 33);
-            this.klcButtonArmDisArm.TabIndex = 27;
-            this.klcButtonArmDisArm.Text = "Arm/DisArm";
-            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
-            this.klcButtonArmDisArm.Click += new System.EventHandler(this.rjToggleBtnArm_CheckedChanged);
+            this.klcButtonARMD.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.klcButtonARMD.FlatAppearance.BorderSize = 0;
+            this.klcButtonARMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonARMD.ForeColor = System.Drawing.Color.White;
+            this.klcButtonARMD.KLCBackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.klcButtonARMD.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonARMD.KLCBorderRadius = 13;
+            this.klcButtonARMD.KLCBorderSize = 0;
+            this.klcButtonARMD.KLCTextColor = System.Drawing.Color.White;
+            this.klcButtonARMD.Location = new System.Drawing.Point(3, 144);
+            this.klcButtonARMD.Name = "klcButtonARMD";
+            this.klcButtonARMD.Size = new System.Drawing.Size(108, 27);
+            this.klcButtonARMD.TabIndex = 28;
+            this.klcButtonARMD.Text = "Arm/DisArm";
+            this.klcButtonARMD.UseVisualStyleBackColor = false;
+            this.klcButtonARMD.Click += new System.EventHandler(this.klcButtonARMD_Click);
             // 
             // label10
             // 
@@ -2466,12 +2477,13 @@ namespace MissionPlanner.GCSViews
             this.animatedTextControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.animatedTextControl1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.animatedTextControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.animatedTextControl1.Location = new System.Drawing.Point(133, 153);
+            this.animatedTextControl1.Location = new System.Drawing.Point(133, 141);
             this.animatedTextControl1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
             this.animatedTextControl1.Name = "animatedTextControl1";
-            this.animatedTextControl1.Size = new System.Drawing.Size(128, 23);
+            this.animatedTextControl1.Size = new System.Drawing.Size(137, 46);
             this.animatedTextControl1.TabIndex = 28;
             this.animatedTextControl1.Text = "animatedlblArm";
+            this.animatedTextControl1.Visible = false;
             // 
             // tableLayoutPanelButtons
             // 
@@ -3074,7 +3086,6 @@ namespace MissionPlanner.GCSViews
         private Label labelBatteryVoltages;
         private Label labelBatteryCurrent;
         private Label label3;
-        private KLCToolbox.KLCControls.KLCButton klcButtonArmDisArm;
         private FlowLayoutPanel flowLayoutPanelLayer1;
         private TableLayoutPanel tableLayoutPanelMessage;
         private TableLayoutPanel tableLayoutPanel12;
@@ -3083,6 +3094,8 @@ namespace MissionPlanner.GCSViews
         private Label label6;
         private Label labelValAS;
         private SerbLabelControls.AnimatedTextControl animatedTextControl1;
+        private KLCToolbox.KLCControls.KLCButton klcButtonARMD;
+        private DotSpatial.Symbology.Forms.AngleControl angleControl1;
 
 
         // private AnimatedTextControl animatedTextControl1;

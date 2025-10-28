@@ -47,7 +47,7 @@ namespace MissionPlanner.Swarm
                 CMB_mavs.DisplayMember = "Key";
                 updateicons();
                 
-                MessageBox.Show("After Update Icons");
+                //MessageBox.Show("After Update Icons");
                 CMB_mavs.ResumeLayout();
 
                 //swarmHud1.ArmButtonClick += buttonARM_Click;
