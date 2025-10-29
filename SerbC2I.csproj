@@ -85,6 +85,9 @@
     <EmbeddedResource Include="Controls\ConnectionOptions.uk.resx">
       <DependentUpon>ConnectionOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionOptionsNew.resx">
+      <DependentUpon>ConnectionOptionsNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ConnectionStats.uk.resx">
       <DependentUpon>ConnectionStats.cs</DependentUpon>
     </EmbeddedResource>
@@ -738,6 +741,12 @@
   <ItemGroup>
     <Compile Include="Antenna\TrackerGeneric.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="Controls\ConnectionOptionsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ConnectionOptionsNew.Designer.cs">
+      <DependentUpon>ConnectionOptionsNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DroneCANSubscriber.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -771,6 +780,7 @@
     <Compile Include="Controls\LabelView.Designer.cs">
       <DependentUpon>LabelView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ListViewConnectionHelper.cs" />
     <Compile Include="Controls\MavCommandSelection.cs">
       <SubType>Form</SubType>
     </Compile>

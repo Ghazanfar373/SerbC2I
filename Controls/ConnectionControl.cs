@@ -139,7 +139,6 @@ namespace MissionPlanner.Controls
                         /*MainSerb.comPort.MAV.compid == (byte)MAVLink.MAV_COMPONENT.MAV_COMP_ID_AUTOPILOT1 && */
                         !(Control.ModifierKeys == Keys.Control))
                         MainSerb.comPort.getParamList();
-
                     MainSerb.View.Reload();
                 }
             }

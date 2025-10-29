@@ -3626,7 +3626,9 @@ namespace MissionPlanner
             btnFlightPlan.Image = originalImageFlightPlan;
             btnHWConfig.Image = originalImageHWConfig;
             btnFlightData.Image = originalImageFlightStatus;
-            new ConnectionOptions().Show(this);
+            Form connections = new ConnectionOptionsNew();
+            Utilities.ThemeManager.ApplyThemeTo(connections);
+            connections.Show(this);
         }
         private bool isActive = false;
        
