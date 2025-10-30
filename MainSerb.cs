@@ -265,7 +265,12 @@ namespace MissionPlanner
         {
             //InitializeComponent();
             log.Info("MainSerb ctor");
-           
+            if (MainSerb.Comports != null)
+            {
+                foreach(MAVLinkInterface port in Comports )
+               port.Dispose();
+
+            }
 
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -725,7 +730,7 @@ namespace MissionPlanner
 
             Application.DoEvents();
 
-            Comports.Add(comPort);
+           // Comports.Add(comPort);
 
             MainSerb.comPort.MavChanged += comPort_MavChanged;
 
@@ -738,10 +743,8 @@ namespace MissionPlanner
         private void PopulateSerialportList()
         {
             _connectionControl.CMB_serialport.Items.Clear();
-
             _connectionControl.CMB_serialport.Items.Add("AUTO");
             _connectionControl.CMB_serialport.Items.AddRange(SerialPort.GetPortNames());
-
             _connectionControl.CMB_serialport.Items.Add("TCP");
             _connectionControl.CMB_serialport.Items.Add("UDP");
             _connectionControl.CMB_serialport.Items.Add("UDPCl");
@@ -3611,7 +3614,7 @@ namespace MissionPlanner
             btnFlightPlan.Image = originalImageFlightPlan;
             btnConnection.Image = originalImageConn;
             MyView.ShowScreen("MainBoard");
-             AutoConnect.Start();
+            
         }
 
         private void connectionControl1_Load(object sender, EventArgs e)

@@ -20,6 +20,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Timer = System.Timers.Timer;
+using MissionPlanner.Utilities;
 
 namespace MissionPlanner
 {
@@ -590,6 +591,7 @@ namespace MissionPlanner
             if (showui)
                // frmProgressReporter = CreateIProgressReporterDialogue(Strings.ConnectingMavlink);
                 frmProgressReporter = CreateIProgressReporterDialogue("Connecting Datalink");
+                
             else
                 frmProgressReporter = new NoUIReporter();
 

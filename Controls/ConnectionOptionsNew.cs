@@ -1,5 +1,6 @@
 ﻿using log4net;
 using MissionPlanner.Comms;
+using MissionPlanner.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +20,9 @@ namespace MissionPlanner.Controls
 
             private Dictionary<MAVLinkInterface, string> _interfaceToConnectionId =
                 new Dictionary<MAVLinkInterface, string>();
+       // public static List<MAVLinkInterface> Comports = new List<MAVLinkInterface>();
 
-            private System.Windows.Forms.Timer _refreshTimer;
+        private System.Windows.Forms.Timer _refreshTimer;
             private const int REFRESH_INTERVAL_MS = 1000;
 
             #region FORM LIFECYCLE
@@ -53,8 +55,18 @@ namespace MissionPlanner.Controls
                     log.Error($"Error loading ConnectionOptions: {ex.Message}", ex);
                 }
             }
-
-            private void ConnectionOptions_FormClosing(object sender, FormClosingEventArgs e)
+        private void PopulateSerialportList()
+        {
+            cmb_SerialPort.Items.Clear();
+            cmb_SerialPort.Items.Add("AUTO");
+            cmb_SerialPort.Items.AddRange(SerialPort.GetPortNames());
+            cmb_SerialPort.Items.Add("TCP");
+            cmb_SerialPort.Items.Add("UDP");
+            cmb_SerialPort.Items.Add("UDPCl");
+            cmb_SerialPort.Items.Add("WS");
+            cmb_SerialPort.SelectedIndex = 0;
+        }
+        private void ConnectionOptions_FormClosing(object sender, FormClosingEventArgs e)
             {
                 try
                 {
@@ -403,7 +415,7 @@ namespace MissionPlanner.Controls
                     MainSerb.Comports.Add(mav);
 
                     log.Info($"Connected to {port}");
-                    MessageBox.Show($"Connected to {port} @ {baudRate}");
+                    //MessageBox.Show($"Connected to {port} @ {baudRate}");
                 }
                 catch (Exception ex)
                 {
@@ -520,21 +532,21 @@ namespace MissionPlanner.Controls
                 {
                     cmb_SerialPort.Items.Clear();
 
-                    string[] ports = SerialPort.GetPortNames();
+                    //string[] ports = SerialPort.GetPortNames();
 
-                    if (ports.Length == 0)
-                    {
-                        cmb_SerialPort.Items.Add("No ports available");
-                        cmb_SerialPort.SelectedIndex = 0;
-                        return;
-                    }
+                    //if (ports.Length == 0)
+                    //{
+                    //    cmb_SerialPort.Items.Add("No ports available");
+                    //    cmb_SerialPort.SelectedIndex = 0;
+                    //    return;
+                    //}
 
-                    foreach (string port in ports)
-                    {
-                        cmb_SerialPort.Items.Add(port);
-                    }
-
-                    cmb_SerialPort.SelectedIndex = 0;
+                    //foreach (string port in ports)
+                    //{
+                    //    cmb_SerialPort.Items.Add(port);
+                    //}
+                    PopulateSerialportList();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -553,16 +565,21 @@ namespace MissionPlanner.Controls
 
             private void InitializeDropdowns()
             {
-                cmb_BaudRate.Items.AddRange(new object[] {
-                "9600", "19200", "38400", "57600", "115200", "230400", "460800", "921600"
+            PopulateSerialportList();
+            cmb_BaudRate.Items.Clear();
+            cmb_BaudRate.Items.AddRange(new object[] {
+                "9600", "38400", "57600", "115200"
             });
-                cmb_BaudRate.SelectedIndex = 4;
+                cmb_BaudRate.SelectedIndex = 3;
 
                 cmb_SystemID.Items.AddRange(new object[] {
                 "1", "2", "3", "4", "5", "255"
             });
                 cmb_SystemID.SelectedIndex = 0;
-            }
+            
+        }
+        
+
 
             private bool HasMavChangedHandler(MAVLinkInterface mav)
             {
@@ -587,6 +604,43 @@ namespace MissionPlanner.Controls
                 lbl_StatusText.Text = message;
             }
 
-            #endregion
+        #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MainSerb.Comports == null)
+                {
+                    // ClearListView();
+                    //  UpdateStatus(0, "No connections");
+                    // return;
+
+                    MessageBox.Show("No comports detected");
+
+                }
+                else
+                {
+                    String str = "TOtal Count: " + MainSerb.Comports.Count + "\n\r";
+                    foreach (MAVLinkInterface mav in MainSerb.Comports)
+                    {
+
+                        str += mav.ToString();
+                        // +"Firmware \n"+ MainSerb.comPort.MAV.cs.firmware.ToString());
+                    }
+                    MessageBox.Show(str);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
+        private void buttonAutoConnect_Click(object sender, EventArgs e)
+        {
+            AutoConnect.Start();
+        }
+    }
     }

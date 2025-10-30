@@ -53,12 +53,11 @@
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Connect = new System.Windows.Forms.Button();
             this.btn_Disconnect = new System.Windows.Forms.Button();
-            this.pnl_ButtonFooter = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_Close = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAutoConnect = new System.Windows.Forms.Button();
             this.pnl_Main.SuspendLayout();
             this.pnl_ActiveConnections.SuspendLayout();
             this.pnl_ConnectionPanel.SuspendLayout();
-            this.pnl_ButtonFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_Main
@@ -66,12 +65,10 @@
             this.pnl_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.pnl_Main.Controls.Add(this.pnl_ActiveConnections);
             this.pnl_Main.Controls.Add(this.pnl_ConnectionPanel);
-            this.pnl_Main.Controls.Add(this.pnl_ButtonFooter);
-            this.pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Main.Location = new System.Drawing.Point(0, 0);
             this.pnl_Main.Name = "pnl_Main";
             this.pnl_Main.Padding = new System.Windows.Forms.Padding(15);
-            this.pnl_Main.Size = new System.Drawing.Size(600, 600);
+            this.pnl_Main.Size = new System.Drawing.Size(600, 522);
             this.pnl_Main.TabIndex = 0;
             // 
             // pnl_ActiveConnections
@@ -86,7 +83,7 @@
             this.pnl_ActiveConnections.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.pnl_ActiveConnections.Name = "pnl_ActiveConnections";
             this.pnl_ActiveConnections.Padding = new System.Windows.Forms.Padding(15);
-            this.pnl_ActiveConnections.Size = new System.Drawing.Size(570, 293);
+            this.pnl_ActiveConnections.Size = new System.Drawing.Size(570, 272);
             this.pnl_ActiveConnections.TabIndex = 0;
             // 
             // lvw_ActiveConnections
@@ -105,7 +102,7 @@
             this.lvw_ActiveConnections.HideSelection = false;
             this.lvw_ActiveConnections.Location = new System.Drawing.Point(15, 45);
             this.lvw_ActiveConnections.Name = "lvw_ActiveConnections";
-            this.lvw_ActiveConnections.Size = new System.Drawing.Size(560, 220);
+            this.lvw_ActiveConnections.Size = new System.Drawing.Size(535, 220);
             this.lvw_ActiveConnections.TabIndex = 0;
             this.lvw_ActiveConnections.UseCompatibleStateImageBehavior = false;
             this.lvw_ActiveConnections.View = System.Windows.Forms.View.Details;
@@ -134,7 +131,7 @@
             // col_Action
             // 
             this.col_Action.Text = "Action";
-            this.col_Action.Width = 90;
+            this.col_Action.Width = 80;
             // 
             // lbl_ConnectionCount
             // 
@@ -162,6 +159,8 @@
             // 
             this.pnl_ConnectionPanel.BackColor = System.Drawing.Color.White;
             this.pnl_ConnectionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_ConnectionPanel.Controls.Add(this.buttonAutoConnect);
+            this.pnl_ConnectionPanel.Controls.Add(this.button1);
             this.pnl_ConnectionPanel.Controls.Add(this.lbl_StatusText);
             this.pnl_ConnectionPanel.Controls.Add(this.lbl_StatusIndicator);
             this.pnl_ConnectionPanel.Controls.Add(this.lbl_Port);
@@ -310,40 +309,44 @@
             this.btn_Disconnect.UseVisualStyleBackColor = false;
             this.btn_Disconnect.Click += new System.EventHandler(this.btn_Disconnect_Click);
             // 
-            // pnl_ButtonFooter
+            // button1
             // 
-            this.pnl_ButtonFooter.AutoSize = true;
-            this.pnl_ButtonFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.pnl_ButtonFooter.Controls.Add(this.btn_Close);
-            this.pnl_ButtonFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_ButtonFooter.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.pnl_ButtonFooter.Location = new System.Drawing.Point(15, 528);
-            this.pnl_ButtonFooter.Name = "pnl_ButtonFooter";
-            this.pnl_ButtonFooter.Padding = new System.Windows.Forms.Padding(0, 15, 15, 0);
-            this.pnl_ButtonFooter.Size = new System.Drawing.Size(570, 57);
-            this.pnl_ButtonFooter.TabIndex = 2;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(306, 120);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Debug";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btn_Close
+            // buttonAutoConnect
             // 
-            this.btn_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Close.FlatAppearance.BorderSize = 0;
-            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Close.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Close.ForeColor = System.Drawing.Color.White;
-            this.btn_Close.Location = new System.Drawing.Point(462, 18);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(90, 36);
-            this.btn_Close.TabIndex = 0;
-            this.btn_Close.Text = "Close";
-            this.btn_Close.UseVisualStyleBackColor = false;
+            this.buttonAutoConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.buttonAutoConnect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAutoConnect.FlatAppearance.BorderSize = 0;
+            this.buttonAutoConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAutoConnect.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonAutoConnect.ForeColor = System.Drawing.Color.White;
+            this.buttonAutoConnect.Location = new System.Drawing.Point(15, 165);
+            this.buttonAutoConnect.Name = "buttonAutoConnect";
+            this.buttonAutoConnect.Size = new System.Drawing.Size(110, 36);
+            this.buttonAutoConnect.TabIndex = 12;
+            this.buttonAutoConnect.Text = "Auto Connect";
+            this.buttonAutoConnect.UseVisualStyleBackColor = false;
+            this.buttonAutoConnect.Click += new System.EventHandler(this.buttonAutoConnect_Click);
             // 
             // ConnectionOptionsNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.ClientSize = new System.Drawing.Size(600, 515);
             this.Controls.Add(this.pnl_Main);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.MaximizeBox = false;
@@ -352,12 +355,10 @@
             this.Text = "Datalink Connections Manager";
             this.Load += new System.EventHandler(this.ConnectionOptions_Load);
             this.pnl_Main.ResumeLayout(false);
-            this.pnl_Main.PerformLayout();
             this.pnl_ActiveConnections.ResumeLayout(false);
             this.pnl_ActiveConnections.PerformLayout();
             this.pnl_ConnectionPanel.ResumeLayout(false);
             this.pnl_ConnectionPanel.PerformLayout();
-            this.pnl_ButtonFooter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -368,7 +369,6 @@
         private System.Windows.Forms.Panel pnl_Main;
         private System.Windows.Forms.Panel pnl_ConnectionPanel;
         private System.Windows.Forms.Panel pnl_ActiveConnections;
-        private System.Windows.Forms.FlowLayoutPanel pnl_ButtonFooter;
 
         // Connection input controls
         private System.Windows.Forms.Label lbl_Port;
@@ -393,12 +393,12 @@
         // Buttons
         private System.Windows.Forms.Button btn_Connect;
         private System.Windows.Forms.Button btn_Disconnect;
-        private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Button btn_Refresh;
 
         // Status indicator
         private System.Windows.Forms.Label lbl_StatusIndicator;
         private System.Windows.Forms.Label lbl_StatusText;
-   
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAutoConnect;
     }
 }
