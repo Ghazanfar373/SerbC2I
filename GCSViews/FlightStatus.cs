@@ -3120,7 +3120,7 @@ namespace MissionPlanner.GCSViews
                 }
             }
         }
-
+        FormationControl formationControl;
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tc = sender as TabControl;
@@ -3132,9 +3132,9 @@ namespace MissionPlanner.GCSViews
             switch (tc.SelectedIndex)
             {
                 case 2: // Home tab
-                    
-                    FormationControl formationControl = new FormationControl();
 
+                    formationControl = new FormationControl();
+                    formationControl.init();
                     formationControl.Dock = DockStyle.Fill;
                     tabPageFormation.Controls.Add(formationControl);
                     tabPageFormation.Dock = DockStyle.Fill;

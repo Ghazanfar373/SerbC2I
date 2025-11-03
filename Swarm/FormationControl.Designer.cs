@@ -43,10 +43,10 @@
             this.BUT_Takeoff = new MissionPlanner.Controls.MyButton();
             this.BUT_Land = new MissionPlanner.Controls.MyButton();
             this.flowLayoutPanelSwarm = new System.Windows.Forms.FlowLayoutPanel();
-            this.grid1 = new MissionPlanner.Swarm.Grid();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.But_ArmAll = new MissionPlanner.Controls.MyButton();
+            this.grid1 = new MissionPlanner.Swarm.Grid();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.flowLayoutPanelSwarm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -155,12 +155,12 @@
             // 
             // CMB_mavs
             // 
-            this.CMB_mavs.DataSource = this.bindingSource1;
             this.CMB_mavs.FormattingEnabled = true;
             this.CMB_mavs.Location = new System.Drawing.Point(3, 3);
             this.CMB_mavs.Name = "CMB_mavs";
             this.CMB_mavs.Size = new System.Drawing.Size(130, 24);
             this.CMB_mavs.TabIndex = 18;
+            this.CMB_mavs.DropDown += new System.EventHandler(this.CMB_mavs_DropDown);
             this.CMB_mavs.SelectedIndexChanged += new System.EventHandler(this.CMB_mavs_SelectedIndexChanged);
             // 
             // BUT_Takeoff
@@ -203,16 +203,6 @@
             this.flowLayoutPanelSwarm.Size = new System.Drawing.Size(1000, 285);
             this.flowLayoutPanelSwarm.TabIndex = 25;
             this.flowLayoutPanelSwarm.WrapContents = false;
-            // 
-            // grid1
-            // 
-            this.grid1.Location = new System.Drawing.Point(0, 0);
-            this.grid1.Margin = new System.Windows.Forms.Padding(0);
-            this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(316, 225);
-            this.grid1.TabIndex = 21;
-            this.grid1.Vertical = false;
-            this.grid1.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
             // 
             // tableLayoutPanel1
             // 
@@ -265,6 +255,16 @@
             this.But_ArmAll.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.But_ArmAll.UseVisualStyleBackColor = true;
             this.But_ArmAll.Click += new System.EventHandler(this.But_ArmAll_Click);
+            // 
+            // grid1
+            // 
+            this.grid1.Location = new System.Drawing.Point(0, 0);
+            this.grid1.Margin = new System.Windows.Forms.Padding(0);
+            this.grid1.Name = "grid1";
+            this.grid1.Size = new System.Drawing.Size(316, 225);
+            this.grid1.TabIndex = 21;
+            this.grid1.Vertical = false;
+            this.grid1.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
             // 
             // FormationControl
             // 

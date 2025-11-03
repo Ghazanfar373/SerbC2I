@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static MissionPlanner.Controls.ConnectionControl;
 
 namespace MissionPlanner.Controls
 {
@@ -23,7 +24,7 @@ namespace MissionPlanner.Controls
        // public static List<MAVLinkInterface> Comports = new List<MAVLinkInterface>();
 
         private System.Windows.Forms.Timer _refreshTimer;
-            private const int REFRESH_INTERVAL_MS = 1000;
+            private const int REFRESH_INTERVAL_MS = 3000;
 
             #region FORM LIFECYCLE
 
@@ -157,45 +158,66 @@ namespace MissionPlanner.Controls
 
                     lvw_ActiveConnections.Items.Clear();
                     _interfaceToConnectionId.Clear();
+                int selectidx = -1;
 
-                    foreach (var mav in currentConnections)
-                    {
-                        try
-                        {
-                            if (mav == null)
-                                continue;
+                foreach (var portt in MainSerb.Comports.ToArray())
+                {
+                    var list = portt.MAVlist.GetRawIDS();
+
+                foreach (int itemm in list)
+                {
+                    var temp = new port_sysid() { compid = (itemm % 256), sysid = (itemm / 256), port = portt };
+
+                    // exclude GCS's from the list
+                    if (temp.compid == (int)MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                        continue;
+
+                    //var idx = cmb_sysid.Items.Add(temp);
+                    // Create a ListViewItem for the ListView
+                    //var lvi = new ListViewItem($"{portt.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                    // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                    //lvi.Tag = temp; // Store the port_sysid object for later use if needed
+                    //listView_sysid.Items.Add(lvi);
+                    //foreach (var mav in currentConnections)
+                    //{
+                    //    try
+                    //    {
+                    //        if (mav == null)
+                    //            continue;
 
                             // ✅ FIXED: Properly extract port name and baud rate
-                            string port = ExtractPortName(mav);
-                            string baudRate = ExtractBaudRate(mav);
-                            string systemId = ExtractSystemId(mav);
+                            string port = portt.BaseStream.PortName;
+                            string baudRate = portt.BaseStream.BaudRate.ToString();
+                            string systemId = temp.sysid.ToString();
+                            string compId   = temp.compid.ToString();
 
                             log.Debug($"Adding connection: Port={port}, Baud={baudRate}, SysID={systemId}");
 
-                            ConnectionEntry entry = new ConnectionEntry
-                            {
-                                Port = port,
-                                BaudRate = baudRate,
-                                SystemID = systemId,
+                        ConnectionEntry entry = new ConnectionEntry
+                        {
+                            Port = port,
+                            BaudRate = baudRate,
+                            SystemID = systemId,
+                            CompID = compId,
                                 Status = ConnectionStatus.Connected,
                                 ConnectedTime = DateTime.Now
                             };
 
                             ListViewItem item = lvw_ActiveConnections.AddConnection(entry);
 
-                            _interfaceToConnectionId[mav] = entry.ConnectionId;
+                           _interfaceToConnectionId[portt] = entry.ConnectionId;
 
-                            if (!HasMavChangedHandler(mav))
-                            {
-                                mav.MavChanged += (s, e) => OnMavChanged(mav, entry.ConnectionId);
-                            }
-
-                            log.Debug($"Successfully added connection: {port}@{baudRate}");
-                        }
-                        catch (Exception ex)
+                        if (!HasMavChangedHandler(portt))
                         {
-                            log.Error($"Error adding connection: {ex.Message}");
+                            portt.MavChanged += (s, e) => OnMavChanged(portt, entry.ConnectionId);
                         }
+
+                        //    log.Debug($"Successfully added connection: {port}@{baudRate}");
+                        //}
+                        //    catch (Exception ex)
+                        //    {
+                        //        log.Error($"Error adding connection: {ex.Message}");
+                    }
                     }
                 }
                 catch (Exception ex)
@@ -400,13 +422,13 @@ namespace MissionPlanner.Controls
                         return;
                     }
 
-                    if (MainSerb.Comports.Any(m =>
-                        ExtractPortName(m) == port &&
-                        ExtractBaudRate(m) == baudRate))
-                    {
-                        MessageBox.Show("Already connected to this port");
-                        return;
-                    }
+                    //if (MainSerb.Comports.Any(m =>
+                    //    ExtractPortName(m) == port &&
+                    //    ExtractBaudRate(m) == baudRate))
+                    //{
+                    //    MessageBox.Show("Already connected to this port");
+                    //    return;
+                    //}
 
                     log.Info($"Connecting to {port} @ {baudRate}");
 
@@ -515,6 +537,7 @@ namespace MissionPlanner.Controls
                         {
                             string newSysId = ExtractSystemId(mav);
                             entry.SystemID = newSysId;
+                        
                             item.SubItems[2].Text = newSysId;
                             break;
                         }
@@ -525,26 +548,12 @@ namespace MissionPlanner.Controls
                     log.Error($"Error in OnMavChanged: {ex.Message}");
                 }
             }
-
-            private void btn_Refresh_Click(object sender, EventArgs e)
+        
+        private void btn_Refresh_Click(object sender, EventArgs e)
             {
                 try
                 {
-                    cmb_SerialPort.Items.Clear();
-
-                    //string[] ports = SerialPort.GetPortNames();
-
-                    //if (ports.Length == 0)
-                    //{
-                    //    cmb_SerialPort.Items.Add("No ports available");
-                    //    cmb_SerialPort.SelectedIndex = 0;
-                    //    return;
-                    //}
-
-                    //foreach (string port in ports)
-                    //{
-                    //    cmb_SerialPort.Items.Add(port);
-                    //}
+                   
                     PopulateSerialportList();
                     
                 }
@@ -605,37 +614,67 @@ namespace MissionPlanner.Controls
             }
 
         #endregion
+        private string GetAllPortsInfo()
+        {
+            string result = "";
+            foreach (var port in MainSerb.Comports.ToArray())
+            {
+                var list = port.MAVlist.GetRawIDS();
 
+                foreach (int item in list)
+                {
+                    var temp = new port_sysid() { compid = (item % 256), sysid = (item / 256), port = port };
+
+                    // exclude GCS's from the list
+                    if (temp.compid == (int)MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
+                        continue;
+
+                    //var idx = cmb_sysid.Items.Add(temp);
+                    // Create a ListViewItem for the ListView
+                    result = result + $"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}\n";
+                    var lvi = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                    // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                    lvi.Tag = temp; // Store the port_sysid object for later use if needed
+                    //MessageBox.Show(result);
+                }
+            }
+            return result;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MainSerb.Comports == null)
-                {
-                    // ClearListView();
-                    //  UpdateStatus(0, "No connections");
-                    // return;
+            
 
-                    MessageBox.Show("No comports detected");
+            // Usage:
+            MessageBox.Show(GetAllPortsInfo());
+            //cmb_sysid_Format(sender, null);
+            //try
+            //{
+            //    if (MainSerb.Comports == null)
+            //    {
+            //        // ClearListView();
+            //        //  UpdateStatus(0, "No connections");
+            //        // return;
 
-                }
-                else
-                {
-                    String str = "TOtal Count: " + MainSerb.Comports.Count + "\n\r";
-                    foreach (MAVLinkInterface mav in MainSerb.Comports)
-                    {
+            //        MessageBox.Show("No comports detected");
 
-                        str += mav.ToString();
-                        // +"Firmware \n"+ MainSerb.comPort.MAV.cs.firmware.ToString());
-                    }
-                    MessageBox.Show(str);
-                }
-            }
-            catch (Exception)
-            {
+            //    }
+            //    else
+            //    {
+            //        String str = "TOtal Count: " + MainSerb.Comports.Count + "\n\r";
+            //        foreach (MAVLinkInterface mav in MainSerb.Comports)
+            //        {
 
-                throw;
-            }
+            //            str += mav.ToString();
+            //            // +"Firmware \n"+ MainSerb.comPort.MAV.cs.firmware.ToString());
+            //        }
+            //        MessageBox.Show(str);
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
         }
 
         private void buttonAutoConnect_Click(object sender, EventArgs e)

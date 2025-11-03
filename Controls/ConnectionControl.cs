@@ -97,6 +97,7 @@ namespace MissionPlanner.Controls
                         continue;
 
                     var idx = cmb_sysid.Items.Add(temp);
+                    //MessageBox.Show("Sys ID: "+temp.ToString());
 
                     if (temp.port == MainSerb.comPort && temp.sysid == MainSerb.comPort.sysidcurrent && temp.compid == MainSerb.comPort.compidcurrent)
                     {
@@ -175,6 +176,7 @@ namespace MissionPlanner.Controls
                                 temp.compid + " " + temp.port.MAVlist[temp.sysid, temp.compid].VersionString;
                     }
                     e.Value = temp.port.BaseStream.PortName + "-" + ((int)temp.sysid) + "-" + mavComponentString.Replace("_", " ");
+                    //e.Value = mavComponentString;
                 }
             }
         }

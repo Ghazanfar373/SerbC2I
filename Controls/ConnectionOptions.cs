@@ -252,6 +252,7 @@ namespace MissionPlanner.Controls
         private void cmb_sysid_Format(object sender, ListControlConvertEventArgs e)
         {
             var temp = (port_sysid)e.Value;
+            //MessageBox.Show("temp: "+temp+" e vallue: "+e.Value);
             MAVLink.MAV_COMPONENT compid = (MAVLink.MAV_COMPONENT)temp.compid;
             string mavComponentHeader = "MAV_COMP_ID_";
             string mavComponentString = null;
@@ -279,7 +280,8 @@ namespace MissionPlanner.Controls
                             mavComponentString =
                                 temp.compid + " " + temp.port.MAVlist[temp.sysid, temp.compid].VersionString;
                     }
-                    e.Value = temp.port.BaseStream.PortName + "-" + ((int)temp.sysid);// + "-" + mavComponentString.Replace("_", " ");
+                    e.Value = temp.port.BaseStream.PortName + "-" + ((int)temp.sysid);
+                   
                 }
             }
 

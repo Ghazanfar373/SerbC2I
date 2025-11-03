@@ -12,6 +12,7 @@ namespace MissionPlanner.Controls
         public string Port { get; set; }
         public string BaudRate { get; set; }
         public string SystemID { get; set; }
+        public string CompID { get; set; }
         public ConnectionStatus Status { get; set; }
         public DateTime ConnectedTime { get; set; }
         public string ConnectionId { get; set; } // Unique identifier
@@ -62,6 +63,7 @@ namespace MissionPlanner.Controls
             // Add subitems for remaining columns (indices 1-4)
             item.SubItems.Add(connection.BaudRate);      // Index 1
             item.SubItems.Add(connection.SystemID);      // Index 2
+            item.SubItems.Add(connection.CompID);
             item.SubItems.Add(GetStatusText(connection.Status));  // Index 3
             item.SubItems.Add("Disconnect");             // Index 4
 

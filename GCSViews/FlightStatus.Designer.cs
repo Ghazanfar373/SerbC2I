@@ -87,7 +87,6 @@ namespace MissionPlanner.GCSViews
             this.quickView10 = new MissionPlanner.Controls.QuickView();
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.angleControl1 = new DotSpatial.Symbology.Forms.AngleControl();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
@@ -1085,7 +1084,6 @@ namespace MissionPlanner.GCSViews
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.angleControl1);
             this.tabPage2.Controls.Add(this.zedGraphControl1);
             this.tabPage2.Location = new System.Drawing.Point(25, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1095,19 +1093,6 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // angleControl1
-            // 
-            this.angleControl1.Angle = 0;
-            this.angleControl1.BackColor = System.Drawing.SystemColors.Control;
-            this.angleControl1.Caption = "&Angle:";
-            this.angleControl1.Clockwise = false;
-            this.angleControl1.KnobColor = System.Drawing.Color.Green;
-            this.angleControl1.Location = new System.Drawing.Point(534, 118);
-            this.angleControl1.Name = "angleControl1";
-            this.angleControl1.Size = new System.Drawing.Size(181, 63);
-            this.angleControl1.StartAngle = 0;
-            this.angleControl1.TabIndex = 1;
             // 
             // zedGraphControl1
             // 
@@ -3104,7 +3089,6 @@ namespace MissionPlanner.GCSViews
         private Label labelValAS;
         private SerbLabelControls.AnimatedTextControl animatedTextControl1;
         private KLCToolbox.KLCControls.KLCButton klcButtonARMD;
-        private DotSpatial.Symbology.Forms.AngleControl angleControl1;
 
 
         // private AnimatedTextControl animatedTextControl1;

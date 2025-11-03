@@ -264,13 +264,13 @@ namespace MissionPlanner
         public MainSerb()
         {
             //InitializeComponent();
-            log.Info("MainSerb ctor");
-            if (MainSerb.Comports != null)
-            {
-                foreach(MAVLinkInterface port in Comports )
-               port.Dispose();
+            //log.Info("MainSerb ctor");
+            //if (MainSerb.Comports != null)
+            //{
+            //    foreach(MAVLinkInterface port in Comports )
+            //   port.Dispose();
 
-            }
+            //}
 
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -1175,7 +1175,7 @@ namespace MissionPlanner
             {
             }
 
-            this.btnConnection.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
+            //this.btnConnection.Image = global::MissionPlanner.Properties.Resources.light_connect_icon;
         }
         private void SaveConfig()
         {
@@ -3271,7 +3271,7 @@ namespace MissionPlanner
                 try
                 {
                     _connectionControl.IsConnected(false);
-                    UpdateConnectIcon();
+                    //UpdateConnectIcon();
                     comPort.Close();
                 }
                 catch (Exception ex2)
@@ -3613,8 +3613,11 @@ namespace MissionPlanner
             btnFlightData.Image = originalImageFlightStatus;
             btnFlightPlan.Image = originalImageFlightPlan;
             btnConnection.Image = originalImageConn;
-            MyView.ShowScreen("MainBoard");
-            
+            // MyView.ShowScreen("MainBoard");
+            Form connections = new ConnectionOptions();
+            Utilities.ThemeManager.ApplyThemeTo(connections);
+            connections.Show(this);
+
         }
 
         private void connectionControl1_Load(object sender, EventArgs e)

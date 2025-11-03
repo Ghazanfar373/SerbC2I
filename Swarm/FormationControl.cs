@@ -19,6 +19,7 @@ namespace MissionPlanner.Swarm
         Formation SwarmInterface = null;
         bool threadrun = false;
         bool isInit = false;
+        Dictionary<String, MAVState> mavStates;
         public FormationControl()
         {
             InitializeComponent();
@@ -26,37 +27,43 @@ namespace MissionPlanner.Swarm
             init(); 
         }
         public void init() {
-            //isInit = true;
+           
+           
             
-            //TopMost = true;
-            Dictionary<String, MAVState> mavStates = new Dictionary<string, MAVState>();
-            foreach (var port in MainSerb.Comports)
-            {
-                foreach (var mav in port.MAVlist)
-                {
-                    mavStates.Add(port.BaseStream.PortName + " " + mav.sysid + " " + mav.compid, mav);
-                }
-            }
-            if (mavStates.Count != 0)
-            {
-                //  return;
-                CMB_mavs.SuspendLayout();
-                bindingSource1.DataSource = mavStates;
-                CMB_mavs.DataSource = bindingSource1;
-                CMB_mavs.ValueMember = "Value";
-                CMB_mavs.DisplayMember = "Key";
                 updateicons();
-                
-                //MessageBox.Show("After Update Icons");
-                CMB_mavs.ResumeLayout();
-
                 //swarmHud1.ArmButtonClick += buttonARM_Click;
                 grid1.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
                 //MessageBox.Show("this is beta, use at own risk");
                 MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            
+        }
+    private void updateCMBPorts()
+    {
+        mavStates = new Dictionary<string, MAVState>();
+        foreach (var port in MainSerb.Comports)
+        {
+            foreach (var mav in port.MAVlist)
+            {
+                mavStates.Add(port.BaseStream.PortName + " " + mav.sysid + " " + mav.compid, mav);
             }
         }
+        if (mavStates.Count != 0)
+        {
+            //  return;
+            //CMB_mavs.SuspendLayout();
+            bindingSource1.DataSource = mavStates;
+            CMB_mavs.DataSource = bindingSource1;
+            //CMB_mavs.Items.Add(mavStates);
+            CMB_mavs.ValueMember = "Value";
+            CMB_mavs.DisplayMember = "Key";
+            //updateicons();
 
+            //MessageBox.Show("After Update Icons");
+           // CMB_mavs.ResumeLayout();
+            //this.Invalidate();
+        }
+    
+        }
         private void SwarmHud1_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -76,7 +83,7 @@ namespace MissionPlanner.Swarm
 
         void updateicons()
         {
-            bindingSource1.ResetBindings(false);
+           updateCMBPorts();
 
             foreach (var port in MainSerb.Comports)
             {
@@ -293,6 +300,11 @@ namespace MissionPlanner.Swarm
         {
             //if (!isInit) init();
             // clean up old
+            //CMB_mavs.Items.Clear();
+            //updateCMBPorts();
+            //bindingSource1.DataSource = mavStates;
+            //CMB_mavs.DataSource = bindingSource1;
+            
             foreach (Control ctl in PNL_status.Controls)
             {
                 bool match = false;
@@ -462,6 +474,11 @@ namespace MissionPlanner.Swarm
             {
                 SwarmInterface.ArmAll();
             }
+        }
+
+        private void CMB_mavs_DropDown(object sender, EventArgs e)
+        {
+            updateCMBPorts();
         }
     }
 }
