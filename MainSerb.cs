@@ -3495,10 +3495,10 @@ namespace MissionPlanner
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyView.ShowScreen("MainBoard");
-
+            //MyView.ShowScreen("MainBoard");
+            MyView.ShowScreen("HWConfig");
             // save config
-            //SaveConfig();
+            SaveConfig();
         }
         private void MainSerb_Resize(object sender, EventArgs e)
         {
@@ -3613,10 +3613,13 @@ namespace MissionPlanner
             btnFlightData.Image = originalImageFlightStatus;
             btnFlightPlan.Image = originalImageFlightPlan;
             btnConnection.Image = originalImageConn;
-            // MyView.ShowScreen("MainBoard");
-            Form connections = new ConnectionOptions();
-            Utilities.ThemeManager.ApplyThemeTo(connections);
-            connections.Show(this);
+            //MyView.ShowScreen("MainBoard");
+            
+            MyView.ShowScreen("SWConfig");
+            SaveConfig();
+            //Form connections = new ConnectionOptions();
+            //Utilities.ThemeManager.ApplyThemeTo(connections);
+            //connections.Show(this);
 
         }
 

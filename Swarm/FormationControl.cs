@@ -11,6 +11,9 @@ using HUD_Claude;
 using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
 using Dowding.Model;
 using static MAVLink;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using MissionPlanner.Mavlink;
 
 namespace MissionPlanner.Swarm
 {
@@ -30,17 +33,18 @@ namespace MissionPlanner.Swarm
            
            
             
-                updateicons();
-                //swarmHud1.ArmButtonClick += buttonARM_Click;
-                grid1.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
+               
+            
+            updateicons();
+            grid1.MouseWheel += new MouseEventHandler(FollowLeaderControl_MouseWheel);
                 //MessageBox.Show("this is beta, use at own risk");
-                MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
+            MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
             
         }
     private void updateCMBPorts()
     {
-        mavStates = new Dictionary<string, MAVState>();
-        foreach (var port in MainSerb.Comports)
+            mavStates = new Dictionary<string, MAVState>();
+            foreach (var port in MainSerb.Comports)
         {
             foreach (var mav in port.MAVlist)
             {
@@ -49,21 +53,43 @@ namespace MissionPlanner.Swarm
         }
         if (mavStates.Count != 0)
         {
-            //  return;
-            //CMB_mavs.SuspendLayout();
+            
             bindingSource1.DataSource = mavStates;
             CMB_mavs.DataSource = bindingSource1;
-            //CMB_mavs.Items.Add(mavStates);
+          
             CMB_mavs.ValueMember = "Value";
             CMB_mavs.DisplayMember = "Key";
-            //updateicons();
-
-            //MessageBox.Show("After Update Icons");
-           // CMB_mavs.ResumeLayout();
-            //this.Invalidate();
+            
         }
     
         }
+       
+        //public  List<MAVLinkInterface> _comPortsList = new List<MAVLinkInterface>();
+        //public List<MAVLinkInterface> ComPortsList
+        //{
+        //    get { return _comPortsList; }
+        //    set
+        //    {
+        //        if (_comPortsList != value)
+        //        {
+        //            _comPortsList = value;
+        //            OnPropertyChanged(nameof(ComPortsList));
+        //        }
+        //    }
+        //}
+        //protected void OnPropertyChanged([CallerMemberName] string name = null)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        //    //PNL_status.Controls.Clear();
+        //    //foreach (Control ctl in flowLayoutPanelSwarm.Controls)
+        //    //{
+        //    //    if(ctl==SwarmHud)
+        //    //    ctl.Dispose();
+        //    //}
+        //    ////mavStates.Clear();
+        //    updateCMBPorts();
+        //    //MessageBox.Show("PNL COntrols LIst Chnaged");
+        //}
         private void SwarmHud1_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -107,7 +133,7 @@ namespace MissionPlanner.Swarm
 
         private void CMB_mavs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //init();
+         
             foreach (var port in MainSerb.Comports)
             {
                 foreach (var mav in port.MAVlist)
@@ -304,8 +330,8 @@ namespace MissionPlanner.Swarm
             //updateCMBPorts();
             //bindingSource1.DataSource = mavStates;
             //CMB_mavs.DataSource = bindingSource1;
-            
-            foreach (Control ctl in PNL_status.Controls)
+            //ComPortsList=MainSerb.Comports;
+            foreach (Control ctl in flowLayoutPanelSwarm.Controls)
             {
                 bool match = false;
                 foreach (var port in MainSerb.Comports)
@@ -320,7 +346,10 @@ namespace MissionPlanner.Swarm
                     }
                 }
                 if (match == false)
+                    if(ctl is SwarmHud)
                     ctl.Dispose();
+                mavStates.Clear();
+                updateCMBPorts();
             }
             // setup new
             foreach (var port in MainSerb.Comports)
@@ -363,7 +392,8 @@ namespace MissionPlanner.Swarm
                         if (ctl is SwarmHud && ctl.Tag == mav)
                         {
                             exists = true;
-                            // ((SwarmHud)ctl).GPS = mav.cs.gpsstatus >= 3 ? "OK" : "Bad";
+                            graphicLabel1.Text = "Total: " + MainSerb.Comports.Count.ToString();
+                           
                             ((SwarmHud)ctl).Roll = mav.cs.roll;
                             ((SwarmHud)ctl).Pitch = mav.cs.pitch;
                             ((SwarmHud)ctl).Heading = mav.cs.yaw;
@@ -436,37 +466,10 @@ namespace MissionPlanner.Swarm
             }
         }
         int counter = 0;
-        private void buttonARM_Click(object sender, EventArgs e)
-        {
-            counter++;
-            
-            //switch (counter)
-            //{
-            //    case 1:
-            //        swarmHud1.isArm = true;
-            //        swarmHud1.ApMode = "STABILIZE";
-            //        break;
-            //    case 2:
-            //        swarmHud1.isArm = true;
-            //        swarmHud1.ApMode = "Manual";
-            //        break;
-            //    case 3:
 
-            //        swarmHud1.isArm = true;
-            //        swarmHud1.ApMode = "Guided";
-            //        break;
-            //    case 4:
-            //        swarmHud1.isArm = true;
-            //        swarmHud1.ApMode = "lOITER";
-            //        counter = 0;
-            //        break;
-            //    case 5:
-            //        swarmHud1.isArm = true;
-            //        swarmHud1.ApMode = "ALT_HOLD";
-            //        counter = 0;
-            //        break;     
-            //}
-        }
+        
+
+      
 
         private void But_ArmAll_Click(object sender, EventArgs e)
         {

@@ -3134,7 +3134,7 @@ namespace MissionPlanner.GCSViews
                 case 2: // Home tab
 
                     formationControl = new FormationControl();
-                    formationControl.init();
+                    ThemeManager.ApplyThemeTo(formationControl);
                     formationControl.Dock = DockStyle.Fill;
                     tabPageFormation.Controls.Add(formationControl);
                     tabPageFormation.Dock = DockStyle.Fill;

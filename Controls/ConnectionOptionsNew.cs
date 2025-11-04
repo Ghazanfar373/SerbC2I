@@ -24,7 +24,7 @@ namespace MissionPlanner.Controls
        // public static List<MAVLinkInterface> Comports = new List<MAVLinkInterface>();
 
         private System.Windows.Forms.Timer _refreshTimer;
-            private const int REFRESH_INTERVAL_MS = 3000;
+            private const int REFRESH_INTERVAL_MS = 1000;
 
             #region FORM LIFECYCLE
 
