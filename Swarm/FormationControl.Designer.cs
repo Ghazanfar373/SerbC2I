@@ -75,7 +75,7 @@ namespace MissionPlanner.Swarm
             this.but_auto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_auto.FlatAppearance.BorderSize = 0;
             this.but_auto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_auto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.but_auto.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.but_auto.ForeColor = System.Drawing.Color.White;
             this.but_auto.Location = new System.Drawing.Point(3, 136);
             this.but_auto.Name = "but_auto";
@@ -91,7 +91,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Updatepos.Enabled = false;
             this.BUT_Updatepos.FlatAppearance.BorderSize = 0;
             this.BUT_Updatepos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Updatepos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Updatepos.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Updatepos.ForeColor = System.Drawing.Color.White;
             this.BUT_Updatepos.Location = new System.Drawing.Point(139, 136);
             this.BUT_Updatepos.Name = "BUT_Updatepos";
@@ -107,7 +107,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Start.Enabled = false;
             this.BUT_Start.FlatAppearance.BorderSize = 0;
             this.BUT_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Start.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Start.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Start.ForeColor = System.Drawing.Color.White;
             this.BUT_Start.Location = new System.Drawing.Point(139, 102);
             this.BUT_Start.MaximumSize = new System.Drawing.Size(0, 28);
@@ -123,7 +123,7 @@ namespace MissionPlanner.Swarm
             this.but_guided.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_guided.FlatAppearance.BorderSize = 0;
             this.but_guided.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_guided.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.but_guided.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.but_guided.ForeColor = System.Drawing.Color.White;
             this.but_guided.Location = new System.Drawing.Point(3, 38);
             this.but_guided.Name = "but_guided";
@@ -138,7 +138,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Arm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Arm.FlatAppearance.BorderSize = 0;
             this.BUT_Arm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Arm.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Arm.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Arm.ForeColor = System.Drawing.Color.White;
             this.BUT_Arm.Location = new System.Drawing.Point(3, 71);
             this.BUT_Arm.Name = "BUT_Arm";
@@ -153,7 +153,7 @@ namespace MissionPlanner.Swarm
             this.BUT_leader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_leader.FlatAppearance.BorderSize = 0;
             this.BUT_leader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_leader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_leader.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_leader.ForeColor = System.Drawing.Color.White;
             this.BUT_leader.Location = new System.Drawing.Point(139, 3);
             this.BUT_leader.Name = "BUT_leader";
@@ -168,7 +168,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Disarm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Disarm.FlatAppearance.BorderSize = 0;
             this.BUT_Disarm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Disarm.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Disarm.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Disarm.ForeColor = System.Drawing.Color.White;
             this.BUT_Disarm.Location = new System.Drawing.Point(3, 102);
             this.BUT_Disarm.Name = "BUT_Disarm";
@@ -193,7 +193,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Takeoff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Takeoff.FlatAppearance.BorderSize = 0;
             this.BUT_Takeoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Takeoff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Takeoff.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Takeoff.ForeColor = System.Drawing.Color.White;
             this.BUT_Takeoff.Location = new System.Drawing.Point(139, 38);
             this.BUT_Takeoff.MinimumSize = new System.Drawing.Size(0, 28);
@@ -209,7 +209,7 @@ namespace MissionPlanner.Swarm
             this.BUT_Land.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BUT_Land.FlatAppearance.BorderSize = 0;
             this.BUT_Land.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUT_Land.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BUT_Land.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.BUT_Land.ForeColor = System.Drawing.Color.White;
             this.BUT_Land.Location = new System.Drawing.Point(139, 71);
             this.BUT_Land.Name = "BUT_Land";
@@ -269,7 +269,7 @@ namespace MissionPlanner.Swarm
             this.myButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myButton1.FlatAppearance.BorderSize = 0;
             this.myButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.myButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.myButton1.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.myButton1.ForeColor = System.Drawing.Color.White;
             this.myButton1.Location = new System.Drawing.Point(3, 171);
             this.myButton1.Name = "myButton1";
@@ -283,7 +283,7 @@ namespace MissionPlanner.Swarm
             this.But_ArmAll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.But_ArmAll.FlatAppearance.BorderSize = 0;
             this.But_ArmAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.But_ArmAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.But_ArmAll.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.But_ArmAll.ForeColor = System.Drawing.Color.White;
             this.But_ArmAll.Location = new System.Drawing.Point(139, 171);
             this.But_ArmAll.Name = "But_ArmAll";

@@ -23,6 +23,7 @@ namespace MissionPlanner.Swarm
         bool threadrun = false;
         bool isInit = false;
         Dictionary<String, MAVState> mavStates;
+        
         public FormationControl()
         {
             InitializeComponent();
@@ -48,6 +49,7 @@ namespace MissionPlanner.Swarm
         {
             foreach (var mav in port.MAVlist)
             {
+               
                 mavStates.Add(port.BaseStream.PortName + " " + mav.sysid + " " + mav.compid, mav);
             }
         }
@@ -349,7 +351,7 @@ namespace MissionPlanner.Swarm
                     if(ctl is SwarmHud)
                     ctl.Dispose();
                 mavStates.Clear();
-                updateCMBPorts();
+                //updateCMBPorts();
             }
             // setup new
             foreach (var port in MainSerb.Comports)

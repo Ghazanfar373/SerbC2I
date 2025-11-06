@@ -17,7 +17,9 @@ namespace MissionPlanner.Controls
     public partial class ConnectionOptionsNew : Form
     {
 
-            private static readonly ILog log = LogManager.GetLogger(typeof(ConnectionOptions));
+        
+
+        private static readonly ILog log = LogManager.GetLogger(typeof(ConnectionOptions));
 
             private Dictionary<MAVLinkInterface, string> _interfaceToConnectionId =
                 new Dictionary<MAVLinkInterface, string>();
@@ -56,6 +58,8 @@ namespace MissionPlanner.Controls
                     log.Error($"Error loading ConnectionOptions: {ex.Message}", ex);
                 }
             }
+
+
         private void PopulateSerialportList()
         {
             cmb_SerialPort.Items.Clear();
@@ -171,23 +175,25 @@ namespace MissionPlanner.Controls
                     // exclude GCS's from the list
                     if (temp.compid == (int)MAVLink.MAV_COMPONENT.MAV_COMP_ID_MISSIONPLANNER)
                         continue;
+                       
+                        //var idx = cmb_sysid.Items.Add(temp);
+                        // Create a ListViewItem for the ListView
+                        //var lvi = new ListViewItem($"{portt.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                        // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
+                        //lvi.Tag = temp; // Store the port_sysid object for later use if needed
+                        //listView_sysid.Items.Add(lvi);
+                        //foreach (var mav in currentConnections)
+                        //{
+                        //    try
+                        //    {
+                        //        if (mav == null)
+                        //            continue;
 
-                    //var idx = cmb_sysid.Items.Add(temp);
-                    // Create a ListViewItem for the ListView
-                    //var lvi = new ListViewItem($"{portt.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
-                    // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
-                    //lvi.Tag = temp; // Store the port_sysid object for later use if needed
-                    //listView_sysid.Items.Add(lvi);
-                    //foreach (var mav in currentConnections)
-                    //{
-                    //    try
-                    //    {
-                    //        if (mav == null)
-                    //            continue;
-
-                            // ✅ FIXED: Properly extract port name and baud rate
-                            string port = portt.BaseStream.PortName;
-                            string baudRate = portt.BaseStream.BaudRate.ToString();
+                        // ✅ FIXED: Properly extract port name and baud rate
+                        string port = portt.BaseStream.PortName;
+                        MainSerb.comPort.curPortName = port;
+                        
+                        string baudRate = portt.BaseStream.BaudRate.ToString();
                             string systemId = temp.sysid.ToString();
                             string compId   = temp.compid.ToString();
 
@@ -631,6 +637,7 @@ namespace MissionPlanner.Controls
 
                     //var idx = cmb_sysid.Items.Add(temp);
                     // Create a ListViewItem for the ListView
+                    MainSerb.comPort.curPortName = port.BaseStream.PortName;
                     result = result + $"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}\n";
                     var lvi = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
                     // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
@@ -645,7 +652,7 @@ namespace MissionPlanner.Controls
             
 
             // Usage:
-            MessageBox.Show(GetAllPortsInfo());
+            MessageBox.Show(MainSerb.comPortName+"\n"+GetAllPortsInfo());
             //cmb_sysid_Format(sender, null);
             //try
             //{

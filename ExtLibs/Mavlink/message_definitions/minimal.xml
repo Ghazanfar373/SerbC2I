@@ -26,7 +26,8 @@
         <description>Generic autopilot supporting waypoints and other simple navigation commands</description>
       </entry>
       <entry value="7" name="MAV_AUTOPILOT_GENERIC_MISSION_FULL">
-        <description>Generic autopilot supporting the full mission command set</description>
+        <description>Generic autopilot supporting the full 
+		set</description>
       </entry>
       <entry value="8" name="MAV_AUTOPILOT_INVALID">
         <description>No valid autopilot, e.g. a GCS or other MAVLink component</description>

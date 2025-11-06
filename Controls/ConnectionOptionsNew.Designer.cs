@@ -37,6 +37,7 @@
             this.col_Port = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_BaudRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_SystemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_CompID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Action = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_ConnectionCount = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Connect = new System.Windows.Forms.Button();
             this.btn_Disconnect = new System.Windows.Forms.Button();
-            this.col_CompID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnl_Main.SuspendLayout();
             this.pnl_ActiveConnections.SuspendLayout();
             this.pnl_ConnectionPanel.SuspendLayout();
@@ -125,6 +125,10 @@
             this.col_SystemID.Text = "System ID";
             this.col_SystemID.Width = 80;
             // 
+            // col_CompID
+            // 
+            this.col_CompID.Text = "Comp ID";
+            // 
             // col_Status
             // 
             this.col_Status.Text = "Status";
@@ -189,9 +193,9 @@
             this.buttonAutoConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAutoConnect.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonAutoConnect.ForeColor = System.Drawing.Color.White;
-            this.buttonAutoConnect.Location = new System.Drawing.Point(15, 165);
+            this.buttonAutoConnect.Location = new System.Drawing.Point(259, 120);
             this.buttonAutoConnect.Name = "buttonAutoConnect";
-            this.buttonAutoConnect.Size = new System.Drawing.Size(110, 36);
+            this.buttonAutoConnect.Size = new System.Drawing.Size(138, 36);
             this.buttonAutoConnect.TabIndex = 12;
             this.buttonAutoConnect.Text = "Auto Connect";
             this.buttonAutoConnect.UseVisualStyleBackColor = false;
@@ -205,12 +209,13 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(306, 120);
+            this.button1.Location = new System.Drawing.Point(440, 174);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 36);
             this.button1.TabIndex = 11;
             this.button1.Text = "Debug";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_StatusText
@@ -342,11 +347,6 @@
             this.btn_Disconnect.Text = "Disconnect";
             this.btn_Disconnect.UseVisualStyleBackColor = false;
             this.btn_Disconnect.Click += new System.EventHandler(this.btn_Disconnect_Click);
-            // 
-            // col_CompID
-            // 
-            //this.col_CompID.DisplayIndex = 3;
-            this.col_CompID.Text = "Comp ID";
             // 
             // ConnectionOptionsNew
             // 

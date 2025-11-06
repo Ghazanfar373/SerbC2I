@@ -199,7 +199,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Command";
+            name = "JASER 2 - version";
 
             try
             {

@@ -42,7 +42,6 @@ namespace MissionPlanner.GCSViews
             this.lblMapZoom = new System.Windows.Forms.Label();
             this.btnMapMin = new RJCodeAdvance.RJControls.RJButton();
             this.lblMapAlt = new System.Windows.Forms.Label();
-            this.bindingSourceHUD = new System.Windows.Forms.BindingSource(this.components);
             this.lblMapLong = new System.Windows.Forms.Label();
             this.lblMapLat = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -87,7 +86,6 @@ namespace MissionPlanner.GCSViews
             this.quickView10 = new MissionPlanner.Controls.QuickView();
             this.quickView12 = new MissionPlanner.Controls.QuickView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -115,7 +113,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelCurrentCom = new System.Windows.Forms.Label();
             this.labelGPS = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -192,6 +190,7 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
+            this.bindingSourceHUD = new System.Windows.Forms.BindingSource(this.components);
             this.gLabelWarning2 = new MissionPlanner.Controls.GraphicLabel();
             this.gLabelWarning1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
@@ -203,14 +202,12 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel2.SuspendLayout();
             this.splitContainerMap.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.contextMenuStripMap.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.flowLayoutPanelLayer1.SuspendLayout();
             this.tableLayoutPanelHUD.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -249,6 +246,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.tableLayoutPanelButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.SuspendLayout();
             // 
             // splitMainPanel
@@ -392,10 +390,6 @@ namespace MissionPlanner.GCSViews
             this.lblMapAlt.TabIndex = 2;
             this.lblMapAlt.Text = "700";
             this.lblMapAlt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bindingSourceHUD
-            // 
-            this.bindingSourceHUD.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // lblMapLong
             // 
@@ -1084,7 +1078,6 @@ namespace MissionPlanner.GCSViews
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.zedGraphControl1);
             this.tabPage2.Location = new System.Drawing.Point(25, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
@@ -1093,21 +1086,6 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Graph";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(3, 2);
-            this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.ScrollGrace = 0D;
-            this.zedGraphControl1.ScrollMaxX = 0D;
-            this.zedGraphControl1.ScrollMaxY = 0D;
-            this.zedGraphControl1.ScrollMaxY2 = 0D;
-            this.zedGraphControl1.ScrollMinX = 0D;
-            this.zedGraphControl1.ScrollMinY = 0D;
-            this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(410, 278);
-            this.zedGraphControl1.TabIndex = 0;
             // 
             // flowLayoutPanelLayer1
             // 
@@ -1478,13 +1456,14 @@ namespace MissionPlanner.GCSViews
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel3.Controls.Add(this.label2);
+            this.flowLayoutPanel3.Controls.Add(this.labelCurrentCom);
             this.flowLayoutPanel3.Controls.Add(this.labelGPS);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 2);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(110, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(106, 28);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(110, 28);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // pictureBox1
@@ -1497,18 +1476,19 @@ namespace MissionPlanner.GCSViews
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // labelCurrentCom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Text", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(38, 0);
-            this.label2.MinimumSize = new System.Drawing.Size(65, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "No GPS";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelCurrentCom.AutoSize = true;
+            this.labelCurrentCom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCurrentCom.Font = new System.Drawing.Font("Segoe UI Variable Small", 6.8F, System.Drawing.FontStyle.Bold);
+            this.labelCurrentCom.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCurrentCom.Location = new System.Drawing.Point(38, 0);
+            this.labelCurrentCom.MinimumSize = new System.Drawing.Size(65, 0);
+            this.labelCurrentCom.Name = "labelCurrentCom";
+            this.labelCurrentCom.Size = new System.Drawing.Size(65, 29);
+            this.labelCurrentCom.TabIndex = 7;
+            this.labelCurrentCom.Text = "No GPS";
+            this.labelCurrentCom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelGPS
             // 
@@ -1518,7 +1498,7 @@ namespace MissionPlanner.GCSViews
             this.labelGPS.ForeColor = System.Drawing.SystemColors.Control;
             this.labelGPS.Location = new System.Drawing.Point(3, 29);
             this.labelGPS.Name = "labelGPS";
-            this.labelGPS.Size = new System.Drawing.Size(59, 32);
+            this.labelGPS.Size = new System.Drawing.Size(101, 16);
             this.labelGPS.TabIndex = 6;
             this.labelGPS.Text = "GPS: NO Signal";
             this.labelGPS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2030,7 +2010,7 @@ namespace MissionPlanner.GCSViews
             this.lblMode.AutoSize = true;
             this.lblMode.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.lblMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMode.Font = new System.Drawing.Font("Arial Black", 8.5F, System.Drawing.FontStyle.Bold);
+            this.lblMode.Font = new System.Drawing.Font("Arial Black", 7.5F, System.Drawing.FontStyle.Bold);
             this.lblMode.Location = new System.Drawing.Point(3, 0);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(98, 37);
@@ -2807,6 +2787,10 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
+            // bindingSourceHUD
+            // 
+            this.bindingSourceHUD.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
             // gLabelWarning2
             // 
             this.gLabelWarning2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -2819,7 +2803,6 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning2.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning2.TabIndex = 28;
             this.gLabelWarning2.Text = "Warning Text";
-            this.gLabelWarning2.Visible = false;
             // 
             // gLabelWarning1
             // 
@@ -2833,7 +2816,6 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning1.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning1.TabIndex = 29;
             this.gLabelWarning1.Text = "Warning Text";
-            this.gLabelWarning1.Visible = false;
             // 
             // FlightStatus
             // 
@@ -2856,7 +2838,6 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.contextMenuStripMap.ResumeLayout(false);
             this.tabControlMain.ResumeLayout(false);
@@ -2865,7 +2846,6 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanelLayer1.ResumeLayout(false);
             this.flowLayoutPanelLayer1.PerformLayout();
             this.tableLayoutPanelHUD.ResumeLayout(false);
@@ -2922,6 +2902,7 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.tableLayoutPanelButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2979,7 +2960,7 @@ namespace MissionPlanner.GCSViews
         private Label labelHudAS;
         private Label label17;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label label2;
+        private Label labelCurrentCom;
         private Label labelClock;
         private Panel panelClock;
         private RJCodeAdvance.RJControls.RJButton btnMapMax;
@@ -3039,7 +3020,6 @@ namespace MissionPlanner.GCSViews
         private TabControl tabControlMain;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private ZedGraph.ZedGraphControl zedGraphControl1;
         private TableLayoutPanel tableLayoutPanelQuickView;
         private Label labelQV11;
         private Label labelQV10;

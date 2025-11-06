@@ -348,7 +348,7 @@ namespace MissionPlanner.GCSViews
             //tabPage.Controls.Add(formationControl);
             //tabPage.Dock = DockStyle.Fill;
             tabControlMain.TabPages.Add(tabPageFormation);
-           
+            labelCurrentCom.Text = MainSerb.comPortName;
             
         }
         [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
@@ -1052,6 +1052,10 @@ namespace MissionPlanner.GCSViews
                                 updateMapZoom(17);
                             }
                         }
+
+                       // labelCurrentCom.Text = MainSerb.comPort.BaseStream.PortName;
+                       // labelCurrentCom.Text = MainV2.comPort.BaseStream?.PortName??"UDP/TCP";
+                        labelCurrentCom.Text = MainSerb.comPort.BaseStream.PortName ?? "UDP/TCP";
                         prop.Update(MainSerb.comPort.MAV.cs.HomeLocation, MainSerb.comPort.MAV.cs.Location,
                                 MainSerb.comPort.MAV.cs.battery_kmleft);
 
@@ -3284,6 +3288,11 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(MainSerb.comPort.curPortName);
         }
     }
     }

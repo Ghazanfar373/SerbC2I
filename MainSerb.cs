@@ -3183,7 +3183,8 @@ namespace MissionPlanner
                      Settings.Instance[_connectionControl.CMB_serialport.Text.Replace(" ", "_") + "_BAUD"] =
                          _connectionControl.CMB_baudrate.Text;
 
-                    this.Text = titlebar + " " + comPort.MAV.VersionString;
+                    //this.Text = titlebar + " " + comPort.MAV.VersionString;
+                    this.Text = "JASER 2.0 "+ comPort.MAV.VersionString;
 
                     // refresh config window if needed
                     if (MyView.current != null && showui)
