@@ -276,17 +276,17 @@ namespace MissionPlanner.Maps
             if (which % 7 == 0)
                 g.FillPolygon(Brushes.Red, plane);
             if (which % 7 == 1)
-                g.FillPolygon(Brushes.Black, plane);
+                g.FillPolygon(Brushes.LimeGreen, plane);
             if (which % 7 == 2)
                 g.FillPolygon(Brushes.Blue, plane);
             if (which % 7 == 3)
-                g.FillPolygon(Brushes.LimeGreen, plane);
-            if (which % 7 == 4)
-                g.FillPolygon(Brushes.Yellow, plane);
-            if (which % 7 == 5)
                 g.FillPolygon(Brushes.Orange, plane);
-            if (which % 7 == 6)
+            if (which % 7 == 4)
                 g.FillPolygon(Brushes.Pink, plane);
+            if (which % 7 == 5)
+                g.FillPolygon(Brushes.Yellow, plane);
+            if (which % 7 == 6)
+                g.FillPolygon(Brushes.Black, plane);
 
             g.Transform = temp;
         }

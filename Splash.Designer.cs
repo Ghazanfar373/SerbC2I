@@ -146,7 +146,7 @@
             this.Name = "Splash";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mission Planner";
+            this.Text = "JASER 2";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWithPseudoOpacity1)).EndInit();
             this.ResumeLayout(false);

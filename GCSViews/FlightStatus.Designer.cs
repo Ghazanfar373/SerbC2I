@@ -42,6 +42,7 @@ namespace MissionPlanner.GCSViews
             this.lblMapZoom = new System.Windows.Forms.Label();
             this.btnMapMin = new RJCodeAdvance.RJControls.RJButton();
             this.lblMapAlt = new System.Windows.Forms.Label();
+            this.bindingSourceHUD = new System.Windows.Forms.BindingSource(this.components);
             this.lblMapLong = new System.Windows.Forms.Label();
             this.lblMapLat = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@ namespace MissionPlanner.GCSViews
             this.quickView8 = new MissionPlanner.Controls.QuickView();
             this.quickView10 = new MissionPlanner.Controls.QuickView();
             this.quickView12 = new MissionPlanner.Controls.QuickView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -190,7 +190,6 @@ namespace MissionPlanner.GCSViews
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
-            this.bindingSourceHUD = new System.Windows.Forms.BindingSource(this.components);
             this.gLabelWarning2 = new MissionPlanner.Controls.GraphicLabel();
             this.gLabelWarning1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
@@ -202,6 +201,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel2.SuspendLayout();
             this.splitContainerMap.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.contextMenuStripMap.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -246,7 +246,6 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.tableLayoutPanelButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).BeginInit();
             this.SuspendLayout();
             // 
             // splitMainPanel
@@ -390,6 +389,10 @@ namespace MissionPlanner.GCSViews
             this.lblMapAlt.TabIndex = 2;
             this.lblMapAlt.Text = "700";
             this.lblMapAlt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bindingSourceHUD
+            // 
+            this.bindingSourceHUD.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // lblMapLong
             // 
@@ -588,7 +591,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControlMain.Controls.Add(this.tabPage1);
-            this.tabControlMain.Controls.Add(this.tabPage2);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -705,7 +707,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV12.Name = "labelQV12";
             this.labelQV12.Size = new System.Drawing.Size(87, 20);
             this.labelQV12.TabIndex = 46;
-            this.labelQV12.Text = "Roll Over";
+            this.labelQV12.Text = "Time in Air(min)";
             this.labelQV12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV11
@@ -720,7 +722,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV11.Name = "labelQV11";
             this.labelQV11.Size = new System.Drawing.Size(84, 20);
             this.labelQV11.TabIndex = 45;
-            this.labelQV11.Text = "Yaw";
+            this.labelQV11.Text = "Yaw (deg)";
             this.labelQV11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV10
@@ -735,7 +737,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV10.Name = "labelQV10";
             this.labelQV10.Size = new System.Drawing.Size(84, 20);
             this.labelQV10.TabIndex = 44;
-            this.labelQV10.Text = "Roll";
+            this.labelQV10.Text = "WindVelocity(kph)";
             this.labelQV10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV9
@@ -750,7 +752,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV9.Name = "labelQV9";
             this.labelQV9.Size = new System.Drawing.Size(84, 20);
             this.labelQV9.TabIndex = 43;
-            this.labelQV9.Text = "Pitch";
+            this.labelQV9.Text = "ch3percent";
             this.labelQV9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV6
@@ -765,7 +767,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV6.Name = "labelQV6";
             this.labelQV6.Size = new System.Drawing.Size(84, 20);
             this.labelQV6.TabIndex = 42;
-            this.labelQV6.Text = "Angle of Attack";
+            this.labelQV6.Text = "WindDir (deg)";
             this.labelQV6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV7
@@ -780,7 +782,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV7.Name = "labelQV7";
             this.labelQV7.Size = new System.Drawing.Size(84, 20);
             this.labelQV7.TabIndex = 41;
-            this.labelQV7.Text = "Heading";
+            this.labelQV7.Text = "Roll (deg)";
             this.labelQV7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV8
@@ -795,7 +797,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV8.Name = "labelQV8";
             this.labelQV8.Size = new System.Drawing.Size(87, 20);
             this.labelQV8.TabIndex = 40;
-            this.labelQV8.Text = "Bearing";
+            this.labelQV8.Text = "Distance Traveled(m)";
             this.labelQV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV4
@@ -810,7 +812,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV4.Name = "labelQV4";
             this.labelQV4.Size = new System.Drawing.Size(87, 20);
             this.labelQV4.TabIndex = 39;
-            this.labelQV4.Text = "ارتفاع البحر";
+            this.labelQV4.Text = "Dist to Home (m)";
             this.labelQV4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV3
@@ -825,7 +827,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV3.Name = "labelQV3";
             this.labelQV3.Size = new System.Drawing.Size(84, 20);
             this.labelQV3.TabIndex = 38;
-            this.labelQV3.Text = "الارتفاع الأرضي";
+            this.labelQV3.Text = "Pitch (deg)";
             this.labelQV3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV2
@@ -840,7 +842,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV2.Name = "labelQV2";
             this.labelQV2.Size = new System.Drawing.Size(84, 20);
             this.labelQV2.TabIndex = 37;
-            this.labelQV2.Text = "سرعة الهواء";
+            this.labelQV2.Text = "Altitude(m)";
             this.labelQV2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV1
@@ -855,7 +857,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV1.Name = "labelQV1";
             this.labelQV1.Size = new System.Drawing.Size(84, 20);
             this.labelQV1.TabIndex = 36;
-            this.labelQV1.Text = "زاوية الهجوم";
+            this.labelQV1.Text = "Airspeed(kph)";
             this.labelQV1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelQV5
@@ -870,7 +872,7 @@ namespace MissionPlanner.GCSViews
             this.labelQV5.Name = "labelQV5";
             this.labelQV5.Size = new System.Drawing.Size(84, 20);
             this.labelQV5.TabIndex = 28;
-            this.labelQV5.Text = "Air Speed";
+            this.labelQV5.Text = "GroundSpeed(kph)";
             this.labelQV5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // quickView9
@@ -927,7 +929,7 @@ namespace MissionPlanner.GCSViews
             // quickView11
             // 
             this.quickView11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.quickView11.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_dir", true));
+            this.quickView11.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "yaw", true));
             this.quickView11.desc = "";
             this.quickView11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quickView11.Location = new System.Drawing.Point(183, 208);
@@ -1028,7 +1030,7 @@ namespace MissionPlanner.GCSViews
             // quickView8
             // 
             this.quickView8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.quickView8.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "DistToHome", true));
+            this.quickView8.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "distTraveled", true));
             this.quickView8.desc = "";
             this.quickView8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quickView8.Location = new System.Drawing.Point(273, 118);
@@ -1062,7 +1064,7 @@ namespace MissionPlanner.GCSViews
             // quickView12
             // 
             this.quickView12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.quickView12.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "AOA", true));
+            this.quickView12.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "timeInAir", true));
             this.quickView12.desc = "";
             this.quickView12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quickView12.Location = new System.Drawing.Point(273, 208);
@@ -1075,17 +1077,6 @@ namespace MissionPlanner.GCSViews
             this.quickView12.Size = new System.Drawing.Size(87, 66);
             this.quickView12.TabIndex = 5;
             this.quickView12.Text = "quickView12";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(25, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(949, 282);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Graph";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanelLayer1
             // 
@@ -2787,10 +2778,6 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
-            // bindingSourceHUD
-            // 
-            this.bindingSourceHUD.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
             // gLabelWarning2
             // 
             this.gLabelWarning2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -2803,6 +2790,7 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning2.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning2.TabIndex = 28;
             this.gLabelWarning2.Text = "Warning Text";
+            this.gLabelWarning2.Visible = false;
             // 
             // gLabelWarning1
             // 
@@ -2816,6 +2804,7 @@ namespace MissionPlanner.GCSViews
             this.gLabelWarning1.Size = new System.Drawing.Size(180, 24);
             this.gLabelWarning1.TabIndex = 29;
             this.gLabelWarning1.Text = "Warning Text";
+            this.gLabelWarning1.Visible = false;
             // 
             // FlightStatus
             // 
@@ -2838,6 +2827,7 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.contextMenuStripMap.ResumeLayout(false);
             this.tabControlMain.ResumeLayout(false);
@@ -2902,7 +2892,6 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.tableLayoutPanelButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3019,7 +3008,6 @@ namespace MissionPlanner.GCSViews
         private KLCToolbox.KLCControls.KLCButton klcButton24;
         private TabControl tabControlMain;
         private TabPage tabPage1;
-        private TabPage tabPage2;
         private TableLayoutPanel tableLayoutPanelQuickView;
         private Label labelQV11;
         private Label labelQV10;

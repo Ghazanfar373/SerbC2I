@@ -28,9 +28,7 @@ namespace MissionPlanner
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private ICommsSerial _baseStream;
-        private string _curPortName;
-
-        public string curPortName { get; set; }
+        
         public ICommsSerial BaseStream
         {
             get { return _baseStream; }

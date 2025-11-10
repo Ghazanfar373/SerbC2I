@@ -17,7 +17,7 @@ namespace MissionPlanner.Utilities
     {
         static Settings _instance;
 
-        public static string AppConfigName { get; set; } = "Mission Planner";
+        public static string AppConfigName { get; set; } = "JASER2 Config Files";
 
         public static Settings Instance
         {
@@ -83,7 +83,7 @@ namespace MissionPlanner.Utilities
             return config.ContainsKey(key);
         }
 
-        public string UserAgent { get; set; } = "MissionPlanner";
+        public string UserAgent { get; set; } = "JASER2";
         
         public string ComPort
         {

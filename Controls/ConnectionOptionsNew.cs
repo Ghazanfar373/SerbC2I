@@ -191,7 +191,7 @@ namespace MissionPlanner.Controls
 
                         // ✅ FIXED: Properly extract port name and baud rate
                         string port = portt.BaseStream.PortName;
-                        MainSerb.comPort.curPortName = port;
+                        
                         
                         string baudRate = portt.BaseStream.BaudRate.ToString();
                             string systemId = temp.sysid.ToString();
@@ -637,7 +637,7 @@ namespace MissionPlanner.Controls
 
                     //var idx = cmb_sysid.Items.Add(temp);
                     // Create a ListViewItem for the ListView
-                    MainSerb.comPort.curPortName = port.BaseStream.PortName;
+                    
                     result = result + $"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}\n";
                     var lvi = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
                     // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");

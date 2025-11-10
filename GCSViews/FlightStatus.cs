@@ -185,18 +185,7 @@ namespace MissionPlanner.GCSViews
         {
             instance = this;
             InitializeComponent();
-            // panelFlowLayoutHud.BackColor = Color.FromArgb(25, Color.Black);
-            if (status == false) // not armed
-            {
-                //klcButArm.Text = "DisArmed";
-            }
-            if (status == false)
-            {
-                //rjButtonStatus.Text = MissionPlanner.Controls.HUDT.FAILSAFE;
-                //rjButtonStatus.BackgroundColor = Color.Red;
-                //rjButtonStatus.Visible = true;
-                // rjTextBox.PlaceholderText = MissionPlanner.Controls.HUDT.FAILSAFE;
-            }
+            
             myhud = hudSerb;
             mymap = gMapControlSerb;
             //MainHcopy = MainH;
@@ -348,7 +337,7 @@ namespace MissionPlanner.GCSViews
             //tabPage.Controls.Add(formationControl);
             //tabPage.Dock = DockStyle.Fill;
             tabControlMain.TabPages.Add(tabPageFormation);
-            labelCurrentCom.Text = MainSerb.comPortName;
+            
             
         }
         [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
@@ -3135,7 +3124,7 @@ namespace MissionPlanner.GCSViews
             // Handle specific tabs
             switch (tc.SelectedIndex)
             {
-                case 2: // Home tab
+                case 1: // Home tab
 
                     formationControl = new FormationControl();
                     ThemeManager.ApplyThemeTo(formationControl);
@@ -3292,7 +3281,7 @@ namespace MissionPlanner.GCSViews
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(MainSerb.comPort.curPortName);
+            //MessageBox.Show(MainSerb.comPort.curPortName);
         }
     }
     }

@@ -71,8 +71,10 @@ namespace MissionPlanner
         public static string[] names = new string[] {"VVVVZ"};
         public static bool MONO = false;
 
-        static Program()
-        {
+        static Program() { 
+            Application.EnableVisualStyles();
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
+        
             AppDomain.CurrentDomain.AssemblyLoad += CurrentDomain_AssemblyLoad;
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
