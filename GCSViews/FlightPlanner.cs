@@ -2428,11 +2428,8 @@ namespace MissionPlanner.GCSViews
             {
                 cellFrame.Value = CMB_altmode.SelectedValue;
             }
-
-
             if (quickadd)
                 return;
-
             try
             {
                 Commands.CurrentCell = Commands.Rows[e.RowIndex].Cells[0];

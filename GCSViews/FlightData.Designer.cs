@@ -31,7 +31,6 @@ namespace MissionPlanner.GCSViews
             this.groundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setBatteryCellCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlactions = new System.Windows.Forms.TabControl();
             this.contextMenuStripactionstab = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +41,6 @@ namespace MissionPlanner.GCSViews
             this.contextMenuStripQuickView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setViewCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
             this.quickView5 = new MissionPlanner.Controls.QuickView();
             this.quickView4 = new MissionPlanner.Controls.QuickView();
             this.quickView3 = new MissionPlanner.Controls.QuickView();
@@ -52,13 +50,10 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BUT_SendMSG = new MissionPlanner.Controls.MyButton();
             this.BUT_abortland = new MissionPlanner.Controls.MyButton();
-            this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
             this.BUT_clear_track = new MissionPlanner.Controls.MyButton();
             this.CMB_action = new System.Windows.Forms.ComboBox();
             this.BUTactiondo = new MissionPlanner.Controls.MyButton();
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
-            this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
-            this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
             this.CMB_setwp = new System.Windows.Forms.ComboBox();
             this.BUT_ARM = new MissionPlanner.Controls.MyButton();
             this.BUT_mountmode = new MissionPlanner.Controls.MyButton();
@@ -80,10 +75,8 @@ namespace MissionPlanner.GCSViews
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.myButton3 = new MissionPlanner.Controls.MyButton();
             this.tabPagePreFlight = new System.Windows.Forms.TabPage();
-            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
             this.tabGauges = new System.Windows.Forms.TabPage();
             this.Gvspeed = new AGaugeApp.AGauge();
-            this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
             this.Gheading = new MissionPlanner.Controls.HSI();
             this.Galt = new AGaugeApp.AGauge();
             this.Gspeed = new AGaugeApp.AGauge();
@@ -106,33 +99,8 @@ namespace MissionPlanner.GCSViews
             this.tabStatus = new System.Windows.Forms.TabPage();
             this.tabServo = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelServos = new System.Windows.Forms.FlowLayoutPanel();
-            this.servoOptions1 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions2 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions3 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions4 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions5 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions6 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions7 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions8 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions9 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions10 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions11 = new MissionPlanner.Controls.ServoOptions();
-            this.servoOptions12 = new MissionPlanner.Controls.ServoOptions();
-            this.relayOptions1 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions2 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions3 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions4 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions5 = new MissionPlanner.Controls.RelayOptions();
-            this.relayOptions6 = new MissionPlanner.Controls.RelayOptions();
             this.tabAuxFunction = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.auxOptions1 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions2 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions3 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions4 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions5 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions6 = new MissionPlanner.Controls.AuxOptions();
-            this.auxOptions7 = new MissionPlanner.Controls.AuxOptions();
             this.tabScripts = new System.Windows.Forms.TabPage();
             this.checkBoxRedirectOutput = new System.Windows.Forms.CheckBox();
             this.BUT_edit_selected = new MissionPlanner.Controls.MyButton();
@@ -145,7 +113,6 @@ namespace MissionPlanner.GCSViews
             this.BUT_PayloadFolder = new MissionPlanner.Controls.MyButton();
             this.groupBoxRoll = new System.Windows.Forms.GroupBox();
             this.TXT_gimbalRollPos = new System.Windows.Forms.TextBox();
-            this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
             this.trackBarRoll = new System.Windows.Forms.TrackBar();
             this.groupBoxYaw = new System.Windows.Forms.GroupBox();
             this.TXT_gimbalYawPos = new System.Windows.Forms.TextBox();
@@ -204,9 +171,7 @@ namespace MissionPlanner.GCSViews
             this.takeOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onOffCameraOverlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.but_disablejoystick = new MissionPlanner.Controls.MyButton();
-            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
             this.windDir1 = new MissionPlanner.Controls.WindDir();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -226,8 +191,43 @@ namespace MissionPlanner.GCSViews
             this.openScriptDialog = new System.Windows.Forms.OpenFileDialog();
             this.scriptChecker = new System.Windows.Forms.Timer(this.components);
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
-            this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.checkStateRenderer1 = new BrightIdeasSoftware.CheckStateRenderer();
+            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceQuickTab = new System.Windows.Forms.BindingSource(this.components);
+            this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
+            this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
+            this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
+            this.checkListControl1 = new MissionPlanner.Controls.PreFlight.CheckListControl();
+            this.servoOptions1 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions2 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions3 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions4 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions5 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions6 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions7 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions8 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions9 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions10 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions11 = new MissionPlanner.Controls.ServoOptions();
+            this.servoOptions12 = new MissionPlanner.Controls.ServoOptions();
+            this.relayOptions1 = new MissionPlanner.Controls.RelayOptions();
+            this.relayOptions2 = new MissionPlanner.Controls.RelayOptions();
+            this.relayOptions3 = new MissionPlanner.Controls.RelayOptions();
+            this.relayOptions4 = new MissionPlanner.Controls.RelayOptions();
+            this.relayOptions5 = new MissionPlanner.Controls.RelayOptions();
+            this.relayOptions6 = new MissionPlanner.Controls.RelayOptions();
+            this.auxOptions1 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions2 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions3 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions4 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions5 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions6 = new MissionPlanner.Controls.AuxOptions();
+            this.auxOptions7 = new MissionPlanner.Controls.AuxOptions();
+            this.distanceBar1 = new MissionPlanner.Controls.DistanceBar();
+            this.bindingSourceGaugesTab = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourcePayloadTab = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -237,20 +237,17 @@ namespace MissionPlanner.GCSViews
             this.SubMainLeft.Panel2.SuspendLayout();
             this.SubMainLeft.SuspendLayout();
             this.contextMenuStripHud.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.tabControlactions.SuspendLayout();
             this.contextMenuStripactionstab.SuspendLayout();
             this.tabQuick.SuspendLayout();
             this.tableLayoutPanelQuick.SuspendLayout();
             this.contextMenuStripQuickView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
             this.tabActions.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPagemessages.SuspendLayout();
             this.tabActionsSimple.SuspendLayout();
             this.tabPagePreFlight.SuspendLayout();
             this.tabGauges.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).BeginInit();
             this.tabTransponder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Squawk_nud)).BeginInit();
             this.tabServo.SuspendLayout();
@@ -260,7 +257,6 @@ namespace MissionPlanner.GCSViews
             this.tabScripts.SuspendLayout();
             this.tabPayload.SuspendLayout();
             this.groupBoxRoll.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRoll)).BeginInit();
             this.groupBoxYaw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYaw)).BeginInit();
@@ -278,10 +274,14 @@ namespace MissionPlanner.GCSViews
             this.splitContainerMap.Panel2.SuspendLayout();
             this.splitContainerMap.SuspendLayout();
             this.contextMenuStripMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).BeginInit();
             this.SuspendLayout();
             // 
@@ -562,10 +562,6 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.showIconsToolStripMenuItem, "showIconsToolStripMenuItem");
             this.showIconsToolStripMenuItem.Click += new System.EventHandler(this.showIconsToolStripMenuItem_Click);
             // 
-            // bindingSourceHud
-            // 
-            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
-            // 
             // tabControlactions
             // 
             this.tabControlactions.ContextMenuStrip = this.contextMenuStripactionstab;
@@ -662,10 +658,6 @@ namespace MissionPlanner.GCSViews
             this.undockToolStripMenuItem.Name = "undockToolStripMenuItem";
             resources.ApplyResources(this.undockToolStripMenuItem, "undockToolStripMenuItem");
             this.undockToolStripMenuItem.Click += new System.EventHandler(this.undockDockToolStripMenuItem_Click);
-            // 
-            // bindingSourceQuickTab
-            // 
-            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // quickView5
             // 
@@ -792,34 +784,6 @@ namespace MissionPlanner.GCSViews
             this.BUT_abortland.UseVisualStyleBackColor = true;
             this.BUT_abortland.Click += new System.EventHandler(this.BUT_abortland_Click);
             // 
-            // modifyandSetLoiterRad
-            // 
-            resources.ApplyResources(this.modifyandSetLoiterRad, "modifyandSetLoiterRad");
-            this.modifyandSetLoiterRad.ButtonText = "Set Loiter Rad";
-            this.modifyandSetLoiterRad.DecimalPlaces = 0;
-            this.modifyandSetLoiterRad.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.modifyandSetLoiterRad.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.modifyandSetLoiterRad.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.modifyandSetLoiterRad.Name = "modifyandSetLoiterRad";
-            this.modifyandSetLoiterRad.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
-            // 
             // BUT_clear_track
             // 
             this.BUT_clear_track.ColorMouseDown = System.Drawing.Color.Empty;
@@ -862,63 +826,6 @@ namespace MissionPlanner.GCSViews
             this.BUT_resumemis.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_resumemis.UseVisualStyleBackColor = true;
             this.BUT_resumemis.Click += new System.EventHandler(this.BUT_resumemis_Click);
-            // 
-            // modifyandSetAlt
-            // 
-            resources.ApplyResources(this.modifyandSetAlt, "modifyandSetAlt");
-            this.modifyandSetAlt.ButtonText = "Change Alt";
-            this.modifyandSetAlt.DecimalPlaces = 1;
-            this.modifyandSetAlt.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Name = "modifyandSetAlt";
-            this.modifyandSetAlt.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetAlt.Click += new System.EventHandler(this.modifyandSetAlt_Click);
-            // 
-            // modifyandSetSpeed
-            // 
-            resources.ApplyResources(this.modifyandSetSpeed, "modifyandSetSpeed");
-            this.modifyandSetSpeed.ButtonText = "Change Speed";
-            this.modifyandSetSpeed.DecimalPlaces = 1;
-            this.modifyandSetSpeed.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Name = "modifyandSetSpeed";
-            this.modifyandSetSpeed.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.modifyandSetSpeed.Click += new System.EventHandler(this.modifyandSetSpeed_Click);
-            this.modifyandSetSpeed.ParentChanged += new System.EventHandler(this.modifyandSetSpeed_ParentChanged);
             // 
             // CMB_setwp
             // 
@@ -1144,11 +1051,6 @@ namespace MissionPlanner.GCSViews
             this.tabPagePreFlight.Name = "tabPagePreFlight";
             this.tabPagePreFlight.UseVisualStyleBackColor = true;
             // 
-            // checkListControl1
-            // 
-            resources.ApplyResources(this.checkListControl1, "checkListControl1");
-            this.checkListControl1.Name = "checkListControl1";
-            // 
             // tabGauges
             // 
             this.tabGauges.Controls.Add(this.Gvspeed);
@@ -1301,10 +1203,6 @@ namespace MissionPlanner.GCSViews
             this.Gvspeed.Value1 = 0F;
             this.Gvspeed.Value2 = 0F;
             this.Gvspeed.Value3 = 0F;
-            // 
-            // bindingSourceGaugesTab
-            // 
-            this.bindingSourceGaugesTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // Gheading
             // 
@@ -1778,114 +1676,6 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelServos.Controls.Add(this.relayOptions6);
             this.flowLayoutPanelServos.Name = "flowLayoutPanelServos";
             // 
-            // servoOptions1
-            // 
-            resources.ApplyResources(this.servoOptions1, "servoOptions1");
-            this.servoOptions1.Name = "servoOptions1";
-            this.servoOptions1.thisservo = 5;
-            // 
-            // servoOptions2
-            // 
-            resources.ApplyResources(this.servoOptions2, "servoOptions2");
-            this.servoOptions2.Name = "servoOptions2";
-            this.servoOptions2.thisservo = 6;
-            // 
-            // servoOptions3
-            // 
-            resources.ApplyResources(this.servoOptions3, "servoOptions3");
-            this.servoOptions3.Name = "servoOptions3";
-            this.servoOptions3.thisservo = 7;
-            // 
-            // servoOptions4
-            // 
-            resources.ApplyResources(this.servoOptions4, "servoOptions4");
-            this.servoOptions4.Name = "servoOptions4";
-            this.servoOptions4.thisservo = 8;
-            // 
-            // servoOptions5
-            // 
-            resources.ApplyResources(this.servoOptions5, "servoOptions5");
-            this.servoOptions5.Name = "servoOptions5";
-            this.servoOptions5.thisservo = 9;
-            // 
-            // servoOptions6
-            // 
-            resources.ApplyResources(this.servoOptions6, "servoOptions6");
-            this.servoOptions6.Name = "servoOptions6";
-            this.servoOptions6.thisservo = 10;
-            // 
-            // servoOptions7
-            // 
-            resources.ApplyResources(this.servoOptions7, "servoOptions7");
-            this.servoOptions7.Name = "servoOptions7";
-            this.servoOptions7.thisservo = 11;
-            // 
-            // servoOptions8
-            // 
-            resources.ApplyResources(this.servoOptions8, "servoOptions8");
-            this.servoOptions8.Name = "servoOptions8";
-            this.servoOptions8.thisservo = 12;
-            // 
-            // servoOptions9
-            // 
-            resources.ApplyResources(this.servoOptions9, "servoOptions9");
-            this.servoOptions9.Name = "servoOptions9";
-            this.servoOptions9.thisservo = 13;
-            // 
-            // servoOptions10
-            // 
-            resources.ApplyResources(this.servoOptions10, "servoOptions10");
-            this.servoOptions10.Name = "servoOptions10";
-            this.servoOptions10.thisservo = 14;
-            // 
-            // servoOptions11
-            // 
-            resources.ApplyResources(this.servoOptions11, "servoOptions11");
-            this.servoOptions11.Name = "servoOptions11";
-            this.servoOptions11.thisservo = 15;
-            // 
-            // servoOptions12
-            // 
-            resources.ApplyResources(this.servoOptions12, "servoOptions12");
-            this.servoOptions12.Name = "servoOptions12";
-            this.servoOptions12.thisservo = 16;
-            // 
-            // relayOptions1
-            // 
-            resources.ApplyResources(this.relayOptions1, "relayOptions1");
-            this.relayOptions1.Name = "relayOptions1";
-            this.relayOptions1.thisrelay = 0;
-            // 
-            // relayOptions2
-            // 
-            resources.ApplyResources(this.relayOptions2, "relayOptions2");
-            this.relayOptions2.Name = "relayOptions2";
-            this.relayOptions2.thisrelay = 1;
-            // 
-            // relayOptions3
-            // 
-            resources.ApplyResources(this.relayOptions3, "relayOptions3");
-            this.relayOptions3.Name = "relayOptions3";
-            this.relayOptions3.thisrelay = 2;
-            // 
-            // relayOptions4
-            // 
-            resources.ApplyResources(this.relayOptions4, "relayOptions4");
-            this.relayOptions4.Name = "relayOptions4";
-            this.relayOptions4.thisrelay = 3;
-            // 
-            // relayOptions5
-            // 
-            resources.ApplyResources(this.relayOptions5, "relayOptions5");
-            this.relayOptions5.Name = "relayOptions5";
-            this.relayOptions5.thisrelay = 4;
-            // 
-            // relayOptions6
-            // 
-            resources.ApplyResources(this.relayOptions6, "relayOptions6");
-            this.relayOptions6.Name = "relayOptions6";
-            this.relayOptions6.thisrelay = 5;
-            // 
             // tabAuxFunction
             // 
             this.tabAuxFunction.Controls.Add(this.flowLayoutPanel1);
@@ -1904,41 +1694,6 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel1.Controls.Add(this.auxOptions7);
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // auxOptions1
-            // 
-            resources.ApplyResources(this.auxOptions1, "auxOptions1");
-            this.auxOptions1.Name = "auxOptions1";
-            // 
-            // auxOptions2
-            // 
-            resources.ApplyResources(this.auxOptions2, "auxOptions2");
-            this.auxOptions2.Name = "auxOptions2";
-            // 
-            // auxOptions3
-            // 
-            resources.ApplyResources(this.auxOptions3, "auxOptions3");
-            this.auxOptions3.Name = "auxOptions3";
-            // 
-            // auxOptions4
-            // 
-            resources.ApplyResources(this.auxOptions4, "auxOptions4");
-            this.auxOptions4.Name = "auxOptions4";
-            // 
-            // auxOptions5
-            // 
-            resources.ApplyResources(this.auxOptions5, "auxOptions5");
-            this.auxOptions5.Name = "auxOptions5";
-            // 
-            // auxOptions6
-            // 
-            resources.ApplyResources(this.auxOptions6, "auxOptions6");
-            this.auxOptions6.Name = "auxOptions6";
-            // 
-            // auxOptions7
-            // 
-            resources.ApplyResources(this.auxOptions7, "auxOptions7");
-            this.auxOptions7.Name = "auxOptions7";
             // 
             // tabScripts
             // 
@@ -2046,10 +1801,6 @@ namespace MissionPlanner.GCSViews
             this.TXT_gimbalRollPos.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourcePayloadTab, "campointb", true));
             resources.ApplyResources(this.TXT_gimbalRollPos, "TXT_gimbalRollPos");
             this.TXT_gimbalRollPos.Name = "TXT_gimbalRollPos";
-            // 
-            // bindingSourcePayloadTab
-            // 
-            this.bindingSourcePayloadTab.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // trackBarRoll
             // 
@@ -2577,27 +2328,15 @@ namespace MissionPlanner.GCSViews
             this.but_disablejoystick.UseVisualStyleBackColor = true;
             this.but_disablejoystick.Click += new System.EventHandler(this.but_disablejoystick_Click);
             // 
-            // distanceBar1
-            // 
-            resources.ApplyResources(this.distanceBar1, "distanceBar1");
-            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
-            this.distanceBar1.Name = "distanceBar1";
-            this.distanceBar1.totaldist = 100F;
-            this.distanceBar1.traveleddist = 0F;
-            // 
             // windDir1
             // 
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 1260D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // label6
             // 
@@ -2788,6 +2527,267 @@ namespace MissionPlanner.GCSViews
             this.Messagetabtimer.Interval = 200;
             this.Messagetabtimer.Tick += new System.EventHandler(this.Messagetabtimer_Tick);
             // 
+            // bindingSourceHud
+            // 
+            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // bindingSourceQuickTab
+            // 
+            this.bindingSourceQuickTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // modifyandSetLoiterRad
+            // 
+            resources.ApplyResources(this.modifyandSetLoiterRad, "modifyandSetLoiterRad");
+            this.modifyandSetLoiterRad.ButtonText = "Set Loiter Rad";
+            this.modifyandSetLoiterRad.DecimalPlaces = 0;
+            this.modifyandSetLoiterRad.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.modifyandSetLoiterRad.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.modifyandSetLoiterRad.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.modifyandSetLoiterRad.Name = "modifyandSetLoiterRad";
+            this.modifyandSetLoiterRad.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetLoiterRad.Click += new System.EventHandler(this.modifyandSetLoiterRad_Click);
+            // 
+            // modifyandSetAlt
+            // 
+            resources.ApplyResources(this.modifyandSetAlt, "modifyandSetAlt");
+            this.modifyandSetAlt.ButtonText = "Change Alt";
+            this.modifyandSetAlt.DecimalPlaces = 1;
+            this.modifyandSetAlt.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Name = "modifyandSetAlt";
+            this.modifyandSetAlt.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetAlt.Click += new System.EventHandler(this.modifyandSetAlt_Click);
+            // 
+            // modifyandSetSpeed
+            // 
+            resources.ApplyResources(this.modifyandSetSpeed, "modifyandSetSpeed");
+            this.modifyandSetSpeed.ButtonText = "Change Speed";
+            this.modifyandSetSpeed.DecimalPlaces = 1;
+            this.modifyandSetSpeed.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Name = "modifyandSetSpeed";
+            this.modifyandSetSpeed.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.modifyandSetSpeed.Click += new System.EventHandler(this.modifyandSetSpeed_Click);
+            this.modifyandSetSpeed.ParentChanged += new System.EventHandler(this.modifyandSetSpeed_ParentChanged);
+            // 
+            // checkListControl1
+            // 
+            resources.ApplyResources(this.checkListControl1, "checkListControl1");
+            this.checkListControl1.Name = "checkListControl1";
+            // 
+            // servoOptions1
+            // 
+            resources.ApplyResources(this.servoOptions1, "servoOptions1");
+            this.servoOptions1.Name = "servoOptions1";
+            this.servoOptions1.thisservo = 5;
+            // 
+            // servoOptions2
+            // 
+            resources.ApplyResources(this.servoOptions2, "servoOptions2");
+            this.servoOptions2.Name = "servoOptions2";
+            this.servoOptions2.thisservo = 6;
+            // 
+            // servoOptions3
+            // 
+            resources.ApplyResources(this.servoOptions3, "servoOptions3");
+            this.servoOptions3.Name = "servoOptions3";
+            this.servoOptions3.thisservo = 7;
+            // 
+            // servoOptions4
+            // 
+            resources.ApplyResources(this.servoOptions4, "servoOptions4");
+            this.servoOptions4.Name = "servoOptions4";
+            this.servoOptions4.thisservo = 8;
+            // 
+            // servoOptions5
+            // 
+            resources.ApplyResources(this.servoOptions5, "servoOptions5");
+            this.servoOptions5.Name = "servoOptions5";
+            this.servoOptions5.thisservo = 9;
+            // 
+            // servoOptions6
+            // 
+            resources.ApplyResources(this.servoOptions6, "servoOptions6");
+            this.servoOptions6.Name = "servoOptions6";
+            this.servoOptions6.thisservo = 10;
+            // 
+            // servoOptions7
+            // 
+            resources.ApplyResources(this.servoOptions7, "servoOptions7");
+            this.servoOptions7.Name = "servoOptions7";
+            this.servoOptions7.thisservo = 11;
+            // 
+            // servoOptions8
+            // 
+            resources.ApplyResources(this.servoOptions8, "servoOptions8");
+            this.servoOptions8.Name = "servoOptions8";
+            this.servoOptions8.thisservo = 12;
+            // 
+            // servoOptions9
+            // 
+            resources.ApplyResources(this.servoOptions9, "servoOptions9");
+            this.servoOptions9.Name = "servoOptions9";
+            this.servoOptions9.thisservo = 13;
+            // 
+            // servoOptions10
+            // 
+            resources.ApplyResources(this.servoOptions10, "servoOptions10");
+            this.servoOptions10.Name = "servoOptions10";
+            this.servoOptions10.thisservo = 14;
+            // 
+            // servoOptions11
+            // 
+            resources.ApplyResources(this.servoOptions11, "servoOptions11");
+            this.servoOptions11.Name = "servoOptions11";
+            this.servoOptions11.thisservo = 15;
+            // 
+            // servoOptions12
+            // 
+            resources.ApplyResources(this.servoOptions12, "servoOptions12");
+            this.servoOptions12.Name = "servoOptions12";
+            this.servoOptions12.thisservo = 16;
+            // 
+            // relayOptions1
+            // 
+            resources.ApplyResources(this.relayOptions1, "relayOptions1");
+            this.relayOptions1.Name = "relayOptions1";
+            this.relayOptions1.thisrelay = 0;
+            // 
+            // relayOptions2
+            // 
+            resources.ApplyResources(this.relayOptions2, "relayOptions2");
+            this.relayOptions2.Name = "relayOptions2";
+            this.relayOptions2.thisrelay = 1;
+            // 
+            // relayOptions3
+            // 
+            resources.ApplyResources(this.relayOptions3, "relayOptions3");
+            this.relayOptions3.Name = "relayOptions3";
+            this.relayOptions3.thisrelay = 2;
+            // 
+            // relayOptions4
+            // 
+            resources.ApplyResources(this.relayOptions4, "relayOptions4");
+            this.relayOptions4.Name = "relayOptions4";
+            this.relayOptions4.thisrelay = 3;
+            // 
+            // relayOptions5
+            // 
+            resources.ApplyResources(this.relayOptions5, "relayOptions5");
+            this.relayOptions5.Name = "relayOptions5";
+            this.relayOptions5.thisrelay = 4;
+            // 
+            // relayOptions6
+            // 
+            resources.ApplyResources(this.relayOptions6, "relayOptions6");
+            this.relayOptions6.Name = "relayOptions6";
+            this.relayOptions6.thisrelay = 5;
+            // 
+            // auxOptions1
+            // 
+            resources.ApplyResources(this.auxOptions1, "auxOptions1");
+            this.auxOptions1.Name = "auxOptions1";
+            // 
+            // auxOptions2
+            // 
+            resources.ApplyResources(this.auxOptions2, "auxOptions2");
+            this.auxOptions2.Name = "auxOptions2";
+            // 
+            // auxOptions3
+            // 
+            resources.ApplyResources(this.auxOptions3, "auxOptions3");
+            this.auxOptions3.Name = "auxOptions3";
+            // 
+            // auxOptions4
+            // 
+            resources.ApplyResources(this.auxOptions4, "auxOptions4");
+            this.auxOptions4.Name = "auxOptions4";
+            // 
+            // auxOptions5
+            // 
+            resources.ApplyResources(this.auxOptions5, "auxOptions5");
+            this.auxOptions5.Name = "auxOptions5";
+            // 
+            // auxOptions6
+            // 
+            resources.ApplyResources(this.auxOptions6, "auxOptions6");
+            this.auxOptions6.Name = "auxOptions6";
+            // 
+            // auxOptions7
+            // 
+            resources.ApplyResources(this.auxOptions7, "auxOptions7");
+            this.auxOptions7.Name = "auxOptions7";
+            // 
+            // distanceBar1
+            // 
+            resources.ApplyResources(this.distanceBar1, "distanceBar1");
+            this.distanceBar1.BackColor = System.Drawing.Color.Transparent;
+            this.distanceBar1.Name = "distanceBar1";
+            this.distanceBar1.totaldist = 100F;
+            this.distanceBar1.traveleddist = 0F;
+            // 
+            // bindingSourceGaugesTab
+            // 
+            this.bindingSourceGaugesTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // bindingSourcePayloadTab
+            // 
+            this.bindingSourcePayloadTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
@@ -2811,13 +2811,11 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.SubMainLeft)).EndInit();
             this.SubMainLeft.ResumeLayout(false);
             this.contextMenuStripHud.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.tabControlactions.ResumeLayout(false);
             this.contextMenuStripactionstab.ResumeLayout(false);
             this.tabQuick.ResumeLayout(false);
             this.tableLayoutPanelQuick.ResumeLayout(false);
             this.contextMenuStripQuickView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
             this.tabActions.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -2826,7 +2824,6 @@ namespace MissionPlanner.GCSViews
             this.tabActionsSimple.ResumeLayout(false);
             this.tabPagePreFlight.ResumeLayout(false);
             this.tabGauges.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).EndInit();
             this.tabTransponder.ResumeLayout(false);
             this.tabTransponder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Squawk_nud)).EndInit();
@@ -2839,7 +2836,6 @@ namespace MissionPlanner.GCSViews
             this.tabPayload.ResumeLayout(false);
             this.groupBoxRoll.ResumeLayout(false);
             this.groupBoxRoll.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRoll)).EndInit();
             this.groupBoxYaw.ResumeLayout(false);
             this.groupBoxYaw.PerformLayout();
@@ -2863,11 +2859,15 @@ namespace MissionPlanner.GCSViews
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMap)).EndInit();
             this.splitContainerMap.ResumeLayout(false);
             this.contextMenuStripMap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TRK_zoom)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoomlevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceQuickTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGaugesTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePayloadTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatusTab)).EndInit();
             this.ResumeLayout(false);
 

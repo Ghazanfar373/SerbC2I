@@ -723,14 +723,14 @@ namespace MissionPlanner
                             PRsender.doWorkArgs.ErrorMessage = "No Heartbeat Packets Received";
                             throw new Exception(@"Can not establish a connection
 
-Please check the following
-1. You have firmware loaded
-2. You have the correct serial port selected
-3. PX4 - You have the microsd card installed
-4. Try a diffrent usb port
+                            Please check the following
+                            1. You have firmware loaded
+                            2. You have the correct serial port selected
+                            3. PX4 - You have the microsd card installed
+                            4. Try a diffrent usb port
 
-No Mavlink Heartbeat Packets where read from this port - Verify Baud Rate and setup
-Mission Planner waits for 2 valid heartbeat packets before connecting");
+                            No Mavlink Heartbeat Packets where read from this port - Verify Baud Rate and setup
+                            Mission Planner waits for 2 valid heartbeat packets before connecting");
                         }
                     }
 

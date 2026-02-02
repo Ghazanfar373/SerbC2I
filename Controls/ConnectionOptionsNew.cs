@@ -106,7 +106,7 @@ namespace MissionPlanner.Controls
 
                     if (MainSerb.Comports == null)
                     {
-                        ClearListView();
+                       // ClearListView();
                         UpdateStatus(0, "No connections");
                         return;
                     }
@@ -481,12 +481,12 @@ namespace MissionPlanner.Controls
                     log.Info($"Disconnecting {selectedConnection.Port}");
                     MainSerb.instance.doDisconnect(mav);
 
-                    if (MainSerb.Comports.Contains(mav))
+                if (MainSerb.Comports.Contains(mav)) 
                     {
-                        MainSerb.Comports.Remove(mav);
-                    }
+                    MainSerb.Comports.Remove(mav);
+                }
 
-                    log.Info($"Disconnected from {selectedConnection.Port}");
+                log.Info($"Disconnected from {selectedConnection.Port}");
                     MessageBox.Show($"Disconnected from {selectedConnection.Port}");
                 }
                 catch (Exception ex)
@@ -637,7 +637,7 @@ namespace MissionPlanner.Controls
 
                     //var idx = cmb_sysid.Items.Add(temp);
                     // Create a ListViewItem for the ListView
-                    
+                    //MainSerb.comPort.curPortName = port.BaseStream.PortName;
                     result = result + $"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}\n";
                     var lvi = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");
                     // var lvi2 = new ListViewItem($"{port.BaseStream.PortName}-{temp.sysid}-{temp.compid}");

@@ -1044,7 +1044,7 @@ namespace MissionPlanner.GCSViews
 
                        // labelCurrentCom.Text = MainSerb.comPort.BaseStream.PortName;
                        // labelCurrentCom.Text = MainV2.comPort.BaseStream?.PortName??"UDP/TCP";
-                        labelCurrentCom.Text = MainSerb.comPort.BaseStream.PortName ?? "UDP/TCP";
+                       //labelCurrentCom.Text = MainSerb.comPort.BaseStream.PortName ?? "UDP/TCP";
                         prop.Update(MainSerb.comPort.MAV.cs.HomeLocation, MainSerb.comPort.MAV.cs.Location,
                                 MainSerb.comPort.MAV.cs.battery_kmleft);
 
@@ -2237,8 +2237,6 @@ namespace MissionPlanner.GCSViews
             zedGraph.Update();
             zedGraph.Refresh();
             //Data Enginner 
-            
-
         }
         //Graph Test Cases
         private void calculateAndFill(bool flag) {
@@ -3282,6 +3280,25 @@ namespace MissionPlanner.GCSViews
         private void button1_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(MainSerb.comPort.curPortName);
+        }
+
+        private void klcButtonLoiter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ((Control)sender).Enabled = false;
+                if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduPlane ||
+                    MainSerb.comPort.MAV.cs.firmware == Firmwares.Ateryx ||
+                    MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduRover ||
+                    MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
+                    MainSerb.comPort.setMode("Loiter");
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+
+            ((Control)sender).Enabled = true;
         }
     }
     }

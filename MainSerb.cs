@@ -2427,7 +2427,7 @@ namespace MissionPlanner
                     log.Error(ex);
                 }
             };
-            AutoConnect.Start();
+            //AutoConnect.Start();
 
             // debound based on url
             List<string> videourlseen = new List<string>();
