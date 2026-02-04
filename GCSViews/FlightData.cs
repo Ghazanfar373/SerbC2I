@@ -393,7 +393,7 @@ namespace MissionPlanner.GCSViews
             myhud.hudcolor = ThemeManager.HudText;
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
-
+            //ThemeManager.ApplyThemeTo(this);
         }
 
         public void Activate()
@@ -1407,7 +1407,7 @@ namespace MissionPlanner.GCSViews
             MainSerb.comPort.setMountControl((float)trackBarPitch.Value * 100.0f, (float)trackBarRoll.Value * 100.0f,
                 (float)trackBarYaw.Value * 100.0f, false);
         }
-
+        
         private void BUT_resumemis_Click(object sender, EventArgs e)
         {
             if (

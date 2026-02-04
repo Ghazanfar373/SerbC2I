@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainBoard));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.labeledTextBox2 = new CodeArtEng.Controls.LabeledTextBox();
@@ -147,6 +146,7 @@
             this.klcButton24 = new KLCToolbox.KLCControls.KLCButton();
             this.timerLed = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -200,7 +200,6 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.graphicLabel1);
             this.splitContainerMain.Panel1.Controls.Add(this.panel1);
             this.splitContainerMain.Panel1.Controls.Add(this.btnledstop);
             this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanel11);
@@ -212,17 +211,6 @@
             this.splitContainerMain.Size = new System.Drawing.Size(1200, 700);
             this.splitContainerMain.SplitterDistance = 815;
             this.splitContainerMain.TabIndex = 0;
-            // 
-            // graphicLabel1
-            // 
-            this.graphicLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabel1.Location = new System.Drawing.Point(0, 165);
-            this.graphicLabel1.Name = "graphicLabel1";
-            this.graphicLabel1.Size = new System.Drawing.Size(78, 23);
-            this.graphicLabel1.TabIndex = 27;
-            this.graphicLabel1.Text = "Hello Serb World !";
-            this.graphicLabel1.Visible = false;
             // 
             // panel1
             // 
@@ -2060,7 +2048,6 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Label lblMode;
-        private Controls.GraphicLabel graphicLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private KLCToolbox.KLCControls.KLCButton klcButton14;
         private KLCToolbox.KLCControls.KLCButton klcButtonAuto;
@@ -2147,5 +2134,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -433,13 +433,16 @@ namespace MissionPlanner.GCSViews
             };
             labelClock.DataBindings.Add(binding);
             //Mode Binding 
-            var bindingMode = new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "mode", true);
+            var bindingMode = new System.Windows.Forms.Binding("FlightMode", this.bindingSourceHUD, "mode", true);
             bindingMode.Format += (s, e) =>
             {
                 if (e.Value == null || e.Value=="Unknown" ||string.IsNullOrEmpty(e.Value.ToString()))
                     e.Value = "Manual";
             };
-            this.lblMode.DataBindings.Add(bindingMode);
+            //this.lblMode.DataBindings.Add(bindingMode);
+            this.waypointIndicator1.DataBindings.Add(bindingMode);
+
+            
         }
         void POI_POIModified(object sender, EventArgs e)
         {
@@ -3292,6 +3295,77 @@ namespace MissionPlanner.GCSViews
                     MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduRover ||
                     MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
                     MainSerb.comPort.setMode("Loiter");
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+
+            ((Control)sender).Enabled = true;
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void klcButtonArmDisArm_Click(object sender, EventArgs e)
+        {
+
+            if (!MainSerb.comPort.BaseStream.IsOpen)
+                return;
+
+            // arm the MAV
+            try
+            {
+                counterArmed = 0;
+
+                var isitarmed = MainSerb.comPort.MAV.cs.armed;
+                var action = MainSerb.comPort.MAV.cs.armed ? "Disarm" : "Arm";
+
+                if (isitarmed)
+                    if (CustomMessageBox.Show(" Are you sure you want to " + action, action,
+                            CustomMessageBox.MessageBoxButtons.YesNo) !=
+                        CustomMessageBox.DialogResult.Yes)
+                        return;
+                StringBuilder sb = new StringBuilder();
+                var sub = MainSerb.comPort.SubscribeToPacketType(MAVLink.MAVLINK_MSG_ID.STATUSTEXT, message =>
+                {
+                    sb.AppendLine(Encoding.ASCII.GetString(((MAVLink.mavlink_statustext_t)message.data).text)
+                        .TrimEnd('\0'));
+                    return true;
+                }, (byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent);
+                bool ans = MainSerb.comPort.doARM(!isitarmed);
+                MainSerb.comPort.UnSubscribeToPacketType(sub);
+                if (ans == false)
+                {
+                    if (CustomMessageBox.Show(
+                            action + " failed.\n" + sb.ToString() + "\nForce " + action +
+                            " can bypass safety checks,\nwhich can lead to the vehicle crashing\nand causing serious injuries.\n\nDo you wish to Force " +
+                            action + "?", Strings.ERROR, CustomMessageBox.MessageBoxButtons.YesNo,
+                            CustomMessageBox.MessageBoxIcon.Exclamation, "Force " + action, "Cancel") ==
+                        CustomMessageBox.DialogResult.Yes)
+                    {
+                        ans = MainSerb.comPort.doARM(!isitarmed, true);
+                        if (ans == false)
+                        {
+                            CustomMessageBox.Show(Strings.ErrorRejectedByMAV, Strings.ERROR);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR);
+            }
+        }
+
+        private void klcButtonRTL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ((Control)sender).Enabled = false;
+                MainSerb.comPort.setMode("RTL");
             }
             catch
             {
