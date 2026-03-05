@@ -184,12 +184,28 @@ namespace MissionPlanner.GCSViews
         public FlightStatus()
         {
             instance = this;
+
             InitializeComponent();
+
+            //splitMainPanel.SuspendLayout();
+            //splitContainerMap.SuspendLayout();
+            //splitContainerMap.Width = tableLayoutPanelCompass.Width;
+            //splitContainerMap.SplitterDistance = tableLayoutPanelCompass.Width;
+            splitMainPanel.SuspendLayout();
+            splitMainPanel.SplitterDistance = 1060;
             
+            splitMainPanel.IsSplitterFixed = true;
+            splitMainPanel.ResumeLayout();
+            //splitMainPanel.PerformLayout();
+            
+
             myhud = hudSerb;
             mymap = gMapControlSerb;
             //MainHcopy = MainH;
             mymap.Paint += gMapControlSerb_Paint;
+
+            
+            
             //myhud.groundColor1 = ThemeManager.HudGroundTop;
             //myhud.groundColor2 = ThemeManager.HudGroundBot;
             //myhud.skyColor1 = ThemeManager.HudSkyTop;

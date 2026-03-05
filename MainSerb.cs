@@ -3615,9 +3615,9 @@ namespace MissionPlanner
             btnFlightData.Image = originalImageFlightStatus;
             btnFlightPlan.Image = originalImageFlightPlan;
             btnConnection.Image = originalImageConn;
-            //MyView.ShowScreen("MainBoard");
+            MyView.ShowScreen("MainBoard");
             
-            MyView.ShowScreen("SWConfig");
+            //MyView.ShowScreen("SWConfig");
             SaveConfig();
             //Form connections = new ConnectionOptions();
             //Utilities.ThemeManager.ApplyThemeTo(connections);
