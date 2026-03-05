@@ -192,7 +192,7 @@ namespace MissionPlanner.GCSViews
             //splitContainerMap.Width = tableLayoutPanelCompass.Width;
             //splitContainerMap.SplitterDistance = tableLayoutPanelCompass.Width;
             splitMainPanel.SuspendLayout();
-            splitMainPanel.SplitterDistance = 1060;
+            splitMainPanel.SplitterDistance = 1140;
             
             splitMainPanel.IsSplitterFixed = true;
             splitMainPanel.ResumeLayout();
