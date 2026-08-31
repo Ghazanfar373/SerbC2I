@@ -1,6 +1,7 @@
 ﻿///اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّم
 using System;
 using System.Windows.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace MissionPlanner.GCSViews
 {
@@ -86,6 +87,12 @@ namespace MissionPlanner.GCSViews
             this.quickView8 = new MissionPlanner.Controls.QuickView();
             this.quickView10 = new MissionPlanner.Controls.QuickView();
             this.quickView12 = new MissionPlanner.Controls.QuickView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.whPanel5 = new SerbLabelControls.WhPanel();
+            this.whPanel4 = new SerbLabelControls.WhPanel();
+            this.whPanel3 = new SerbLabelControls.WhPanel();
+            this.whPanel2 = new SerbLabelControls.WhPanel();
+            this.whPanel1 = new SerbLabelControls.WhPanel();
             this.flowLayoutPanelLayer1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.waypointIndicator1 = new MissionPlanner.Controls.WaypointIndicator();
@@ -203,6 +210,7 @@ namespace MissionPlanner.GCSViews
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.flowLayoutPanelLayer1.SuspendLayout();
             this.flowLayoutPanel12.SuspendLayout();
             this.tableLayoutPanelBatGPS.SuspendLayout();
@@ -586,6 +594,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControlMain.Controls.Add(this.tabPage1);
+            this.tabControlMain.Controls.Add(this.tabPage2);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1073,6 +1082,69 @@ namespace MissionPlanner.GCSViews
             this.quickView12.TabIndex = 5;
             this.quickView12.Text = "quickView12";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.whPanel5);
+            this.tabPage2.Controls.Add(this.whPanel4);
+            this.tabPage2.Controls.Add(this.whPanel3);
+            this.tabPage2.Controls.Add(this.whPanel2);
+            this.tabPage2.Controls.Add(this.whPanel1);
+            this.tabPage2.Location = new System.Drawing.Point(25, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1111, 298);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Tactical";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // whPanel5
+            // 
+            this.whPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
+            this.whPanel5.Location = new System.Drawing.Point(863, 9);
+            this.whPanel5.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel5.Name = "whPanel5";
+            this.whPanel5.Size = new System.Drawing.Size(210, 242);
+            this.whPanel5.SystemId = 5;
+            this.whPanel5.TabIndex = 4;
+            // 
+            // whPanel4
+            // 
+            this.whPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
+            this.whPanel4.Location = new System.Drawing.Point(651, 9);
+            this.whPanel4.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel4.Name = "whPanel4";
+            this.whPanel4.Size = new System.Drawing.Size(210, 242);
+            this.whPanel4.SystemId = 4;
+            this.whPanel4.TabIndex = 3;
+            // 
+            // whPanel3
+            // 
+            this.whPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
+            this.whPanel3.Location = new System.Drawing.Point(435, 9);
+            this.whPanel3.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel3.Name = "whPanel3";
+            this.whPanel3.Size = new System.Drawing.Size(210, 242);
+            this.whPanel3.SystemId = 3;
+            this.whPanel3.TabIndex = 2;
+            // 
+            // whPanel2
+            // 
+            this.whPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
+            this.whPanel2.Location = new System.Drawing.Point(219, 9);
+            this.whPanel2.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel2.Name = "whPanel2";
+            this.whPanel2.Size = new System.Drawing.Size(210, 242);
+            this.whPanel2.SystemId = 2;
+            this.whPanel2.TabIndex = 1;
+            // 
+            // whPanel1
+            // 
+            this.whPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
+            this.whPanel1.Location = new System.Drawing.Point(3, 9);
+            this.whPanel1.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel1.Name = "whPanel1";
+            this.whPanel1.Size = new System.Drawing.Size(210, 242);
+            this.whPanel1.TabIndex = 0;
+            // 
             // flowLayoutPanelLayer1
             // 
             this.flowLayoutPanelLayer1.AutoScroll = true;
@@ -1430,7 +1502,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryVoltages.Location = new System.Drawing.Point(65, 1);
             this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 14);
             this.labelBatteryVoltages.Name = "labelBatteryVoltages";
-            this.labelBatteryVoltages.Size = new System.Drawing.Size(34, 14);
+            this.labelBatteryVoltages.Size = new System.Drawing.Size(0, 14);
             this.labelBatteryVoltages.TabIndex = 2;
             this.labelBatteryVoltages.Text = "87 %";
             this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1453,7 +1525,7 @@ namespace MissionPlanner.GCSViews
             this.labelBatteryCurrent.Location = new System.Drawing.Point(52, 17);
             this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 13);
             this.labelBatteryCurrent.Name = "labelBatteryCurrent";
-            this.labelBatteryCurrent.Size = new System.Drawing.Size(34, 13);
+            this.labelBatteryCurrent.Size = new System.Drawing.Size(0, 13);
             this.labelBatteryCurrent.TabIndex = 3;
             this.labelBatteryCurrent.Text = "87 %";
             this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1491,7 +1563,7 @@ namespace MissionPlanner.GCSViews
             this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelTimeInAir.MinimumSize = new System.Drawing.Size(55, 0);
             this.labelTimeInAir.Name = "labelTimeInAir";
-            this.labelTimeInAir.Size = new System.Drawing.Size(66, 20);
+            this.labelTimeInAir.Size = new System.Drawing.Size(55, 20);
             this.labelTimeInAir.TabIndex = 1;
             this.labelTimeInAir.Text = "00:23:34";
             this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1528,7 +1600,7 @@ namespace MissionPlanner.GCSViews
             this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
             this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 20);
             this.labelGPSStatus.Name = "labelGPSStatus";
-            this.labelGPSStatus.Size = new System.Drawing.Size(86, 17);
+            this.labelGPSStatus.Size = new System.Drawing.Size(0, 17);
             this.labelGPSStatus.TabIndex = 1;
             this.labelGPSStatus.Text = "GPS: No GPS";
             this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1892,7 +1964,7 @@ namespace MissionPlanner.GCSViews
             // labelHudGS
             // 
             this.labelHudGS.AutoSize = true;
-            this.labelHudGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "groundspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelHudGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "groundspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelHudGS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelHudGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1955,7 +2027,7 @@ namespace MissionPlanner.GCSViews
             // labelHudAS
             // 
             this.labelHudAS.AutoSize = true;
-            this.labelHudAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "airspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelHudAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "airspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelHudAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHudAS.Location = new System.Drawing.Point(5, 25);
@@ -2039,7 +2111,7 @@ namespace MissionPlanner.GCSViews
             // labelValAOA
             // 
             this.labelValAOA.AutoSize = true;
-            this.labelValAOA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAOA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValAOA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAOA.Location = new System.Drawing.Point(5, 25);
@@ -2095,7 +2167,7 @@ namespace MissionPlanner.GCSViews
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "yaw", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(5, 25);
@@ -2463,7 +2535,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.labelValAgl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelValAgl.AutoSize = true;
-            this.labelValAgl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAgl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelValAgl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAgl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAgl.Location = new System.Drawing.Point(5, 25);
@@ -2516,7 +2588,7 @@ namespace MissionPlanner.GCSViews
             // 
             // labelValAsl
             // 
-            this.labelValAsl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "altasl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAsl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "altasl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelValAsl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAsl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAsl.Location = new System.Drawing.Point(5, 25);
@@ -2578,7 +2650,7 @@ namespace MissionPlanner.GCSViews
             this.labelTitleAS.MinimumSize = new System.Drawing.Size(60, 0);
             this.labelTitleAS.Name = "labelTitleAS";
             this.labelTitleAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelTitleAS.Size = new System.Drawing.Size(60, 20);
+            this.labelTitleAS.Size = new System.Drawing.Size(60, 0);
             this.labelTitleAS.TabIndex = 9;
             this.labelTitleAS.Text = "Pitch";
             this.labelTitleAS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2586,7 +2658,7 @@ namespace MissionPlanner.GCSViews
             // labelValAS
             // 
             this.labelValAS.AutoSize = true;
-            this.labelValAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValAS.Location = new System.Drawing.Point(5, 25);
@@ -2641,7 +2713,7 @@ namespace MissionPlanner.GCSViews
             // labelValGS
             // 
             this.labelValGS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelValGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00"));
+            this.labelValGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValGS.Location = new System.Drawing.Point(5, 25);
@@ -2732,6 +2804,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanelLayer1.ResumeLayout(false);
             this.flowLayoutPanelLayer1.PerformLayout();
             this.flowLayoutPanel12.ResumeLayout(false);
@@ -2945,6 +3018,12 @@ namespace MissionPlanner.GCSViews
         private Controls.WaypointIndicator waypointIndicator1;
         private KLCToolbox.KLCControls.KLCButton klcButtonArmDisArm;
         private FlowLayoutPanel flowLayoutPanel12;
+        private TabPage tabPage2;
+        private SerbLabelControls.WhPanel whPanel5;
+        private SerbLabelControls.WhPanel whPanel4;
+        private SerbLabelControls.WhPanel whPanel3;
+        private SerbLabelControls.WhPanel whPanel2;
+        private SerbLabelControls.WhPanel whPanel1;
 
 
         // private AnimatedTextControl animatedTextControl1;

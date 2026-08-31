@@ -39,6 +39,7 @@ using MissionPlanner.Swarm;
 using HUD_Claude;
 using Nevron.Nov.UI;
 using System.Globalization;
+using IronPython.Compiler.Ast;
 
 namespace MissionPlanner.GCSViews
 {
@@ -192,12 +193,12 @@ namespace MissionPlanner.GCSViews
             //splitContainerMap.Width = tableLayoutPanelCompass.Width;
             //splitContainerMap.SplitterDistance = tableLayoutPanelCompass.Width;
             splitMainPanel.SuspendLayout();
-            splitMainPanel.SplitterDistance = 1140;
-            
+            splitMainPanel.SplitterDistance = 1160;
+
             splitMainPanel.IsSplitterFixed = true;
             splitMainPanel.ResumeLayout();
-            //splitMainPanel.PerformLayout();
-            
+           // splitMainPanel.PerformLayout();
+
 
             myhud = hudSerb;
             mymap = gMapControlSerb;
@@ -1337,7 +1338,7 @@ namespace MissionPlanner.GCSViews
             base.OnInvalidated(e);
             updateBindingSourceWork();
         }
-
+        bool setLeftPanelSize = false;
         public void Activate()
         {
             //log.Info("Activate Called");
@@ -1354,9 +1355,12 @@ namespace MissionPlanner.GCSViews
             MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainSerb.comPort.MAV.cs;
             //hudSerb.doResize();
 
-
-            int spliterDistance = splitMainPanel.Width - tableLayoutPanelHUD.Width;
-            splitMainPanel.SplitterDistance = (spliterDistance - 28);
+            if (!setLeftPanelSize)
+            {
+                int spliterDistance = splitMainPanel.Width - tableLayoutPanelHUD.Width;
+                splitMainPanel.SplitterDistance = (spliterDistance - 30);
+                setLeftPanelSize=true;
+            }
             //splitMainPanel.Panel2.Width = spliterDistance;
             //rjTextBox.Texts=spliterDistance.ToString();
             //splitMainPanel.IsSplitterFixed = true;

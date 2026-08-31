@@ -32,6 +32,7 @@ namespace MissionPlanner.Swarm
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.PNL_status = new System.Windows.Forms.FlowLayoutPanel();
+            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             this.timer_status = new System.Windows.Forms.Timer(this.components);
             this.but_auto = new System.Windows.Forms.Button();
             this.BUT_Updatepos = new System.Windows.Forms.Button();
@@ -44,11 +45,10 @@ namespace MissionPlanner.Swarm
             this.BUT_Takeoff = new System.Windows.Forms.Button();
             this.BUT_Land = new System.Windows.Forms.Button();
             this.flowLayoutPanelSwarm = new System.Windows.Forms.FlowLayoutPanel();
+            this.grid1 = new MissionPlanner.Swarm.Grid();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.myButton1 = new System.Windows.Forms.Button();
             this.But_ArmAll = new System.Windows.Forms.Button();
-            this.grid1 = new MissionPlanner.Swarm.Grid();
-            this.graphicLabel1 = new MissionPlanner.Controls.GraphicLabel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.PNL_status.SuspendLayout();
             this.flowLayoutPanelSwarm.SuspendLayout();
@@ -63,6 +63,16 @@ namespace MissionPlanner.Swarm
             this.PNL_status.Name = "PNL_status";
             this.PNL_status.Size = new System.Drawing.Size(79, 177);
             this.PNL_status.TabIndex = 11;
+            // 
+            // graphicLabel1
+            // 
+            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
+            this.graphicLabel1.Location = new System.Drawing.Point(3, 3);
+            this.graphicLabel1.Name = "graphicLabel1";
+            this.graphicLabel1.Size = new System.Drawing.Size(75, 23);
+            this.graphicLabel1.TabIndex = 0;
+            this.graphicLabel1.Text = "Total: 0";
+            this.graphicLabel1.Visible = false;
             // 
             // timer_status
             // 
@@ -235,6 +245,16 @@ namespace MissionPlanner.Swarm
             this.flowLayoutPanelSwarm.TabIndex = 25;
             this.flowLayoutPanelSwarm.WrapContents = false;
             // 
+            // grid1
+            // 
+            this.grid1.Location = new System.Drawing.Point(0, 0);
+            this.grid1.Margin = new System.Windows.Forms.Padding(0);
+            this.grid1.Name = "grid1";
+            this.grid1.Size = new System.Drawing.Size(316, 225);
+            this.grid1.TabIndex = 21;
+            this.grid1.Vertical = false;
+            this.grid1.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -291,26 +311,6 @@ namespace MissionPlanner.Swarm
             this.But_ArmAll.TabIndex = 25;
             this.But_ArmAll.Text = "Arm All";
             this.But_ArmAll.Click += new System.EventHandler(this.But_ArmAll_Click);
-            // 
-            // grid1
-            // 
-            this.grid1.Location = new System.Drawing.Point(0, 0);
-            this.grid1.Margin = new System.Windows.Forms.Padding(0);
-            this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(316, 225);
-            this.grid1.TabIndex = 21;
-            this.grid1.Vertical = false;
-            this.grid1.UpdateOffsets += new MissionPlanner.Swarm.Grid.UpdateOffsetsEvent(this.grid1_UpdateOffsets);
-            // 
-            // graphicLabel1
-            // 
-            this.graphicLabel1.ForeColor = System.Drawing.Color.Red;
-            this.graphicLabel1.Location = new System.Drawing.Point(3, 3);
-            this.graphicLabel1.Name = "graphicLabel1";
-            this.graphicLabel1.Size = new System.Drawing.Size(75, 23);
-            this.graphicLabel1.TabIndex = 0;
-            this.graphicLabel1.Text = "Total: 0";
-            this.graphicLabel1.Visible = false;
             // 
             // FormationControl
             // 

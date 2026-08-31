@@ -8,7 +8,6 @@ public partial class MAVLink
     public const string MAVLINK_BUILD_DATE = "Mon Jan 09 2023";
     public const string MAVLINK_WIRE_PROTOCOL_VERSION = "2.0";
     public const int MAVLINK_MAX_PAYLOAD_LEN = 255;
-
     public const byte MAVLINK_CORE_HEADER_LEN = 9;///< Length of core header (of the comm. layer)
     public const byte MAVLINK_CORE_HEADER_MAVLINK1_LEN = 5;///< Length of MAVLink1 core header (of the comm. layer)
     public const byte MAVLINK_NUM_HEADER_BYTES = (MAVLINK_CORE_HEADER_LEN + 1);///< Length of all header bytes, including core and stx
@@ -21,9 +20,9 @@ public partial class MAVLink
     public const int MAVLINK_LITTLE_ENDIAN = 1;
     public const int MAVLINK_BIG_ENDIAN = 0;
 
-    public const byte MAVLINK_STX = 253;
+    public const byte MAVLINK_STX = 253;      //before 167    253
 
-    public const byte MAVLINK_STX_MAVLINK1 = 0xFE;
+    public const byte MAVLINK_STX_MAVLINK1 = 0xA6;     //before 0xFE
 
     public const byte MAVLINK_ENDIAN = MAVLINK_LITTLE_ENDIAN;
 
@@ -37,12 +36,12 @@ public partial class MAVLink
         
     // msgid, name, crc, minlength, length, type
     public static message_info[] MAVLINK_MESSAGE_INFOS = new message_info[] {
-        new message_info(1, "SYS_STATUS", 124, 31, 31, typeof( mavlink_sys_status_t )),
-        new message_info(2, "SYSTEM_TIME", 137, 12, 12, typeof( mavlink_system_time_t )),
-        new message_info(4, "PING", 237, 14, 14, typeof( mavlink_ping_t )),
-        new message_info(5, "CHANGE_OPERATOR_CONTROL", 217, 28, 28, typeof( mavlink_change_operator_control_t )),
-        new message_info(6, "CHANGE_OPERATOR_CONTROL_ACK", 104, 3, 3, typeof( mavlink_change_operator_control_ack_t )),
-        new message_info(7, "AUTH_KEY", 119, 32, 32, typeof( mavlink_auth_key_t )),
+        new message_info(1,  "SYS_STATUS", 124, 31, 31, typeof( mavlink_sys_status_t )),
+        new message_info(2,  "SYSTEM_TIME", 137, 12, 12, typeof( mavlink_system_time_t )),
+        new message_info(4,  "PING", 237, 14, 14, typeof( mavlink_ping_t )),
+        new message_info(5,  "CHANGE_OPERATOR_CONTROL", 217, 28, 28, typeof( mavlink_change_operator_control_t )),
+        new message_info(6,  "CHANGE_OPERATOR_CONTROL_ACK", 104, 3, 3, typeof( mavlink_change_operator_control_ack_t )),
+        new message_info(7,  "AUTH_KEY", 119, 32, 32, typeof( mavlink_auth_key_t )),
         new message_info(11, "SET_MODE", 89, 6, 6, typeof( mavlink_set_mode_t )),
         new message_info(20, "PARAM_REQUEST_READ", 214, 20, 20, typeof( mavlink_param_request_read_t )),
         new message_info(21, "PARAM_REQUEST_LIST", 159, 2, 2, typeof( mavlink_param_request_list_t )),
@@ -25781,7 +25780,6 @@ public partial class MAVLink
         public static mavlink_gimbal_device_information_t PopulateXMLOrder(uint time_boot_ms,byte[] vendor_name,byte[] model_name,byte[] custom_name,uint firmware_version,uint hardware_version,ulong uid,/*GIMBAL_DEVICE_CAP_FLAGS*/ushort cap_flags,ushort custom_cap_flags,float roll_min,float roll_max,float pitch_min,float pitch_max,float yaw_min,float yaw_max) 
         {
             var msg = new mavlink_gimbal_device_information_t();
-
             msg.time_boot_ms = time_boot_ms;
             msg.vendor_name = vendor_name;
             msg.model_name = model_name;
@@ -25797,7 +25795,6 @@ public partial class MAVLink
             msg.pitch_max = pitch_max;
             msg.yaw_min = yaw_min;
             msg.yaw_max = yaw_max;
-            
             return msg;
         }
         

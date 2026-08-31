@@ -127,16 +127,17 @@
             // 
             // btnFlightData
             // 
+            this.btnFlightData.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnFlightData.FlatAppearance.BorderSize = 0;
             this.btnFlightData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFlightData.ForeColor = System.Drawing.Color.Transparent;
             this.btnFlightData.Image = global::MissionPlanner.Properties.Resources.dashboard_layout_50;
             this.btnFlightData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFlightData.Location = new System.Drawing.Point(4, 1);
-            this.btnFlightData.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFlightData.Location = new System.Drawing.Point(0, 0);
+            this.btnFlightData.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnFlightData.Name = "btnFlightData";
-            this.btnFlightData.Padding = new System.Windows.Forms.Padding(0, 12, 13, 12);
-            this.btnFlightData.Size = new System.Drawing.Size(212, 63);
+            this.btnFlightData.Padding = new System.Windows.Forms.Padding(5, 12, 0, 12);
+            this.btnFlightData.Size = new System.Drawing.Size(212, 64);
             this.btnFlightData.TabIndex = 5;
             this.btnFlightData.Text = "                  Mission Status";
             this.btnFlightData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -130,5 +130,10 @@ namespace MissionPlanner.GCSViews
             Console.WriteLine("Mouse Leaved!");
 
         }
+
+        private void whPanel2_DisArmClicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
