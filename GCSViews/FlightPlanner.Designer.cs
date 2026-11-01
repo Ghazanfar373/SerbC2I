@@ -117,6 +117,7 @@ namespace MissionPlanner.GCSViews
             this.lbl_wpfile = new System.Windows.Forms.Label();
             this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
             this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
+            this.BUT_encrypt = new MissionPlanner.Controls.MyButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelAction = new System.Windows.Forms.Panel();
             this.splitter2 = new System.Windows.Forms.Splitter();
@@ -716,14 +717,17 @@ namespace MissionPlanner.GCSViews
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.lbl_wpfile);
+            this.panel2.Controls.Add(this.BUT_encrypt);
             this.panel2.Controls.Add(this.BUT_loadwpfile);
             this.panel2.Controls.Add(this.BUT_saveWPFile);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(123, 112);
             // 
             // lbl_wpfile
             // 
             resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
+            this.lbl_wpfile.Location = new System.Drawing.Point(3, 88);
             this.lbl_wpfile.Name = "lbl_wpfile";
             // 
             // BUT_loadwpfile
@@ -741,6 +745,17 @@ namespace MissionPlanner.GCSViews
             this.BUT_saveWPFile.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_saveWPFile.UseVisualStyleBackColor = true;
             this.BUT_saveWPFile.Click += new System.EventHandler(this.BUT_saveWPFile_Click);
+            // 
+            // BUT_encrypt
+            // 
+            this.BUT_encrypt.Location = new System.Drawing.Point(3, 61);
+            this.BUT_encrypt.Name = "BUT_encrypt";
+            this.BUT_encrypt.Size = new System.Drawing.Size(115, 23);
+            this.BUT_encrypt.TabIndex = 49;
+            this.BUT_encrypt.Text = "Encrypt";
+            this.BUT_encrypt.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.BUT_encrypt.UseVisualStyleBackColor = true;
+            this.BUT_encrypt.Click += new System.EventHandler(this.BUT_encrypt_Click);
             // 
             // splitter1
             // 
@@ -1622,6 +1637,7 @@ namespace MissionPlanner.GCSViews
         public Coords coords1;
         public MyButton BUT_loadwpfile;
         public MyButton BUT_saveWPFile;
+        public MyButton BUT_encrypt;
         public Panel panel2;
         public Panel panel4;
         public Panel panel3;

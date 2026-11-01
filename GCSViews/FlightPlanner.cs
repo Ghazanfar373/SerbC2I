@@ -1886,6 +1886,14 @@ namespace MissionPlanner.GCSViews
             SaveFile_Click(null, null);
         }
 
+        public void BUT_encrypt_Click(object sender, EventArgs e)
+        {
+            using (var form = new MissionEncryptConfiguration())
+            {
+                form.ShowDialog(this);
+            }
+        }
+
         public void but_writewpfast_Click(object sender, EventArgs e)
         {
             if ((altmode) CMB_altmode.SelectedValue == altmode.Absolute)

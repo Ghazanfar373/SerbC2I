@@ -2562,6 +2562,7 @@ namespace MissionPlanner.GCSViews
                         }
                     }
                 }
+                
                 else if (list3item == null)
                 {
                     if (setupPropertyInfo(ref list3item, ((CheckBox)sender).Name, MainSerb.comPort.MAV.cs))

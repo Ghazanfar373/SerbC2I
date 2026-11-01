@@ -195,6 +195,9 @@ public partial class MAVLink
         new message_info(195, "DEEPSTALL", 120, 37, 37, typeof( mavlink_deepstall_t )),
         new message_info(200, "GIMBAL_REPORT", 134, 42, 42, typeof( mavlink_gimbal_report_t )),
         new message_info(201, "GIMBAL_CONTROL", 205, 14, 14, typeof( mavlink_gimbal_control_t )),
+        new message_info(202, "AES_PUBKEY_REQUEST", 226, 2, 2, typeof( mavlink_aes_pubkey_request_t )),
+        new message_info(203, "AES_PUBKEY", 141, 34, 34, typeof( mavlink_aes_pubkey_t )),
+        new message_info(204, "AES_KEY_WRAPPED", 57, 34, 34, typeof( mavlink_aes_key_wrapped_t )),
         new message_info(214, "GIMBAL_TORQUE_CMD_REPORT", 69, 8, 8, typeof( mavlink_gimbal_torque_cmd_report_t )),
         new message_info(215, "GOPRO_HEARTBEAT", 101, 3, 3, typeof( mavlink_gopro_heartbeat_t )),
         new message_info(216, "GOPRO_GET_REQUEST", 50, 3, 3, typeof( mavlink_gopro_get_request_t )),
@@ -513,6 +516,9 @@ public partial class MAVLink
         DEEPSTALL = 195,
         GIMBAL_REPORT = 200,
         GIMBAL_CONTROL = 201,
+        AES_PUBKEY_REQUEST = 202,
+        AES_PUBKEY = 203,
+        AES_KEY_WRAPPED = 204,
         GIMBAL_TORQUE_CMD_REPORT = 214,
         GOPRO_HEARTBEAT = 215,
         GOPRO_GET_REQUEST = 216,
@@ -9733,6 +9739,141 @@ public partial class MAVLink
         [Description("Component ID.")]
         //[FieldOffset(13)]
         public  byte target_component;
+    };
+
+    
+    /// extensions_start 0
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=2)]
+    ///<summary> Request the vehicle AES public key. Sent by the ground station. </summary>
+    public struct mavlink_aes_pubkey_request_t
+    {
+        /// packet ordered constructor
+        public mavlink_aes_pubkey_request_t(byte target_system,byte target_component) 
+        {
+            this.target_system = target_system;
+            this.target_component = target_component;
+            
+        }
+        
+        /// packet xml order
+        public static mavlink_aes_pubkey_request_t PopulateXMLOrder(byte target_system,byte target_component) 
+        {
+            var msg = new mavlink_aes_pubkey_request_t();
+
+            msg.target_system = target_system;
+            msg.target_component = target_component;
+            
+            return msg;
+        }
+        
+
+        /// <summary>System ID.   </summary>
+        [Units("")]
+        [Description("System ID.")]
+        //[FieldOffset(0)]
+        public  byte target_system;
+
+        /// <summary>Component ID.   </summary>
+        [Units("")]
+        [Description("Component ID.")]
+        //[FieldOffset(1)]
+        public  byte target_component;
+    };
+
+    
+    /// extensions_start 0
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=34)]
+    ///<summary> AES public key, 32 bytes. Sent by the ground station or the vehicle. </summary>
+    public struct mavlink_aes_pubkey_t
+    {
+        /// packet ordered constructor
+        public mavlink_aes_pubkey_t(byte target_system,byte target_component,byte[] pubkey) 
+        {
+            this.target_system = target_system;
+            this.target_component = target_component;
+            this.pubkey = pubkey;
+            
+        }
+        
+        /// packet xml order
+        public static mavlink_aes_pubkey_t PopulateXMLOrder(byte target_system,byte target_component,byte[] pubkey) 
+        {
+            var msg = new mavlink_aes_pubkey_t();
+
+            msg.target_system = target_system;
+            msg.target_component = target_component;
+            msg.pubkey = pubkey;
+            
+            return msg;
+        }
+        
+
+        /// <summary>System ID.   </summary>
+        [Units("")]
+        [Description("System ID.")]
+        //[FieldOffset(0)]
+        public  byte target_system;
+
+        /// <summary>Component ID.   </summary>
+        [Units("")]
+        [Description("Component ID.")]
+        //[FieldOffset(1)]
+        public  byte target_component;
+
+        /// <summary>Public key.   </summary>
+        [Units("")]
+        [Description("Public key.")]
+        //[FieldOffset(2)]
+        [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
+		public byte[] pubkey;
+    };
+
+    
+    /// extensions_start 0
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=34)]
+    ///<summary> Wrapped AES-256 key, 32 bytes. Sent by the ground station. </summary>
+    public struct mavlink_aes_key_wrapped_t
+    {
+        /// packet ordered constructor
+        public mavlink_aes_key_wrapped_t(byte target_system,byte target_component,byte[] wrapped) 
+        {
+            this.target_system = target_system;
+            this.target_component = target_component;
+            this.wrapped = wrapped;
+            
+        }
+        
+        /// packet xml order
+        public static mavlink_aes_key_wrapped_t PopulateXMLOrder(byte target_system,byte target_component,byte[] wrapped) 
+        {
+            var msg = new mavlink_aes_key_wrapped_t();
+
+            msg.target_system = target_system;
+            msg.target_component = target_component;
+            msg.wrapped = wrapped;
+            
+            return msg;
+        }
+        
+
+        /// <summary>System ID.   </summary>
+        [Units("")]
+        [Description("System ID.")]
+        //[FieldOffset(0)]
+        public  byte target_system;
+
+        /// <summary>Component ID.   </summary>
+        [Units("")]
+        [Description("Component ID.")]
+        //[FieldOffset(1)]
+        public  byte target_component;
+
+        /// <summary>Wrapped key.   </summary>
+        [Units("")]
+        [Description("Wrapped key.")]
+        //[FieldOffset(2)]
+        [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
+		public byte[] wrapped;
     };
 
     

@@ -61,7 +61,7 @@ namespace MissionPlanner
         /// </summary>
         public static Image IconFile = null;
 
-        public static Splash Splash;
+        public static SplashDelta Splash;
 
         internal static Thread Thread;
 
@@ -261,7 +261,7 @@ namespace MissionPlanner
                 log.Error(ex);
             }
 
-            Splash = new MissionPlanner.Splash();
+            Splash = new MissionPlanner.SplashDelta();
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;

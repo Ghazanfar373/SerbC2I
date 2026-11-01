@@ -494,7 +494,7 @@ namespace MissionPlanner
             try
             {
                 log.Info("Create FD");
-                FlightData = new GCSViews.FlightData();
+                //FlightData = new GCSViews.FlightData();
                 //FlightStatus = new GCSViews.FlightStatus();
                 flightStatus = new GCSViews.FlightStatus();
                 log.Info("Create FP");
@@ -3615,9 +3615,9 @@ namespace MissionPlanner
             btnFlightData.Image = originalImageFlightStatus;
             btnFlightPlan.Image = originalImageFlightPlan;
             btnConnection.Image = originalImageConn;
-            MyView.ShowScreen("MainBoard");
+           // MyView.ShowScreen("MainBoard");
             
-            //MyView.ShowScreen("SWConfig");
+            MyView.ShowScreen("SWConfig");
             SaveConfig();
             //Form connections = new ConnectionOptions();
             //Utilities.ThemeManager.ApplyThemeTo(connections);

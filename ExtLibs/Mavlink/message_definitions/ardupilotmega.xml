@@ -1577,6 +1577,23 @@
       <field type="float" name="demanded_rate_y" units="rad/s">Demanded angular rate Y.</field>
       <field type="float" name="demanded_rate_z" units="rad/s">Demanded angular rate Z.</field>
     </message>
+    <message id="202" name="AES_PUBKEY_REQUEST">
+      <description>Request the vehicle AES public key. Sent by the ground station.</description>
+      <field type="uint8_t" name="target_system">System ID.</field>
+      <field type="uint8_t" name="target_component">Component ID.</field>
+    </message>
+    <message id="203" name="AES_PUBKEY">
+      <description>AES public key, 32 bytes. Sent by the ground station or the vehicle.</description>
+      <field type="uint8_t" name="target_system">System ID.</field>
+      <field type="uint8_t" name="target_component">Component ID.</field>
+      <field type="uint8_t[32]" name="pubkey">Public key.</field>
+    </message>
+    <message id="204" name="AES_KEY_WRAPPED">
+      <description>Wrapped AES-256 key, 32 bytes. Sent by the ground station.</description>
+      <field type="uint8_t" name="target_system">System ID.</field>
+      <field type="uint8_t" name="target_component">Component ID.</field>
+      <field type="uint8_t[32]" name="wrapped">Wrapped key.</field>
+    </message>
     <message id="214" name="GIMBAL_TORQUE_CMD_REPORT">
       <description>100 Hz gimbal torque command telemetry.</description>
       <field type="uint8_t" name="target_system">System ID.</field>

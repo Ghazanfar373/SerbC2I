@@ -353,6 +353,9 @@
     <EmbeddedResource Include="Radio\Sikradio.uk.resx">
       <DependentUpon>Sikradio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashDelta.resx">
+      <DependentUpon>SplashDelta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Swarm\WaypointLeader\WPControl.uk.resx">
       <DependentUpon>WPControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1063,6 +1066,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SplashDelta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashDelta.Designer.cs">
+      <DependentUpon>SplashDelta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\MissionEncryptConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\MissionEncryptConfiguration.Designer.cs">
+      <DependentUpon>MissionEncryptConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\AirMarket.cs">
       <SubType>UserControl</SubType>
@@ -4992,6 +5007,9 @@
     <EmbeddedResource Include="Controls\fftui.resx">
       <DependentUpon>fftui.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\MissionEncryptConfiguration.resx">
+      <DependentUpon>MissionEncryptConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Warnings\WarningControl.resx">
       <DependentUpon>WarningControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -5054,6 +5072,7 @@
     <None Include="Resources\planetracker.png" />
     <None Include="Resources\unmanned-aerial.jpg" />
     <None Include="Resources\planeicon.png" />
+    <None Include="Resources\delta_dark_lines.png" />
     <Content Include="rotmat.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
