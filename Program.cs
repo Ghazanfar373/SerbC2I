@@ -201,7 +201,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "JASER 2 - version";
+            name = "Delta - version";
 
             try
             {

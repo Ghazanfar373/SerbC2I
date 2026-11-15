@@ -93,50 +93,7 @@ namespace MissionPlanner.GCSViews
             this.whPanel3 = new SerbLabelControls.WhPanel();
             this.whPanel2 = new SerbLabelControls.WhPanel();
             this.whPanel1 = new SerbLabelControls.WhPanel();
-            this.flowLayoutPanelLayer1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.waypointIndicator1 = new MissionPlanner.Controls.WaypointIndicator();
-            this.tableLayoutPanelBatGPS = new System.Windows.Forms.TableLayoutPanel();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetAlt = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownAlt = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
-            this.klcButtonSetLoiterRad = new KLCToolbox.KLCControls.KLCButton();
-            this.numericUpDownLoiter = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.labelBatteryLevel = new System.Windows.Forms.Label();
-            this.labelBatteryVoltages = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelBatteryCurrent = new System.Windows.Forms.Label();
-            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.labelTimeInAir = new System.Windows.Forms.Label();
-            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.labelGPSStatus = new System.Windows.Forms.Label();
-            this.animatedTextControl1 = new SerbLabelControls.AnimatedTextControl();
-            this.tableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.klcButtonRTL = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonDoAction = new KLCToolbox.KLCControls.KLCButton();
-            this.CMB_setwp = new System.Windows.Forms.ComboBox();
-            this.CMB_action = new System.Windows.Forms.ComboBox();
-            this.CMB_modes = new System.Windows.Forms.ComboBox();
-            this.CMB_mountmode = new System.Windows.Forms.ComboBox();
-            this.klcButtonSetWP = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonSetMode = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonSetMount = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButtonLoiter = new KLCToolbox.KLCControls.KLCButton();
-            this.klcButton20 = new KLCToolbox.KLCControls.KLCButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelHUD = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelCompass = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -190,10 +147,53 @@ namespace MissionPlanner.GCSViews
             this.labelTitleGS = new System.Windows.Forms.Label();
             this.labelValGS = new System.Windows.Forms.Label();
             this.labelUnitRoll = new System.Windows.Forms.Label();
+            this.waypointIndicator1 = new MissionPlanner.Controls.WaypointIndicator();
+            this.tableLayoutPanelBatGPS = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.klcButtonArmDisArm = new KLCToolbox.KLCControls.KLCButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetSpeed = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetAlt = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownAlt = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.klcButtonSetLoiterRad = new KLCToolbox.KLCControls.KLCButton();
+            this.numericUpDownLoiter = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.labelBatteryLevel = new System.Windows.Forms.Label();
+            this.labelBatteryVoltages = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelBatteryCurrent = new System.Windows.Forms.Label();
+            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.labelTimeInAir = new System.Windows.Forms.Label();
+            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.labelGPSStatus = new System.Windows.Forms.Label();
+            this.animatedTextControl1 = new SerbLabelControls.AnimatedTextControl();
+            this.tableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.klcButtonRTL = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonAuto = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonDoAction = new KLCToolbox.KLCControls.KLCButton();
+            this.CMB_setwp = new System.Windows.Forms.ComboBox();
+            this.CMB_action = new System.Windows.Forms.ComboBox();
+            this.CMB_modes = new System.Windows.Forms.ComboBox();
+            this.CMB_mountmode = new System.Windows.Forms.ComboBox();
+            this.klcButtonSetWP = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonSetMode = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonSetMount = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButtonLoiter = new KLCToolbox.KLCControls.KLCButton();
+            this.klcButton20 = new KLCToolbox.KLCControls.KLCButton();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.timerZedGraph = new System.Windows.Forms.Timer(this.components);
-            this.gLabelWarning2 = new MissionPlanner.Controls.GraphicLabel();
-            this.gLabelWarning1 = new MissionPlanner.Controls.GraphicLabel();
+            this.betterFolderBrowser1 = new WK.Libraries.BetterFolderBrowserNS.BetterFolderBrowser(this.components);
+            this.flightStatusView1 = new FlightHud.FlightStatusView();
+            this.flightHudView1 = new FlightHud.FlightHudView();
             ((System.ComponentModel.ISupportInitialize)(this.splitMainPanel)).BeginInit();
             this.splitMainPanel.Panel1.SuspendLayout();
             this.splitMainPanel.Panel2.SuspendLayout();
@@ -211,22 +211,7 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelQuickView.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.flowLayoutPanelLayer1.SuspendLayout();
-            this.flowLayoutPanel12.SuspendLayout();
-            this.tableLayoutPanelBatGPS.SuspendLayout();
-            this.flowLayoutPanel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
-            this.flowLayoutPanel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).BeginInit();
-            this.flowLayoutPanel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).BeginInit();
-            this.flowLayoutPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.flowLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.flowLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.tableLayoutPanelButtons.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tableLayoutPanelHUD.SuspendLayout();
             this.tableLayoutPanelCompass.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -248,15 +233,30 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel7.SuspendLayout();
             this.flowLayoutPanelPitch.SuspendLayout();
             this.flowLayoutPanelRoll.SuspendLayout();
+            this.tableLayoutPanelBatGPS.SuspendLayout();
+            this.flowLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
+            this.flowLayoutPanel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).BeginInit();
+            this.flowLayoutPanel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).BeginInit();
+            this.flowLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.flowLayoutPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.flowLayoutPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.tableLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitMainPanel
             // 
             this.splitMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitMainPanel.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitMainPanel.IsSplitterFixed = true;
             this.splitMainPanel.Location = new System.Drawing.Point(0, 0);
             this.splitMainPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.splitMainPanel.MinimumSize = new System.Drawing.Size(839, 615);
+            this.splitMainPanel.MinimumSize = new System.Drawing.Size(629, 500);
             this.splitMainPanel.Name = "splitMainPanel";
             // 
             // splitMainPanel.Panel1
@@ -268,11 +268,13 @@ namespace MissionPlanner.GCSViews
             // 
             this.splitMainPanel.Panel2.AutoScroll = true;
             this.splitMainPanel.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitMainPanel.Panel2.Controls.Add(this.flowLayoutPanelLayer1);
-            this.splitMainPanel.Panel2.Padding = new System.Windows.Forms.Padding(2, 0, 11, 0);
+            this.splitMainPanel.Panel2.Controls.Add(this.flightStatusView1);
+            this.splitMainPanel.Panel2.Controls.Add(this.flightHudView1);
+            this.splitMainPanel.Panel2.Padding = new System.Windows.Forms.Padding(2, 0, 8, 0);
             this.splitMainPanel.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitMainPanel.Size = new System.Drawing.Size(1337, 670);
-            this.splitMainPanel.SplitterDistance = 1140;
+            this.splitMainPanel.Size = new System.Drawing.Size(1003, 544);
+            this.splitMainPanel.SplitterDistance = 672;
+            this.splitMainPanel.SplitterWidth = 3;
             this.splitMainPanel.TabIndex = 0;
             this.splitMainPanel.TabStop = false;
             this.splitMainPanel.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitMainPanel_SplitterMoved);
@@ -281,7 +283,7 @@ namespace MissionPlanner.GCSViews
             // 
             this.splitContainerMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMap.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitContainerMap.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainerMap.Name = "splitContainerMap";
             this.splitContainerMap.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -296,9 +298,10 @@ namespace MissionPlanner.GCSViews
             // 
             this.splitContainerMap.Panel2.Controls.Add(this.tabControlMain);
             this.splitContainerMap.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainerMap.Panel2MinSize = 190;
-            this.splitContainerMap.Size = new System.Drawing.Size(1140, 670);
-            this.splitContainerMap.SplitterDistance = 360;
+            this.splitContainerMap.Panel2MinSize = 150;
+            this.splitContainerMap.Size = new System.Drawing.Size(672, 544);
+            this.splitContainerMap.SplitterDistance = 391;
+            this.splitContainerMap.SplitterWidth = 3;
             this.splitContainerMap.TabIndex = 0;
             // 
             // flowLayoutPanel4
@@ -315,15 +318,14 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel4.Controls.Add(this.lblhdopVal);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel4.Controls.Add(this.gLabelWarning2);
-            this.flowLayoutPanel4.Controls.Add(this.gLabelWarning1);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 320);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 350);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1140, 40);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(672, 41);
             this.flowLayoutPanel4.TabIndex = 4;
+            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
             // 
             // btnMapMax
             // 
@@ -336,10 +338,10 @@ namespace MissionPlanner.GCSViews
             this.btnMapMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMapMax.ForeColor = System.Drawing.Color.White;
             this.btnMapMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMapMax.Image")));
-            this.btnMapMax.Location = new System.Drawing.Point(1100, 2);
-            this.btnMapMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMapMax.Location = new System.Drawing.Point(642, 2);
+            this.btnMapMax.Margin = new System.Windows.Forms.Padding(2);
             this.btnMapMax.Name = "btnMapMax";
-            this.btnMapMax.Size = new System.Drawing.Size(35, 34);
+            this.btnMapMax.Size = new System.Drawing.Size(26, 28);
             this.btnMapMax.TabIndex = 2;
             this.btnMapMax.TextColor = System.Drawing.Color.White;
             this.btnMapMax.UseVisualStyleBackColor = false;
@@ -348,13 +350,13 @@ namespace MissionPlanner.GCSViews
             // lblMapZoom
             // 
             this.lblMapZoom.AutoSize = true;
-            this.lblMapZoom.Location = new System.Drawing.Point(1072, 0);
+            this.lblMapZoom.Location = new System.Drawing.Point(621, 0);
             this.lblMapZoom.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMapZoom.MaximumSize = new System.Drawing.Size(40, 0);
-            this.lblMapZoom.MinimumSize = new System.Drawing.Size(25, 30);
+            this.lblMapZoom.MaximumSize = new System.Drawing.Size(30, 0);
+            this.lblMapZoom.MinimumSize = new System.Drawing.Size(19, 24);
             this.lblMapZoom.Name = "lblMapZoom";
-            this.lblMapZoom.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.lblMapZoom.Size = new System.Drawing.Size(25, 30);
+            this.lblMapZoom.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.lblMapZoom.Size = new System.Drawing.Size(19, 24);
             this.lblMapZoom.TabIndex = 6;
             this.lblMapZoom.Text = "25";
             // 
@@ -369,10 +371,10 @@ namespace MissionPlanner.GCSViews
             this.btnMapMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMapMin.ForeColor = System.Drawing.Color.White;
             this.btnMapMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMapMin.Image")));
-            this.btnMapMin.Location = new System.Drawing.Point(1034, 2);
-            this.btnMapMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMapMin.Location = new System.Drawing.Point(593, 2);
+            this.btnMapMin.Margin = new System.Windows.Forms.Padding(2);
             this.btnMapMin.Name = "btnMapMin";
-            this.btnMapMin.Size = new System.Drawing.Size(35, 34);
+            this.btnMapMin.Size = new System.Drawing.Size(26, 28);
             this.btnMapMin.TabIndex = 3;
             this.btnMapMin.TextColor = System.Drawing.Color.White;
             this.btnMapMin.UseVisualStyleBackColor = false;
@@ -383,12 +385,13 @@ namespace MissionPlanner.GCSViews
             this.lblMapAlt.AutoSize = true;
             this.lblMapAlt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true));
             this.lblMapAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMapAlt.Location = new System.Drawing.Point(999, 16);
-            this.lblMapAlt.MaximumSize = new System.Drawing.Size(0, 22);
-            this.lblMapAlt.MinimumSize = new System.Drawing.Size(29, 0);
+            this.lblMapAlt.Location = new System.Drawing.Point(564, 14);
+            this.lblMapAlt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMapAlt.MaximumSize = new System.Drawing.Size(0, 18);
+            this.lblMapAlt.MinimumSize = new System.Drawing.Size(22, 0);
             this.lblMapAlt.Name = "lblMapAlt";
-            this.lblMapAlt.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.lblMapAlt.Size = new System.Drawing.Size(29, 22);
+            this.lblMapAlt.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.lblMapAlt.Size = new System.Drawing.Size(22, 18);
             this.lblMapAlt.TabIndex = 2;
             this.lblMapAlt.Text = "700";
             this.lblMapAlt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -401,11 +404,12 @@ namespace MissionPlanner.GCSViews
             // 
             this.lblMapLong.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "lng", true));
             this.lblMapLong.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMapLong.Location = new System.Drawing.Point(902, 16);
-            this.lblMapLong.MinimumSize = new System.Drawing.Size(91, 0);
+            this.lblMapLong.Location = new System.Drawing.Point(492, 14);
+            this.lblMapLong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMapLong.MinimumSize = new System.Drawing.Size(68, 0);
             this.lblMapLong.Name = "lblMapLong";
-            this.lblMapLong.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.lblMapLong.Size = new System.Drawing.Size(91, 22);
+            this.lblMapLong.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblMapLong.Size = new System.Drawing.Size(68, 18);
             this.lblMapLong.TabIndex = 1;
             this.lblMapLong.Text = "46.44512232";
             this.lblMapLong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -414,11 +418,12 @@ namespace MissionPlanner.GCSViews
             // 
             this.lblMapLat.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "lat", true));
             this.lblMapLat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMapLat.Location = new System.Drawing.Point(805, 16);
-            this.lblMapLat.MinimumSize = new System.Drawing.Size(91, 0);
+            this.lblMapLat.Location = new System.Drawing.Point(420, 14);
+            this.lblMapLat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMapLat.MinimumSize = new System.Drawing.Size(68, 0);
             this.lblMapLat.Name = "lblMapLat";
-            this.lblMapLat.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.lblMapLat.Size = new System.Drawing.Size(91, 22);
+            this.lblMapLat.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblMapLat.Size = new System.Drawing.Size(68, 18);
             this.lblMapLat.TabIndex = 0;
             this.lblMapLat.Text = "23.44512232";
             this.lblMapLat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,10 +434,11 @@ namespace MissionPlanner.GCSViews
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(778, 16);
+            this.label7.Location = new System.Drawing.Point(397, 14);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.label7.Size = new System.Drawing.Size(21, 22);
+            this.label7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label7.Size = new System.Drawing.Size(19, 18);
             this.label7.TabIndex = 12;
             this.label7.Text = "25";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -442,10 +448,11 @@ namespace MissionPlanner.GCSViews
             this.labelSats.AutoSize = true;
             this.labelSats.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelSats.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSats.Location = new System.Drawing.Point(742, 16);
+            this.labelSats.Location = new System.Drawing.Point(367, 14);
+            this.labelSats.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSats.Name = "labelSats";
-            this.labelSats.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.labelSats.Size = new System.Drawing.Size(30, 22);
+            this.labelSats.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.labelSats.Size = new System.Drawing.Size(26, 18);
             this.labelSats.TabIndex = 11;
             this.labelSats.Text = "Sat:";
             this.labelSats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -456,10 +463,11 @@ namespace MissionPlanner.GCSViews
             this.lblhdopVal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "gpshdop", true));
             this.lblhdopVal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblhdopVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhdopVal.Location = new System.Drawing.Point(736, 16);
+            this.lblhdopVal.Location = new System.Drawing.Point(363, 14);
+            this.lblhdopVal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblhdopVal.Name = "lblhdopVal";
-            this.lblhdopVal.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.lblhdopVal.Size = new System.Drawing.Size(0, 22);
+            this.lblhdopVal.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.lblhdopVal.Size = new System.Drawing.Size(0, 18);
             this.lblhdopVal.TabIndex = 10;
             this.lblhdopVal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -468,10 +476,11 @@ namespace MissionPlanner.GCSViews
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(689, 16);
+            this.label5.Location = new System.Drawing.Point(325, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.label5.Size = new System.Drawing.Size(41, 22);
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label5.Size = new System.Drawing.Size(34, 18);
             this.label5.TabIndex = 9;
             this.label5.Text = "hdpo:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -480,10 +489,10 @@ namespace MissionPlanner.GCSViews
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnTelem);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(608, 14);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(265, 12);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(75, 22);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(56, 18);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // btnTelem
@@ -498,10 +507,10 @@ namespace MissionPlanner.GCSViews
             this.btnTelem.KLCBorderRadius = 8;
             this.btnTelem.KLCBorderSize = 0;
             this.btnTelem.KLCTextColor = System.Drawing.Color.DimGray;
-            this.btnTelem.Location = new System.Drawing.Point(3, 0);
-            this.btnTelem.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnTelem.Location = new System.Drawing.Point(2, 0);
+            this.btnTelem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.btnTelem.Name = "btnTelem";
-            this.btnTelem.Size = new System.Drawing.Size(76, 22);
+            this.btnTelem.Size = new System.Drawing.Size(57, 18);
             this.btnTelem.TabIndex = 23;
             this.btnTelem.Text = "Telem";
             this.btnTelem.UseCompatibleTextRendering = true;
@@ -523,7 +532,7 @@ namespace MissionPlanner.GCSViews
             this.gMapControlSerb.HoldInvalidation = false;
             this.gMapControlSerb.LevelsKeepInMemmory = 5;
             this.gMapControlSerb.Location = new System.Drawing.Point(0, 0);
-            this.gMapControlSerb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gMapControlSerb.Margin = new System.Windows.Forms.Padding(2);
             this.gMapControlSerb.MarkersEnabled = true;
             this.gMapControlSerb.MaxZoom = 24;
             this.gMapControlSerb.MinZoom = 0;
@@ -536,7 +545,7 @@ namespace MissionPlanner.GCSViews
             this.gMapControlSerb.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.gMapControlSerb.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControlSerb.ShowTileGridLines = false;
-            this.gMapControlSerb.Size = new System.Drawing.Size(1140, 320);
+            this.gMapControlSerb.Size = new System.Drawing.Size(672, 359);
             this.gMapControlSerb.TabIndex = 0;
             this.gMapControlSerb.Zoom = 5D;
             this.gMapControlSerb.OnMarkerEnter += new GMap.NET.WindowsForms.MarkerEnter(this.gMapControlSerb_OnMarkerEnter);
@@ -558,26 +567,26 @@ namespace MissionPlanner.GCSViews
             this.flyToHereAltToolStripMenuItem,
             this.takeOffToolStripMenuItem});
             this.contextMenuStripMap.Name = "contextMenuStripMap";
-            this.contextMenuStripMap.Size = new System.Drawing.Size(174, 76);
+            this.contextMenuStripMap.Size = new System.Drawing.Size(150, 70);
             // 
             // goHereToolStripMenuItem
             // 
             this.goHereToolStripMenuItem.Name = "goHereToolStripMenuItem";
-            this.goHereToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.goHereToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.goHereToolStripMenuItem.Text = "Fly to Here";
             this.goHereToolStripMenuItem.Click += new System.EventHandler(this.goHereToolStripMenuItem_Click);
             // 
             // flyToHereAltToolStripMenuItem
             // 
             this.flyToHereAltToolStripMenuItem.Name = "flyToHereAltToolStripMenuItem";
-            this.flyToHereAltToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.flyToHereAltToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.flyToHereAltToolStripMenuItem.Text = "Fly to Here Alt";
             this.flyToHereAltToolStripMenuItem.Click += new System.EventHandler(this.flyToHereAltToolStripMenuItem_Click);
             // 
             // takeOffToolStripMenuItem
             // 
             this.takeOffToolStripMenuItem.Name = "takeOffToolStripMenuItem";
-            this.takeOffToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.takeOffToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.takeOffToolStripMenuItem.Text = "TakeOff";
             this.takeOffToolStripMenuItem.Click += new System.EventHandler(this.takeOffToolStripMenuItem_Click);
             // 
@@ -585,9 +594,9 @@ namespace MissionPlanner.GCSViews
             // 
             this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMap.Location = new System.Drawing.Point(0, 0);
-            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(2);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(1140, 360);
+            this.panelMap.Size = new System.Drawing.Size(672, 391);
             this.panelMap.TabIndex = 5;
             // 
             // tabControlMain
@@ -595,24 +604,25 @@ namespace MissionPlanner.GCSViews
             this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControlMain.Controls.Add(this.tabPage1);
             this.tabControlMain.Controls.Add(this.tabPage2);
+            this.tabControlMain.Controls.Add(this.tabPage3);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
-            this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControlMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1140, 306);
+            this.tabControlMain.Size = new System.Drawing.Size(672, 150);
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(25, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Location = new System.Drawing.Point(42, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.tabPage1.Size = new System.Drawing.Size(1111, 298);
+            this.tabPage1.Size = new System.Drawing.Size(626, 142);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -622,23 +632,23 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.2158F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.78419F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.zedGraph, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelQuickView, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1111, 296);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(626, 140);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // zedGraph
             // 
             this.zedGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zedGraph.Location = new System.Drawing.Point(3, 2);
-            this.zedGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.zedGraph.Location = new System.Drawing.Point(2, 2);
+            this.zedGraph.Margin = new System.Windows.Forms.Padding(2);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -647,13 +657,14 @@ namespace MissionPlanner.GCSViews
             this.zedGraph.ScrollMinX = 0D;
             this.zedGraph.ScrollMinY = 0D;
             this.zedGraph.ScrollMinY2 = 0D;
-            this.zedGraph.Size = new System.Drawing.Size(674, 292);
+            this.zedGraph.Size = new System.Drawing.Size(379, 136);
             this.zedGraph.TabIndex = 26;
             this.zedGraph.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zedGraph_MouseDoubleClick);
             // 
             // tableLayoutPanelQuickView
             // 
             this.tableLayoutPanelQuickView.AutoSize = true;
+            this.tableLayoutPanelQuickView.BackColor = System.Drawing.SystemColors.Desktop;
             this.tableLayoutPanelQuickView.ColumnCount = 4;
             this.tableLayoutPanelQuickView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelQuickView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -684,19 +695,19 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelQuickView.Controls.Add(this.quickView10, 1, 5);
             this.tableLayoutPanelQuickView.Controls.Add(this.quickView12, 3, 5);
             this.tableLayoutPanelQuickView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelQuickView.Location = new System.Drawing.Point(683, 2);
-            this.tableLayoutPanelQuickView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelQuickView.Location = new System.Drawing.Point(385, 2);
+            this.tableLayoutPanelQuickView.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelQuickView.Name = "tableLayoutPanelQuickView";
-            this.tableLayoutPanelQuickView.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.tableLayoutPanelQuickView.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.tableLayoutPanelQuickView.RowCount = 6;
-            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelQuickView.Size = new System.Drawing.Size(425, 292);
+            this.tableLayoutPanelQuickView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanelQuickView.Size = new System.Drawing.Size(239, 136);
             this.tableLayoutPanelQuickView.TabIndex = 25;
             // 
             // labelQV12
@@ -706,10 +717,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV12.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV12.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV12.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV12.Location = new System.Drawing.Point(321, 196);
-            this.labelQV12.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV12.Location = new System.Drawing.Point(179, 91);
+            this.labelQV12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV12.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV12.Name = "labelQV12";
-            this.labelQV12.Size = new System.Drawing.Size(101, 20);
+            this.labelQV12.Size = new System.Drawing.Size(58, 16);
             this.labelQV12.TabIndex = 46;
             this.labelQV12.Text = "Time in Air(min)";
             this.labelQV12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -721,10 +733,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV11.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV11.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV11.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV11.Location = new System.Drawing.Point(215, 196);
-            this.labelQV11.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV11.Location = new System.Drawing.Point(120, 91);
+            this.labelQV11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV11.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV11.Name = "labelQV11";
-            this.labelQV11.Size = new System.Drawing.Size(100, 20);
+            this.labelQV11.Size = new System.Drawing.Size(55, 16);
             this.labelQV11.TabIndex = 45;
             this.labelQV11.Text = "Yaw (deg)";
             this.labelQV11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -736,10 +749,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV10.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV10.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV10.Location = new System.Drawing.Point(109, 196);
-            this.labelQV10.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV10.Location = new System.Drawing.Point(61, 91);
+            this.labelQV10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV10.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV10.Name = "labelQV10";
-            this.labelQV10.Size = new System.Drawing.Size(100, 20);
+            this.labelQV10.Size = new System.Drawing.Size(55, 16);
             this.labelQV10.TabIndex = 44;
             this.labelQV10.Text = "WindVelocity(kph)";
             this.labelQV10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -751,10 +765,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV9.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV9.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV9.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV9.Location = new System.Drawing.Point(3, 196);
-            this.labelQV9.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV9.Location = new System.Drawing.Point(2, 91);
+            this.labelQV9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV9.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV9.Name = "labelQV9";
-            this.labelQV9.Size = new System.Drawing.Size(100, 20);
+            this.labelQV9.Size = new System.Drawing.Size(55, 16);
             this.labelQV9.TabIndex = 43;
             this.labelQV9.Text = "ch3percent";
             this.labelQV9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -766,10 +781,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV6.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV6.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV6.Location = new System.Drawing.Point(109, 100);
-            this.labelQV6.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV6.Location = new System.Drawing.Point(61, 47);
+            this.labelQV6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV6.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV6.Name = "labelQV6";
-            this.labelQV6.Size = new System.Drawing.Size(100, 20);
+            this.labelQV6.Size = new System.Drawing.Size(55, 16);
             this.labelQV6.TabIndex = 42;
             this.labelQV6.Text = "WindDir (deg)";
             this.labelQV6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -781,10 +797,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV7.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV7.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV7.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV7.Location = new System.Drawing.Point(215, 100);
-            this.labelQV7.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV7.Location = new System.Drawing.Point(120, 47);
+            this.labelQV7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV7.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV7.Name = "labelQV7";
-            this.labelQV7.Size = new System.Drawing.Size(100, 20);
+            this.labelQV7.Size = new System.Drawing.Size(55, 16);
             this.labelQV7.TabIndex = 41;
             this.labelQV7.Text = "Roll (deg)";
             this.labelQV7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -796,10 +813,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV8.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV8.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV8.Location = new System.Drawing.Point(321, 100);
-            this.labelQV8.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV8.Location = new System.Drawing.Point(179, 47);
+            this.labelQV8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV8.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV8.Name = "labelQV8";
-            this.labelQV8.Size = new System.Drawing.Size(101, 20);
+            this.labelQV8.Size = new System.Drawing.Size(58, 16);
             this.labelQV8.TabIndex = 40;
             this.labelQV8.Text = "Distance Traveled(m)";
             this.labelQV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -811,10 +829,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV4.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV4.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV4.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV4.Location = new System.Drawing.Point(321, 4);
-            this.labelQV4.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV4.Location = new System.Drawing.Point(179, 3);
+            this.labelQV4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV4.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV4.Name = "labelQV4";
-            this.labelQV4.Size = new System.Drawing.Size(101, 20);
+            this.labelQV4.Size = new System.Drawing.Size(58, 16);
             this.labelQV4.TabIndex = 39;
             this.labelQV4.Text = "Dist to Home (m)";
             this.labelQV4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -826,10 +845,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV3.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV3.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV3.Location = new System.Drawing.Point(215, 4);
-            this.labelQV3.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV3.Location = new System.Drawing.Point(120, 3);
+            this.labelQV3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV3.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV3.Name = "labelQV3";
-            this.labelQV3.Size = new System.Drawing.Size(100, 20);
+            this.labelQV3.Size = new System.Drawing.Size(55, 16);
             this.labelQV3.TabIndex = 38;
             this.labelQV3.Text = "Pitch (deg)";
             this.labelQV3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -841,10 +861,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV2.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV2.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV2.Location = new System.Drawing.Point(109, 4);
-            this.labelQV2.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV2.Location = new System.Drawing.Point(61, 3);
+            this.labelQV2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV2.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV2.Name = "labelQV2";
-            this.labelQV2.Size = new System.Drawing.Size(100, 20);
+            this.labelQV2.Size = new System.Drawing.Size(55, 16);
             this.labelQV2.TabIndex = 37;
             this.labelQV2.Text = "Altitude(m)";
             this.labelQV2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -856,10 +877,11 @@ namespace MissionPlanner.GCSViews
             this.labelQV1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV1.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV1.Location = new System.Drawing.Point(3, 4);
-            this.labelQV1.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV1.Location = new System.Drawing.Point(2, 3);
+            this.labelQV1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV1.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV1.Name = "labelQV1";
-            this.labelQV1.Size = new System.Drawing.Size(100, 20);
+            this.labelQV1.Size = new System.Drawing.Size(55, 16);
             this.labelQV1.TabIndex = 36;
             this.labelQV1.Text = "Airspeed(kph)";
             this.labelQV1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -871,214 +893,215 @@ namespace MissionPlanner.GCSViews
             this.labelQV5.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelQV5.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelQV5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelQV5.Location = new System.Drawing.Point(3, 100);
-            this.labelQV5.MaximumSize = new System.Drawing.Size(0, 20);
+            this.labelQV5.Location = new System.Drawing.Point(2, 47);
+            this.labelQV5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQV5.MaximumSize = new System.Drawing.Size(0, 16);
             this.labelQV5.Name = "labelQV5";
-            this.labelQV5.Size = new System.Drawing.Size(100, 20);
+            this.labelQV5.Size = new System.Drawing.Size(55, 16);
             this.labelQV5.TabIndex = 28;
             this.labelQV5.Text = "GroundSpeed(kph)";
             this.labelQV5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // quickView9
             // 
-            this.quickView9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView9.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView9.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "DistToHome", true));
             this.quickView9.desc = "";
             this.quickView9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView9.Location = new System.Drawing.Point(3, 220);
-            this.quickView9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView9.Location = new System.Drawing.Point(2, 111);
+            this.quickView9.Margin = new System.Windows.Forms.Padding(2);
             this.quickView9.Name = "quickView9";
             this.quickView9.number = -99D;
             this.quickView9.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView9.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView9.numberformat = "0.00";
-            this.quickView9.Size = new System.Drawing.Size(100, 70);
+            this.quickView9.Size = new System.Drawing.Size(55, 23);
             this.quickView9.TabIndex = 12;
             this.quickView9.Text = "quickView24";
             // 
             // quickView3
             // 
-            this.quickView3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView3.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView3.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "pitch", true));
             this.quickView3.desc = "";
             this.quickView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView3.Location = new System.Drawing.Point(215, 28);
-            this.quickView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView3.Location = new System.Drawing.Point(120, 23);
+            this.quickView3.Margin = new System.Windows.Forms.Padding(2);
             this.quickView3.Name = "quickView3";
             this.quickView3.number = -9D;
             this.quickView3.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView3.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView3.numberformat = "0.00";
-            this.quickView3.Size = new System.Drawing.Size(100, 70);
+            this.quickView3.Size = new System.Drawing.Size(55, 22);
             this.quickView3.TabIndex = 2;
             this.quickView3.Text = "quickView14";
             // 
             // quickView7
             // 
-            this.quickView7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView7.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView7.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "roll", true));
             this.quickView7.desc = "";
             this.quickView7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView7.Location = new System.Drawing.Point(215, 124);
-            this.quickView7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView7.Location = new System.Drawing.Point(120, 67);
+            this.quickView7.Margin = new System.Windows.Forms.Padding(2);
             this.quickView7.Name = "quickView7";
             this.quickView7.number = -99D;
             this.quickView7.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView7.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView7.numberformat = "0.00";
-            this.quickView7.Size = new System.Drawing.Size(100, 70);
+            this.quickView7.Size = new System.Drawing.Size(55, 22);
             this.quickView7.TabIndex = 4;
             this.quickView7.Text = "quickView16";
             // 
             // quickView11
             // 
-            this.quickView11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView11.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView11.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "yaw", true));
             this.quickView11.desc = "";
             this.quickView11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView11.Location = new System.Drawing.Point(215, 220);
-            this.quickView11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView11.Location = new System.Drawing.Point(120, 111);
+            this.quickView11.Margin = new System.Windows.Forms.Padding(2);
             this.quickView11.Name = "quickView11";
             this.quickView11.number = 54D;
             this.quickView11.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView11.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView11.numberformat = "0.00";
-            this.quickView11.Size = new System.Drawing.Size(100, 70);
+            this.quickView11.Size = new System.Drawing.Size(55, 23);
             this.quickView11.TabIndex = 6;
             this.quickView11.Text = "quickView18";
             // 
             // quickView5
             // 
-            this.quickView5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView5.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView5.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "groundspeed", true));
             this.quickView5.desc = "";
             this.quickView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView5.Location = new System.Drawing.Point(3, 124);
-            this.quickView5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView5.Location = new System.Drawing.Point(2, 67);
+            this.quickView5.Margin = new System.Windows.Forms.Padding(2);
             this.quickView5.Name = "quickView5";
             this.quickView5.number = -34D;
             this.quickView5.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView5.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView5.numberformat = "0.00";
-            this.quickView5.Size = new System.Drawing.Size(100, 70);
+            this.quickView5.Size = new System.Drawing.Size(55, 22);
             this.quickView5.TabIndex = 7;
             this.quickView5.Text = "quickView19";
             // 
             // quickView1
             // 
-            this.quickView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView1.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView1.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "airspeed", true));
             this.quickView1.desc = "";
             this.quickView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView1.Location = new System.Drawing.Point(3, 28);
-            this.quickView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView1.Location = new System.Drawing.Point(2, 23);
+            this.quickView1.Margin = new System.Windows.Forms.Padding(2);
             this.quickView1.Name = "quickView1";
             this.quickView1.number = -56D;
             this.quickView1.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.quickView1.numberColorBackup = System.Drawing.Color.Lime;
             this.quickView1.numberformat = "0.0";
-            this.quickView1.Size = new System.Drawing.Size(100, 70);
+            this.quickView1.Size = new System.Drawing.Size(55, 22);
             this.quickView1.TabIndex = 10;
             // 
             // quickView4
             // 
-            this.quickView4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView4.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView4.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "DistToHome", true));
             this.quickView4.desc = "";
             this.quickView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView4.Location = new System.Drawing.Point(321, 28);
-            this.quickView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView4.Location = new System.Drawing.Point(179, 23);
+            this.quickView4.Margin = new System.Windows.Forms.Padding(2);
             this.quickView4.Name = "quickView4";
             this.quickView4.number = 20D;
             this.quickView4.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView4.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView4.numberformat = "0.00";
-            this.quickView4.Size = new System.Drawing.Size(101, 70);
+            this.quickView4.Size = new System.Drawing.Size(58, 22);
             this.quickView4.TabIndex = 1;
             this.quickView4.Text = "quickView13";
             // 
             // quickView2
             // 
-            this.quickView2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView2.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView2.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "alt", true));
             this.quickView2.desc = "";
             this.quickView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView2.Location = new System.Drawing.Point(109, 28);
-            this.quickView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView2.Location = new System.Drawing.Point(61, 23);
+            this.quickView2.Margin = new System.Windows.Forms.Padding(2);
             this.quickView2.Name = "quickView2";
             this.quickView2.number = -99D;
             this.quickView2.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView2.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView2.numberformat = "0.00";
-            this.quickView2.Size = new System.Drawing.Size(100, 70);
+            this.quickView2.Size = new System.Drawing.Size(55, 22);
             this.quickView2.TabIndex = 11;
             this.quickView2.Text = "quickView2";
             // 
             // quickView6
             // 
-            this.quickView6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView6.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView6.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_dir", true));
             this.quickView6.desc = "";
             this.quickView6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView6.Location = new System.Drawing.Point(109, 124);
-            this.quickView6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView6.Location = new System.Drawing.Point(61, 67);
+            this.quickView6.Margin = new System.Windows.Forms.Padding(2);
             this.quickView6.Name = "quickView6";
             this.quickView6.number = -300D;
             this.quickView6.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView6.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView6.numberformat = "0.00";
-            this.quickView6.Size = new System.Drawing.Size(100, 70);
+            this.quickView6.Size = new System.Drawing.Size(55, 22);
             this.quickView6.TabIndex = 9;
             this.quickView6.Text = "quickView21";
             // 
             // quickView8
             // 
-            this.quickView8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView8.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView8.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "distTraveled", true));
             this.quickView8.desc = "";
             this.quickView8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView8.Location = new System.Drawing.Point(321, 124);
-            this.quickView8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView8.Location = new System.Drawing.Point(179, 67);
+            this.quickView8.Margin = new System.Windows.Forms.Padding(2);
             this.quickView8.Name = "quickView8";
             this.quickView8.number = 11D;
             this.quickView8.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView8.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView8.numberformat = "0.00";
-            this.quickView8.Size = new System.Drawing.Size(101, 70);
+            this.quickView8.Size = new System.Drawing.Size(58, 22);
             this.quickView8.TabIndex = 3;
             this.quickView8.Text = "quickView15";
             // 
             // quickView10
             // 
-            this.quickView10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView10.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView10.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "wind_vel", true));
             this.quickView10.desc = "";
             this.quickView10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView10.Location = new System.Drawing.Point(109, 220);
-            this.quickView10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView10.Location = new System.Drawing.Point(61, 111);
+            this.quickView10.Margin = new System.Windows.Forms.Padding(2);
             this.quickView10.Name = "quickView10";
             this.quickView10.number = -43D;
             this.quickView10.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView10.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView10.numberformat = "0.00";
-            this.quickView10.Size = new System.Drawing.Size(100, 70);
+            this.quickView10.Size = new System.Drawing.Size(55, 23);
             this.quickView10.TabIndex = 8;
             this.quickView10.Text = "quickView20";
             // 
             // quickView12
             // 
-            this.quickView12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.quickView12.BackColor = System.Drawing.SystemColors.Desktop;
             this.quickView12.DataBindings.Add(new System.Windows.Forms.Binding("number", this.bindingSourceHUD, "timeInAir", true));
             this.quickView12.desc = "";
             this.quickView12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.quickView12.Location = new System.Drawing.Point(321, 220);
-            this.quickView12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quickView12.Location = new System.Drawing.Point(179, 111);
+            this.quickView12.Margin = new System.Windows.Forms.Padding(2);
             this.quickView12.Name = "quickView12";
             this.quickView12.number = 23D;
             this.quickView12.numberColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.quickView12.numberColorBackup = System.Drawing.Color.Empty;
             this.quickView12.numberformat = "0.00";
-            this.quickView12.Size = new System.Drawing.Size(101, 70);
+            this.quickView12.Size = new System.Drawing.Size(58, 23);
             this.quickView12.TabIndex = 5;
             this.quickView12.Text = "quickView12";
             // 
@@ -1089,9 +1112,10 @@ namespace MissionPlanner.GCSViews
             this.tabPage2.Controls.Add(this.whPanel3);
             this.tabPage2.Controls.Add(this.whPanel2);
             this.tabPage2.Controls.Add(this.whPanel1);
-            this.tabPage2.Location = new System.Drawing.Point(25, 4);
+            this.tabPage2.Location = new System.Drawing.Point(42, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1111, 298);
+            this.tabPage2.Size = new System.Drawing.Size(626, 142);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tactical";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1099,784 +1123,70 @@ namespace MissionPlanner.GCSViews
             // whPanel5
             // 
             this.whPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.whPanel5.Location = new System.Drawing.Point(863, 9);
-            this.whPanel5.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel5.Location = new System.Drawing.Point(647, 7);
+            this.whPanel5.Margin = new System.Windows.Forms.Padding(2);
+            this.whPanel5.MinimumSize = new System.Drawing.Size(75, 89);
             this.whPanel5.Name = "whPanel5";
-            this.whPanel5.Size = new System.Drawing.Size(210, 242);
+            this.whPanel5.Size = new System.Drawing.Size(158, 197);
             this.whPanel5.SystemId = 5;
             this.whPanel5.TabIndex = 4;
             // 
             // whPanel4
             // 
             this.whPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.whPanel4.Location = new System.Drawing.Point(651, 9);
-            this.whPanel4.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel4.Location = new System.Drawing.Point(488, 7);
+            this.whPanel4.Margin = new System.Windows.Forms.Padding(2);
+            this.whPanel4.MinimumSize = new System.Drawing.Size(75, 89);
             this.whPanel4.Name = "whPanel4";
-            this.whPanel4.Size = new System.Drawing.Size(210, 242);
+            this.whPanel4.Size = new System.Drawing.Size(158, 197);
             this.whPanel4.SystemId = 4;
             this.whPanel4.TabIndex = 3;
             // 
             // whPanel3
             // 
             this.whPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.whPanel3.Location = new System.Drawing.Point(435, 9);
-            this.whPanel3.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel3.Location = new System.Drawing.Point(326, 7);
+            this.whPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.whPanel3.MinimumSize = new System.Drawing.Size(75, 89);
             this.whPanel3.Name = "whPanel3";
-            this.whPanel3.Size = new System.Drawing.Size(210, 242);
+            this.whPanel3.Size = new System.Drawing.Size(158, 197);
             this.whPanel3.SystemId = 3;
             this.whPanel3.TabIndex = 2;
             // 
             // whPanel2
             // 
             this.whPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.whPanel2.Location = new System.Drawing.Point(219, 9);
-            this.whPanel2.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel2.Location = new System.Drawing.Point(164, 7);
+            this.whPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.whPanel2.MinimumSize = new System.Drawing.Size(75, 89);
             this.whPanel2.Name = "whPanel2";
-            this.whPanel2.Size = new System.Drawing.Size(210, 242);
+            this.whPanel2.Size = new System.Drawing.Size(158, 197);
             this.whPanel2.SystemId = 2;
             this.whPanel2.TabIndex = 1;
             // 
             // whPanel1
             // 
             this.whPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(38)))));
-            this.whPanel1.Location = new System.Drawing.Point(3, 9);
-            this.whPanel1.MinimumSize = new System.Drawing.Size(100, 110);
+            this.whPanel1.Location = new System.Drawing.Point(2, 7);
+            this.whPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.whPanel1.MinimumSize = new System.Drawing.Size(75, 89);
             this.whPanel1.Name = "whPanel1";
-            this.whPanel1.Size = new System.Drawing.Size(210, 242);
+            this.whPanel1.Size = new System.Drawing.Size(158, 197);
             this.whPanel1.TabIndex = 0;
             // 
-            // flowLayoutPanelLayer1
-            // 
-            this.flowLayoutPanelLayer1.AutoScroll = true;
-            this.flowLayoutPanelLayer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanelLayer1.Controls.Add(this.flowLayoutPanel12);
-            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelButtons);
-            this.flowLayoutPanelLayer1.Controls.Add(this.tableLayoutPanelHUD);
-            this.flowLayoutPanelLayer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelLayer1.Location = new System.Drawing.Point(2, 0);
-            this.flowLayoutPanelLayer1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.flowLayoutPanelLayer1.MinimumSize = new System.Drawing.Size(358, 4);
-            this.flowLayoutPanelLayer1.Name = "flowLayoutPanelLayer1";
-            this.flowLayoutPanelLayer1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.flowLayoutPanelLayer1.Size = new System.Drawing.Size(358, 670);
-            this.flowLayoutPanelLayer1.TabIndex = 0;
-            // 
-            // flowLayoutPanel12
-            // 
-            this.flowLayoutPanel12.Controls.Add(this.waypointIndicator1);
-            this.flowLayoutPanel12.Controls.Add(this.tableLayoutPanelBatGPS);
-            this.flowLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(0, 421);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(354, 84);
-            this.flowLayoutPanel12.TabIndex = 23;
-            // 
-            // waypointIndicator1
-            // 
-            this.waypointIndicator1.DataBindings.Add(new System.Windows.Forms.Binding("WaypointNumber", this.bindingSourceHUD, "wpno", true));
-            this.waypointIndicator1.DataBindings.Add(new System.Windows.Forms.Binding("Distance", this.bindingSourceHUD, "wp_dist", true));
-            this.waypointIndicator1.Distance = 0F;
-            this.waypointIndicator1.DistanceUnit = "m";
-            this.waypointIndicator1.FlightMode = "STABILIZE";
-            this.waypointIndicator1.Location = new System.Drawing.Point(10, 3);
-            this.waypointIndicator1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 10);
-            this.waypointIndicator1.MinimumSize = new System.Drawing.Size(280, 60);
-            this.waypointIndicator1.Name = "waypointIndicator1";
-            this.waypointIndicator1.Size = new System.Drawing.Size(339, 60);
-            this.waypointIndicator1.TabIndex = 28;
-            this.waypointIndicator1.WaypointNumber = 0;
-            // 
-            // tableLayoutPanelBatGPS
-            // 
-            this.tableLayoutPanelBatGPS.ColumnCount = 3;
-            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.89174F));
-            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.75214F));
-            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.35612F));
-            this.tableLayoutPanelBatGPS.Controls.Add(this.lblMessage, 2, 3);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.klcButtonArmDisArm, 0, 3);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.label15, 2, 2);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.label10, 2, 1);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel16, 1, 1);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel17, 1, 0);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.label16, 2, 0);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel18, 1, 2);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel11, 0, 0);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel15, 0, 2);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel14, 0, 1);
-            this.tableLayoutPanelBatGPS.Controls.Add(this.animatedTextControl1, 1, 3);
-            this.tableLayoutPanelBatGPS.Location = new System.Drawing.Point(3, 76);
-            this.tableLayoutPanelBatGPS.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.tableLayoutPanelBatGPS.Name = "tableLayoutPanelBatGPS";
-            this.tableLayoutPanelBatGPS.RowCount = 4;
-            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelBatGPS.Size = new System.Drawing.Size(351, 203);
-            this.tableLayoutPanelBatGPS.TabIndex = 23;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHigh", true));
-            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMessage.Location = new System.Drawing.Point(265, 150);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(83, 53);
-            this.lblMessage.TabIndex = 27;
-            this.lblMessage.Text = "No Connection Warning : 34";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // klcButtonArmDisArm
-            // 
-            this.klcButtonArmDisArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
-            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonArmDisArm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonArmDisArm.KLCBorderRadius = 1;
-            this.klcButtonArmDisArm.KLCBorderSize = 0;
-            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonArmDisArm.Location = new System.Drawing.Point(3, 166);
-            this.klcButtonArmDisArm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
-            this.klcButtonArmDisArm.Size = new System.Drawing.Size(103, 35);
-            this.klcButtonArmDisArm.TabIndex = 29;
-            this.klcButtonArmDisArm.Text = "Arm/DisArm";
-            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
-            this.klcButtonArmDisArm.Click += new System.EventHandler(this.klcButtonArmDisArm_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(265, 100);
-            this.label15.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label15.Size = new System.Drawing.Size(80, 25);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Set Loiter Rad";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(265, 50);
-            this.label10.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label10.Size = new System.Drawing.Size(77, 25);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Set Speed";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // flowLayoutPanel16
-            // 
-            this.flowLayoutPanel16.Controls.Add(this.klcButtonSetSpeed);
-            this.flowLayoutPanel16.Controls.Add(this.numericUpDownSpeed);
-            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(136, 52);
-            this.flowLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(123, 46);
-            this.flowLayoutPanel16.TabIndex = 19;
-            // 
-            // klcButtonSetSpeed
-            // 
-            this.klcButtonSetSpeed.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetSpeed.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetSpeed.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetSpeed.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetSpeed.Image")));
-            this.klcButtonSetSpeed.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetSpeed.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetSpeed.KLCBorderRadius = 8;
-            this.klcButtonSetSpeed.KLCBorderSize = 0;
-            this.klcButtonSetSpeed.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetSpeed.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetSpeed.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetSpeed.Name = "klcButtonSetSpeed";
-            this.klcButtonSetSpeed.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetSpeed.TabIndex = 20;
-            this.klcButtonSetSpeed.UseCompatibleTextRendering = true;
-            this.klcButtonSetSpeed.UseVisualStyleBackColor = false;
-            this.klcButtonSetSpeed.Click += new System.EventHandler(this.klcButtonSetSpeed_Click);
-            // 
-            // numericUpDownSpeed
-            // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownSpeed.TabIndex = 13;
-            this.numericUpDownSpeed.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // flowLayoutPanel17
-            // 
-            this.flowLayoutPanel17.Controls.Add(this.klcButtonSetAlt);
-            this.flowLayoutPanel17.Controls.Add(this.numericUpDownAlt);
-            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel17.Location = new System.Drawing.Point(136, 2);
-            this.flowLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
-            this.flowLayoutPanel17.Size = new System.Drawing.Size(123, 46);
-            this.flowLayoutPanel17.TabIndex = 22;
-            // 
-            // klcButtonSetAlt
-            // 
-            this.klcButtonSetAlt.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetAlt.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetAlt.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetAlt.Image")));
-            this.klcButtonSetAlt.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetAlt.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetAlt.KLCBorderRadius = 8;
-            this.klcButtonSetAlt.KLCBorderSize = 0;
-            this.klcButtonSetAlt.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetAlt.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetAlt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetAlt.Name = "klcButtonSetAlt";
-            this.klcButtonSetAlt.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetAlt.TabIndex = 19;
-            this.klcButtonSetAlt.UseCompatibleTextRendering = true;
-            this.klcButtonSetAlt.UseVisualStyleBackColor = false;
-            this.klcButtonSetAlt.Click += new System.EventHandler(this.klcButtonSetAlt_ClickAsync);
-            // 
-            // numericUpDownAlt
-            // 
-            this.numericUpDownAlt.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownAlt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownAlt.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownAlt.Name = "numericUpDownAlt";
-            this.numericUpDownAlt.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownAlt.TabIndex = 13;
-            this.numericUpDownAlt.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(265, 0);
-            this.label16.MaximumSize = new System.Drawing.Size(0, 25);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label16.Size = new System.Drawing.Size(56, 25);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Set Alt";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // flowLayoutPanel18
-            // 
-            this.flowLayoutPanel18.Controls.Add(this.klcButtonSetLoiterRad);
-            this.flowLayoutPanel18.Controls.Add(this.numericUpDownLoiter);
-            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel18.Location = new System.Drawing.Point(136, 102);
-            this.flowLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(123, 46);
-            this.flowLayoutPanel18.TabIndex = 23;
-            // 
-            // klcButtonSetLoiterRad
-            // 
-            this.klcButtonSetLoiterRad.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetLoiterRad.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetLoiterRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetLoiterRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetLoiterRad.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetLoiterRad.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetLoiterRad.Image")));
-            this.klcButtonSetLoiterRad.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonSetLoiterRad.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetLoiterRad.KLCBorderRadius = 8;
-            this.klcButtonSetLoiterRad.KLCBorderSize = 0;
-            this.klcButtonSetLoiterRad.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetLoiterRad.Location = new System.Drawing.Point(3, 0);
-            this.klcButtonSetLoiterRad.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.klcButtonSetLoiterRad.Name = "klcButtonSetLoiterRad";
-            this.klcButtonSetLoiterRad.Size = new System.Drawing.Size(40, 25);
-            this.klcButtonSetLoiterRad.TabIndex = 20;
-            this.klcButtonSetLoiterRad.UseCompatibleTextRendering = true;
-            this.klcButtonSetLoiterRad.UseVisualStyleBackColor = false;
-            this.klcButtonSetLoiterRad.Click += new System.EventHandler(this.klcButtonSetLoiterRad_Click);
-            // 
-            // numericUpDownLoiter
-            // 
-            this.numericUpDownLoiter.Location = new System.Drawing.Point(49, 2);
-            this.numericUpDownLoiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownLoiter.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownLoiter.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownLoiter.Name = "numericUpDownLoiter";
-            this.numericUpDownLoiter.Size = new System.Drawing.Size(69, 22);
-            this.numericUpDownLoiter.TabIndex = 13;
-            this.numericUpDownLoiter.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel11.Controls.Add(this.labelBatteryLevel);
-            this.flowLayoutPanel11.Controls.Add(this.labelBatteryVoltages);
-            this.flowLayoutPanel11.Controls.Add(this.label3);
-            this.flowLayoutPanel11.Controls.Add(this.labelBatteryCurrent);
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(127, 46);
-            this.flowLayoutPanel11.TabIndex = 16;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // labelBatteryLevel
-            // 
-            this.labelBatteryLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryLevel.AutoSize = true;
-            this.labelBatteryLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_remaining", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "00 \'%\'"));
-            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryLevel.Location = new System.Drawing.Point(25, 1);
-            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(34, 13);
-            this.labelBatteryLevel.MinimumSize = new System.Drawing.Size(34, 0);
-            this.labelBatteryLevel.Name = "labelBatteryLevel";
-            this.labelBatteryLevel.Size = new System.Drawing.Size(34, 13);
-            this.labelBatteryLevel.TabIndex = 1;
-            this.labelBatteryLevel.Text = "87 %";
-            this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelBatteryVoltages
-            // 
-            this.labelBatteryVoltages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryVoltages.AutoSize = true;
-            this.labelBatteryVoltages.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_voltage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 V"));
-            this.labelBatteryVoltages.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryVoltages.Location = new System.Drawing.Point(65, 1);
-            this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 14);
-            this.labelBatteryVoltages.Name = "labelBatteryVoltages";
-            this.labelBatteryVoltages.Size = new System.Drawing.Size(0, 14);
-            this.labelBatteryVoltages.TabIndex = 2;
-            this.labelBatteryVoltages.Text = "87 %";
-            this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "            ";
-            // 
-            // labelBatteryCurrent
-            // 
-            this.labelBatteryCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBatteryCurrent.AutoSize = true;
-            this.labelBatteryCurrent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "current", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 A"));
-            this.labelBatteryCurrent.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
-            this.labelBatteryCurrent.Location = new System.Drawing.Point(52, 17);
-            this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 13);
-            this.labelBatteryCurrent.Name = "labelBatteryCurrent";
-            this.labelBatteryCurrent.Size = new System.Drawing.Size(0, 13);
-            this.labelBatteryCurrent.TabIndex = 3;
-            this.labelBatteryCurrent.Text = "87 %";
-            this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel15
-            // 
-            this.flowLayoutPanel15.Controls.Add(this.pictureBox8);
-            this.flowLayoutPanel15.Controls.Add(this.labelTimeInAir);
-            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 102);
-            this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(127, 46);
-            this.flowLayoutPanel15.TabIndex = 18;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
-            // labelTimeInAir
-            // 
-            this.labelTimeInAir.AutoSize = true;
-            this.labelTimeInAir.BackColor = System.Drawing.Color.Transparent;
-            this.labelTimeInAir.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "timeInAir", true));
-            this.labelTimeInAir.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeInAir.Location = new System.Drawing.Point(25, 2);
-            this.labelTimeInAir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelTimeInAir.MinimumSize = new System.Drawing.Size(55, 0);
-            this.labelTimeInAir.Name = "labelTimeInAir";
-            this.labelTimeInAir.Size = new System.Drawing.Size(55, 20);
-            this.labelTimeInAir.TabIndex = 1;
-            this.labelTimeInAir.Text = "00:23:34";
-            this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel14
-            // 
-            this.flowLayoutPanel14.Controls.Add(this.pictureBox7);
-            this.flowLayoutPanel14.Controls.Add(this.labelGPSStatus);
-            this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 52);
-            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(127, 46);
-            this.flowLayoutPanel14.TabIndex = 18;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // labelGPSStatus
-            // 
-            this.labelGPSStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelGPSStatus.AutoSize = true;
-            this.labelGPSStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 7.5F, System.Drawing.FontStyle.Bold);
-            this.labelGPSStatus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelGPSStatus.Location = new System.Drawing.Point(25, 2);
-            this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelGPSStatus.Name = "labelGPSStatus";
-            this.labelGPSStatus.Size = new System.Drawing.Size(0, 17);
-            this.labelGPSStatus.TabIndex = 1;
-            this.labelGPSStatus.Text = "GPS: No GPS";
-            this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // animatedTextControl1
-            // 
-            this.animatedTextControl1.ArmStatus = false;
-            this.animatedTextControl1.BackColor = System.Drawing.Color.Transparent;
-            this.animatedTextControl1.DataBindings.Add(new System.Windows.Forms.Binding("ArmStatus", this.bindingSourceHUD, "armed", true));
-            this.animatedTextControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.animatedTextControl1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.animatedTextControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.animatedTextControl1.Location = new System.Drawing.Point(136, 166);
-            this.animatedTextControl1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
-            this.animatedTextControl1.Name = "animatedTextControl1";
-            this.animatedTextControl1.Size = new System.Drawing.Size(126, 34);
-            this.animatedTextControl1.TabIndex = 28;
-            this.animatedTextControl1.Text = "DISARMED";
-            // 
-            // tableLayoutPanelButtons
-            // 
-            this.tableLayoutPanelButtons.AutoSize = true;
-            this.tableLayoutPanelButtons.ColumnCount = 4;
-            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonRTL, 1, 2);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonAuto, 0, 2);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonDoAction, 0, 1);
-            this.tableLayoutPanelButtons.Controls.Add(this.CMB_setwp, 1, 0);
-            this.tableLayoutPanelButtons.Controls.Add(this.CMB_action, 0, 0);
-            this.tableLayoutPanelButtons.Controls.Add(this.CMB_modes, 2, 0);
-            this.tableLayoutPanelButtons.Controls.Add(this.CMB_mountmode, 3, 0);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetWP, 1, 1);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMode, 2, 1);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMount, 3, 1);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonLoiter, 2, 2);
-            this.tableLayoutPanelButtons.Controls.Add(this.klcButton20, 3, 2);
-            this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(0, 505);
-            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
-            this.tableLayoutPanelButtons.MaximumSize = new System.Drawing.Size(0, 300);
-            this.tableLayoutPanelButtons.MinimumSize = new System.Drawing.Size(350, 0);
-            this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
-            this.tableLayoutPanelButtons.RowCount = 3;
-            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.51899F));
-            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.50633F));
-            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.97468F));
-            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(354, 158);
-            this.tableLayoutPanelButtons.TabIndex = 21;
-            // 
-            // klcButtonRTL
-            // 
-            this.klcButtonRTL.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonRTL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonRTL.FlatAppearance.BorderSize = 0;
-            this.klcButtonRTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonRTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonRTL.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonRTL.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonRTL.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonRTL.KLCBorderRadius = 1;
-            this.klcButtonRTL.KLCBorderSize = 0;
-            this.klcButtonRTL.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonRTL.Location = new System.Drawing.Point(91, 100);
-            this.klcButtonRTL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonRTL.Name = "klcButtonRTL";
-            this.klcButtonRTL.Size = new System.Drawing.Size(82, 56);
-            this.klcButtonRTL.TabIndex = 15;
-            this.klcButtonRTL.Text = "RTL";
-            this.klcButtonRTL.UseVisualStyleBackColor = false;
-            this.klcButtonRTL.Click += new System.EventHandler(this.klcButtonRTL_Click);
-            // 
-            // klcButtonAuto
-            // 
-            this.klcButtonAuto.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonAuto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonAuto.FlatAppearance.BorderSize = 0;
-            this.klcButtonAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonAuto.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonAuto.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonAuto.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonAuto.KLCBorderRadius = 1;
-            this.klcButtonAuto.KLCBorderSize = 0;
-            this.klcButtonAuto.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonAuto.Location = new System.Drawing.Point(3, 100);
-            this.klcButtonAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonAuto.Name = "klcButtonAuto";
-            this.klcButtonAuto.Size = new System.Drawing.Size(82, 56);
-            this.klcButtonAuto.TabIndex = 14;
-            this.klcButtonAuto.Text = "Auto";
-            this.klcButtonAuto.UseVisualStyleBackColor = false;
-            this.klcButtonAuto.Click += new System.EventHandler(this.klcButtonAuto_Click);
-            // 
-            // klcButtonDoAction
-            // 
-            this.klcButtonDoAction.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonDoAction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonDoAction.FlatAppearance.BorderSize = 0;
-            this.klcButtonDoAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonDoAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonDoAction.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonDoAction.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonDoAction.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonDoAction.KLCBorderRadius = 1;
-            this.klcButtonDoAction.KLCBorderSize = 0;
-            this.klcButtonDoAction.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonDoAction.Location = new System.Drawing.Point(3, 36);
-            this.klcButtonDoAction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonDoAction.Name = "klcButtonDoAction";
-            this.klcButtonDoAction.Size = new System.Drawing.Size(82, 60);
-            this.klcButtonDoAction.TabIndex = 13;
-            this.klcButtonDoAction.Text = "Do Action";
-            this.klcButtonDoAction.UseVisualStyleBackColor = false;
-            this.klcButtonDoAction.Click += new System.EventHandler(this.klcButtonDoAction_Click);
-            // 
-            // CMB_setwp
-            // 
-            this.CMB_setwp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CMB_setwp.DropDownWidth = 200;
-            this.CMB_setwp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_setwp.FormattingEnabled = true;
-            this.CMB_setwp.Location = new System.Drawing.Point(91, 4);
-            this.CMB_setwp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_setwp.Name = "CMB_setwp";
-            this.CMB_setwp.Size = new System.Drawing.Size(82, 28);
-            this.CMB_setwp.TabIndex = 11;
-            this.CMB_setwp.Click += new System.EventHandler(this.CMB_setwp_Click_1);
-            // 
-            // CMB_action
-            // 
-            this.CMB_action.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CMB_action.DropDownWidth = 200;
-            this.CMB_action.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_action.FormattingEnabled = true;
-            this.CMB_action.Location = new System.Drawing.Point(3, 4);
-            this.CMB_action.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_action.Name = "CMB_action";
-            this.CMB_action.Size = new System.Drawing.Size(82, 28);
-            this.CMB_action.TabIndex = 9;
-            // 
-            // CMB_modes
-            // 
-            this.CMB_modes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CMB_modes.DropDownWidth = 200;
-            this.CMB_modes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_modes.FormattingEnabled = true;
-            this.CMB_modes.Location = new System.Drawing.Point(179, 4);
-            this.CMB_modes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_modes.Name = "CMB_modes";
-            this.CMB_modes.Size = new System.Drawing.Size(82, 28);
-            this.CMB_modes.TabIndex = 10;
-            // 
-            // CMB_mountmode
-            // 
-            this.CMB_mountmode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CMB_mountmode.DropDownWidth = 200;
-            this.CMB_mountmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CMB_mountmode.FormattingEnabled = true;
-            this.CMB_mountmode.Location = new System.Drawing.Point(267, 4);
-            this.CMB_mountmode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMB_mountmode.Name = "CMB_mountmode";
-            this.CMB_mountmode.Size = new System.Drawing.Size(84, 28);
-            this.CMB_mountmode.TabIndex = 12;
-            // 
-            // klcButtonSetWP
-            // 
-            this.klcButtonSetWP.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetWP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonSetWP.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetWP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetWP.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetWP.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetWP.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetWP.KLCBorderRadius = 1;
-            this.klcButtonSetWP.KLCBorderSize = 0;
-            this.klcButtonSetWP.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetWP.Location = new System.Drawing.Point(91, 36);
-            this.klcButtonSetWP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonSetWP.Name = "klcButtonSetWP";
-            this.klcButtonSetWP.Size = new System.Drawing.Size(82, 60);
-            this.klcButtonSetWP.TabIndex = 6;
-            this.klcButtonSetWP.Text = "Set WP";
-            this.klcButtonSetWP.UseVisualStyleBackColor = false;
-            this.klcButtonSetWP.Click += new System.EventHandler(this.klcButtonSetWP_Click);
-            // 
-            // klcButtonSetMode
-            // 
-            this.klcButtonSetMode.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonSetMode.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klcButtonSetMode.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMode.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetMode.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetMode.KLCBorderRadius = 1;
-            this.klcButtonSetMode.KLCBorderSize = 0;
-            this.klcButtonSetMode.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMode.Location = new System.Drawing.Point(179, 36);
-            this.klcButtonSetMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonSetMode.Name = "klcButtonSetMode";
-            this.klcButtonSetMode.Size = new System.Drawing.Size(82, 60);
-            this.klcButtonSetMode.TabIndex = 7;
-            this.klcButtonSetMode.Text = "Set Mode";
-            this.klcButtonSetMode.UseVisualStyleBackColor = false;
-            this.klcButtonSetMode.Click += new System.EventHandler(this.klcButtonSetMode_Click);
-            // 
-            // klcButtonSetMount
-            // 
-            this.klcButtonSetMount.BackColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetMount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonSetMount.FlatAppearance.BorderSize = 0;
-            this.klcButtonSetMount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonSetMount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButtonSetMount.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMount.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
-            this.klcButtonSetMount.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonSetMount.KLCBorderRadius = 1;
-            this.klcButtonSetMount.KLCBorderSize = 0;
-            this.klcButtonSetMount.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonSetMount.Location = new System.Drawing.Point(267, 36);
-            this.klcButtonSetMount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonSetMount.Name = "klcButtonSetMount";
-            this.klcButtonSetMount.Size = new System.Drawing.Size(84, 60);
-            this.klcButtonSetMount.TabIndex = 8;
-            this.klcButtonSetMount.Text = "Set Mount";
-            this.klcButtonSetMount.UseVisualStyleBackColor = false;
-            this.klcButtonSetMount.Click += new System.EventHandler(this.klcButtonSetMount_Click);
-            // 
-            // klcButtonLoiter
-            // 
-            this.klcButtonLoiter.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonLoiter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButtonLoiter.FlatAppearance.BorderSize = 0;
-            this.klcButtonLoiter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButtonLoiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.klcButtonLoiter.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButtonLoiter.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButtonLoiter.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButtonLoiter.KLCBorderRadius = 1;
-            this.klcButtonLoiter.KLCBorderSize = 0;
-            this.klcButtonLoiter.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButtonLoiter.Location = new System.Drawing.Point(179, 100);
-            this.klcButtonLoiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButtonLoiter.Name = "klcButtonLoiter";
-            this.klcButtonLoiter.Size = new System.Drawing.Size(82, 56);
-            this.klcButtonLoiter.TabIndex = 2;
-            this.klcButtonLoiter.Text = "Loiter";
-            this.klcButtonLoiter.UseVisualStyleBackColor = false;
-            this.klcButtonLoiter.Click += new System.EventHandler(this.klcButtonLoiter_Click);
-            // 
-            // klcButton20
-            // 
-            this.klcButton20.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.klcButton20.FlatAppearance.BorderSize = 0;
-            this.klcButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.klcButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.klcButton20.ForeColor = System.Drawing.Color.DimGray;
-            this.klcButton20.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
-            this.klcButton20.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
-            this.klcButton20.KLCBorderRadius = 1;
-            this.klcButton20.KLCBorderSize = 0;
-            this.klcButton20.KLCTextColor = System.Drawing.Color.DimGray;
-            this.klcButton20.Location = new System.Drawing.Point(267, 100);
-            this.klcButton20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.klcButton20.Name = "klcButton20";
-            this.klcButton20.Size = new System.Drawing.Size(84, 56);
-            this.klcButton20.TabIndex = 3;
-            this.klcButton20.Text = "Restart Mission";
-            this.klcButton20.UseVisualStyleBackColor = false;
-            this.klcButton20.Click += new System.EventHandler(this.klcButton20_Click);
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanelHUD);
+            this.tabPage3.Controls.Add(this.waypointIndicator1);
+            this.tabPage3.Controls.Add(this.tableLayoutPanelBatGPS);
+            this.tabPage3.Controls.Add(this.tableLayoutPanelButtons);
+            this.tabPage3.Location = new System.Drawing.Point(42, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(626, 142);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanelHUD
             // 
@@ -1885,15 +1195,14 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanelCompass, 0, 2);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanelHUD.Controls.Add(this.tableLayoutPanel6, 0, 1);
-            this.tableLayoutPanelHUD.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanelHUD.Location = new System.Drawing.Point(102, 2);
             this.tableLayoutPanelHUD.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.tableLayoutPanelHUD.Name = "tableLayoutPanelHUD";
             this.tableLayoutPanelHUD.RowCount = 3;
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.266736F));
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.69603F));
             this.tableLayoutPanelHUD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.05286F));
-            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(354, 418);
+            this.tableLayoutPanelHUD.Size = new System.Drawing.Size(266, 318);
             this.tableLayoutPanelHUD.TabIndex = 1;
             // 
             // tableLayoutPanelCompass
@@ -1905,30 +1214,30 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelCompass.Controls.Add(this.tableLayoutPanel10, 2, 0);
             this.tableLayoutPanelCompass.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanelCompass.Controls.Add(this.hsiHeading, 1, 0);
-            this.tableLayoutPanelCompass.Location = new System.Drawing.Point(3, 235);
-            this.tableLayoutPanelCompass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelCompass.Location = new System.Drawing.Point(2, 179);
+            this.tableLayoutPanelCompass.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelCompass.Name = "tableLayoutPanelCompass";
             this.tableLayoutPanelCompass.RowCount = 1;
             this.tableLayoutPanelCompass.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCompass.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 181F));
-            this.tableLayoutPanelCompass.Size = new System.Drawing.Size(348, 181);
+            this.tableLayoutPanelCompass.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanelCompass.Size = new System.Drawing.Size(261, 137);
             this.tableLayoutPanelCompass.TabIndex = 14;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel9, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel10, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(270, 2);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(202, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(75, 177);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(57, 133);
             this.tableLayoutPanel10.TabIndex = 2;
             // 
             // flowLayoutPanel9
@@ -1938,11 +1247,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel9.Controls.Add(this.label14);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 90);
-            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(2, 68);
+            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(69, 85);
+            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(53, 63);
             this.flowLayoutPanel9.TabIndex = 2;
             // 
             // labelCapGS
@@ -1951,12 +1260,12 @@ namespace MissionPlanner.GCSViews
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCapGS.AutoSize = true;
             this.labelCapGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapGS.Location = new System.Drawing.Point(5, 5);
+            this.labelCapGS.Location = new System.Drawing.Point(4, 4);
             this.labelCapGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCapGS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelCapGS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelCapGS.Name = "labelCapGS";
-            this.labelCapGS.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.labelCapGS.Size = new System.Drawing.Size(66, 20);
+            this.labelCapGS.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.labelCapGS.Size = new System.Drawing.Size(51, 16);
             this.labelCapGS.TabIndex = 9;
             this.labelCapGS.Text = "GS";
             this.labelCapGS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1968,13 +1277,13 @@ namespace MissionPlanner.GCSViews
             this.labelHudGS.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelHudGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHudGS.Location = new System.Drawing.Point(5, 25);
+            this.labelHudGS.Location = new System.Drawing.Point(4, 20);
             this.labelHudGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHudGS.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelHudGS.MinimumSize = new System.Drawing.Size(60, 20);
+            this.labelHudGS.MaximumSize = new System.Drawing.Size(0, 16);
+            this.labelHudGS.MinimumSize = new System.Drawing.Size(45, 16);
             this.labelHudGS.Name = "labelHudGS";
             this.labelHudGS.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.labelHudGS.Size = new System.Drawing.Size(60, 20);
+            this.labelHudGS.Size = new System.Drawing.Size(45, 16);
             this.labelHudGS.TabIndex = 10;
             this.labelHudGS.Text = "100";
             this.labelHudGS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1983,12 +1292,13 @@ namespace MissionPlanner.GCSViews
             // 
             this.label14.AutoSize = true;
             this.label14.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label14.Location = new System.Drawing.Point(8, 45);
-            this.label14.MaximumSize = new System.Drawing.Size(0, 14);
-            this.label14.MinimumSize = new System.Drawing.Size(60, 0);
+            this.label14.Location = new System.Drawing.Point(6, 36);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.MaximumSize = new System.Drawing.Size(0, 11);
+            this.label14.MinimumSize = new System.Drawing.Size(45, 0);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(5, 1, 0, 0);
-            this.label14.Size = new System.Drawing.Size(60, 14);
+            this.label14.Padding = new System.Windows.Forms.Padding(4, 1, 0, 0);
+            this.label14.Size = new System.Drawing.Size(47, 11);
             this.label14.TabIndex = 11;
             this.label14.Text = "      m/s";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2001,11 +1311,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel10.Controls.Add(this.label17);
             this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(69, 84);
+            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(53, 62);
             this.flowLayoutPanel10.TabIndex = 1;
             // 
             // labelCapAS
@@ -2014,12 +1324,12 @@ namespace MissionPlanner.GCSViews
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCapAS.AutoSize = true;
             this.labelCapAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapAS.Location = new System.Drawing.Point(5, 5);
+            this.labelCapAS.Location = new System.Drawing.Point(4, 4);
             this.labelCapAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCapAS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelCapAS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelCapAS.Name = "labelCapAS";
-            this.labelCapAS.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.labelCapAS.Size = new System.Drawing.Size(66, 20);
+            this.labelCapAS.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.labelCapAS.Size = new System.Drawing.Size(49, 16);
             this.labelCapAS.TabIndex = 4;
             this.labelCapAS.Text = "AS";
             this.labelCapAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2030,13 +1340,13 @@ namespace MissionPlanner.GCSViews
             this.labelHudAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "airspeed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelHudAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelHudAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHudAS.Location = new System.Drawing.Point(5, 25);
+            this.labelHudAS.Location = new System.Drawing.Point(4, 20);
             this.labelHudAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHudAS.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelHudAS.MinimumSize = new System.Drawing.Size(60, 20);
+            this.labelHudAS.MaximumSize = new System.Drawing.Size(0, 16);
+            this.labelHudAS.MinimumSize = new System.Drawing.Size(45, 16);
             this.labelHudAS.Name = "labelHudAS";
             this.labelHudAS.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.labelHudAS.Size = new System.Drawing.Size(60, 20);
+            this.labelHudAS.Size = new System.Drawing.Size(45, 16);
             this.labelHudAS.TabIndex = 5;
             this.labelHudAS.Text = "180";
             this.labelHudAS.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -2044,12 +1354,13 @@ namespace MissionPlanner.GCSViews
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 45);
-            this.label1.MaximumSize = new System.Drawing.Size(0, 14);
-            this.label1.MinimumSize = new System.Drawing.Size(60, 0);
+            this.label1.Location = new System.Drawing.Point(6, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(0, 11);
+            this.label1.MinimumSize = new System.Drawing.Size(45, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 0);
-            this.label1.Size = new System.Drawing.Size(60, 14);
+            this.label1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 0);
+            this.label1.Size = new System.Drawing.Size(45, 11);
             this.label1.TabIndex = 12;
             this.label1.Text = "    m/s";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2057,27 +1368,27 @@ namespace MissionPlanner.GCSViews
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(5, 59);
+            this.label17.Location = new System.Drawing.Point(53, 4);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 16);
+            this.label17.Size = new System.Drawing.Size(0, 13);
             this.label17.TabIndex = 6;
             // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel8, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel7, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(74, 177);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(56, 133);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // flowLayoutPanel8
@@ -2087,23 +1398,23 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel8.Controls.Add(this.labelUnitAOA);
             this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 90);
-            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(2, 68);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(68, 85);
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(52, 63);
             this.flowLayoutPanel8.TabIndex = 2;
             // 
             // labelCapAOA
             // 
             this.labelCapAOA.AutoSize = true;
             this.labelCapAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCapAOA.Location = new System.Drawing.Point(5, 5);
+            this.labelCapAOA.Location = new System.Drawing.Point(4, 4);
             this.labelCapAOA.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCapAOA.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelCapAOA.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelCapAOA.Name = "labelCapAOA";
-            this.labelCapAOA.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelCapAOA.Size = new System.Drawing.Size(60, 20);
+            this.labelCapAOA.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelCapAOA.Size = new System.Drawing.Size(45, 16);
             this.labelCapAOA.TabIndex = 9;
             this.labelCapAOA.Text = "AOA";
             this.labelCapAOA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2114,12 +1425,12 @@ namespace MissionPlanner.GCSViews
             this.labelValAOA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValAOA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAOA.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAOA.Location = new System.Drawing.Point(5, 25);
+            this.labelValAOA.Location = new System.Drawing.Point(4, 20);
             this.labelValAOA.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAOA.MaximumSize = new System.Drawing.Size(0, 20);
-            this.labelValAOA.MinimumSize = new System.Drawing.Size(60, 20);
+            this.labelValAOA.MaximumSize = new System.Drawing.Size(0, 16);
+            this.labelValAOA.MinimumSize = new System.Drawing.Size(45, 16);
             this.labelValAOA.Name = "labelValAOA";
-            this.labelValAOA.Size = new System.Drawing.Size(60, 20);
+            this.labelValAOA.Size = new System.Drawing.Size(45, 16);
             this.labelValAOA.TabIndex = 10;
             this.labelValAOA.Text = "7000";
             this.labelValAOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2127,11 +1438,12 @@ namespace MissionPlanner.GCSViews
             // labelUnitAOA
             // 
             this.labelUnitAOA.AutoSize = true;
-            this.labelUnitAOA.Location = new System.Drawing.Point(8, 45);
-            this.labelUnitAOA.MaximumSize = new System.Drawing.Size(52, 15);
-            this.labelUnitAOA.MinimumSize = new System.Drawing.Size(52, 16);
+            this.labelUnitAOA.Location = new System.Drawing.Point(6, 36);
+            this.labelUnitAOA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUnitAOA.MaximumSize = new System.Drawing.Size(39, 12);
+            this.labelUnitAOA.MinimumSize = new System.Drawing.Size(39, 13);
             this.labelUnitAOA.Name = "labelUnitAOA";
-            this.labelUnitAOA.Size = new System.Drawing.Size(52, 16);
+            this.labelUnitAOA.Size = new System.Drawing.Size(39, 13);
             this.labelUnitAOA.TabIndex = 11;
             this.labelUnitAOA.Text = "deg";
             this.labelUnitAOA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2144,23 +1456,23 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel7.Controls.Add(this.labelUnitHdg);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(68, 84);
+            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(52, 62);
             this.flowLayoutPanel7.TabIndex = 1;
             // 
             // labelHg
             // 
             this.labelHg.AutoSize = true;
             this.labelHg.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHg.Location = new System.Drawing.Point(5, 5);
+            this.labelHg.Location = new System.Drawing.Point(4, 4);
             this.labelHg.Margin = new System.Windows.Forms.Padding(0);
-            this.labelHg.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelHg.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelHg.Name = "labelHg";
-            this.labelHg.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelHg.Size = new System.Drawing.Size(60, 20);
+            this.labelHg.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelHg.Size = new System.Drawing.Size(45, 16);
             this.labelHg.TabIndex = 4;
             this.labelHg.Text = "HDG";
             // 
@@ -2170,12 +1482,12 @@ namespace MissionPlanner.GCSViews
             this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "yaw", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 25);
+            this.label4.Location = new System.Drawing.Point(4, 20);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.MaximumSize = new System.Drawing.Size(0, 20);
-            this.label4.MinimumSize = new System.Drawing.Size(60, 20);
+            this.label4.MaximumSize = new System.Drawing.Size(0, 16);
+            this.label4.MinimumSize = new System.Drawing.Size(45, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "180";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2183,11 +1495,12 @@ namespace MissionPlanner.GCSViews
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 45);
-            this.label6.MaximumSize = new System.Drawing.Size(52, 15);
-            this.label6.MinimumSize = new System.Drawing.Size(52, 0);
+            this.label6.Location = new System.Drawing.Point(6, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.MaximumSize = new System.Drawing.Size(39, 12);
+            this.label6.MinimumSize = new System.Drawing.Size(39, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.Size = new System.Drawing.Size(39, 12);
             this.label6.TabIndex = 12;
             this.label6.Text = "deg";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2195,21 +1508,21 @@ namespace MissionPlanner.GCSViews
             // labelUnitHdg
             // 
             this.labelUnitHdg.AutoSize = true;
-            this.labelUnitHdg.Location = new System.Drawing.Point(5, 60);
+            this.labelUnitHdg.Location = new System.Drawing.Point(49, 4);
             this.labelUnitHdg.Margin = new System.Windows.Forms.Padding(0);
             this.labelUnitHdg.Name = "labelUnitHdg";
-            this.labelUnitHdg.Size = new System.Drawing.Size(0, 16);
+            this.labelUnitHdg.Size = new System.Drawing.Size(0, 13);
             this.labelUnitHdg.TabIndex = 6;
             // 
             // hsiHeading
             // 
             this.hsiHeading.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
             this.hsiHeading.Heading = 0;
-            this.hsiHeading.Location = new System.Drawing.Point(95, 5);
-            this.hsiHeading.Margin = new System.Windows.Forms.Padding(15, 5, 15, 2);
+            this.hsiHeading.Location = new System.Drawing.Point(71, 4);
+            this.hsiHeading.Margin = new System.Windows.Forms.Padding(11, 4, 11, 2);
             this.hsiHeading.Name = "hsiHeading";
             this.hsiHeading.NavHeading = 0;
-            this.hsiHeading.Size = new System.Drawing.Size(171, 171);
+            this.hsiHeading.Size = new System.Drawing.Size(131, 131);
             this.hsiHeading.TabIndex = 0;
             this.hsiHeading.Load += new System.EventHandler(this.hsi1_Load);
             // 
@@ -2222,12 +1535,12 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel3, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.panelClock, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(337, 32);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(253, 25);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -2236,20 +1549,20 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel3.Controls.Add(this.labelCurrentCom);
             this.flowLayoutPanel3.Controls.Add(this.labelGPS);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(110, 0);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(82, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(110, 28);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(82, 21);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(22, 20);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -2259,10 +1572,11 @@ namespace MissionPlanner.GCSViews
             this.labelCurrentCom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCurrentCom.Font = new System.Drawing.Font("Segoe UI Variable Small", 6.8F, System.Drawing.FontStyle.Bold);
             this.labelCurrentCom.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCurrentCom.Location = new System.Drawing.Point(38, 0);
-            this.labelCurrentCom.MinimumSize = new System.Drawing.Size(65, 0);
+            this.labelCurrentCom.Location = new System.Drawing.Point(28, 0);
+            this.labelCurrentCom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCurrentCom.MinimumSize = new System.Drawing.Size(49, 0);
             this.labelCurrentCom.Name = "labelCurrentCom";
-            this.labelCurrentCom.Size = new System.Drawing.Size(65, 29);
+            this.labelCurrentCom.Size = new System.Drawing.Size(49, 24);
             this.labelCurrentCom.TabIndex = 7;
             this.labelCurrentCom.Text = "No GPS";
             this.labelCurrentCom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2273,9 +1587,10 @@ namespace MissionPlanner.GCSViews
             this.labelGPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelGPS.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGPS.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGPS.Location = new System.Drawing.Point(3, 29);
+            this.labelGPS.Location = new System.Drawing.Point(2, 24);
+            this.labelGPS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelGPS.Name = "labelGPS";
-            this.labelGPS.Size = new System.Drawing.Size(101, 16);
+            this.labelGPS.Size = new System.Drawing.Size(51, 28);
             this.labelGPS.TabIndex = 6;
             this.labelGPS.Text = "GPS: NO Signal";
             this.labelGPS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2285,19 +1600,19 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
             this.flowLayoutPanel1.Controls.Add(this.labelLinkQualityGcs);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(235, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(176, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(99, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(75, 21);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 25);
+            this.pictureBox2.Size = new System.Drawing.Size(22, 20);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
@@ -2307,10 +1622,11 @@ namespace MissionPlanner.GCSViews
             this.labelLinkQualityGcs.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "linkqualitygcs", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "00 \'%\'"));
             this.labelLinkQualityGcs.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelLinkQualityGcs.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLinkQualityGcs.Location = new System.Drawing.Point(38, 0);
-            this.labelLinkQualityGcs.MinimumSize = new System.Drawing.Size(55, 25);
+            this.labelLinkQualityGcs.Location = new System.Drawing.Point(28, 0);
+            this.labelLinkQualityGcs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLinkQualityGcs.MinimumSize = new System.Drawing.Size(41, 20);
             this.labelLinkQualityGcs.Name = "labelLinkQualityGcs";
-            this.labelLinkQualityGcs.Size = new System.Drawing.Size(55, 25);
+            this.labelLinkQualityGcs.Size = new System.Drawing.Size(41, 20);
             this.labelLinkQualityGcs.TabIndex = 8;
             this.labelLinkQualityGcs.Text = "100%";
             this.labelLinkQualityGcs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2319,10 +1635,10 @@ namespace MissionPlanner.GCSViews
             // 
             this.panelClock.Controls.Add(this.labelClock);
             this.panelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelClock.Location = new System.Drawing.Point(115, 2);
-            this.panelClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelClock.Location = new System.Drawing.Point(86, 2);
+            this.panelClock.Margin = new System.Windows.Forms.Padding(2);
             this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(114, 28);
+            this.panelClock.Size = new System.Drawing.Size(86, 21);
             this.panelClock.TabIndex = 2;
             // 
             // labelClock
@@ -2332,9 +1648,9 @@ namespace MissionPlanner.GCSViews
             this.labelClock.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             this.labelClock.Location = new System.Drawing.Point(0, 0);
             this.labelClock.Margin = new System.Windows.Forms.Padding(0);
-            this.labelClock.MinimumSize = new System.Drawing.Size(125, 25);
+            this.labelClock.MinimumSize = new System.Drawing.Size(94, 20);
             this.labelClock.Name = "labelClock";
-            this.labelClock.Size = new System.Drawing.Size(125, 25);
+            this.labelClock.Size = new System.Drawing.Size(94, 20);
             this.labelClock.TabIndex = 2;
             this.labelClock.Text = "09:08:23";
             this.labelClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2349,12 +1665,12 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 40);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 31);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(348, 191);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(262, 144);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // hudSerb
@@ -2450,15 +1766,15 @@ namespace MissionPlanner.GCSViews
             this.hudSerb.hudcolor = System.Drawing.Color.LightGray;
             this.hudSerb.linkqualitygcs = 0F;
             this.hudSerb.load = 0F;
-            this.hudSerb.Location = new System.Drawing.Point(80, 4);
+            this.hudSerb.Location = new System.Drawing.Point(60, 3);
             this.hudSerb.lowairspeed = false;
             this.hudSerb.lowgroundspeed = false;
             this.hudSerb.lowvoltagealert = false;
-            this.hudSerb.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.hudSerb.MaximumSize = new System.Drawing.Size(190, 190);
+            this.hudSerb.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.hudSerb.MaximumSize = new System.Drawing.Size(142, 154);
             this.hudSerb.message = "";
             this.hudSerb.messageSeverity = MAVLink.MAV_SEVERITY.EMERGENCY;
-            this.hudSerb.MinimumSize = new System.Drawing.Size(190, 190);
+            this.hudSerb.MinimumSize = new System.Drawing.Size(142, 154);
             this.hudSerb.mode = "Unknown";
             this.hudSerb.Name = "hudSerb";
             this.hudSerb.navpitch = 0F;
@@ -2466,7 +1782,7 @@ namespace MissionPlanner.GCSViews
             this.hudSerb.pitch = 0F;
             this.hudSerb.roll = 0F;
             this.hudSerb.Russian = false;
-            this.hudSerb.Size = new System.Drawing.Size(190, 190);
+            this.hudSerb.Size = new System.Drawing.Size(142, 154);
             this.hudSerb.skyColor1 = System.Drawing.Color.Blue;
             this.hudSerb.skyColor2 = System.Drawing.Color.LightBlue;
             this.hudSerb.speedunit = null;
@@ -2493,13 +1809,13 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel5, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(270, 2);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(203, 2);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(75, 187);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(57, 140);
             this.tableLayoutPanel8.TabIndex = 6;
             // 
             // flowLayoutPanel6
@@ -2509,11 +1825,11 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel6.Controls.Add(this.label13);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 96);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(2, 66);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(69, 89);
+            this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(53, 72);
             this.flowLayoutPanel6.TabIndex = 3;
             // 
             // labelAGL
@@ -2522,11 +1838,11 @@ namespace MissionPlanner.GCSViews
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAGL.AutoSize = true;
             this.labelAGL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAGL.Location = new System.Drawing.Point(5, 5);
+            this.labelAGL.Location = new System.Drawing.Point(4, 4);
             this.labelAGL.Margin = new System.Windows.Forms.Padding(0);
             this.labelAGL.Name = "labelAGL";
-            this.labelAGL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelAGL.Size = new System.Drawing.Size(60, 20);
+            this.labelAGL.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelAGL.Size = new System.Drawing.Size(45, 16);
             this.labelAGL.TabIndex = 9;
             this.labelAGL.Text = "AGL";
             this.labelAGL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2538,11 +1854,11 @@ namespace MissionPlanner.GCSViews
             this.labelValAgl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "alt", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelValAgl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAgl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAgl.Location = new System.Drawing.Point(5, 25);
+            this.labelValAgl.Location = new System.Drawing.Point(4, 20);
             this.labelValAgl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAgl.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelValAgl.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelValAgl.Name = "labelValAgl";
-            this.labelValAgl.Size = new System.Drawing.Size(60, 24);
+            this.labelValAgl.Size = new System.Drawing.Size(45, 20);
             this.labelValAgl.TabIndex = 10;
             this.labelValAgl.Text = "7000";
             this.labelValAgl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2551,10 +1867,11 @@ namespace MissionPlanner.GCSViews
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 49);
+            this.label13.Location = new System.Drawing.Point(6, 40);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label13.Size = new System.Drawing.Size(52, 16);
+            this.label13.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 11;
             this.label13.Text = "meter";
             // 
@@ -2565,23 +1882,23 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanel5.Controls.Add(this.label9);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(69, 90);
+            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(53, 60);
             this.flowLayoutPanel5.TabIndex = 2;
             // 
             // labelASL
             // 
             this.labelASL.AutoSize = true;
             this.labelASL.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelASL.Location = new System.Drawing.Point(5, 5);
+            this.labelASL.Location = new System.Drawing.Point(4, 4);
             this.labelASL.Margin = new System.Windows.Forms.Padding(0);
-            this.labelASL.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelASL.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelASL.Name = "labelASL";
-            this.labelASL.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelASL.Size = new System.Drawing.Size(60, 20);
+            this.labelASL.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelASL.Size = new System.Drawing.Size(45, 16);
             this.labelASL.TabIndex = 9;
             this.labelASL.Text = "ASL";
             this.labelASL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2591,11 +1908,11 @@ namespace MissionPlanner.GCSViews
             this.labelValAsl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "altasl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "000"));
             this.labelValAsl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAsl.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAsl.Location = new System.Drawing.Point(5, 25);
+            this.labelValAsl.Location = new System.Drawing.Point(4, 20);
             this.labelValAsl.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAsl.MinimumSize = new System.Drawing.Size(45, 0);
+            this.labelValAsl.MinimumSize = new System.Drawing.Size(34, 0);
             this.labelValAsl.Name = "labelValAsl";
-            this.labelValAsl.Size = new System.Drawing.Size(60, 28);
+            this.labelValAsl.Size = new System.Drawing.Size(45, 23);
             this.labelValAsl.TabIndex = 10;
             this.labelValAsl.Text = "8000";
             this.labelValAsl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2603,10 +1920,11 @@ namespace MissionPlanner.GCSViews
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 53);
+            this.label9.Location = new System.Drawing.Point(6, 43);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label9.Size = new System.Drawing.Size(52, 16);
+            this.label9.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "meter";
             // 
@@ -2617,13 +1935,13 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanelPitch, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanelRoll, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 2);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(74, 187);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(56, 140);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // flowLayoutPanelPitch
@@ -2633,24 +1951,24 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelPitch.Controls.Add(this.labelSpeedUnit);
             this.flowLayoutPanelPitch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelPitch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(3, 96);
-            this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelPitch.Location = new System.Drawing.Point(2, 66);
+            this.flowLayoutPanelPitch.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelPitch.Name = "flowLayoutPanelPitch";
-            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(68, 89);
+            this.flowLayoutPanelPitch.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanelPitch.Size = new System.Drawing.Size(52, 72);
             this.flowLayoutPanelPitch.TabIndex = 1;
             // 
             // labelTitleAS
             // 
             this.labelTitleAS.AutoSize = true;
             this.labelTitleAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleAS.Location = new System.Drawing.Point(5, 5);
+            this.labelTitleAS.Location = new System.Drawing.Point(4, 4);
             this.labelTitleAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTitleAS.MaximumSize = new System.Drawing.Size(50, 0);
-            this.labelTitleAS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelTitleAS.MaximumSize = new System.Drawing.Size(38, 0);
+            this.labelTitleAS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelTitleAS.Name = "labelTitleAS";
-            this.labelTitleAS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelTitleAS.Size = new System.Drawing.Size(60, 0);
+            this.labelTitleAS.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelTitleAS.Size = new System.Drawing.Size(45, 16);
             this.labelTitleAS.TabIndex = 9;
             this.labelTitleAS.Text = "Pitch";
             this.labelTitleAS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2661,11 +1979,11 @@ namespace MissionPlanner.GCSViews
             this.labelValAS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "pitch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValAS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValAS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValAS.Location = new System.Drawing.Point(5, 25);
+            this.labelValAS.Location = new System.Drawing.Point(4, 20);
             this.labelValAS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValAS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelValAS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelValAS.Name = "labelValAS";
-            this.labelValAS.Size = new System.Drawing.Size(60, 24);
+            this.labelValAS.Size = new System.Drawing.Size(45, 20);
             this.labelValAS.TabIndex = 10;
             this.labelValAS.Text = "34.5";
             this.labelValAS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -2674,11 +1992,12 @@ namespace MissionPlanner.GCSViews
             // labelSpeedUnit
             // 
             this.labelSpeedUnit.AutoSize = true;
-            this.labelSpeedUnit.Location = new System.Drawing.Point(8, 49);
-            this.labelSpeedUnit.MinimumSize = new System.Drawing.Size(52, 0);
+            this.labelSpeedUnit.Location = new System.Drawing.Point(6, 40);
+            this.labelSpeedUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSpeedUnit.MinimumSize = new System.Drawing.Size(39, 0);
             this.labelSpeedUnit.Name = "labelSpeedUnit";
-            this.labelSpeedUnit.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelSpeedUnit.Size = new System.Drawing.Size(52, 16);
+            this.labelSpeedUnit.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelSpeedUnit.Size = new System.Drawing.Size(39, 13);
             this.labelSpeedUnit.TabIndex = 11;
             this.labelSpeedUnit.Text = "deg";
             // 
@@ -2689,23 +2008,23 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelRoll.Controls.Add(this.labelUnitRoll);
             this.flowLayoutPanelRoll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelRoll.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelRoll.Location = new System.Drawing.Point(3, 2);
-            this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelRoll.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanelRoll.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelRoll.Name = "flowLayoutPanelRoll";
-            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(68, 90);
+            this.flowLayoutPanelRoll.Padding = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanelRoll.Size = new System.Drawing.Size(52, 60);
             this.flowLayoutPanelRoll.TabIndex = 0;
             // 
             // labelTitleGS
             // 
             this.labelTitleGS.AutoSize = true;
             this.labelTitleGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleGS.Location = new System.Drawing.Point(5, 5);
+            this.labelTitleGS.Location = new System.Drawing.Point(4, 4);
             this.labelTitleGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelTitleGS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelTitleGS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelTitleGS.Name = "labelTitleGS";
-            this.labelTitleGS.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelTitleGS.Size = new System.Drawing.Size(60, 20);
+            this.labelTitleGS.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelTitleGS.Size = new System.Drawing.Size(45, 16);
             this.labelTitleGS.TabIndex = 4;
             this.labelTitleGS.Text = "Roll";
             this.labelTitleGS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2716,11 +2035,11 @@ namespace MissionPlanner.GCSViews
             this.labelValGS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "roll", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0"));
             this.labelValGS.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelValGS.Font = new System.Drawing.Font("Segoe UI Variable Text", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValGS.Location = new System.Drawing.Point(5, 25);
+            this.labelValGS.Location = new System.Drawing.Point(4, 20);
             this.labelValGS.Margin = new System.Windows.Forms.Padding(0);
-            this.labelValGS.MinimumSize = new System.Drawing.Size(60, 0);
+            this.labelValGS.MinimumSize = new System.Drawing.Size(45, 0);
             this.labelValGS.Name = "labelValGS";
-            this.labelValGS.Size = new System.Drawing.Size(60, 28);
+            this.labelValGS.Size = new System.Drawing.Size(45, 23);
             this.labelValGS.TabIndex = 5;
             this.labelValGS.Text = "45.7";
             this.labelValGS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2728,14 +2047,728 @@ namespace MissionPlanner.GCSViews
             // labelUnitRoll
             // 
             this.labelUnitRoll.AutoSize = true;
-            this.labelUnitRoll.Location = new System.Drawing.Point(5, 53);
+            this.labelUnitRoll.Location = new System.Drawing.Point(4, 43);
             this.labelUnitRoll.Margin = new System.Windows.Forms.Padding(0);
-            this.labelUnitRoll.MinimumSize = new System.Drawing.Size(52, 0);
+            this.labelUnitRoll.MinimumSize = new System.Drawing.Size(39, 0);
             this.labelUnitRoll.Name = "labelUnitRoll";
-            this.labelUnitRoll.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.labelUnitRoll.Size = new System.Drawing.Size(52, 16);
+            this.labelUnitRoll.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.labelUnitRoll.Size = new System.Drawing.Size(39, 13);
             this.labelUnitRoll.TabIndex = 6;
             this.labelUnitRoll.Text = "deg";
+            // 
+            // waypointIndicator1
+            // 
+            this.waypointIndicator1.DataBindings.Add(new System.Windows.Forms.Binding("WaypointNumber", this.bindingSourceHUD, "wpno", true));
+            this.waypointIndicator1.DataBindings.Add(new System.Windows.Forms.Binding("Distance", this.bindingSourceHUD, "wp_dist", true));
+            this.waypointIndicator1.Distance = 0F;
+            this.waypointIndicator1.DistanceUnit = "m";
+            this.waypointIndicator1.FlightMode = "STABILIZE";
+            this.waypointIndicator1.Location = new System.Drawing.Point(22, 64);
+            this.waypointIndicator1.Margin = new System.Windows.Forms.Padding(8, 2, 2, 8);
+            this.waypointIndicator1.MinimumSize = new System.Drawing.Size(210, 49);
+            this.waypointIndicator1.Name = "waypointIndicator1";
+            this.waypointIndicator1.Size = new System.Drawing.Size(254, 49);
+            this.waypointIndicator1.TabIndex = 28;
+            this.waypointIndicator1.WaypointNumber = 0;
+            // 
+            // tableLayoutPanelBatGPS
+            // 
+            this.tableLayoutPanelBatGPS.ColumnCount = 3;
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.89174F));
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.75214F));
+            this.tableLayoutPanelBatGPS.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.35612F));
+            this.tableLayoutPanelBatGPS.Controls.Add(this.lblMessage, 2, 3);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.klcButtonArmDisArm, 0, 3);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label15, 2, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label10, 2, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel16, 1, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel17, 1, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.label16, 2, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel18, 1, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel11, 0, 0);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel15, 0, 2);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.flowLayoutPanel14, 0, 1);
+            this.tableLayoutPanelBatGPS.Controls.Add(this.animatedTextControl1, 1, 3);
+            this.tableLayoutPanelBatGPS.Location = new System.Drawing.Point(370, 155);
+            this.tableLayoutPanelBatGPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            this.tableLayoutPanelBatGPS.Name = "tableLayoutPanelBatGPS";
+            this.tableLayoutPanelBatGPS.RowCount = 4;
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelBatGPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanelBatGPS.Size = new System.Drawing.Size(272, 165);
+            this.tableLayoutPanelBatGPS.TabIndex = 23;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHigh", true));
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblMessage.Location = new System.Drawing.Point(204, 123);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(66, 42);
+            this.lblMessage.TabIndex = 27;
+            this.lblMessage.Text = "No Connection Warning : 34";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // klcButtonArmDisArm
+            // 
+            this.klcButtonArmDisArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.klcButtonArmDisArm.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonArmDisArm.FlatAppearance.BorderSize = 0;
+            this.klcButtonArmDisArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonArmDisArm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonArmDisArm.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonArmDisArm.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonArmDisArm.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonArmDisArm.KLCBorderRadius = 1;
+            this.klcButtonArmDisArm.KLCBorderSize = 0;
+            this.klcButtonArmDisArm.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonArmDisArm.Location = new System.Drawing.Point(2, 135);
+            this.klcButtonArmDisArm.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonArmDisArm.Name = "klcButtonArmDisArm";
+            this.klcButtonArmDisArm.Size = new System.Drawing.Size(77, 28);
+            this.klcButtonArmDisArm.TabIndex = 29;
+            this.klcButtonArmDisArm.Text = "Arm/DisArm";
+            this.klcButtonArmDisArm.UseVisualStyleBackColor = false;
+            this.klcButtonArmDisArm.Click += new System.EventHandler(this.klcButtonArmDisArm_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(204, 82);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label15.Size = new System.Drawing.Size(63, 20);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Set Loiter Rad";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(204, 41);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label10.Size = new System.Drawing.Size(61, 20);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Set Speed";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel16
+            // 
+            this.flowLayoutPanel16.Controls.Add(this.klcButtonSetSpeed);
+            this.flowLayoutPanel16.Controls.Add(this.numericUpDownSpeed);
+            this.flowLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(105, 43);
+            this.flowLayoutPanel16.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(95, 37);
+            this.flowLayoutPanel16.TabIndex = 19;
+            // 
+            // klcButtonSetSpeed
+            // 
+            this.klcButtonSetSpeed.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetSpeed.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetSpeed.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetSpeed.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetSpeed.Image")));
+            this.klcButtonSetSpeed.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetSpeed.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetSpeed.KLCBorderRadius = 8;
+            this.klcButtonSetSpeed.KLCBorderSize = 0;
+            this.klcButtonSetSpeed.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetSpeed.Location = new System.Drawing.Point(2, 0);
+            this.klcButtonSetSpeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.klcButtonSetSpeed.Name = "klcButtonSetSpeed";
+            this.klcButtonSetSpeed.Size = new System.Drawing.Size(30, 20);
+            this.klcButtonSetSpeed.TabIndex = 20;
+            this.klcButtonSetSpeed.UseCompatibleTextRendering = true;
+            this.klcButtonSetSpeed.UseVisualStyleBackColor = false;
+            this.klcButtonSetSpeed.Click += new System.EventHandler(this.klcButtonSetSpeed_Click);
+            // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(36, 2);
+            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDownSpeed.TabIndex = 13;
+            this.numericUpDownSpeed.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Controls.Add(this.klcButtonSetAlt);
+            this.flowLayoutPanel17.Controls.Add(this.numericUpDownAlt);
+            this.flowLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(105, 2);
+            this.flowLayoutPanel17.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(95, 37);
+            this.flowLayoutPanel17.TabIndex = 22;
+            // 
+            // klcButtonSetAlt
+            // 
+            this.klcButtonSetAlt.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetAlt.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetAlt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetAlt.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetAlt.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetAlt.Image")));
+            this.klcButtonSetAlt.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetAlt.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetAlt.KLCBorderRadius = 8;
+            this.klcButtonSetAlt.KLCBorderSize = 0;
+            this.klcButtonSetAlt.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetAlt.Location = new System.Drawing.Point(2, 0);
+            this.klcButtonSetAlt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.klcButtonSetAlt.Name = "klcButtonSetAlt";
+            this.klcButtonSetAlt.Size = new System.Drawing.Size(30, 20);
+            this.klcButtonSetAlt.TabIndex = 19;
+            this.klcButtonSetAlt.UseCompatibleTextRendering = true;
+            this.klcButtonSetAlt.UseVisualStyleBackColor = false;
+            this.klcButtonSetAlt.Click += new System.EventHandler(this.klcButtonSetAlt_ClickAsync);
+            // 
+            // numericUpDownAlt
+            // 
+            this.numericUpDownAlt.Location = new System.Drawing.Point(36, 2);
+            this.numericUpDownAlt.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDownAlt.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownAlt.Name = "numericUpDownAlt";
+            this.numericUpDownAlt.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDownAlt.TabIndex = 13;
+            this.numericUpDownAlt.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(204, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.MaximumSize = new System.Drawing.Size(0, 20);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label16.Size = new System.Drawing.Size(44, 20);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Set Alt";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel18
+            // 
+            this.flowLayoutPanel18.Controls.Add(this.klcButtonSetLoiterRad);
+            this.flowLayoutPanel18.Controls.Add(this.numericUpDownLoiter);
+            this.flowLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(105, 84);
+            this.flowLayoutPanel18.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(95, 37);
+            this.flowLayoutPanel18.TabIndex = 23;
+            // 
+            // klcButtonSetLoiterRad
+            // 
+            this.klcButtonSetLoiterRad.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetLoiterRad.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetLoiterRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetLoiterRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetLoiterRad.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetLoiterRad.Image = ((System.Drawing.Image)(resources.GetObject("klcButtonSetLoiterRad.Image")));
+            this.klcButtonSetLoiterRad.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonSetLoiterRad.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetLoiterRad.KLCBorderRadius = 8;
+            this.klcButtonSetLoiterRad.KLCBorderSize = 0;
+            this.klcButtonSetLoiterRad.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetLoiterRad.Location = new System.Drawing.Point(2, 0);
+            this.klcButtonSetLoiterRad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.klcButtonSetLoiterRad.Name = "klcButtonSetLoiterRad";
+            this.klcButtonSetLoiterRad.Size = new System.Drawing.Size(30, 20);
+            this.klcButtonSetLoiterRad.TabIndex = 20;
+            this.klcButtonSetLoiterRad.UseCompatibleTextRendering = true;
+            this.klcButtonSetLoiterRad.UseVisualStyleBackColor = false;
+            this.klcButtonSetLoiterRad.Click += new System.EventHandler(this.klcButtonSetLoiterRad_Click);
+            // 
+            // numericUpDownLoiter
+            // 
+            this.numericUpDownLoiter.Location = new System.Drawing.Point(36, 2);
+            this.numericUpDownLoiter.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDownLoiter.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownLoiter.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownLoiter.Name = "numericUpDownLoiter";
+            this.numericUpDownLoiter.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDownLoiter.TabIndex = 13;
+            this.numericUpDownLoiter.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.Controls.Add(this.pictureBox6);
+            this.flowLayoutPanel11.Controls.Add(this.labelBatteryLevel);
+            this.flowLayoutPanel11.Controls.Add(this.labelBatteryVoltages);
+            this.flowLayoutPanel11.Controls.Add(this.label3);
+            this.flowLayoutPanel11.Controls.Add(this.labelBatteryCurrent);
+            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(99, 37);
+            this.flowLayoutPanel11.TabIndex = 16;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // labelBatteryLevel
+            // 
+            this.labelBatteryLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryLevel.AutoSize = true;
+            this.labelBatteryLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_remaining", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "00 \'%\'"));
+            this.labelBatteryLevel.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryLevel.Location = new System.Drawing.Point(22, 2);
+            this.labelBatteryLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBatteryLevel.MaximumSize = new System.Drawing.Size(26, 11);
+            this.labelBatteryLevel.MinimumSize = new System.Drawing.Size(26, 0);
+            this.labelBatteryLevel.Name = "labelBatteryLevel";
+            this.labelBatteryLevel.Size = new System.Drawing.Size(26, 11);
+            this.labelBatteryLevel.TabIndex = 1;
+            this.labelBatteryLevel.Text = "87 %";
+            this.labelBatteryLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelBatteryVoltages
+            // 
+            this.labelBatteryVoltages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryVoltages.AutoSize = true;
+            this.labelBatteryVoltages.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "battery_voltage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 V"));
+            this.labelBatteryVoltages.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryVoltages.Location = new System.Drawing.Point(52, 2);
+            this.labelBatteryVoltages.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBatteryVoltages.MaximumSize = new System.Drawing.Size(0, 11);
+            this.labelBatteryVoltages.Name = "labelBatteryVoltages";
+            this.labelBatteryVoltages.Size = new System.Drawing.Size(31, 11);
+            this.labelBatteryVoltages.TabIndex = 2;
+            this.labelBatteryVoltages.Text = "87 %";
+            this.labelBatteryVoltages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "            ";
+            // 
+            // labelBatteryCurrent
+            // 
+            this.labelBatteryCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBatteryCurrent.AutoSize = true;
+            this.labelBatteryCurrent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "current", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "", "0.00 A"));
+            this.labelBatteryCurrent.Font = new System.Drawing.Font("Segoe UI Variable Text", 7F, System.Drawing.FontStyle.Bold);
+            this.labelBatteryCurrent.Location = new System.Drawing.Point(49, 17);
+            this.labelBatteryCurrent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBatteryCurrent.MaximumSize = new System.Drawing.Size(0, 11);
+            this.labelBatteryCurrent.Name = "labelBatteryCurrent";
+            this.labelBatteryCurrent.Size = new System.Drawing.Size(31, 11);
+            this.labelBatteryCurrent.TabIndex = 3;
+            this.labelBatteryCurrent.Text = "87 %";
+            this.labelBatteryCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel15
+            // 
+            this.flowLayoutPanel15.Controls.Add(this.pictureBox8);
+            this.flowLayoutPanel15.Controls.Add(this.labelTimeInAir);
+            this.flowLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(2, 84);
+            this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(99, 37);
+            this.flowLayoutPanel15.TabIndex = 18;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // labelTimeInAir
+            // 
+            this.labelTimeInAir.AutoSize = true;
+            this.labelTimeInAir.BackColor = System.Drawing.Color.Transparent;
+            this.labelTimeInAir.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "timeInAir", true));
+            this.labelTimeInAir.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeInAir.Location = new System.Drawing.Point(22, 2);
+            this.labelTimeInAir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            this.labelTimeInAir.MaximumSize = new System.Drawing.Size(0, 16);
+            this.labelTimeInAir.MinimumSize = new System.Drawing.Size(41, 0);
+            this.labelTimeInAir.Name = "labelTimeInAir";
+            this.labelTimeInAir.Size = new System.Drawing.Size(55, 16);
+            this.labelTimeInAir.TabIndex = 1;
+            this.labelTimeInAir.Text = "00:23:34";
+            this.labelTimeInAir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel14
+            // 
+            this.flowLayoutPanel14.Controls.Add(this.pictureBox7);
+            this.flowLayoutPanel14.Controls.Add(this.labelGPSStatus);
+            this.flowLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(2, 43);
+            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(99, 37);
+            this.flowLayoutPanel14.TabIndex = 18;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // labelGPSStatus
+            // 
+            this.labelGPSStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelGPSStatus.AutoSize = true;
+            this.labelGPSStatus.Font = new System.Drawing.Font("Segoe UI Variable Text", 7.5F, System.Drawing.FontStyle.Bold);
+            this.labelGPSStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelGPSStatus.Location = new System.Drawing.Point(22, 4);
+            this.labelGPSStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            this.labelGPSStatus.MaximumSize = new System.Drawing.Size(0, 16);
+            this.labelGPSStatus.Name = "labelGPSStatus";
+            this.labelGPSStatus.Size = new System.Drawing.Size(68, 14);
+            this.labelGPSStatus.TabIndex = 1;
+            this.labelGPSStatus.Text = "GPS: No GPS";
+            this.labelGPSStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // animatedTextControl1
+            // 
+            this.animatedTextControl1.ArmStatus = false;
+            this.animatedTextControl1.BackColor = System.Drawing.Color.Transparent;
+            this.animatedTextControl1.DataBindings.Add(new System.Windows.Forms.Binding("ArmStatus", this.bindingSourceHUD, "armed", true));
+            this.animatedTextControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.animatedTextControl1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.animatedTextControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.animatedTextControl1.Location = new System.Drawing.Point(105, 135);
+            this.animatedTextControl1.Margin = new System.Windows.Forms.Padding(2, 0, 0, 2);
+            this.animatedTextControl1.Name = "animatedTextControl1";
+            this.animatedTextControl1.Size = new System.Drawing.Size(97, 28);
+            this.animatedTextControl1.TabIndex = 28;
+            this.animatedTextControl1.Text = "DISARMED";
+            // 
+            // tableLayoutPanelButtons
+            // 
+            this.tableLayoutPanelButtons.AutoSize = true;
+            this.tableLayoutPanelButtons.ColumnCount = 4;
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonRTL, 1, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonAuto, 0, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonDoAction, 0, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_setwp, 1, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_action, 0, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_modes, 2, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.CMB_mountmode, 3, 0);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetWP, 1, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMode, 2, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonSetMount, 3, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButtonLoiter, 2, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.klcButton20, 3, 2);
+            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(370, 1);
+            this.tableLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.tableLayoutPanelButtons.MaximumSize = new System.Drawing.Size(0, 244);
+            this.tableLayoutPanelButtons.MinimumSize = new System.Drawing.Size(262, 0);
+            this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            this.tableLayoutPanelButtons.RowCount = 3;
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.51899F));
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.50633F));
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.97468F));
+            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(272, 158);
+            this.tableLayoutPanelButtons.TabIndex = 21;
+            // 
+            // klcButtonRTL
+            // 
+            this.klcButtonRTL.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonRTL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonRTL.FlatAppearance.BorderSize = 0;
+            this.klcButtonRTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonRTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonRTL.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonRTL.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonRTL.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonRTL.KLCBorderRadius = 1;
+            this.klcButtonRTL.KLCBorderSize = 0;
+            this.klcButtonRTL.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonRTL.Location = new System.Drawing.Point(70, 100);
+            this.klcButtonRTL.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonRTL.Name = "klcButtonRTL";
+            this.klcButtonRTL.Size = new System.Drawing.Size(64, 56);
+            this.klcButtonRTL.TabIndex = 15;
+            this.klcButtonRTL.Text = "RTL";
+            this.klcButtonRTL.UseVisualStyleBackColor = false;
+            this.klcButtonRTL.Click += new System.EventHandler(this.klcButtonRTL_Click);
+            // 
+            // klcButtonAuto
+            // 
+            this.klcButtonAuto.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonAuto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonAuto.FlatAppearance.BorderSize = 0;
+            this.klcButtonAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonAuto.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonAuto.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonAuto.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonAuto.KLCBorderRadius = 1;
+            this.klcButtonAuto.KLCBorderSize = 0;
+            this.klcButtonAuto.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonAuto.Location = new System.Drawing.Point(2, 100);
+            this.klcButtonAuto.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonAuto.Name = "klcButtonAuto";
+            this.klcButtonAuto.Size = new System.Drawing.Size(64, 56);
+            this.klcButtonAuto.TabIndex = 14;
+            this.klcButtonAuto.Text = "Auto";
+            this.klcButtonAuto.UseVisualStyleBackColor = false;
+            this.klcButtonAuto.Click += new System.EventHandler(this.klcButtonAuto_Click);
+            // 
+            // klcButtonDoAction
+            // 
+            this.klcButtonDoAction.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonDoAction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonDoAction.FlatAppearance.BorderSize = 0;
+            this.klcButtonDoAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonDoAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonDoAction.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonDoAction.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonDoAction.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonDoAction.KLCBorderRadius = 1;
+            this.klcButtonDoAction.KLCBorderSize = 0;
+            this.klcButtonDoAction.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonDoAction.Location = new System.Drawing.Point(2, 36);
+            this.klcButtonDoAction.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonDoAction.Name = "klcButtonDoAction";
+            this.klcButtonDoAction.Size = new System.Drawing.Size(64, 60);
+            this.klcButtonDoAction.TabIndex = 13;
+            this.klcButtonDoAction.Text = "Do Action";
+            this.klcButtonDoAction.UseVisualStyleBackColor = false;
+            this.klcButtonDoAction.Click += new System.EventHandler(this.klcButtonDoAction_Click);
+            // 
+            // CMB_setwp
+            // 
+            this.CMB_setwp.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CMB_setwp.DropDownWidth = 200;
+            this.CMB_setwp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_setwp.FormattingEnabled = true;
+            this.CMB_setwp.Location = new System.Drawing.Point(70, 7);
+            this.CMB_setwp.Margin = new System.Windows.Forms.Padding(2);
+            this.CMB_setwp.Name = "CMB_setwp";
+            this.CMB_setwp.Size = new System.Drawing.Size(64, 24);
+            this.CMB_setwp.TabIndex = 11;
+            this.CMB_setwp.Click += new System.EventHandler(this.CMB_setwp_Click_1);
+            // 
+            // CMB_action
+            // 
+            this.CMB_action.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CMB_action.DropDownWidth = 200;
+            this.CMB_action.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_action.FormattingEnabled = true;
+            this.CMB_action.Location = new System.Drawing.Point(2, 7);
+            this.CMB_action.Margin = new System.Windows.Forms.Padding(2);
+            this.CMB_action.Name = "CMB_action";
+            this.CMB_action.Size = new System.Drawing.Size(64, 24);
+            this.CMB_action.TabIndex = 9;
+            // 
+            // CMB_modes
+            // 
+            this.CMB_modes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CMB_modes.DropDownWidth = 200;
+            this.CMB_modes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_modes.FormattingEnabled = true;
+            this.CMB_modes.Location = new System.Drawing.Point(138, 7);
+            this.CMB_modes.Margin = new System.Windows.Forms.Padding(2);
+            this.CMB_modes.Name = "CMB_modes";
+            this.CMB_modes.Size = new System.Drawing.Size(64, 24);
+            this.CMB_modes.TabIndex = 10;
+            // 
+            // CMB_mountmode
+            // 
+            this.CMB_mountmode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CMB_mountmode.DropDownWidth = 200;
+            this.CMB_mountmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CMB_mountmode.FormattingEnabled = true;
+            this.CMB_mountmode.Location = new System.Drawing.Point(206, 7);
+            this.CMB_mountmode.Margin = new System.Windows.Forms.Padding(2);
+            this.CMB_mountmode.Name = "CMB_mountmode";
+            this.CMB_mountmode.Size = new System.Drawing.Size(64, 24);
+            this.CMB_mountmode.TabIndex = 12;
+            // 
+            // klcButtonSetWP
+            // 
+            this.klcButtonSetWP.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetWP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonSetWP.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetWP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetWP.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetWP.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetWP.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetWP.KLCBorderRadius = 1;
+            this.klcButtonSetWP.KLCBorderSize = 0;
+            this.klcButtonSetWP.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetWP.Location = new System.Drawing.Point(70, 36);
+            this.klcButtonSetWP.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonSetWP.Name = "klcButtonSetWP";
+            this.klcButtonSetWP.Size = new System.Drawing.Size(64, 60);
+            this.klcButtonSetWP.TabIndex = 6;
+            this.klcButtonSetWP.Text = "Set WP";
+            this.klcButtonSetWP.UseVisualStyleBackColor = false;
+            this.klcButtonSetWP.Click += new System.EventHandler(this.klcButtonSetWP_Click);
+            // 
+            // klcButtonSetMode
+            // 
+            this.klcButtonSetMode.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonSetMode.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klcButtonSetMode.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetMode.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetMode.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetMode.KLCBorderRadius = 1;
+            this.klcButtonSetMode.KLCBorderSize = 0;
+            this.klcButtonSetMode.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetMode.Location = new System.Drawing.Point(138, 36);
+            this.klcButtonSetMode.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonSetMode.Name = "klcButtonSetMode";
+            this.klcButtonSetMode.Size = new System.Drawing.Size(64, 60);
+            this.klcButtonSetMode.TabIndex = 7;
+            this.klcButtonSetMode.Text = "Set Mode";
+            this.klcButtonSetMode.UseVisualStyleBackColor = false;
+            this.klcButtonSetMode.Click += new System.EventHandler(this.klcButtonSetMode_Click);
+            // 
+            // klcButtonSetMount
+            // 
+            this.klcButtonSetMount.BackColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetMount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonSetMount.FlatAppearance.BorderSize = 0;
+            this.klcButtonSetMount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonSetMount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButtonSetMount.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetMount.KLCBackgroundColor = System.Drawing.Color.OliveDrab;
+            this.klcButtonSetMount.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonSetMount.KLCBorderRadius = 1;
+            this.klcButtonSetMount.KLCBorderSize = 0;
+            this.klcButtonSetMount.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonSetMount.Location = new System.Drawing.Point(206, 36);
+            this.klcButtonSetMount.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonSetMount.Name = "klcButtonSetMount";
+            this.klcButtonSetMount.Size = new System.Drawing.Size(64, 60);
+            this.klcButtonSetMount.TabIndex = 8;
+            this.klcButtonSetMount.Text = "Set Mount";
+            this.klcButtonSetMount.UseVisualStyleBackColor = false;
+            this.klcButtonSetMount.Click += new System.EventHandler(this.klcButtonSetMount_Click);
+            // 
+            // klcButtonLoiter
+            // 
+            this.klcButtonLoiter.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonLoiter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButtonLoiter.FlatAppearance.BorderSize = 0;
+            this.klcButtonLoiter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButtonLoiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.klcButtonLoiter.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButtonLoiter.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButtonLoiter.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButtonLoiter.KLCBorderRadius = 1;
+            this.klcButtonLoiter.KLCBorderSize = 0;
+            this.klcButtonLoiter.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButtonLoiter.Location = new System.Drawing.Point(138, 100);
+            this.klcButtonLoiter.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButtonLoiter.Name = "klcButtonLoiter";
+            this.klcButtonLoiter.Size = new System.Drawing.Size(64, 56);
+            this.klcButtonLoiter.TabIndex = 2;
+            this.klcButtonLoiter.Text = "Loiter";
+            this.klcButtonLoiter.UseVisualStyleBackColor = false;
+            this.klcButtonLoiter.Click += new System.EventHandler(this.klcButtonLoiter_Click);
+            // 
+            // klcButton20
+            // 
+            this.klcButton20.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.klcButton20.FlatAppearance.BorderSize = 0;
+            this.klcButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.klcButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.klcButton20.ForeColor = System.Drawing.Color.DimGray;
+            this.klcButton20.KLCBackgroundColor = System.Drawing.Color.MediumSeaGreen;
+            this.klcButton20.KLCBorderColor = System.Drawing.Color.PaleVioletRed;
+            this.klcButton20.KLCBorderRadius = 1;
+            this.klcButton20.KLCBorderSize = 0;
+            this.klcButton20.KLCTextColor = System.Drawing.Color.DimGray;
+            this.klcButton20.Location = new System.Drawing.Point(206, 100);
+            this.klcButton20.Margin = new System.Windows.Forms.Padding(2);
+            this.klcButton20.Name = "klcButton20";
+            this.klcButton20.Size = new System.Drawing.Size(64, 56);
+            this.klcButton20.TabIndex = 3;
+            this.klcButton20.Text = "Restart Mission";
+            this.klcButton20.UseVisualStyleBackColor = false;
+            this.klcButton20.Click += new System.EventHandler(this.klcButton20_Click);
             // 
             // timerTest
             // 
@@ -2746,42 +2779,78 @@ namespace MissionPlanner.GCSViews
             // 
             this.timerZedGraph.Tick += new System.EventHandler(this.timerZedGraph_Tick);
             // 
-            // gLabelWarning2
+            // betterFolderBrowser1
             // 
-            this.gLabelWarning2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.gLabelWarning2.BackColor = System.Drawing.Color.Transparent;
-            this.gLabelWarning2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHighSeverity", true));
-            this.gLabelWarning2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gLabelWarning2.ForeColor = System.Drawing.Color.Red;
-            this.gLabelWarning2.Location = new System.Drawing.Point(422, 7);
-            this.gLabelWarning2.Name = "gLabelWarning2";
-            this.gLabelWarning2.Size = new System.Drawing.Size(180, 24);
-            this.gLabelWarning2.TabIndex = 28;
-            this.gLabelWarning2.Text = "Warning Text";
-            this.gLabelWarning2.Visible = false;
+            this.betterFolderBrowser1.Multiselect = false;
+            this.betterFolderBrowser1.RootFolder = "C:\\Users\\pc\\Desktop";
+            this.betterFolderBrowser1.Title = "Please select a folder...";
             // 
-            // gLabelWarning1
+            // flightStatusView1
             // 
-            this.gLabelWarning1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.gLabelWarning1.BackColor = System.Drawing.Color.Transparent;
-            this.gLabelWarning1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceHUD, "messageHigh", true));
-            this.gLabelWarning1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gLabelWarning1.ForeColor = System.Drawing.Color.Red;
-            this.gLabelWarning1.Location = new System.Drawing.Point(236, 7);
-            this.gLabelWarning1.Name = "gLabelWarning1";
-            this.gLabelWarning1.Size = new System.Drawing.Size(180, 24);
-            this.gLabelWarning1.TabIndex = 29;
-            this.gLabelWarning1.Text = "Warning Text";
-            this.gLabelWarning1.Visible = false;
+            this.flightStatusView1.BackColor = System.Drawing.Color.Black;
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Armed", this.bindingSourceHUD, "armed", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("MessageSeverity", this.bindingSourceHUD, "messageHighSeverity", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Message", this.bindingSourceHUD, "messageHigh", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Mode", this.bindingSourceHUD, "mode", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("TimeInAir", this.bindingSourceHUD, "timeInAir", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("NextWaypoint", this.bindingSourceHUD, "wpno", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("DistanceToWaypoint", this.bindingSourceHUD, "wp_dist", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery1Percent", this.bindingSourceHUD, "battery_remaining", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery1Voltage", this.bindingSourceHUD, "battery_voltage", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery1Current", this.bindingSourceHUD, "current", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery2Percent", this.bindingSourceHUD, "battery_remaining2", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery2Voltage", this.bindingSourceHUD, "battery_voltage2", true));
+            this.flightStatusView1.DataBindings.Add(new System.Windows.Forms.Binding("Battery2Current", this.bindingSourceHUD, "current2", true));
+            this.flightStatusView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flightStatusView1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.flightStatusView1.ForeColor = System.Drawing.Color.White;
+            this.flightStatusView1.Location = new System.Drawing.Point(2, 410);
+            this.flightStatusView1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flightStatusView1.Name = "flightStatusView1";
+            this.flightStatusView1.Size = new System.Drawing.Size(301, 590);
+            this.flightStatusView1.TabIndex = 1;
+            this.flightStatusView1.AltitudeSend += new System.EventHandler(this.flightStatusView1_AltitudeSend);
+            this.flightStatusView1.CMB_setwpClick += new System.EventHandler(this.CMB_setwp_Click_1);
+            this.flightStatusView1.SetModeClick += new System.EventHandler(this.flightStatusView1_SetModeClick);
+            this.flightStatusView1.DoActionClick += new System.EventHandler(this.klcButtonDoAction_Click);
+            this.flightStatusView1.SetWaypointClick += new System.EventHandler(this.flightStatusView1_SetWaypointClick);
+            this.flightStatusView1.AutoClick += new System.EventHandler(this.klcButtonAuto_Click);
+            this.flightStatusView1.LoiterClick += new System.EventHandler(this.klcButtonLoiter_Click);
+            this.flightStatusView1.ArmDisarmClick += new System.EventHandler(this.klcButtonARMD_Click);
+            this.flightStatusView1.Load += new System.EventHandler(this.flightStatusView1_Load);
+            // 
+            // flightHudView1
+            // 
+            this.flightHudView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("Roll", this.bindingSourceHUD, "roll", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("Pitch", this.bindingSourceHUD, "pitch", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceHUD, "yaw", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("AngleOfAttack", this.bindingSourceHUD, "AOA", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("AirSpeed", this.bindingSourceHUD, "airspeed", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("GroundSpeed", this.bindingSourceHUD, "groundspeed", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("AltitudeSeaLevel", this.bindingSourceHUD, "alt", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("AltitudeGroundLevel", this.bindingSourceHUD, "HomeAlt", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("SignalPercent", this.bindingSourceHUD, "linkqualitygcs", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("GpsStatus", this.bindingSourceHUD, "gpsstatus", true));
+            this.flightHudView1.DataBindings.Add(new System.Windows.Forms.Binding("HeadingBug", this.bindingSourceHUD, "nav_bearing", true));
+            this.flightHudView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flightHudView1.ForeColor = System.Drawing.Color.White;
+            this.flightHudView1.Location = new System.Drawing.Point(2, 0);
+            this.flightHudView1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.flightHudView1.Name = "flightHudView1";
+            this.flightHudView1.Size = new System.Drawing.Size(301, 410);
+            this.flightHudView1.TabIndex = 0;
+            this.flightHudView1.TabStop = false;
+            this.flightHudView1.Text = "flightHudView1";
             // 
             // FlightStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitMainPanel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FlightStatus";
-            this.Size = new System.Drawing.Size(1337, 670);
+            this.Size = new System.Drawing.Size(1003, 544);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FlightStatus_FormClosing);
             this.Load += new System.EventHandler(this.FlightStatus_Load);
             this.Validated += new System.EventHandler(this.FlightStatus_Validated);
@@ -2805,27 +2874,8 @@ namespace MissionPlanner.GCSViews
             this.tableLayoutPanelQuickView.ResumeLayout(false);
             this.tableLayoutPanelQuickView.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.flowLayoutPanelLayer1.ResumeLayout(false);
-            this.flowLayoutPanelLayer1.PerformLayout();
-            this.flowLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanelBatGPS.ResumeLayout(false);
-            this.tableLayoutPanelBatGPS.PerformLayout();
-            this.flowLayoutPanel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
-            this.flowLayoutPanel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).EndInit();
-            this.flowLayoutPanel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).EndInit();
-            this.flowLayoutPanel11.ResumeLayout(false);
-            this.flowLayoutPanel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.flowLayoutPanel15.ResumeLayout(false);
-            this.flowLayoutPanel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.flowLayoutPanel14.ResumeLayout(false);
-            this.flowLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.tableLayoutPanelButtons.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tableLayoutPanelHUD.ResumeLayout(false);
             this.tableLayoutPanelCompass.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -2858,6 +2908,24 @@ namespace MissionPlanner.GCSViews
             this.flowLayoutPanelPitch.PerformLayout();
             this.flowLayoutPanelRoll.ResumeLayout(false);
             this.flowLayoutPanelRoll.PerformLayout();
+            this.tableLayoutPanelBatGPS.ResumeLayout(false);
+            this.tableLayoutPanelBatGPS.PerformLayout();
+            this.flowLayoutPanel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
+            this.flowLayoutPanel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlt)).EndInit();
+            this.flowLayoutPanel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoiter)).EndInit();
+            this.flowLayoutPanel11.ResumeLayout(false);
+            this.flowLayoutPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.flowLayoutPanel15.ResumeLayout(false);
+            this.flowLayoutPanel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.flowLayoutPanel14.ResumeLayout(false);
+            this.flowLayoutPanel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.tableLayoutPanelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3001,29 +3069,29 @@ namespace MissionPlanner.GCSViews
         private Timer timerZedGraph;
         private FlowLayoutPanel flowLayoutPanel2;
         private KLCToolbox.KLCControls.KLCButton btnTelem;
-        private Controls.GraphicLabel gLabelWarning2;
         private ContextMenuStrip contextMenuStripMap;
         private ToolStripMenuItem goHereToolStripMenuItem;
         private ToolStripMenuItem flyToHereAltToolStripMenuItem;
         private ToolStripMenuItem takeOffToolStripMenuItem;
-        private Controls.GraphicLabel gLabelWarning1;
         private Label labelBatteryVoltages;
         private Label labelBatteryCurrent;
         private Label label3;
-        private Panel flowLayoutPanelLayer1;
         private Label lblMessage;
         private Label label6;
         private Label labelValAS;
         private SerbLabelControls.AnimatedTextControl animatedTextControl1;
         private Controls.WaypointIndicator waypointIndicator1;
         private KLCToolbox.KLCControls.KLCButton klcButtonArmDisArm;
-        private FlowLayoutPanel flowLayoutPanel12;
         private TabPage tabPage2;
         private SerbLabelControls.WhPanel whPanel5;
         private SerbLabelControls.WhPanel whPanel4;
         private SerbLabelControls.WhPanel whPanel3;
         private SerbLabelControls.WhPanel whPanel2;
         private SerbLabelControls.WhPanel whPanel1;
+        private TabPage tabPage3;
+        private FlightHud.FlightHudView flightHudView1;
+        private FlightHud.FlightStatusView flightStatusView1;
+        private WK.Libraries.BetterFolderBrowserNS.BetterFolderBrowser betterFolderBrowser1;
 
 
         // private AnimatedTextControl animatedTextControl1;

@@ -215,11 +215,15 @@ namespace MissionPlanner.GCSViews
             hudSerb.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
             CMB_mountmode.DataSource = Enum.GetNames(typeof(actions));
             CMB_modes.DataSource = ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
+            flightStatusView1.CMB_modes.DataSource= ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
+            flightStatusView1.CMB_modes.ValueMember = "Key";
+            flightStatusView1.CMB_modes.DisplayMember = "Value";
             CMB_modes.ValueMember = "Key";
             CMB_modes.DisplayMember = "Value";
-            //default to auto
+            //default to auto 
 
-            CMB_action.DataSource = Enum.GetNames(typeof(actions));
+            flightStatusView1.CMB_actions.DataSource = Enum.GetNames(typeof(actions));
+            
             CMB_modes.Text = "Auto";
             var item1 = ParameterMetaDataRepository.GetParameterOptionsInt("MNT_MODE",
                MainSerb.comPort.MAV.cs.firmware.ToString());
@@ -1441,10 +1445,7 @@ namespace MissionPlanner.GCSViews
 
         }
 
-        private void CMB_setwp_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void rjTextBox__TextChanged(object sender, EventArgs e)
         {
@@ -1817,10 +1818,7 @@ namespace MissionPlanner.GCSViews
             gMapControlSerb.OnMapZoomChanged += gMapControlSerb_OnMapZoomChanged;
         }
 
-        private void CMB_setwp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void rjToggleBtnArm_CheckedChanged(object sender, EventArgs e)
         {   bool isButtonChecked = false;
@@ -1908,7 +1906,7 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                if (CMB_action.Text == actions.Trigger_Camera.ToString())
+                if (flightStatusView1.CMB_actions.Text == actions.Trigger_Camera.ToString())
                 {
                     MainSerb.comPort.setDigicamControl(true);
                     return;
@@ -1920,7 +1918,7 @@ namespace MissionPlanner.GCSViews
                 return;
             }
 
-            if (CMB_action.Text == actions.Scripting_cmd_stop_and_restart.ToString())
+            if (flightStatusView1.CMB_actions.Text == actions.Scripting_cmd_stop_and_restart.ToString())
             {
                 try
                 {
@@ -1934,7 +1932,7 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            if (CMB_action.Text == actions.Scripting_cmd_stop.ToString())
+            if (flightStatusView1.CMB_actions.Text == actions.Scripting_cmd_stop.ToString())
             {
                 try
                 {
@@ -1948,7 +1946,7 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            if (CMB_action.Text == actions.System_Time.ToString())
+            if (flightStatusView1.CMB_actions.Text == actions.System_Time.ToString())
             {
                 var now = DateTime.UtcNow;
                 var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -1968,7 +1966,7 @@ namespace MissionPlanner.GCSViews
             }
 
             if (
-                CustomMessageBox.Show("Are you sure you want to do " + CMB_action.Text + " ?", "Action",
+                CustomMessageBox.Show("Are you sure you want to do " + flightStatusView1.CMB_actions.Text + " ?", "Action",
                     MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
             {
                 try
@@ -1980,33 +1978,33 @@ namespace MissionPlanner.GCSViews
                     int param3 = 1;
 
                     // request gyro
-                    if (CMB_action.Text == actions.Preflight_Calibration.ToString())
+                    if (flightStatusView1.CMB_actions.Text == actions.Preflight_Calibration.ToString())
                     {
                         if (MainSerb.comPort.MAV.cs.firmware == Firmwares.ArduCopter2)
                             param1 = 1; // gyro
                         param3 = 1; // baro / airspeed
                     }
 
-                    if (CMB_action.Text == actions.Preflight_Reboot_Shutdown.ToString())
+                    if (flightStatusView1.CMB_actions.Text == actions.Preflight_Reboot_Shutdown.ToString())
                     {
                         MainSerb.comPort.doReboot();
                         ((Control)sender).Enabled = true;
                         return;
                     }
-                    if (CMB_action.Text == actions.HighLatency_Enable.ToString())
+                    if (flightStatusView1.CMB_actions.Text == actions.HighLatency_Enable.ToString())
                     {
                         MainSerb.comPort.doHighLatency(true);
                         ((Control)sender).Enabled = true;
                         return;
                     }
-                    if (CMB_action.Text == actions.HighLatency_Disable.ToString())
+                    if (flightStatusView1.CMB_actions.Text == actions.HighLatency_Disable.ToString())
                     {
                         MainSerb.comPort.doHighLatency(false);
                         ((Control)sender).Enabled = true;
                         return;
                     }
 
-                    if (CMB_action.Text == actions.Battery_Reset.ToString())
+                    if (flightStatusView1.CMB_actions.Text == actions.Battery_Reset.ToString())
                     {
                         param1 = 0xff; // batt 1
                         param2 = 100; // 100%
@@ -2016,12 +2014,12 @@ namespace MissionPlanner.GCSViews
                     MAVLink.MAV_CMD cmd;
                     try
                     {
-                        cmd = (MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), CMB_action.Text.ToUpper());
+                        cmd = (MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD), flightStatusView1.CMB_actions.Text.ToUpper());
                     }
                     catch (ArgumentException ex)
                     {
                         cmd = (MAVLink.MAV_CMD)Enum.Parse(typeof(MAVLink.MAV_CMD),
-                            "DO_START_" + CMB_action.Text.ToUpper());
+                            "DO_START_" + flightStatusView1.CMB_actions.Text.ToUpper());
                     }
 
                     if (MainSerb.comPort.doCommand(cmd, param1, param2, param3, 0, 0, 0, 0))
@@ -2048,7 +2046,7 @@ namespace MissionPlanner.GCSViews
             {
                 ((Control)sender).Enabled = false;
                 MainSerb.comPort.setWPCurrent(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
-                    (ushort)CMB_setwp.SelectedIndex); // set nav to
+                    (ushort)flightStatusView1.CMB_setwp.SelectedIndex); // set nav to
             }
             catch
             {
@@ -2097,14 +2095,14 @@ namespace MissionPlanner.GCSViews
 
         private void CMB_setwp_Click_1(object sender, EventArgs e)
         {
-            CMB_setwp.Items.Clear();
-            CMB_setwp.Items.Add("0 (Home)");
+            flightStatusView1.CMB_setwp.Items.Clear();
+            flightStatusView1.CMB_setwp.Items.Add("0 (Home)");
             if (MainSerb.comPort.MAV.param["CMD_TOTAL"] != null)
             {
                 int wps = int.Parse(MainSerb.comPort.MAV.param["CMD_TOTAL"].ToString());
                 for (int z = 1; z <= wps; z++)
                 {
-                    CMB_setwp.Items.Add(z.ToString());
+                    flightStatusView1.CMB_setwp.Items.Add(z.ToString());
                 }
                 return;
             }
@@ -2113,7 +2111,7 @@ namespace MissionPlanner.GCSViews
                 int wps = int.Parse(MainSerb.comPort.MAV.param["WP_TOTAL"].ToString());
                 for (int z = 1; z <= wps; z++)
                 {
-                    CMB_setwp.Items.Add(z.ToString());
+                    flightStatusView1.CMB_setwp.Items.Add(z.ToString());
                 }
 
                 return;
@@ -2123,7 +2121,7 @@ namespace MissionPlanner.GCSViews
                 int wps = int.Parse(MainSerb.comPort.MAV.param["MIS_TOTAL"].ToString());
                 for (int z = 1; z <= wps; z++)
                 {
-                    CMB_setwp.Items.Add(z.ToString());
+                    flightStatusView1.CMB_setwp.Items.Add(z.ToString());
                 }
                 return;
             }
@@ -2132,7 +2130,7 @@ namespace MissionPlanner.GCSViews
                 int wps = MainSerb.comPort.MAV.wps.Count;
                 for (int z = 1; z <= wps; z++)
                 {
-                    CMB_setwp.Items.Add(z.ToString());
+                    flightStatusView1.CMB_setwp.Items.Add(z.ToString());
                 }
 
                 return;
@@ -3387,6 +3385,51 @@ namespace MissionPlanner.GCSViews
             {
                 ((Control)sender).Enabled = false;
                 MainSerb.comPort.setMode("RTL");
+            }
+            catch
+            {
+                CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+            }
+
+            ((Control)sender).Enabled = true;
+        }
+
+        private void flightStatusView1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flightStatusView1_AltitudeSend(object sender, EventArgs e)
+        {
+            MessageBox.Show("Button Clicked !");
+        }
+
+        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flightStatusView1_SetModeClick(object sender, EventArgs e)
+        {
+            if (MainSerb.comPort.MAV.cs.failsafe)
+            {
+                if (CustomMessageBox.Show("You are in failsafe, are you sure?", "Failsafe", MessageBoxButtons.YesNo) !=
+                    (int)DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            MainSerb.comPort.setMode(flightStatusView1.CMB_modes.Text);
+        }
+
+        private void flightStatusView1_SetWaypointClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ((Control)sender).Enabled = false;
+                MainSerb.comPort.setWPCurrent(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
+                    (ushort)flightStatusView1.CMB_setwp.SelectedIndex); // set nav to
             }
             catch
             {

@@ -3185,7 +3185,7 @@ namespace MissionPlanner
 
                     //this.Text = titlebar + " " + comPort.MAV.VersionString;
                     this.Text = "JASER 2.0 "+ comPort.MAV.VersionString;
-                    this.Text = "JASER 2.0 " + " version 1.3.79";
+                    this.Text = "Delta 1.0 " + " version 1.2.50";
 
                     // refresh config window if needed
                     if (MyView.current != null && showui)

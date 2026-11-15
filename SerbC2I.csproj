@@ -8,7 +8,8 @@
     <ProjectGuid>{A2E22272-95FE-47B6-B050-9AE7E2055BF5}</ProjectGuid>
     <ApplicationIcon>ico_new_mp.ico</ApplicationIcon>
     <OutputType>Exe</OutputType>
-    <StartupObject>MissionPlanner.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
     <Authors>Michael Oborne</Authors>
     <Version>1.3.62.1</Version>
     <DebugType>portable</DebugType>
@@ -48,7 +49,7 @@
     <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>bin\Release\JASER2\</OutputPath>
+    <OutputPath>bin\Release\Delta\</OutputPath>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisRuleSet>
@@ -61,7 +62,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>JASER2</AssemblyName>
+    <AssemblyName>SERBC2I</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="APMPlannerXplanes\**" />
@@ -380,6 +381,10 @@
     <Reference Include="Bulb">
       <HintPath>ExtLibs\LEDBulb\Bulb\obj\x86\Debug\Bulb.dll</HintPath>
     </Reference>
+    <Reference Include="FlightHud">
+      <HintPath>..\..\..\Music\PluginsCsharp\dist\FlightHud.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
     <Reference Include="FlightInstrument_Net48, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\C# Libs\FlightInstrument_Net48\Release\FlightInstrument_Net48.dll</HintPath>
@@ -394,6 +399,9 @@
     <Reference Include="netstandard" />
     <Reference Include="pilotHUD">
       <HintPath>..\pilotHUD\pilotHUD\bin\Release\pilotHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="PluginContracts">
+      <HintPath>..\..\..\Music\PluginsCsharp\dist\PluginContracts.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

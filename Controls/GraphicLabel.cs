@@ -65,6 +65,7 @@ namespace MissionPlanner.Controls
             set { base.Font = value; Invalidate(); }
         }
 
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override Color ForeColor
