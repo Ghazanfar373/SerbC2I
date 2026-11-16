@@ -1910,11 +1910,11 @@ namespace MissionPlanner
                             linkqualitytime = DateTime.Now;
 
                             // force redraw if there are no other packets are being read
-                            this.BeginInvokeIfRequired(
-                                (Action)
-                                delegate { //GCSViews.FlightData.myhud.Invalidate();
-                                    GCSViews.FlightStatus.myhud.Invalidate();
-                                });
+                            //this.BeginInvokeIfRequired(
+                            //    (Action)
+                            //    delegate { //GCSViews.FlightData.myhud.Invalidate();
+                            //      //  GCSViews.FlightStatus.myhud.Invalidate();
+                            //    });
 
                         }
                     }

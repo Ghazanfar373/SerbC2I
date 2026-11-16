@@ -44,8 +44,8 @@
             this.btnSoftwareConfig = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnConnection = new System.Windows.Forms.Button();
-            this.timerMenu = new System.Windows.Forms.Timer(this.components);
             this.connectionControl1 = new MissionPlanner.Controls.ConnectionControl();
+            this.timerMenu = new System.Windows.Forms.Timer(this.components);
             this.sideBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuStartBtn)).BeginInit();
@@ -69,11 +69,10 @@
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.ForeColor = System.Drawing.Color.Gray;
             this.sideBar.Location = new System.Drawing.Point(0, 0);
-            this.sideBar.Margin = new System.Windows.Forms.Padding(4);
-            this.sideBar.MaximumSize = new System.Drawing.Size(229, 40044);
-            this.sideBar.MinimumSize = new System.Drawing.Size(87, 660);
+            this.sideBar.MaximumSize = new System.Drawing.Size(172, 32536);
+            this.sideBar.MinimumSize = new System.Drawing.Size(65, 536);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(87, 660);
+            this.sideBar.Size = new System.Drawing.Size(65, 536);
             this.sideBar.TabIndex = 2;
             this.sideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar_Paint);
             // 
@@ -81,20 +80,18 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.menuStartBtn);
-            this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(216, 87);
+            this.panel2.Size = new System.Drawing.Size(162, 71);
             this.panel2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(100, 38);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(75, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 16);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Menu";
             // 
@@ -107,10 +104,9 @@
             this.menuStartBtn.BorderSize = 0;
             this.menuStartBtn.GradientAngle = 50F;
             this.menuStartBtn.Image = global::MissionPlanner.Properties.Resources.icons8_menu_48;
-            this.menuStartBtn.Location = new System.Drawing.Point(4, 5);
-            this.menuStartBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.menuStartBtn.Location = new System.Drawing.Point(3, 4);
             this.menuStartBtn.Name = "menuStartBtn";
-            this.menuStartBtn.Size = new System.Drawing.Size(73, 73);
+            this.menuStartBtn.Size = new System.Drawing.Size(55, 55);
             this.menuStartBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menuStartBtn.TabIndex = 0;
             this.menuStartBtn.TabStop = false;
@@ -119,10 +115,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btnFlightData);
-            this.panel3.Location = new System.Drawing.Point(4, 99);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(3, 80);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(219, 64);
+            this.panel3.Size = new System.Drawing.Size(164, 52);
             this.panel3.TabIndex = 4;
             // 
             // btnFlightData
@@ -136,8 +131,8 @@
             this.btnFlightData.Location = new System.Drawing.Point(0, 0);
             this.btnFlightData.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnFlightData.Name = "btnFlightData";
-            this.btnFlightData.Padding = new System.Windows.Forms.Padding(5, 12, 0, 12);
-            this.btnFlightData.Size = new System.Drawing.Size(212, 64);
+            this.btnFlightData.Padding = new System.Windows.Forms.Padding(4, 10, 0, 10);
+            this.btnFlightData.Size = new System.Drawing.Size(159, 52);
             this.btnFlightData.TabIndex = 5;
             this.btnFlightData.Text = "                  Mission Status";
             this.btnFlightData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,10 +142,9 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btnFlightPlan);
-            this.panel4.Location = new System.Drawing.Point(4, 171);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(3, 138);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(219, 64);
+            this.panel4.Size = new System.Drawing.Size(164, 52);
             this.panel4.TabIndex = 5;
             // 
             // btnFlightPlan
@@ -160,11 +154,10 @@
             this.btnFlightPlan.ForeColor = System.Drawing.Color.White;
             this.btnFlightPlan.Image = global::MissionPlanner.Properties.Resources.plan_50;
             this.btnFlightPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFlightPlan.Location = new System.Drawing.Point(4, 1);
-            this.btnFlightPlan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFlightPlan.Location = new System.Drawing.Point(3, 1);
             this.btnFlightPlan.Name = "btnFlightPlan";
-            this.btnFlightPlan.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
-            this.btnFlightPlan.Size = new System.Drawing.Size(212, 63);
+            this.btnFlightPlan.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnFlightPlan.Size = new System.Drawing.Size(159, 51);
             this.btnFlightPlan.TabIndex = 5;
             this.btnFlightPlan.Text = "                  Mission Plan";
             this.btnFlightPlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,10 +168,9 @@
             // 
             this.panel5.Controls.Add(this.btnHWConfig);
             this.panel5.ForeColor = System.Drawing.Color.Transparent;
-            this.panel5.Location = new System.Drawing.Point(4, 243);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(3, 196);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(219, 64);
+            this.panel5.Size = new System.Drawing.Size(164, 52);
             this.panel5.TabIndex = 6;
             // 
             // btnHWConfig
@@ -188,11 +180,10 @@
             this.btnHWConfig.ForeColor = System.Drawing.Color.White;
             this.btnHWConfig.Image = global::MissionPlanner.Properties.Resources.settings_50;
             this.btnHWConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHWConfig.Location = new System.Drawing.Point(4, 1);
-            this.btnHWConfig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHWConfig.Location = new System.Drawing.Point(3, 1);
             this.btnHWConfig.Name = "btnHWConfig";
-            this.btnHWConfig.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
-            this.btnHWConfig.Size = new System.Drawing.Size(212, 63);
+            this.btnHWConfig.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnHWConfig.Size = new System.Drawing.Size(159, 51);
             this.btnHWConfig.TabIndex = 5;
             this.btnHWConfig.Text = "                  Settings";
             this.btnHWConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,10 +193,9 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.btnSoftwareConfig);
-            this.panel6.Location = new System.Drawing.Point(4, 315);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(3, 254);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(219, 64);
+            this.panel6.Size = new System.Drawing.Size(164, 52);
             this.panel6.TabIndex = 7;
             // 
             // btnSoftwareConfig
@@ -215,11 +205,10 @@
             this.btnSoftwareConfig.ForeColor = System.Drawing.Color.White;
             this.btnSoftwareConfig.Image = global::MissionPlanner.Properties.Resources.configurations_50;
             this.btnSoftwareConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSoftwareConfig.Location = new System.Drawing.Point(4, 1);
-            this.btnSoftwareConfig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSoftwareConfig.Location = new System.Drawing.Point(3, 1);
             this.btnSoftwareConfig.Name = "btnSoftwareConfig";
-            this.btnSoftwareConfig.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
-            this.btnSoftwareConfig.Size = new System.Drawing.Size(212, 63);
+            this.btnSoftwareConfig.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnSoftwareConfig.Size = new System.Drawing.Size(159, 51);
             this.btnSoftwareConfig.TabIndex = 5;
             this.btnSoftwareConfig.Text = "                  Configurations";
             this.btnSoftwareConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -230,10 +219,9 @@
             // 
             this.panel8.Controls.Add(this.btnConnection);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(4, 387);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Location = new System.Drawing.Point(3, 312);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(219, 64);
+            this.panel8.Size = new System.Drawing.Size(164, 52);
             this.panel8.TabIndex = 9;
             // 
             // btnConnection
@@ -244,47 +232,47 @@
             this.btnConnection.ForeColor = System.Drawing.Color.White;
             this.btnConnection.Image = global::MissionPlanner.Properties.Resources.connect_50;
             this.btnConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConnection.Location = new System.Drawing.Point(7, 4);
-            this.btnConnection.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConnection.Location = new System.Drawing.Point(5, 3);
             this.btnConnection.Name = "btnConnection";
-            this.btnConnection.Padding = new System.Windows.Forms.Padding(0, 6, 7, 6);
-            this.btnConnection.Size = new System.Drawing.Size(212, 63);
+            this.btnConnection.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.btnConnection.Size = new System.Drawing.Size(159, 51);
             this.btnConnection.TabIndex = 5;
             this.btnConnection.Text = "                  Connections";
             this.btnConnection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConnection.UseVisualStyleBackColor = true;
             this.btnConnection.Click += new System.EventHandler(this.btnConnection_Click);
             // 
+            // connectionControl1
+            // 
+            this.connectionControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.connectionControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("connectionControl1.BackgroundImage")));
+            this.connectionControl1.Location = new System.Drawing.Point(2, 369);
+            this.connectionControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.connectionControl1.MinimumSize = new System.Drawing.Size(150, 38);
+            this.connectionControl1.Name = "connectionControl1";
+            this.connectionControl1.Size = new System.Drawing.Size(150, 38);
+            this.connectionControl1.TabIndex = 1;
+            this.connectionControl1.Visible = false;
+            this.connectionControl1.Load += new System.EventHandler(this.connectionControl1_Load);
+            // 
             // timerMenu
             // 
             this.timerMenu.Interval = 1;
             this.timerMenu.Tick += new System.EventHandler(this.timerMenu_Tick);
             // 
-            // connectionControl1
-            // 
-            this.connectionControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.connectionControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("connectionControl1.BackgroundImage")));
-            this.connectionControl1.Location = new System.Drawing.Point(3, 457);
-            this.connectionControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.connectionControl1.MinimumSize = new System.Drawing.Size(200, 47);
-            this.connectionControl1.Name = "connectionControl1";
-            this.connectionControl1.Size = new System.Drawing.Size(200, 47);
-            this.connectionControl1.TabIndex = 1;
-            this.connectionControl1.Visible = false;
-            this.connectionControl1.Load += new System.EventHandler(this.connectionControl1_Load);
-            // 
             // MainSerb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 660);
+            this.ClientSize = new System.Drawing.Size(944, 536);
             this.Controls.Add(this.sideBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(842, 545);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(636, 450);
             this.Name = "MainSerb";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainSerb";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.sideBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

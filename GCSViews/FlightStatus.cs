@@ -192,15 +192,15 @@ namespace MissionPlanner.GCSViews
             //splitContainerMap.SuspendLayout();
             //splitContainerMap.Width = tableLayoutPanelCompass.Width;
             //splitContainerMap.SplitterDistance = tableLayoutPanelCompass.Width;
-            splitMainPanel.SuspendLayout();
-            splitMainPanel.SplitterDistance = 1160;
+           // splitMainPanel.SuspendLayout();
+            //splitMainPanel.SplitterDistance = 1160;
 
-            splitMainPanel.IsSplitterFixed = true;
-            splitMainPanel.ResumeLayout();
+            //splitMainPanel.IsSplitterFixed = true;
+           // splitMainPanel.ResumeLayout();
            // splitMainPanel.PerformLayout();
 
 
-            myhud = hudSerb;
+           // myhud = hudSerb;
             mymap = gMapControlSerb;
             //MainHcopy = MainH;
             mymap.Paint += gMapControlSerb_Paint;
@@ -212,28 +212,35 @@ namespace MissionPlanner.GCSViews
             //myhud.skyColor1 = ThemeManager.HudSkyTop;
             //myhud.skyColor2 = ThemeManager.HudSkyBot;
             //myhud.hudcolor = ThemeManager.HudText;
-            hudSerb.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
-            CMB_mountmode.DataSource = Enum.GetNames(typeof(actions));
-            CMB_modes.DataSource = ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
+            //hudSerb.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
+           // CMB_mountmode.DataSource = Enum.GetNames(typeof(actions));
+            //CMB_modes.DataSource = ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
             flightStatusView1.CMB_modes.DataSource= ArduPilot.Common.getModesList(MainSerb.comPort.MAV.cs.firmware);
             flightStatusView1.CMB_modes.ValueMember = "Key";
             flightStatusView1.CMB_modes.DisplayMember = "Value";
-            CMB_modes.ValueMember = "Key";
-            CMB_modes.DisplayMember = "Value";
+           // CMB_modes.ValueMember = "Key";
+          // CMB_modes.DisplayMember = "Value";
             //default to auto 
 
             flightStatusView1.CMB_actions.DataSource = Enum.GetNames(typeof(actions));
             
-            CMB_modes.Text = "Auto";
+           // CMB_modes.Text = "Auto";
             var item1 = ParameterMetaDataRepository.GetParameterOptionsInt("MNT_MODE",
                MainSerb.comPort.MAV.cs.firmware.ToString());
             var item2 = ParameterMetaDataRepository.GetParameterOptionsInt("MNT_DEFLT_MODE",
                 MainSerb.comPort.MAV.cs.firmware.ToString());
-            if (item1.Count > 0)
-                CMB_mountmode.DataSource = item1;
+           
+            //************** Delta ************
+            
+            //if (item1.Count > 0)
+            //    CMB_mountmode.DataSource = item1;
 
-            if (item2.Count > 0)
-                CMB_mountmode.DataSource = item2;
+            //if (item2.Count > 0)                       
+            //    CMB_mountmode.DataSource = item2;
+
+
+
+
             //CMB_mountmode.DisplayMember = "Value";
             //CMB_mountmode.ValueMember = "Key";
             //panel2.Width = panelRightWrapper.Width;
@@ -406,14 +413,7 @@ namespace MissionPlanner.GCSViews
         {
             timerTest.Start();
         }
-        private void timerTest_Tick(object sender, EventArgs e)
-        {
-            //statusLabel.State = CodeArtEng.Controls.StatusLabelState.Grey;
-            hsiHeading.Heading = rnd.Next(-30, 50);
-            hudSerb.roll = rnd.Next(-20, 20);
-            hudSerb.pitch = rnd.Next(-10, 20);
-            //statusLabel.State = CodeArtEng.Controls.StatusLabelState.Red;
-        }
+        
 
         private void rjButtonStatus_Click(object sender, EventArgs e)
         {
@@ -452,7 +452,7 @@ namespace MissionPlanner.GCSViews
                     e.Value = dt.ToString("HH:mm:ss");
                 }
             };
-            labelClock.DataBindings.Add(binding);
+           
             //Mode Binding 
             var bindingMode = new System.Windows.Forms.Binding("FlightMode", this.bindingSourceHUD, "mode", true);
             bindingMode.Format += (s, e) =>
@@ -461,8 +461,7 @@ namespace MissionPlanner.GCSViews
                     e.Value = "Manual";
             };
             //this.lblMode.DataBindings.Add(bindingMode);
-            this.waypointIndicator1.DataBindings.Add(bindingMode);
-
+            
             
         }
         void POI_POIModified(object sender, EventArgs e)
@@ -575,32 +574,32 @@ namespace MissionPlanner.GCSViews
 
                     if (critvolt == 0) critvolt = warnvolt;
                     if (critpercent == 0) critpercent = warnpercent;
+                    //*************  Delta
+                    //if (MainSerb.comPort.MAV.cs.battery_voltage <= warnvolt)
+                    //{
+                    //    hudSerb.lowvoltagealert = true;
+                    //}
+                    //else if ((MainSerb.comPort.MAV.cs.battery_remaining) < warnpercent)
+                    //{
+                    //    hudSerb.lowvoltagealert = true;
+                    //}
+                    //else
+                    //{
+                    //    hudSerb.lowvoltagealert = false;
+                    //}
 
-                    if (MainSerb.comPort.MAV.cs.battery_voltage <= warnvolt)
-                    {
-                        hudSerb.lowvoltagealert = true;
-                    }
-                    else if ((MainSerb.comPort.MAV.cs.battery_remaining) < warnpercent)
-                    {
-                        hudSerb.lowvoltagealert = true;
-                    }
-                    else
-                    {
-                        hudSerb.lowvoltagealert = false;
-                    }
-
-                    if (MainSerb.comPort.MAV.cs.battery_voltage <= critvolt)
-                    {
-                        hudSerb.criticalvoltagealert = true;
-                    }
-                    else if ((MainSerb.comPort.MAV.cs.battery_remaining) < critpercent)
-                    {
-                        hudSerb.criticalvoltagealert = true;
-                    }
-                    else
-                    {
-                        hudSerb.criticalvoltagealert = false;
-                    }
+                    //if (MainSerb.comPort.MAV.cs.battery_voltage <= critvolt)
+                    //{
+                    //    hudSerb.criticalvoltagealert = true;
+                    //}
+                    //else if ((MainSerb.comPort.MAV.cs.battery_remaining) < critpercent)
+                    //{
+                    //    hudSerb.criticalvoltagealert = true;
+                    //}
+                    //else
+                    //{
+                    //    hudSerb.criticalvoltagealert = false;
+                    //}
 
                     if (OpenGLtest.instance != null)
                     {
@@ -1349,9 +1348,9 @@ namespace MissionPlanner.GCSViews
             OnResize(EventArgs.Empty);
             //if (CB_tuning.Checked)
             //    ZedGraphTimer.Start();
-            hudSerb.altunit = CurrentState.AltUnit;
-            hudSerb.speedunit = CurrentState.SpeedUnit;
-            hudSerb.distunit = CurrentState.DistanceUnit;
+            //hudSerb.altunit = CurrentState.AltUnit;
+            //hudSerb.speedunit = CurrentState.SpeedUnit;
+            //hudSerb.distunit = CurrentState.DistanceUnit;
             //coords1.AltUnit = CurrentState.AltUnit;
             // make sure the hud user items/warnings/checklist are using the current state
             HUD.Custom.src = MainSerb.comPort.MAV.cs;
@@ -1359,12 +1358,19 @@ namespace MissionPlanner.GCSViews
             MissionPlanner.Controls.PreFlight.CheckListItem.defaultsrc = MainSerb.comPort.MAV.cs;
             //hudSerb.doResize();
 
-            if (!setLeftPanelSize)
-            {
-                int spliterDistance = splitMainPanel.Width - tableLayoutPanelHUD.Width;
-                splitMainPanel.SplitterDistance = (spliterDistance - 30);
-                setLeftPanelSize=true;
-            }
+
+
+            // ******************** Delta
+            //if (!setLeftPanelSize)
+            //{
+            //    int spliterDistance = splitMainPanel.Width - tableLayoutPanelHUD.Width;
+            //    splitMainPanel.SplitterDistance = (spliterDistance - 30);
+            //    setLeftPanelSize=true;
+            //}
+
+
+
+
             //splitMainPanel.Panel2.Width = spliterDistance;
             //rjTextBox.Texts=spliterDistance.ToString();
             //splitMainPanel.IsSplitterFixed = true;
@@ -2056,42 +2062,31 @@ namespace MissionPlanner.GCSViews
             ((Control)sender).Enabled = true;
         }
 
-        private void klcButtonSetMode_Click(object sender, EventArgs e)
-        {
-            if (MainSerb.comPort.MAV.cs.failsafe)
-            {
-                if (CustomMessageBox.Show("You are in failsafe, are you sure?", "Failsafe", MessageBoxButtons.YesNo) !=
-                    (int)DialogResult.Yes)
-                {
-                    return;
-                }
-            }
 
-            MainSerb.comPort.setMode(CMB_modes.Text);
-        }
-
-        private void klcButtonSetMount_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MainSerb.comPort.MAV.param.ContainsKey("MNT_MODE"))
-                {
-                    MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
-                        "MNT_MODE", (int)CMB_mountmode.SelectedValue);
-                }
-                else
-                {
-                    // copter 3.3 acks with an error, but is ok
-                    MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
-                        MAVLink.MAV_CMD.DO_MOUNT_CONTROL, 0, 0, 0, 0, 0, 0,
-                        (int)CMB_mountmode.SelectedValue);
-                }
-            }
-            catch
-            {
-                CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR);
-            }
-        }
+        //************************ Delta
+       
+        //private void klcButtonSetMount_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (MainSerb.comPort.MAV.param.ContainsKey("MNT_MODE"))
+        //        {
+        //            MainSerb.comPort.setParam((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
+        //                "MNT_MODE", (int)CMB_mountmode.SelectedValue);
+        //        }
+        //        else
+        //        {
+        //            // copter 3.3 acks with an error, but is ok
+        //            MainSerb.comPort.doCommand((byte)MainSerb.comPort.sysidcurrent, (byte)MainSerb.comPort.compidcurrent,
+        //                MAVLink.MAV_CMD.DO_MOUNT_CONTROL, 0, 0, 0, 0, 0, 0,
+        //                (int)CMB_mountmode.SelectedValue);
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR);
+        //    }
+        //}
 
         private void CMB_setwp_Click_1(object sender, EventArgs e)
         {
@@ -2157,14 +2152,16 @@ namespace MissionPlanner.GCSViews
             
         }
 
+        //************************** Delta
+
         private async void klcButtonSetAlt_ClickAsync(object sender, EventArgs e)
         {
             try
             {
-                CustomMessageBox.Show("Value:" + (int)numericUpDownAlt.Value);
+               // CustomMessageBox.Show("Value:" + (int)flightStatusView1.AltitudeCommand);
                 //CustomMessageBox.Show("Value: " + numericUpDownAlt.Value);
                 await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
-                        MAVLink.MAV_CMD.DO_CHANGE_ALTITUDE, 0, (int)numericUpDownAlt.Value, 0, 0, 0, 0, 0)
+                        MAVLink.MAV_CMD.DO_CHANGE_ALTITUDE, 0, (int)flightStatusView1.AltitudeCommand, 0, 0, 0, 0, 0)
                     .ConfigureAwait(true);
             }
             catch
@@ -2179,32 +2176,36 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                CustomMessageBox.Show("Value:" + (int)numericUpDownSpeed.Value);
+                //CustomMessageBox.Show("Value:" + (int)flightStatusView1.SpeedCommand);
                 await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
-                    MAVLink.MAV_CMD.DO_CHANGE_SPEED,0,(float)numericUpDownSpeed.Value,0,0,0,0,0).ConfigureAwait(true);
+                    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)flightStatusView1.SpeedCommand, 0, 0, 0, 0, 0).ConfigureAwait(true);
 
             }
-            catch {
+            catch
+            {
 
                 CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
             }
 
-            
+
         }
 
         private async void klcButtonSetLoiterRad_Click(object sender, EventArgs e)
         {
-            int newrad = (int)numericUpDownLoiter.Value;
+            int newrad = (int)flightStatusView1.LoiterRadiusCommand;
 
             try
             {
-                MainSerb.comPort.setParam(new[] { "LOITER_RAD", "WP_LOITER_RAD" }, newrad / CurrentState.multiplierdist);
+                 MainSerb.comPort.setParam(new[] { "LOITER_RAD", "WP_LOITER_RAD" }, newrad / CurrentState.multiplierdist);
             }
             catch
             {
                 CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
             }
         }
+
+
+
         public void CreateChart(ZedGraphControl zgc)
         {
             if (zgc == null) throw new ArgumentNullException(nameof(zgc));
