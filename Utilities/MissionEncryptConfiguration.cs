@@ -14,7 +14,7 @@ namespace MissionPlanner.Utilities
         const int Aes256KeyBytes = 32;
         const int X25519KeyBytes = 32;
 
-        const string ParamRamOnly = "MIS_RAM_ONLY";
+        const string ParamEncMode = "MIS_ENC_MODE";
         const string ParamScrubEn = "MIS_SCRUB_EN";
 
         bool dragging;
@@ -117,7 +117,7 @@ namespace MissionPlanner.Utilities
         {
             suppressParamWrite = true;
 
-            MAVLink.MAVLinkParam ram = FindParam(ParamRamOnly);
+            MAVLink.MAVLinkParam ram = FindParam(ParamEncMode);
             int value = ram == null ? 0 : (int)Math.Round(ram.Value);
             ApplyRamValue(value);
             lastRamValue = value;
@@ -151,7 +151,7 @@ namespace MissionPlanner.Utilities
                 return;
 
             int value = selected.Checked ? onValue : 0;
-            if (!WriteParamValue(ParamRamOnly, value))
+            if (!WriteParamValue(ParamEncMode, value))
             {
                 suppressParamWrite = true;
                 ApplyRamValue(lastRamValue);
