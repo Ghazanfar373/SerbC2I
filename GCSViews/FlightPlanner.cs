@@ -66,14 +66,14 @@ namespace MissionPlanner.GCSViews
 
         private void but_mincommands_Click(object sender, System.EventArgs e)
         {
-            if (panelWaypoints.Height <= 30)
+            if (panelPlannerBottom.Height <= 80)
             {
-                panelWaypoints.Height = 166;
+                panelPlannerBottom.Height = 200;
                 but_mincommands.Text = @"˅";
             }
             else
             {
-                panelWaypoints.Height = but_mincommands.Height;
+                panelPlannerBottom.Height = 36;
                 but_mincommands.Text = @"˄";
             }
         }
@@ -3453,11 +3453,11 @@ namespace MissionPlanner.GCSViews
 
             writeKML();
 
-            // switch the action and wp table
-            if (Settings.Instance["FP_docking"] == "Bottom")
-            {
-                switchDockingToolStripMenuItem_Click(null, null);
-            }
+            panelPlannerBottom.Dock = DockStyle.Bottom;
+            panelWaypoints.Dock = DockStyle.Fill;
+            panelWaypoints.MaximumSize = new Size(0, 0);
+            panelAction.Visible = false;
+            splitter2.Visible = false;
 
             Visible = true;
 
@@ -6381,23 +6381,12 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         public void switchDockingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (panelAction.Dock == DockStyle.Bottom)
-            {
-                panelAction.Dock = DockStyle.Right;
-                panelWaypoints.Dock = DockStyle.Bottom;
-
-
-                
-            }
-            else
-            {
-                panelAction.Dock = DockStyle.Bottom;
-                panelAction.Height = 120;
-                panelWaypoints.Dock = DockStyle.Right;
-                panelWaypoints.Width = Width / 2;
-            }
-
-            Settings.Instance["FP_docking"] = panelAction.Dock.ToString();
+            panelPlannerBottom.Dock = DockStyle.Bottom;
+            panelWaypoints.Dock = DockStyle.Fill;
+            panelWaypoints.MaximumSize = new Size(0, 0);
+            panelAction.Visible = false;
+            splitter2.Visible = false;
+            Settings.Instance["FP_docking"] = DockStyle.Bottom.ToString();
         }
 
         public void takeoffToolStripMenuItem_Click(object sender, EventArgs e)

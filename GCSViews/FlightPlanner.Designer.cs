@@ -120,6 +120,13 @@ namespace MissionPlanner.GCSViews
             this.BUT_encrypt = new MissionPlanner.Controls.MyButton();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelAction = new System.Windows.Forms.Panel();
+            this.panelPlannerBottom = new System.Windows.Forms.Panel();
+            this.lblTitleHome = new System.Windows.Forms.Label();
+            this.lblTitleReadWrite = new System.Windows.Forms.Label();
+            this.lblTitleFile = new System.Windows.Forms.Label();
+            this.lblTitleMap = new System.Windows.Forms.Label();
+            this.lblTitleMission = new System.Windows.Forms.Label();
+            this.lblTitleEncrypt = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
             this.lbl_homedist = new System.Windows.Forms.Label();
@@ -232,6 +239,7 @@ namespace MissionPlanner.GCSViews
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelAction.SuspendLayout();
+            this.panelPlannerBottom.SuspendLayout();
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -284,10 +292,11 @@ namespace MissionPlanner.GCSViews
             // 
             // panel5
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.but_writewpfast);
-            this.panel5.Controls.Add(this.BUT_write);
+            this.panel5.Controls.Add(this.lblTitleReadWrite);
             this.panel5.Controls.Add(this.BUT_read);
+            this.panel5.Controls.Add(this.BUT_write);
+            this.panel5.Controls.Add(this.but_writewpfast);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
@@ -317,13 +326,15 @@ namespace MissionPlanner.GCSViews
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblTitleHome);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Label1);
-            this.panel1.Controls.Add(this.TXT_homealt);
-            this.panel1.Controls.Add(this.TXT_homelng);
             this.panel1.Controls.Add(this.TXT_homelat);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TXT_homelng);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.TXT_homealt);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
@@ -411,7 +422,6 @@ namespace MissionPlanner.GCSViews
             // panelWaypoints
             // 
             this.panelWaypoints.Controls.Add(this.chk_usemavftp);
-            this.panelWaypoints.Controls.Add(this.but_mincommands);
             this.panelWaypoints.Controls.Add(this.CMB_altmode);
             this.panelWaypoints.Controls.Add(this.CHK_splinedefault);
             this.panelWaypoints.Controls.Add(this.label17);
@@ -669,25 +679,25 @@ namespace MissionPlanner.GCSViews
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.coords1);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.chk_grid);
-            this.panel3.Controls.Add(this.lbl_status);
+            this.panel3.Controls.Add(this.lblTitleMap);
             this.panel3.Controls.Add(this.comboBoxMapType);
+            this.panel3.Controls.Add(this.chk_grid);
             this.panel3.Controls.Add(this.lnk_kml);
+            this.panel3.Controls.Add(this.lbl_status);
+            this.panel3.Controls.Add(this.coords1);
+            this.panel3.Controls.Add(this.lblTitleMission);
+            this.panel3.Controls.Add(this.cmb_missiontype);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
@@ -715,19 +725,19 @@ namespace MissionPlanner.GCSViews
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lbl_wpfile);
-            this.panel2.Controls.Add(this.BUT_encrypt);
+            this.panel2.Controls.Add(this.lblTitleFile);
             this.panel2.Controls.Add(this.BUT_loadwpfile);
             this.panel2.Controls.Add(this.BUT_saveWPFile);
+            this.panel2.Controls.Add(this.lbl_wpfile);
+            this.panel2.Controls.Add(this.lblTitleEncrypt);
+            this.panel2.Controls.Add(this.BUT_encrypt);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(123, 112);
             // 
             // lbl_wpfile
             // 
             resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
-            this.lbl_wpfile.Location = new System.Drawing.Point(3, 88);
             this.lbl_wpfile.Name = "lbl_wpfile";
             // 
             // BUT_loadwpfile
@@ -748,9 +758,7 @@ namespace MissionPlanner.GCSViews
             // 
             // BUT_encrypt
             // 
-            this.BUT_encrypt.Location = new System.Drawing.Point(3, 61);
             this.BUT_encrypt.Name = "BUT_encrypt";
-            this.BUT_encrypt.Size = new System.Drawing.Size(115, 23);
             this.BUT_encrypt.TabIndex = 49;
             this.BUT_encrypt.Text = "Encrypt";
             this.BUT_encrypt.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
@@ -769,12 +777,14 @@ namespace MissionPlanner.GCSViews
             resources.ApplyResources(this.panelAction, "panelAction");
             this.panelAction.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelAction.Name = "panelAction";
+            this.panelAction.Visible = false;
             // 
             // splitter2
             // 
             resources.ApplyResources(this.splitter2, "splitter2");
             this.splitter2.Name = "splitter2";
             this.splitter2.TabStop = false;
+            this.splitter2.Visible = false;
             // 
             // panelMap
             // 
@@ -783,7 +793,6 @@ namespace MissionPlanner.GCSViews
             this.panelMap.Controls.Add(this.trackBar1);
             this.panelMap.Controls.Add(this.label11);
             this.panelMap.Controls.Add(this.lbl_distance);
-            this.panelMap.Controls.Add(this.cmb_missiontype);
             this.panelMap.Controls.Add(this.MainMap);
             resources.ApplyResources(this.panelMap, "panelMap");
             this.panelMap.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1429,7 +1438,7 @@ namespace MissionPlanner.GCSViews
             this.panelBASE.Controls.Add(this.splitter2);
             this.panelBASE.Controls.Add(this.splitter1);
             this.panelBASE.Controls.Add(this.panelMap);
-            this.panelBASE.Controls.Add(this.panelWaypoints);
+            this.panelBASE.Controls.Add(this.panelPlannerBottom);
             this.panelBASE.Controls.Add(this.panelAction);
             resources.ApplyResources(this.panelBASE, "panelBASE");
             this.panelBASE.Name = "panelBASE";
@@ -1522,7 +1531,138 @@ namespace MissionPlanner.GCSViews
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FlightPlanner_FormClosing);
             this.Load += new System.EventHandler(this.FlightPlanner_Load);
             this.Resize += new System.EventHandler(this.Planner_Resize);
+            this.panelWaypoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWaypoints.MaximumSize = new System.Drawing.Size(0, 0);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Width = 168;
+            this.lblTitleHome.AutoSize = false;
+            this.lblTitleHome.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleHome.Text = "Home";
+            this.lblTitleHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleHome.Location = new System.Drawing.Point(6, 4);
+            this.lblTitleHome.Size = new System.Drawing.Size(156, 20);
+            this.label4.AutoSize = false;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.label4.Location = new System.Drawing.Point(6, 26);
+            this.label4.Size = new System.Drawing.Size(156, 16);
+            this.Label1.AutoSize = false;
+            this.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.Label1.Location = new System.Drawing.Point(6, 50);
+            this.Label1.Size = new System.Drawing.Size(36, 18);
+            this.TXT_homelat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.TXT_homelat.Location = new System.Drawing.Point(44, 46);
+            this.TXT_homelat.Size = new System.Drawing.Size(114, 22);
+            this.label2.AutoSize = false;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.label2.Location = new System.Drawing.Point(6, 78);
+            this.label2.Size = new System.Drawing.Size(36, 18);
+            this.TXT_homelng.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.TXT_homelng.Location = new System.Drawing.Point(44, 74);
+            this.TXT_homelng.Size = new System.Drawing.Size(114, 22);
+            this.label3.AutoSize = false;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.label3.Location = new System.Drawing.Point(6, 106);
+            this.label3.Size = new System.Drawing.Size(36, 18);
+            this.TXT_homealt.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.TXT_homealt.Location = new System.Drawing.Point(44, 102);
+            this.TXT_homealt.Size = new System.Drawing.Size(114, 22);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Width = 124;
+            this.lblTitleReadWrite.AutoSize = false;
+            this.lblTitleReadWrite.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleReadWrite.Text = "Read / Write";
+            this.lblTitleReadWrite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleReadWrite.Location = new System.Drawing.Point(6, 4);
+            this.lblTitleReadWrite.Size = new System.Drawing.Size(112, 20);
+            this.BUT_read.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.BUT_read.Location = new System.Drawing.Point(6, 30);
+            this.BUT_read.Size = new System.Drawing.Size(110, 26);
+            this.BUT_write.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.BUT_write.Location = new System.Drawing.Point(6, 62);
+            this.BUT_write.Size = new System.Drawing.Size(110, 26);
+            this.but_writewpfast.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.but_writewpfast.Location = new System.Drawing.Point(6, 94);
+            this.but_writewpfast.Size = new System.Drawing.Size(110, 26);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Width = 136;
+            this.lblTitleFile.AutoSize = false;
+            this.lblTitleFile.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleFile.Text = "File Storage";
+            this.lblTitleFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleFile.Location = new System.Drawing.Point(6, 4);
+            this.lblTitleFile.Size = new System.Drawing.Size(124, 20);
+            this.BUT_loadwpfile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.BUT_loadwpfile.Location = new System.Drawing.Point(6, 26);
+            this.BUT_loadwpfile.Size = new System.Drawing.Size(124, 24);
+            this.BUT_saveWPFile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.BUT_saveWPFile.Location = new System.Drawing.Point(6, 54);
+            this.BUT_saveWPFile.Size = new System.Drawing.Size(124, 24);
+            this.lbl_wpfile.AutoSize = false;
+            this.lbl_wpfile.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_wpfile.Location = new System.Drawing.Point(6, 82);
+            this.lbl_wpfile.Size = new System.Drawing.Size(124, 28);
+            this.lblTitleEncrypt.AutoSize = false;
+            this.lblTitleEncrypt.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleEncrypt.Text = "Encryption";
+            this.lblTitleEncrypt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleEncrypt.Location = new System.Drawing.Point(6, 116);
+            this.lblTitleEncrypt.Size = new System.Drawing.Size(124, 20);
+            this.BUT_encrypt.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.BUT_encrypt.Location = new System.Drawing.Point(6, 138);
+            this.BUT_encrypt.Size = new System.Drawing.Size(124, 24);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Width = 150;
+            this.lblTitleMap.AutoSize = false;
+            this.lblTitleMap.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleMap.Text = "Map Sources";
+            this.lblTitleMap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleMap.Location = new System.Drawing.Point(6, 4);
+            this.lblTitleMap.Size = new System.Drawing.Size(138, 20);
+            this.comboBoxMapType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxMapType.Location = new System.Drawing.Point(6, 30);
+            this.comboBoxMapType.Size = new System.Drawing.Size(136, 24);
+            this.chk_grid.AutoSize = false;
+            this.chk_grid.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.chk_grid.Location = new System.Drawing.Point(6, 60);
+            this.chk_grid.Size = new System.Drawing.Size(60, 18);
+            this.lnk_kml.AutoSize = false;
+            this.lnk_kml.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.lnk_kml.Location = new System.Drawing.Point(70, 60);
+            this.lnk_kml.Size = new System.Drawing.Size(72, 18);
+            this.lbl_status.AutoSize = false;
+            this.lbl_status.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_status.Location = new System.Drawing.Point(6, 78);
+            this.lbl_status.Size = new System.Drawing.Size(136, 18);
+            this.coords1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.coords1.Location = new System.Drawing.Point(6, 98);
+            this.coords1.Size = new System.Drawing.Size(136, 48);
+            this.lblTitleMission.AutoSize = false;
+            this.lblTitleMission.Font = new System.Drawing.Font(this.Font, System.Drawing.FontStyle.Bold);
+            this.lblTitleMission.Text = "Mission Type";
+            this.lblTitleMission.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitleMission.Location = new System.Drawing.Point(6, 150);
+            this.lblTitleMission.Size = new System.Drawing.Size(138, 20);
+            this.cmb_missiontype.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.cmb_missiontype.Location = new System.Drawing.Point(6, 172);
+            this.cmb_missiontype.Size = new System.Drawing.Size(136, 24);
+            this.panelPlannerBottom.Controls.Add(this.panelWaypoints);
+            this.panelPlannerBottom.Controls.Add(this.panel1);
+            this.panelPlannerBottom.Controls.Add(this.panel3);
+            this.panelPlannerBottom.Controls.Add(this.panel5);
+            this.panelPlannerBottom.Controls.Add(this.panel2);
+            this.but_mincommands.Dock = System.Windows.Forms.DockStyle.Right;
+            this.but_mincommands.Width = 32;
+            this.but_mincommands.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panelPlannerBottom.Controls.Add(this.but_mincommands);
+            this.panelPlannerBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPlannerBottom.Height = 200;
+            this.panelPlannerBottom.Name = "panelPlannerBottom";
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelWaypoints.ResumeLayout(false);
@@ -1535,6 +1675,7 @@ namespace MissionPlanner.GCSViews
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelAction.ResumeLayout(false);
+            this.panelPlannerBottom.ResumeLayout(false);
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
@@ -1546,9 +1687,15 @@ namespace MissionPlanner.GCSViews
 
         }
 
-
         #endregion
         public Panel panelWaypoints;
+        public Panel panelPlannerBottom;
+        public Label lblTitleHome;
+        public Label lblTitleReadWrite;
+        public Label lblTitleFile;
+        public Label lblTitleMap;
+        public Label lblTitleMission;
+        public Label lblTitleEncrypt;
         public Panel panelAction;
         public Controls.myGMAP MainMap;
         public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
