@@ -1908,14 +1908,6 @@ namespace MissionPlanner
                             MainSerb.comPort.MAV.cs.linkqualitygcs =
                                 (ushort)(MainSerb.comPort.MAV.cs.linkqualitygcs * 0.8f);
                             linkqualitytime = DateTime.Now;
-
-                            // force redraw if there are no other packets are being read
-                            //this.BeginInvokeIfRequired(
-                            //    (Action)
-                            //    delegate { //GCSViews.FlightData.myhud.Invalidate();
-                            //      //  GCSViews.FlightStatus.myhud.Invalidate();
-                            //    });
-
                         }
                     }
 

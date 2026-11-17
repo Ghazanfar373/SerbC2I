@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JASER 2.0")]
-[assembly: AssemblyDescription("Ground control station for autopilot")]
+[assembly: AssemblyTitle("SERBC21-Delta")]
+[assembly: AssemblyDescription("Ground control station for Delta")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SERB")]
-[assembly: AssemblyProduct("JASER 2")]
+[assembly: AssemblyProduct("SERBC2I-Delta")]
 [assembly: AssemblyCopyright("Copyright ©  2020-2030")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

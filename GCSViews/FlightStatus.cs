@@ -2154,20 +2154,15 @@ namespace MissionPlanner.GCSViews
 
         //************************** Delta
 
-        private async void klcButtonSetAlt_ClickAsync(object sender, EventArgs e)
+        private  void klcButtonSetAlt_ClickAsync(object sender, EventArgs e)
         {
             try
             {
-               // CustomMessageBox.Show("Value:" + (int)flightStatusView1.AltitudeCommand);
-                //CustomMessageBox.Show("Value: " + numericUpDownAlt.Value);
-                await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
-                        MAVLink.MAV_CMD.DO_CHANGE_ALTITUDE, 0, (int)flightStatusView1.AltitudeCommand, 0, 0, 0, 0, 0)
-                    .ConfigureAwait(true);
+                int newalt = (int)flightStatusView1.AltitudeCommand;
+              //  MainSerb.comPort.setNewWPAlt(new Locationwp { alt = newalt / CurrentState.multiplieralt });
             }
             catch
             {
-
-
                 CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
             }
         }
@@ -2176,21 +2171,18 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
-                //CustomMessageBox.Show("Value:" + (int)flightStatusView1.SpeedCommand);
-                await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
-                    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)flightStatusView1.SpeedCommand, 0, 0, 0, 0, 0).ConfigureAwait(true);
-
+                //await MainSerb.comPort.doCommandAsync(MainSerb.comPort.MAV.sysid, MainSerb.comPort.MAV.compid,
+                //    MAVLink.MAV_CMD.DO_CHANGE_SPEED, 0, (float)flightStatusView1.SpeedCommand, 0, 0, 0, 0, 0).ConfigureAwait(true);
             }
             catch
             {
-
                 CustomMessageBox.Show(Strings.ErrorCommunicating, Strings.ERROR);
             }
 
 
         }
 
-        private async void klcButtonSetLoiterRad_Click(object sender, EventArgs e)
+        private  void klcButtonSetLoiterRad_Click(object sender, EventArgs e)
         {
             int newrad = (int)flightStatusView1.LoiterRadiusCommand;
 
